@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexio</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<nav id="nav" class="hidden">
+  <span id="nav-home" class="nav-brand">Lexio</span>
+  <div class="nav-right">
+    <button id="btn-nav-progress" class="btn-ghost">Progress</button>
+    <button id="btn-nav-import" class="btn-ghost">Import</button>
+    <button id="btn-theme" class="btn-ghost btn-icon" aria-label="Toggle theme">&#9788;</button>
+    <button id="btn-logout" class="btn-ghost">Log out</button>
+  </div>
+</nav>
+
+<main id="main">
+
+  <!-- ── Login ─────────────────────────────────────────────────────────────── -->
+  <section id="screen-login" class="login-screen">
+    <div class="login-pane">
+
+      <div class="login-header">
+        <div class="login-icon">L</div>
+        <h1 class="login-brand">Lexio</h1>
+        <p class="login-sub">Master languages with smart flashcards</p>
+        <div class="login-pills">
+          <span class="lang-pill pill-es">ES</span>
+          <span class="lang-pill pill-zh">ZH</span>
+          <span class="lang-pill pill-ja">JA</span>
+          <span class="lang-pill pill-no">NO</span>
+        </div>
+      </div>
+
+      <form id="form-login" class="login-form">
+        <div class="field-group">
+          <label for="inp-username">Username</label>
+          <input id="inp-username" type="text" placeholder="Enter your username"
+                 autocomplete="username" required>
+        </div>
+        <div class="field-group">
+          <label for="inp-password">Password</label>
+          <input id="inp-password" type="password" placeholder="Enter your password"
+                 autocomplete="current-password" required>
+        </div>
+        <button type="submit" class="btn-primary btn-login">Log in</button>
+        <p id="login-err" class="error hidden"></p>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- ── Home / Dashboard ───────────────────────────────────────────────────── -->
+  <section id="screen-home" class="hidden">
+    <div class="home-header">
+      <div>
+        <h2>Your Decks</h2>
+        <p id="streak-line" class="text-secondary"></p>
+      </div>
+      <div class="home-cta">
+        <button id="btn-big-test" class="btn-primary">Big Test</button>
+        <button id="btn-test-home" class="btn-outline">Test</button>
+      </div>
+    </div>
+
+    <div id="weakest-section" class="hidden">
+      <h3 class="section-label">Needs Work</h3>
+      <div id="weakest-list" class="weakest-grid"></div>
+    </div>
+
+    <div id="deck-container"></div>
+    <p id="no-decks" class="empty-state hidden">No decks yet — import a vocabulary file to get started.</p>
+  </section>
+
+  <!-- ── Test Setup ─────────────────────────────────────────────────────────── -->
+  <section id="screen-test-setup" class="hidden">
+    <div class="page-header">
+      <button class="btn-back" id="btn-test-back">&#8592; Back</button>
+      <h2>Test Setup</h2>
+    </div>
+    <div class="card form-card">
+      <label for="sel-language">Language</label>
+      <select id="sel-language"></select>
+
+      <label for="sel-topic">Topic</label>
+      <select id="sel-topic"></select>
+
+      <label>Mode</label>
+      <div id="test-mode-grid" class="toggle-grid"></div>
+      <p id="mcq-warning" class="warning hidden">Need at least 4 cards in this language to use Multiple Choice.</p>
+
+      <label>Direction</label>
+      <div id="test-dir-grid" class="toggle-grid"></div>
+
+      <label for="inp-card-count">Cards</label>
+      <input id="inp-card-count" type="number" value="20" min="1" max="200">
+
+      <button id="btn-test-start" class="btn-primary w-full">Start Test</button>
+    </div>
+  </section>
+
+  <!-- ── Big Test Setup ─────────────────────────────────────────────────────── -->
+  <section id="screen-big-test-setup" class="hidden">
+    <div class="page-header">
+      <button class="btn-back" id="btn-big-test-back">&#8592; Back</button>
+      <h2>Big Test</h2>
+    </div>
+    <div class="card form-card">
+      <p class="text-secondary">All languages combined, weighted toward your weakest cards. Direction is locked to Word &#8596; Meaning.</p>
+
+      <label>Mode</label>
+      <div id="big-mode-grid" class="toggle-grid"></div>
+
+      <label>Number of cards</label>
+      <div id="big-count-grid" class="toggle-grid"></div>
+
+      <button id="btn-big-start" class="btn-primary w-full">Start Big Test</button>
+    </div>
+  </section>
+
+  <!-- ── Quiz (Phase 15) ───────────────────────────────────────────────────── -->
+  <section id="screen-quiz" class="hidden">
+    <div class="quiz-topbar">
+      <button id="btn-quiz-exit" class="btn-ghost">&#10005;</button>
+      <div class="progress-track">
+        <div class="progress-bg"><div id="quiz-progress-bar"></div></div>
+      </div>
+      <span id="quiz-progress-label" class="text-secondary progress-count"></span>
+    </div>
+    <div class="quiz-body">
+      <div id="quiz-lang-pill"></div>
+      <p id="quiz-native-display" class="quiz-native hidden"></p>
+      <p id="quiz-question" class="quiz-question"></p>
+      <div id="quiz-mcq" class="mcq-grid hidden"></div>
+      <div id="quiz-tf" class="tf-row hidden">
+        <button class="tf-btn" data-val="true">True</button>
+        <button class="tf-btn" data-val="false">False</button>
+      </div>
+      <div id="quiz-typing" class="typing-row hidden">
+        <input id="quiz-type-inp" type="text" placeholder="Type your answer…">
+        <button id="quiz-type-submit" class="btn-primary">Submit</button>
+      </div>
+      <div id="quiz-hint-row" class="hint-row hidden">
+        <button id="btn-hint" class="btn-outline btn-sm">Hint</button>
+        <span id="hint-display" class="hint-mask"></span>
+      </div>
+      <div id="quiz-feedback" class="feedback hidden">
+        <span id="feedback-icon" class="feedback-icon"></span>
+        <span id="feedback-msg"></span>
+        <p id="feedback-correct" class="feedback-correct hidden"></p>
+        <button id="btn-next" class="btn-primary">Next &#8594;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Results (Phase 15) ────────────────────────────────────────────────── -->
+  <section id="screen-results" class="hidden">
+    <div class="page-header"><h2>Results</h2></div>
+    <div class="card results-summary">
+      <div id="score-ring" class="score-ring"></div>
+      <p id="score-label" class="score-label"></p>
+    </div>
+    <div id="missed-section" class="hidden">
+      <h3 class="section-label">Missed cards</h3>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Question</th><th>Your answer</th><th>Correct</th></tr></thead>
+          <tbody id="missed-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="results-actions">
+      <button id="btn-results-home" class="btn-primary">Back to Home</button>
+    </div>
+  </section>
+
+  <!-- ── Browse (Phase 16) ─────────────────────────────────────────────────── -->
+  <section id="screen-browse" class="hidden">
+    <div class="page-header">
+      <button class="btn-back" id="btn-browse-back">&#8592; Back</button>
+      <h2 id="browse-title">Cards</h2>
+    </div>
+    <div class="search-row">
+      <input id="inp-search" type="text" placeholder="Filter by word or meaning…">
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>Word</th><th>Meaning</th><th>Native</th><th></th></tr></thead>
+        <tbody id="browse-tbody"></tbody>
+      </table>
+    </div>
+    <div id="browse-pagination" class="pagination"></div>
+  </section>
+
+  <!-- ── Import (Phase 16) ─────────────────────────────────────────────────── -->
+  <section id="screen-import" class="hidden">
+    <div class="page-header">
+      <button class="btn-back" id="btn-import-back">&#8592; Back</button>
+      <h2>Import Vocabulary</h2>
+    </div>
+    <div class="card form-card">
+      <label for="sel-import-lang">Language</label>
+      <select id="sel-import-lang"></select>
+      <input id="inp-import-lang-new" type="text" placeholder="New language name" class="hidden">
+
+      <label for="sel-import-topic">Topic</label>
+      <select id="sel-import-topic"></select>
+      <input id="inp-import-topic-new" type="text" placeholder="New topic name" class="hidden">
+
+      <label>File <span class="text-secondary">(CSV or TSV)</span></label>
+      <div id="drop-zone" class="drop-zone">
+        <p>Drop a file here or <label for="inp-import-file" class="link">browse</label></p>
+        <input id="inp-import-file" type="file" accept=".csv,.tsv" class="hidden">
+        <p id="drop-filename" class="text-secondary hidden"></p>
+      </div>
+
+      <button id="btn-import-submit" class="btn-primary">Import</button>
+      <div id="import-result" class="import-result hidden"></div>
+    </div>
+  </section>
+
+  <!-- ── Progress / Dashboard (Phase 16) ───────────────────────────────────── -->
+  <section id="screen-progress" class="hidden">
+    <div class="page-header">
+      <button class="btn-back" id="btn-progress-back">&#8592; Back</button>
+      <h2>Progress</h2>
+    </div>
+    <div id="streak-card" class="card streak-card"></div>
+    <h3 class="section-label">Weakest Cards</h3>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>Language</th><th>Word</th><th>Seen</th><th>Rate</th><th>Struggles with</th></tr></thead>
+        <tbody id="progress-tbody"></tbody>
+      </table>
+    </div>
+    <h3 class="section-label">By Language</h3>
+    <div id="lang-stats-grid" class="lang-stats-grid"></div>
+  </section>
+
+</main>
+
+<script src="/app.js"></script>
+</body>
+</html>

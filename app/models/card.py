@@ -1,0 +1,42 @@
+from datetime import datetime
+
+from sqlalchemy import Boolean, DateTime, ForeignKey, Index, String, UniqueConstraint, func
+from sqlalchemy.orm import Mapped, mapped_column, relationship
+
+from app.database import Base
+
+
+class Deck(Base):
+    __tablename__ = "decks"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    language: Mapped[str] = mapped_column(String, nullable=False)
+    topic: Mapped[str] = mapped_column(String, nullable=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now(), nullable=False)
+
+    cards: Mapped[list["Card"]] = relationship("Card", back_populates="deck")
+
+    __table_args__ = (
+        UniqueConstraint("language", "topic", name="uq_decks_language_topic"),
+        Index("idx_decks_language", "language"),
+    )
+
+
+class Card(Base):
+    __tablename__ = "cards"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    deck_id: Mapped[int] = mapped_column(ForeignKey("decks.id"), nullable=False)
+    word: Mapped[str] = mapped_column(String, nullable=False)
+    meaning: Mapped[str] = mapped_column(String, nullable=False)
+    native: Mapped[str | None] = mapped_column(String, nullable=True)
+    idempotency_key: Mapped[str] = mapped_column(String, nullable=False, unique=True)
+    is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now(), nullable=False)
+
+    deck: Mapped["Deck"] = relationship("Deck", back_populates="cards")
+
+    __table_args__ = (
+        Index("idx_cards_deck", "deck_id"),
+        Index("idx_cards_key", "idempotency_key"),
+    )
