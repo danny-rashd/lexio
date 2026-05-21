@@ -134,6 +134,19 @@
         <div class="progress-bg"><div id="quiz-progress-bar"></div></div>
       </div>
       <span id="quiz-progress-label" class="text-secondary progress-count"></span>
+      <div class="shortcuts-wrap">
+        <button id="btn-shortcuts" class="btn-ghost btn-icon" aria-label="Keyboard shortcuts">?</button>
+        <div id="shortcuts-tooltip" class="shortcuts-tooltip hidden">
+          <strong>Shortcuts</strong>
+          <ul>
+            <li><kbd>1</kbd>–<kbd>4</kbd> MCQ option</li>
+            <li><kbd>T</kbd> / <kbd>F</kbd> True / False</li>
+            <li><kbd>H</kbd> Hint</li>
+            <li><kbd>Enter</kbd> Next question</li>
+            <li><kbd>Esc</kbd> End quiz</li>
+          </ul>
+        </div>
+      </div>
     </div>
     <div class="quiz-body">
       <div id="quiz-lang-pill"></div>
@@ -157,6 +170,7 @@
         <span id="feedback-msg"></span>
         <p id="feedback-correct" class="feedback-correct hidden"></p>
         <button id="btn-next" class="btn-primary">Next &#8594;</button>
+        <div id="countdown-bar" class="countdown-bar hidden"></div>
       </div>
     </div>
   </section>

@@ -136,6 +136,28 @@ function playSound(correct) {
   } catch (_) {}
 }
 
+let _countdownTimeout = null;
+
+function startCountdown(callback) {
+  clearCountdown();
+  const bar = document.getElementById('countdown-bar');
+  bar.classList.remove('hidden');
+  bar.style.transition = 'none';
+  bar.style.width = '100%';
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    bar.style.transition = 'width 3s linear';
+    bar.style.width = '0%';
+  }));
+  _countdownTimeout = setTimeout(() => { clearCountdown(); callback(); }, 3000);
+}
+
+function clearCountdown() {
+  if (_countdownTimeout) { clearTimeout(_countdownTimeout); _countdownTimeout = null; }
+  const bar = document.getElementById('countdown-bar');
+  if (bar) { bar.classList.add('hidden'); bar.style.transition = 'none'; bar.style.width = '100%'; }
+}
+
+
 function stripDiacritics(str) {
   return str.normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
 }
@@ -152,6 +174,119 @@ function langPillHtml(language) {
 function hasNativeScript(language) {
   return langConfig(language).native;
 }
+
+// ── Keyboard shortcuts ────────────────────────────────────────────────────────
+
+function _activeScreen() {
+  const screens = [
+    'screen-login', 'screen-home', 'screen-test-setup', 'screen-big-test-setup',
+    'screen-quiz', 'screen-results', 'screen-browse', 'screen-import', 'screen-progress',
+  ];
+  return screens.find(id => !document.getElementById(id).classList.contains('hidden')) || '';
+}
+
+function _isTyping() {
+  const a = document.activeElement;
+  return a && (a.tagName === 'INPUT' || a.tagName === 'TEXTAREA' || a.tagName === 'SELECT');
+}
+
+document.addEventListener('keydown', e => {
+  const modal = document.getElementById('modal-overlay');
+
+  // ── Modal takes highest priority ─────────────────────────────────────────────
+  if (!modal.classList.contains('hidden')) {
+    if (e.key === 'Enter')  { e.preventDefault(); document.getElementById('modal-confirm').click(); }
+    if (e.key === 'Escape') { e.preventDefault(); document.getElementById('modal-cancel').click(); }
+    return;
+  }
+
+  const screen = _activeScreen();
+
+  // ── Quiz screen ───────────────────────────────────────────────────────────────
+  if (screen === 'screen-quiz') {
+    const feedbackVisible = !document.getElementById('quiz-feedback').classList.contains('hidden');
+
+    if (feedbackVisible) {
+      if (e.key === 'Enter' && !_isTyping()) {
+        e.preventDefault(); clearCountdown(); document.getElementById('btn-next').click();
+      }
+      return;
+    }
+
+    if (!_isTyping()) {
+      // 1–4: MCQ
+      const mcqGrid = document.getElementById('quiz-mcq');
+      if (!mcqGrid.classList.contains('hidden') && ['1','2','3','4'].includes(e.key)) {
+        e.preventDefault();
+        const btns = [...mcqGrid.querySelectorAll('.mcq-btn:not(:disabled)')];
+        btns[parseInt(e.key) - 1]?.click();
+        return;
+      }
+
+      // T / F: True–False
+      const tfRow = document.getElementById('quiz-tf');
+      if (!tfRow.classList.contains('hidden')) {
+        if (e.key === 't' || e.key === 'T') {
+          e.preventDefault(); tfRow.querySelector('[data-val="true"]:not(:disabled)')?.click(); return;
+        }
+        if (e.key === 'f' || e.key === 'F') {
+          e.preventDefault(); tfRow.querySelector('[data-val="false"]:not(:disabled)')?.click(); return;
+        }
+      }
+
+      // H: Hint
+      if (e.key === 'h' || e.key === 'H') {
+        const hintRow = document.getElementById('quiz-hint-row');
+        const btnHint = document.getElementById('btn-hint');
+        if (!hintRow.classList.contains('hidden') && !btnHint.disabled) {
+          e.preventDefault(); btnHint.click(); return;
+        }
+      }
+    }
+
+    // Esc: End quiz
+    if (e.key === 'Escape') {
+      e.preventDefault(); document.getElementById('btn-quiz-exit').click(); return;
+    }
+  }
+
+  // ── Browse screen ─────────────────────────────────────────────────────────────
+  if (screen === 'screen-browse') {
+    if (e.key === '/' && !_isTyping()) {
+      e.preventDefault(); document.getElementById('inp-search').focus(); return;
+    }
+    if (e.key === 'Escape' && _isTyping()) {
+      const inp = document.getElementById('inp-search');
+      inp.value = ''; inp.blur();
+      inp.dispatchEvent(new Event('input')); return;
+    }
+  }
+
+  // ── General Escape → Back ─────────────────────────────────────────────────────
+  if (e.key === 'Escape') {
+    const backMap = {
+      'screen-test-setup':      'btn-test-back',
+      'screen-big-test-setup':  'btn-big-test-back',
+      'screen-browse':          'btn-browse-back',
+      'screen-import':          'btn-import-back',
+      'screen-progress':        'btn-progress-back',
+    };
+    const backBtn = backMap[screen];
+    if (backBtn) { e.preventDefault(); document.getElementById(backBtn).click(); }
+  }
+});
+
+// ── Shortcuts tooltip toggle ──────────────────────────────────────────────────
+document.getElementById('btn-shortcuts').addEventListener('click', e => {
+  e.stopPropagation();
+  document.getElementById('shortcuts-tooltip').classList.toggle('hidden');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('#shortcuts-wrap') && !e.target.closest('#shortcuts-tooltip') && !e.target.closest('#btn-shortcuts')) {
+    document.getElementById('shortcuts-tooltip').classList.add('hidden');
+  }
+});
 
 // ── Navigation ────────────────────────────────────────────────────────────────
 
@@ -515,6 +650,7 @@ function updateQuizProgress() {
 }
 
 function renderQuizQuestion(question) {
+  clearCountdown();
   App.quiz.question     = question;
   App.quiz.hintRevealed = [];
   App.quiz.hintPresses  = 0;
@@ -678,7 +814,9 @@ function showFeedback(isCorrect, correctAnswer, nextQuestion, diacriticsRemark =
 
   const btnNext = document.getElementById('btn-next');
   btnNext.textContent = nextQuestion ? 'Next →' : 'See Results';
-  btnNext.onclick = () => nextQuestion ? renderQuizQuestion(nextQuestion) : showResults();
+  const advance = () => nextQuestion ? renderQuizQuestion(nextQuestion) : showResults();
+  btnNext.onclick = () => { clearCountdown(); advance(); };
+  startCountdown(advance);
 }
 
 // ── Hint ──────────────────────────────────────────────────────────────────────
