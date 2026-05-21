@@ -7,6 +7,7 @@ class QuizStartRequest(BaseModel):
     mode: str
     direction: str = "1_and_2"
     card_count: int = 20
+    languages: list[str] | None = None
 
 
 class QuizAnswerRequest(BaseModel):

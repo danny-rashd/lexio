@@ -70,22 +70,23 @@ def select_cards_for_test(db: Session, deck_id: int, count: int) -> list[Card]:
     return cards[:count]
 
 
-def select_cards_for_big_test(db: Session, count: int) -> list[Card]:
+def select_cards_for_big_test(
+    db: Session,
+    count: int,
+    languages: list[str] | None = None,
+) -> list[Card]:
     """
-    Select cards for a Big Test session, weighted toward weakest cards.
+    Select cards for a Total Recall session, weighted toward weakest cards.
 
     Args:
         db (Session): SQLAlchemy session.
-        count (int): Number of cards to return. Must be in {10, 20, 50, 100}.
+        count (int): Number of cards to return.
+        languages (list[str] | None): Restrict to these language names.
+            None or empty list means all active languages.
 
     Returns:
-        list[Card]: Active cards ordered by aggregated weakness score DESC
-        (across all directions), then random. Cards never seen rank highest.
-
-    Notes:
-        weakness_score = 1 - (SUM(times_correct) / SUM(times_seen)).
-        Cards with no CardStat rows get NULL weakness → treated as 1.0 by
-        NULLS LAST ordering (they sort to the top, not the bottom).
+        list[Card]: Active cards ordered by weakness score DESC, then random.
+        Cards never seen rank highest (NULL weakness → nulls_first).
     """
     subq = (
         db.query(
@@ -99,11 +100,17 @@ def select_cards_for_big_test(db: Session, count: int) -> list[Card]:
         .group_by(CardStat.card_id)
         .subquery()
     )
-    return (
+    query = (
         db.query(Card)
         .outerjoin(subq, Card.id == subq.c.card_id)
         .filter(Card.is_active.is_(True))
-        .order_by(subq.c.weakness_score.desc().nulls_first(), func.random())
+    )
+    if languages:
+        query = query.join(Deck, Deck.id == Card.deck_id).filter(
+            Deck.language.in_(languages)
+        )
+    return (
+        query.order_by(subq.c.weakness_score.desc().nulls_first(), func.random())
         .limit(count)
         .all()
     )

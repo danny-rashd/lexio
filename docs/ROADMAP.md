@@ -15,7 +15,7 @@ When a phase is complete, log it in `docs/CHANGES.md` and mark status here as **
 
 ---
 
-## Phase 1 — Loading states `Planned`
+## Phase 1 — Loading states `Done`
 
 **Problem:** Every API call (loading decks, starting a quiz, importing) freezes the UI with no feedback. Feels broken on slow connections.
 
@@ -28,7 +28,7 @@ When a phase is complete, log it in `docs/CHANGES.md` and mark status here as **
 
 ---
 
-## Phase 2 — Empty states `Planned`
+## Phase 2 — Empty states `Done`
 
 **Problem:** A new user lands on a blank home screen with only a text sentence as guidance. No clear next step.
 
@@ -42,7 +42,7 @@ When a phase is complete, log it in `docs/CHANGES.md` and mark status here as **
 
 ---
 
-## Phase 3 — Human-readable error messages `Planned`
+## Phase 3 — Human-readable error messages `Done`
 
 **Problem:** Raw API error strings surface directly to the user (e.g. `"No active cards available for this session"`). Internal language leaks into the UI.
 
@@ -59,7 +59,7 @@ When a phase is complete, log it in `docs/CHANGES.md` and mark status here as **
 
 ---
 
-## Phase 4 — Results forward-guidance `Planned`
+## Phase 4 — Results forward-guidance `Done`
 
 **Problem:** After a quiz the user sees a score and a missed-cards table, then has to decide what to do next on their own.
 
@@ -75,25 +75,36 @@ When a phase is complete, log it in `docs/CHANGES.md` and mark status here as **
 
 ---
 
-## Phase 5 — Quiz setup descriptions `Planned`
+## Phase 5 — Quiz setup descriptions + inline keyboard affordances `Done`
 
-**Problem:** Mode and direction options are labelled but not explained. A user who doesn't know what "Characters → Reading" means gets no guidance.
+**Problem:** Mode and direction options are labelled but not explained. A user who doesn't know what "Characters → Reading" means gets no guidance. Keyboard shortcuts exist but are hidden behind a `?` tooltip — not naturally discoverable mid-quiz.
 
 **Scope:**
+
+Quiz setup:
 - Mode cards: replace toggle buttons with larger cards showing name + one-line description
   - Multiple Choice: "Pick the correct answer from 4 options"
   - True / False: "Decide if the pair shown is correct"
   - Typing: "Type the answer from memory"
+  - Flashcard *(Phase 13)*: "Reveal the answer and grade yourself"
 - Direction options: add a subtitle showing an example pair
   - Word → Meaning: e.g. "konnichiwa → hello"
   - Characters → Reading: e.g. "こんにちは → konnichiwa"
 - MCQ disabled state: improve the warning message with a link to Import
 
+Inline keyboard affordances (quiz screen):
+- MCQ option buttons: small `1` / `2` / `3` / `4` key badge on the far left of each button
+- True button: `T` key badge · False button: `F` key badge
+- Hint button: `H` key badge beside the label
+- Next → / See Results button: `Enter ↵` badge beside the text
+- `?` tooltip in quiz topbar: simplified to only list non-visible shortcuts (`Esc` end quiz, `/` search in browse, `Esc` go back) — visible shortcuts no longer need listing since they are shown inline
+- Key badges are hidden on touch devices (mobile) — keyboard hints are irrelevant without a physical keyboard
+
 **Files:** `app/static/app.js`, `app/static/index.html`, `app/static/style.css`
 
 ---
 
-## Phase 6 — Mobile layout `Planned`
+## Phase 6 — Mobile layout `Done`
 
 **Problem:** The nav gets crowded on small screens, the quiz topbar overflows, and the shortcuts tooltip goes offscreen on mobile.
 
@@ -109,7 +120,7 @@ When a phase is complete, log it in `docs/CHANGES.md` and mark status here as **
 
 ---
 
-## Phase 7 — Import preview `Planned`
+## Phase 7 — Import preview `Done`
 
 **Problem:** File upload is fire-and-forget. No preview before committing, no recovery if the wrong file is selected.
 
@@ -126,21 +137,25 @@ When a phase is complete, log it in `docs/CHANGES.md` and mark status here as **
 
 ---
 
-## Phase 8 — Home hierarchy `Planned`
+## Phase 8 — Home hierarchy + word progress `Done`
 
-**Problem:** The home screen gives equal visual weight to everything. Streak, decks, and weakest cards compete for attention.
+**Problem:** The home screen gives equal visual weight to everything. Streak, decks, and weakest cards compete for attention. There is also no indication of how much of each deck or language has actually been studied.
 
 **Scope:**
 - Top section: streak number prominently displayed with a small calendar preview (last 7 days)
 - Quick-start card: "Continue studying [last used language]" — one-click to open quiz setup for the most recently used deck
-- Deck grid: move below the above; show language-level card count prominently
+- Deck grid: move below the above
+- **Per-topic progress:** each topic card shows "12 / 20 words seen" — cards with at least one `card_stats` entry vs total `card_count` for that deck
+- **Per-language progress:** language group header shows "65% of words studied" — cards seen across all topics for that language vs total `language_card_count`
 - Weakest cards preview: limit to 3 cards maximum; style as a compact horizontal strip, not a tall grid
+
+**API:** `/api/progress/stats?deck_id=X` already returns `cards_seen` per deck — call it for each visible deck on home load (batched via `Promise.all`). No new endpoints needed.
 
 **Files:** `app/static/app.js`, `app/static/index.html`, `app/static/style.css`
 
 ---
 
-## Phase 9 — Language proficiency visualization `Planned`
+## Phase 9 — Language proficiency visualization `Done`
 
 **Problem:** The Progress screen shows raw numbers and a table but no at-a-glance picture of which languages you are strongest/weakest in.
 
@@ -156,7 +171,7 @@ When a phase is complete, log it in `docs/CHANGES.md` and mark status here as **
 
 ---
 
-## Phase 10 — Anki deck import `Planned`
+## Phase 10 — Anki deck import `Done`
 
 **Problem:** Creating vocabulary CSV files by hand is time-consuming. Anki is the most widely used flashcard app and has thousands of shared decks covering all supported languages.
 
@@ -185,8 +200,135 @@ Frontend (Import screen):
 
 ---
 
+## Phase 11 — Deck delete (topic-level hard delete) `Done`
+
+**Problem:** There is no way to remove a deck or its cards from the UI. The existing API endpoint does a soft-delete only (marks cards inactive but keeps rows in the database).
+
+**Scope:**
+
+Backend:
+- Update `DELETE /api/decks/{id}` to hard-delete: remove `card_stats` rows for each card, `quiz_answers` rows for each card, `import_batches` for the deck, all `cards` rows, and finally the `deck` row itself. Cascade in correct FK order to avoid constraint errors.
+- `quiz_sessions` that referenced this deck become orphaned — set `deck_id = NULL` rather than deleting them (preserves historical score records).
+
+Frontend:
+- Home screen: add a Delete button on each topic card (alongside Browse / Quiz / Import). Triggers a confirm modal with deck name before proceeding.
+- Browse screen: add a Delete Deck button in the page header. Same confirm flow.
+- After deletion: navigate to Home and refresh the deck list.
+
+**Files:** `app/routers/decks.py`, `app/static/app.js`, `app/static/index.html`, `app/static/style.css`
+
+---
+
+## Phase 12 — Deck export and `.lex` import `Done`
+
+**Problem:** Vocabulary data is locked inside the app. Users cannot back up, share, or restore individual decks without re-importing raw CSV files.
+
+**Background:** `.lex` is a custom Lexio format — a UTF-8 CSV file with metadata comment lines at the top. Because comment lines (`#`) are already skipped by the existing parser, `.lex` files are importable with zero parser changes. The metadata enables auto-detection of language and topic on import.
+
+**`.lex` file format:**
+```
+# Lexio deck export
+# language: spanish
+# topic: greetings
+# exported: 2026-05-21
+# cards: 20
+word,meaning,native
+hola,hello,
+adiós,goodbye,
+```
+
+**Scope:**
+
+Backend:
+- New endpoint `GET /api/decks/{id}/export` — returns a `.lex` file as a downloadable response (`Content-Disposition: attachment`)
+- No new Alembic migration needed
+
+Frontend:
+- Home screen: Export button on each topic card
+- Browse screen: Export button in page header
+- Import screen: accept `.lex` files; parse the `# language:` and `# topic:` comment lines; pre-fill the language and topic dropdowns automatically before the user clicks Import
+
+**Files:** `app/routers/decks.py`, `app/static/app.js`, `app/static/index.html`
+
+---
+
+## Phase 13 — Flashcard mode `Done`
+
+**Problem:** The app has MCQ, True/False, and Typing — but no traditional flip-card mode. Users migrating from Anki or physical flashcards expect to see a word, mentally recall the answer, then reveal it and self-grade. This is also the foundation required for SRS (Phase 14).
+
+**How it works:**
+1. Show the word (and native script if available) — answer is hidden
+2. User clicks **Reveal** (or presses Space/Enter) to flip
+3. Answer is shown
+4. User grades themselves: **Knew it** or **Didn't know**
+5. Result recorded in `card_stats` as correct/incorrect; session advances to next card
+
+**Scope:**
+
+Frontend:
+- New mode option "Flashcard" alongside MCQ / True/False / Typing in Test Setup
+- Quiz screen: "Reveal" button replaces the answer input; on click, correct answer appears and grade buttons replace it
+- Keyboard shortcuts: `Space` or `Enter` to reveal; `1` = Knew it, `2` = Didn't know
+- Works with all 4 directions; native script shown for directions 3 and 4
+
+Backend:
+- No new endpoints needed — uses existing `POST /api/quiz/{session_id}/answer` with `user_answer: "knew"` or `"didn't know"`; server records `is_correct` accordingly
+- Add `"flashcard"` to the `mode` CHECK constraint in `quiz_sessions` — requires a new Alembic migration
+
+**Files:**
+- `app/models/progress.py` — update `mode` CHECK constraint
+- New Alembic migration
+- `app/routers/quiz.py` — handle flashcard mode in `_build_question` and `_evaluate`
+- `app/static/app.js`, `app/static/index.html`, `app/static/style.css`
+
+---
+
+## Phase 14 — SRS scheduling (SM-2) `Done`
+
+**Problem:** The current app uses weakness weighting (show cards with lower correct rates more often) but is not true spaced repetition. True SRS schedules each card on a specific due date based on performance history and a forgetting curve, dramatically improving long-term retention efficiency.
+
+**Background:** The SM-2 algorithm (used by Anki) assigns each card an `interval` (days until next review) and `ease_factor` (difficulty multiplier). After each review the values are updated based on the grade (Again / Hard / Good / Easy). Cards are shown when `due_date ≤ today`.
+
+**This phase depends on Phase 13** (Flashcard mode) since SRS requires self-evaluation grades, not just correct/incorrect.
+
+**Scope:**
+
+Backend:
+- Add columns to `card_stats`: `interval` (INTEGER, default 1), `ease_factor` (REAL, default 2.5), `due_date` (DATE, nullable) — new Alembic migration
+- New service `app/services/srs.py` — implements SM-2: `next_review(grade, interval, ease_factor) -> (new_interval, new_ease_factor, due_date)`
+- Grades mapped from flashcard: Again=0, Hard=1 (partial), Good=2, Easy=3 — or simplified to Again / Good for v1
+- `upsert_card_stat` updated to call SRS calculation when mode is flashcard
+- New endpoint `GET /api/quiz/due?deck_id=X&limit=20` — returns cards where `due_date ≤ today`, ordered by due date ascending. Cards never reviewed (null `due_date`) are treated as due immediately.
+
+Frontend:
+- New session scope: **Review** (alongside Test and Big Test) — shows only due cards, always uses Flashcard mode, no mode selection needed
+- Home screen: due card count badge on each deck ("5 due") if any cards are due today
+- Test Setup: "Review Due Cards (N)" shortcut button appears when cards are due for that deck
+
+**Files:**
+- `app/models/progress.py` — new columns on `card_stats`
+- New Alembic migration
+- New: `app/services/srs.py`
+- `app/services/progress.py` — update `upsert_card_stat`
+- `app/routers/quiz.py` — new due-cards endpoint, Review scope handling
+- `app/static/app.js`, `app/static/index.html`, `app/static/style.css`
+
+---
+
 ## Notes
 
-- Phases are independent — any can be built out of order except Phase 7 (Import preview) should precede Phase 10 (Anki import) since Anki reuses the preview UI pattern.
-- Each completed phase gets an entry in `docs/CHANGES.md`.
-- Backend changes (Phase 10) require new Alembic migrations only if new tables are added — Phase 10 reuses existing `Card` and `Deck` models, so no migration is needed.
+**Phase ordering constraints:**
+- Phase 7 (Import preview) should precede Phase 10 (Anki import) — Anki reuses the preview UI pattern
+- Phase 13 (Flashcard mode) must precede Phase 14 (SRS) — SRS requires self-evaluation grades introduced in flashcard mode
+- All other phases are independent and can be built in any order
+
+**On SRS vs current behaviour:**
+The current app is *weakness-weighted*, not SRS. It shows weaker cards more often based on correct rate, but has no scheduling algorithm, no intervals, and no due dates. Phase 14 adds true SM-2 scheduling. Until then, the app is useful for active study sessions but not optimal for long-term retention.
+
+**Migrations:**
+- Phase 11 (deck delete): no new columns, no migration needed
+- Phase 12 (deck export): no new columns, no migration needed
+- Phase 13 (flashcard mode): adds `"flashcard"` to `quiz_sessions.mode` CHECK constraint — migration required
+- Phase 14 (SRS): adds `interval`, `ease_factor`, `due_date` to `card_stats` — migration required
+
+**Each completed phase gets an entry in `docs/CHANGES.md` and its status updated here.**

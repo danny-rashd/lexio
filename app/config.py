@@ -15,6 +15,7 @@ class Settings(BaseSettings):
     DEFAULT_QUIZ_CARD_COUNT: int = 20
     BIG_TEST_CARD_OPTIONS: str = "10,20,50,100"
     MAX_UPLOAD_SIZE_MB: int = 5
+    MAX_UPLOAD_SIZE_APKG_MB: int = 200
     HINT_MAX_PRESSES: int = 3
 
     @property

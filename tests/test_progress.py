@@ -124,15 +124,27 @@ def test_get_weakest_cards_high_dir_weakness_ranked_correctly(db_session):
     assert result[0]["card_id"] == struggling.id
 
 
-def test_get_weakest_cards_ranks_unseen_cards_highest(db_session):
-    seen = _make_card(db_session, word="hola", meaning="hello")
-    unseen = _make_card(db_session, word="gracias", meaning="thank you")
-
-    upsert_card_stat(db_session, seen.id, "word_to_meaning", is_correct=True)
+def test_get_weakest_cards_excludes_seen_fewer_than_twice(db_session):
+    # Card seen only once should be excluded
+    once = _make_card(db_session, word="hola", meaning="hello")
+    upsert_card_stat(db_session, once.id, "word_to_meaning", is_correct=True)
 
     result = get_weakest_cards(db_session)
-    assert result[0]["card_id"] == unseen.id
-    assert result[0]["weakness_score"] == 1.0
+    card_ids = [r["card_id"] for r in result]
+    assert once.id not in card_ids
+
+
+def test_get_weakest_cards_ranks_worst_first(db_session):
+    strong = _make_card(db_session, word="hola", meaning="hello")
+    weak   = _make_card(db_session, word="gracias", meaning="thank you")
+
+    for _ in range(4):
+        upsert_card_stat(db_session, strong.id, "word_to_meaning", is_correct=True)
+    for _ in range(2):
+        upsert_card_stat(db_session, weak.id, "word_to_meaning", is_correct=False)
+
+    result = get_weakest_cards(db_session)
+    assert result[0]["card_id"] == weak.id
 
 
 # ── log_study_day ─────────────────────────────────────────────────────────────

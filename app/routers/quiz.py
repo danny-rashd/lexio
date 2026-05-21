@@ -12,6 +12,7 @@ from app.models.user import User
 from app.routers.auth import get_current_user
 from app.schemas.quiz import HintRequest, HintResponse, QuizAnswerRequest, QuizStartRequest
 from app.services.progress import log_study_day, upsert_card_stat
+from app.services.srs import select_due_cards
 from app.services.quiz_engine import (
     build_mcq_question,
     build_true_false_question,
@@ -26,8 +27,8 @@ from app.utils.hint import first_and_last, generate_letter_mask, next_reveal
 
 router = APIRouter(prefix="/api/quiz", tags=["quiz"])
 
-_VALID_MODES = {"mcq", "true_false", "typing"}
-_VALID_SCOPES = {"test", "big_test"}
+_VALID_MODES = {"mcq", "true_false", "typing", "flashcard"}
+_VALID_SCOPES = {"test", "big_test", "review"}
 _VALID_DIRECTIONS = {"1_only", "2_only", "3_only", "4_only", "1_and_2", "all_available", "random"}
 
 
@@ -82,6 +83,17 @@ def _build_question(db: Session, session: QuizSession, card: Card) -> dict:
             )
         q = build_true_false_question(card, wrong_answer, direction)
 
+    elif session.mode == "flashcard":
+        q = build_typing_question(card, direction)
+        q["type"] = "flashcard"
+        # Show just the prompt word — no "Type the meaning of:" prefix
+        if direction in ("word_to_meaning",):
+            q["question"] = card.word
+        elif direction == "meaning_to_word":
+            q["question"] = card.meaning
+        else:
+            q["question"] = card.native or card.word
+
     else:
         q = build_typing_question(card, direction)
 
@@ -107,6 +119,10 @@ def _evaluate(
         ca = (correct_answer_client or "").lower().strip()
         return ua == ca, ca
 
+    if mode == "flashcard":
+        is_correct = (user_answer or "").lower().strip() in ("hard", "good", "easy")
+        return is_correct, server_correct
+
     is_correct = check_answer(user_answer or "", server_correct, fuzzy=(mode == "typing"))
     return is_correct, server_correct
 
@@ -124,25 +140,33 @@ def start_quiz(
     if body.mode not in _VALID_MODES:
         raise HTTPException(status_code=400, detail=f"mode must be one of {sorted(_VALID_MODES)}")
 
-    direction = "1_and_2" if body.scope == "big_test" else body.direction
-    if direction not in _VALID_DIRECTIONS:
-        raise HTTPException(status_code=400, detail=f"direction must be one of {sorted(_VALID_DIRECTIONS)}")
-
-    if body.scope == "test":
+    if body.scope == "review":
         if not body.deck_id:
-            raise HTTPException(status_code=400, detail="deck_id is required for test scope")
-        deck = db.query(Deck).filter(Deck.id == body.deck_id).first()
-        if not deck:
-            raise HTTPException(status_code=404, detail="Deck not found")
-        cards = select_cards_for_test(db, body.deck_id, body.card_count)
+            raise HTTPException(status_code=400, detail="deck_id is required for review scope")
+        direction = "all_available"
+        mode      = "flashcard"
+        cards     = select_due_cards(db, body.deck_id, body.card_count)
+        if not cards:
+            raise HTTPException(status_code=400, detail="No cards due for review in this deck.")
     else:
-        cards = select_cards_for_big_test(db, body.card_count)
-
-    if not cards:
-        raise HTTPException(status_code=400, detail="No active cards available for this session")
+        direction = "1_and_2" if body.scope == "big_test" else body.direction
+        mode      = body.mode
+        if direction not in _VALID_DIRECTIONS:
+            raise HTTPException(status_code=400, detail=f"direction must be one of {sorted(_VALID_DIRECTIONS)}")
+        if body.scope == "test":
+            if not body.deck_id:
+                raise HTTPException(status_code=400, detail="deck_id is required for test scope")
+            deck = db.query(Deck).filter(Deck.id == body.deck_id).first()
+            if not deck:
+                raise HTTPException(status_code=404, detail="Deck not found")
+            cards = select_cards_for_test(db, body.deck_id, body.card_count)
+        else:
+            cards = select_cards_for_big_test(db, body.card_count, languages=body.languages or None)
+        if not cards:
+            raise HTTPException(status_code=400, detail="No active cards available for this session")
 
     session = QuizSession(
-        mode=body.mode,
+        mode=mode,
         scope=body.scope,
         deck_id=body.deck_id,
         direction=direction,
@@ -200,7 +224,8 @@ def submit_answer(
     if is_correct:
         session.correct += 1
 
-    upsert_card_stat(db, card.id, body.direction, is_correct)
+    grade = body.user_answer if session.mode == "flashcard" else None
+    upsert_card_stat(db, card.id, body.direction, is_correct, grade=grade)
 
     db.flush()
 

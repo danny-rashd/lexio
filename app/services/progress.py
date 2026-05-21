@@ -4,6 +4,7 @@ from sqlalchemy.orm import Session
 
 from app.models.card import Card, Deck
 from app.models.progress import CardStat, StudyLog
+from app.services.srs import DEFAULT_EASE, next_review
 
 
 def upsert_card_stat(
@@ -11,9 +12,11 @@ def upsert_card_stat(
     card_id: int,
     direction: str,
     is_correct: bool,
+    grade: str | None = None,
 ) -> None:
     """
     Increment seen/correct counts for a card+direction pair after an answer.
+    When a flashcard grade is provided, also updates the SRS scheduling fields.
 
     Args:
         db (Session): SQLAlchemy session.
@@ -21,12 +24,11 @@ def upsert_card_stat(
         direction (str): One of 'word_to_meaning', 'meaning_to_word',
             'native_to_meaning', 'native_to_word'.
         is_correct (bool): Whether the answer was accepted as correct.
+        grade (str | None): Flashcard grade ('again','hard','good','easy').
+            When provided, SM-2 is applied to update srs_* fields.
 
     Notes:
-        Upserts on the (card_id, direction) composite unique key — one row
-        per card per direction, up to 4 rows per card. Safe to call multiple
-        times. Always increments times_seen; increments times_correct only
-        when is_correct is True.
+        Upserts on (card_id, direction). grade=None leaves SRS fields unchanged.
     """
     stat = (
         db.query(CardStat)
@@ -40,6 +42,14 @@ def upsert_card_stat(
         if is_correct:
             stat.times_correct += 1
         stat.last_seen_at = now
+        if grade:
+            new_int, new_ef, new_due, new_reps = next_review(
+                grade, stat.srs_interval, stat.srs_ease_factor, stat.srs_repetitions
+            )
+            stat.srs_interval     = new_int
+            stat.srs_ease_factor  = new_ef
+            stat.srs_due_date     = new_due
+            stat.srs_repetitions  = new_reps
     else:
         stat = CardStat(
             card_id=card_id,
@@ -48,6 +58,12 @@ def upsert_card_stat(
             times_correct=1 if is_correct else 0,
             last_seen_at=now,
         )
+        if grade:
+            new_int, new_ef, new_due, new_reps = next_review(grade, 1, DEFAULT_EASE, 0)
+            stat.srs_interval    = new_int
+            stat.srs_ease_factor = new_ef
+            stat.srs_due_date    = new_due
+            stat.srs_repetitions = new_reps
         db.add(stat)
 
     db.commit()
@@ -119,6 +135,7 @@ def get_weakest_cards(db: Session, limit: int = 20) -> list[dict]:
             "dir_weakness": dir_weakness,
         })
 
+    results = [r for r in results if r["total_seen"] >= 2 and r["weakness_score"] > 0]
     results.sort(key=lambda x: (-x["weakness_score"], -x["dir_weakness"]))
     return results[:limit]
 

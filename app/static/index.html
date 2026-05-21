@@ -11,10 +11,11 @@
 <nav id="nav" class="hidden">
   <span id="nav-home" class="nav-brand">Lexio</span>
   <div class="nav-right">
-    <button id="btn-nav-progress" class="btn-ghost">Progress</button>
-    <button id="btn-nav-import" class="btn-ghost">Import</button>
+    <button id="btn-nav-home-tab" class="btn-ghost" data-short="Hm">Home</button>
+    <button id="btn-nav-progress" class="btn-ghost" data-short="Stats">Progress</button>
+    <button id="btn-nav-import" class="btn-ghost" data-short="+">Import</button>
     <button id="btn-theme" class="btn-ghost btn-icon" aria-label="Toggle theme">&#9788;</button>
-    <button id="btn-logout" class="btn-ghost">Log out</button>
+    <button id="btn-logout" class="btn-ghost" data-short="Out">Log out</button>
   </div>
 </nav>
 
@@ -60,24 +61,39 @@
 
   <!-- ── Home / Dashboard ───────────────────────────────────────────────────── -->
   <section id="screen-home" class="hidden">
-    <div class="home-header">
-      <div>
-        <h2>Your Decks</h2>
-        <p id="streak-line" class="text-secondary"></p>
-      </div>
+
+    <!-- ── Top row: streak strip + action buttons ─────────────────────────── -->
+    <div class="home-top">
+      <div id="home-streak" class="card home-streak-card hidden"></div>
       <div class="home-cta">
-        <button id="btn-big-test" class="btn-primary">Big Test</button>
+        <button id="btn-big-test" class="btn-primary">Total Recall</button>
         <button id="btn-test-home" class="btn-outline">Test</button>
       </div>
     </div>
 
+    <!-- ── Quick-start ────────────────────────────────────────────────────── -->
+    <div id="home-quick-start" class="card home-quick hidden"></div>
+
+    <!-- ── Needs Work (max 3) ─────────────────────────────────────────────── -->
     <div id="weakest-section" class="hidden">
       <h3 class="section-label">Needs Work</h3>
-      <div id="weakest-list" class="weakest-grid"></div>
+      <div id="weakest-list" class="weakest-strip"></div>
     </div>
 
+    <!-- ── Deck list ──────────────────────────────────────────────────────── -->
+    <h3 class="section-label" style="margin-top:1.25rem">Your Decks</h3>
     <div id="deck-container"></div>
-    <p id="no-decks" class="empty-state hidden">No decks yet — import a vocabulary file to get started.</p>
+    <div id="no-decks" class="empty-state hidden">
+      <div class="empty-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
+        </svg>
+      </div>
+      <h3 class="empty-title">No decks yet</h3>
+      <p class="empty-sub">Import a vocabulary file to start studying. Supports CSV and TSV.</p>
+      <button id="no-decks-cta" class="btn-primary">Import Vocabulary</button>
+    </div>
+
   </section>
 
   <!-- ── Test Setup ─────────────────────────────────────────────────────────── -->
@@ -107,14 +123,17 @@
     </div>
   </section>
 
-  <!-- ── Big Test Setup ─────────────────────────────────────────────────────── -->
+  <!-- ── Total Recall Setup ─────────────────────────────────────────────────────── -->
   <section id="screen-big-test-setup" class="hidden">
     <div class="page-header">
       <button class="btn-back" id="btn-big-test-back">&#8592; Back</button>
-      <h2>Big Test</h2>
+      <h2>Total Recall</h2>
     </div>
     <div class="card form-card">
-      <p class="text-secondary">All languages combined, weighted toward your weakest cards. Direction is locked to Word &#8596; Meaning.</p>
+      <p class="text-secondary">Weighted toward your weakest cards. Direction locked to Word &#8596; Meaning.</p>
+
+      <label>Languages</label>
+      <div id="total-recall-langs" class="lang-checklist"></div>
 
       <label>Mode</label>
       <div id="big-mode-grid" class="toggle-grid"></div>
@@ -122,7 +141,7 @@
       <label>Number of cards</label>
       <div id="big-count-grid" class="toggle-grid"></div>
 
-      <button id="btn-big-start" class="btn-primary w-full">Start Big Test</button>
+      <button id="btn-big-start" class="btn-primary w-full">Start Total Recall</button>
     </div>
   </section>
 
@@ -137,13 +156,13 @@
       <div class="shortcuts-wrap">
         <button id="btn-shortcuts" class="btn-ghost btn-icon" aria-label="Keyboard shortcuts">?</button>
         <div id="shortcuts-tooltip" class="shortcuts-tooltip hidden">
-          <strong>Shortcuts</strong>
+          <strong>More shortcuts</strong>
           <ul>
-            <li><kbd>1</kbd>–<kbd>4</kbd> MCQ option</li>
-            <li><kbd>T</kbd> / <kbd>F</kbd> True / False</li>
-            <li><kbd>H</kbd> Hint</li>
-            <li><kbd>Enter</kbd> Next question</li>
+            <li><kbd>Space</kbd> Reveal (flashcard)</li>
+            <li><kbd>1</kbd>–<kbd>4</kbd> Again/Hard/Good/Easy</li>
             <li><kbd>Esc</kbd> End quiz</li>
+            <li><kbd>/</kbd> Search in Browse</li>
+            <li><kbd>Esc</kbd> Go back (any screen)</li>
           </ul>
         </div>
       </div>
@@ -154,16 +173,37 @@
       <p id="quiz-question" class="quiz-question"></p>
       <div id="quiz-mcq" class="mcq-grid hidden"></div>
       <div id="quiz-tf" class="tf-row hidden">
-        <button class="tf-btn" data-val="true">True</button>
-        <button class="tf-btn" data-val="false">False</button>
+        <button class="tf-btn" data-val="true"><span class="kbd-badge">T</span>True</button>
+        <button class="tf-btn" data-val="false"><span class="kbd-badge">F</span>False</button>
       </div>
       <div id="quiz-typing" class="typing-row hidden">
         <input id="quiz-type-inp" type="text" placeholder="Type your answer…">
         <button id="quiz-type-submit" class="btn-primary">Submit</button>
       </div>
       <div id="quiz-hint-row" class="hint-row hidden">
-        <button id="btn-hint" class="btn-outline btn-sm">Hint</button>
+        <button id="btn-hint" class="btn-outline btn-sm"><span class="kbd-badge">H</span>Hint</button>
         <span id="hint-display" class="hint-mask"></span>
+      </div>
+
+      <div id="quiz-flashcard" class="hidden">
+        <div id="flashcard-answer" class="flashcard-answer hidden"></div>
+        <button id="btn-reveal" class="btn-primary w-full">
+          <span class="kbd-badge" style="margin-right:.4rem">Space</span>Reveal
+        </button>
+        <div id="flashcard-grade" class="flashcard-grade hidden">
+          <button class="grade-btn grade-again" data-val="again">
+            <span class="kbd-badge">1</span>Again
+          </button>
+          <button class="grade-btn grade-hard"  data-val="hard">
+            <span class="kbd-badge">2</span>Hard
+          </button>
+          <button class="grade-btn grade-good"  data-val="good">
+            <span class="kbd-badge">3</span>Good
+          </button>
+          <button class="grade-btn grade-easy"  data-val="easy">
+            <span class="kbd-badge">4</span>Easy
+          </button>
+        </div>
       </div>
       <div id="quiz-feedback" class="feedback hidden">
         <span id="feedback-icon" class="feedback-icon"></span>
@@ -180,7 +220,12 @@
     <div class="page-header"><h2>Results</h2></div>
     <div class="card results-summary">
       <div id="score-ring" class="score-ring"></div>
-      <p id="score-label" class="score-label"></p>
+      <p id="score-label" class="score-label muted"></p>
+      <p id="results-rec" class="results-rec hidden"></p>
+    </div>
+    <div class="results-actions">
+      <button id="btn-retry-missed" class="btn-outline hidden">Retry Missed</button>
+      <button id="btn-results-home" class="btn-primary">Back to Home</button>
     </div>
     <div id="missed-section" class="hidden">
       <h3 class="section-label">Missed cards</h3>
@@ -191,8 +236,16 @@
         </table>
       </div>
     </div>
-    <div class="results-actions">
-      <button id="btn-results-home" class="btn-primary">Back to Home</button>
+    <div id="all-answers-section" class="hidden">
+      <button id="btn-toggle-all" class="btn-ghost all-answers-toggle">Show all answers &#9656;</button>
+      <div id="all-answers-wrap" class="hidden">
+        <div class="table-wrap" style="margin-top:.5rem">
+          <table class="data-table">
+            <thead><tr><th>Question</th><th>Your answer</th><th>Correct</th><th></th></tr></thead>
+            <tbody id="all-answers-tbody"></tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -201,9 +254,20 @@
     <div class="page-header">
       <button class="btn-back" id="btn-browse-back">&#8592; Back</button>
       <h2 id="browse-title">Cards</h2>
+      <button id="btn-browse-export" class="btn-outline btn-sm hidden">Export .lex</button>
+      <button id="btn-browse-delete" class="btn-danger btn-sm hidden">Delete Deck</button>
     </div>
     <div class="search-row">
       <input id="inp-search" type="text" placeholder="Filter by word or meaning…">
+    </div>
+    <div id="browse-empty" class="empty-state hidden">
+      <div class="empty-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/>
+        </svg>
+      </div>
+      <h3 class="empty-title">No cards in this deck</h3>
+      <p class="empty-sub">Import a vocabulary file to add cards to this deck.</p>
     </div>
     <div class="table-wrap">
       <table class="data-table">
@@ -229,14 +293,53 @@
       <select id="sel-import-topic"></select>
       <input id="inp-import-topic-new" type="text" placeholder="New topic name" class="hidden">
 
-      <label>File <span class="text-secondary">(CSV or TSV)</span></label>
+      <label>File <span class="text-secondary">(CSV, TSV, .lex, or Anki .apkg)</span></label>
       <div id="drop-zone" class="drop-zone">
         <p>Drop a file here or <label for="inp-import-file" class="link">browse</label></p>
-        <input id="inp-import-file" type="file" accept=".csv,.tsv" class="hidden">
+        <input id="inp-import-file" type="file" accept=".csv,.tsv,.lex,.apkg" class="hidden">
         <p id="drop-filename" class="text-secondary hidden"></p>
       </div>
 
-      <button id="btn-import-submit" class="btn-primary">Import</button>
+      <div id="import-preview" class="import-preview hidden">
+        <div class="import-preview-meta">
+          <span id="preview-format" class="format-badge"></span>
+          <span id="preview-count" class="text-secondary"></span>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Word</th><th>Meaning</th><th>Native</th></tr></thead>
+            <tbody id="preview-tbody"></tbody>
+          </table>
+        </div>
+        <p id="preview-warning" class="warning hidden"></p>
+      </div>
+      <!-- Anki field-mapping UI (shown only for .apkg files) -->
+      <div id="anki-mapping" class="hidden">
+        <label for="anki-note-type">Note type</label>
+        <select id="anki-note-type"></select>
+        <div class="anki-field-grid">
+          <div class="anki-field-row">
+            <span class="anki-field-label">Word <span class="text-secondary">(required)</span></span>
+            <select id="anki-field-word" class="anki-field-sel"></select>
+          </div>
+          <div class="anki-field-row">
+            <span class="anki-field-label">Meaning <span class="text-secondary">(required)</span></span>
+            <select id="anki-field-meaning" class="anki-field-sel"></select>
+          </div>
+          <div class="anki-field-row">
+            <span class="anki-field-label">Native script <span class="text-secondary">(optional)</span></span>
+            <select id="anki-field-native" class="anki-field-sel"></select>
+          </div>
+        </div>
+        <div id="anki-preview-wrap" class="table-wrap hidden">
+          <table class="data-table">
+            <thead><tr><th>Word</th><th>Meaning</th><th>Native</th></tr></thead>
+            <tbody id="anki-preview-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <button id="btn-import-submit" class="btn-primary" disabled>Import</button>
       <div id="import-result" class="import-result hidden"></div>
     </div>
   </section>
@@ -247,16 +350,33 @@
       <button class="btn-back" id="btn-progress-back">&#8592; Back</button>
       <h2>Progress</h2>
     </div>
+    <div id="progress-empty" class="empty-state hidden">
+      <div class="empty-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/>
+        </svg>
+      </div>
+      <h3 class="empty-title">No study data yet</h3>
+      <p class="empty-sub">Complete your first quiz to start tracking your progress and streak.</p>
+      <button id="progress-empty-cta" class="btn-primary">Go to Home</button>
+    </div>
     <div id="streak-card" class="card streak-card"></div>
-    <h3 class="section-label">Weakest Cards</h3>
+    <h3 class="section-label">Language Proficiency</h3>
+    <div id="lang-proficiency"></div>
+    <h3 class="section-label" style="margin-top:1.25rem">Weakest Cards</h3>
     <div class="table-wrap">
       <table class="data-table">
-        <thead><tr><th>Language</th><th>Word</th><th>Seen</th><th>Rate</th><th>Struggles with</th></tr></thead>
+        <thead id="progress-table-head"><tr>
+          <th data-col="language"       class="sortable">Language</th>
+          <th data-col="word"           class="sortable">Word</th>
+          <th data-col="total_seen"     class="sortable">Seen</th>
+          <th data-col="weakness_score" class="sortable sort-asc">Rate</th>
+          <th>Struggles with</th>
+        </tr></thead>
         <tbody id="progress-tbody"></tbody>
       </table>
     </div>
-    <h3 class="section-label">By Language</h3>
-    <div id="lang-stats-grid" class="lang-stats-grid"></div>
+    <div id="progress-pagination" class="pagination"></div>
   </section>
 
 </main>

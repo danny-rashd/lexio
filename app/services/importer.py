@@ -90,6 +90,82 @@ def parse_vocab_file(file_path: Path) -> list[dict]:
     return rows
 
 
+def import_rows(
+    db: Session,
+    language: str,
+    topic: str,
+    rows: list[dict],
+    source_file: str,
+) -> ImportBatch:
+    """
+    Idempotent ingest of pre-parsed vocabulary rows into the database.
+
+    Args:
+        db (Session): SQLAlchemy session.
+        language (str): Target language name (normalized internally).
+        topic (str): Target topic name (normalized internally).
+        rows (list[dict]): Each dict must have 'word', 'meaning', and 'native' keys.
+        source_file (str): Display name stored on the ImportBatch record.
+
+    Returns:
+        ImportBatch: ORM instance with rows_parsed / rows_inserted / rows_skipped.
+
+    Notes:
+        Called by both import_vocab_file (CSV/TSV) and the Anki import endpoint.
+        Normalizes language and topic; upserts Deck; bulk-inserts new cards.
+    """
+    language = normalize_deck_label(language)
+    topic    = normalize_deck_label(topic)
+
+    deck = db.query(Deck).filter(Deck.language == language, Deck.topic == topic).first()
+    if not deck:
+        deck = Deck(language=language, topic=topic)
+        db.add(deck)
+        db.flush()
+
+    rows_parsed = len(rows)
+
+    keyed = [(r, compute_idempotency_key(language, topic, r["word"])) for r in rows]
+    candidate_keys = [key for _, key in keyed]
+
+    existing_keys = {
+        key
+        for (key,) in db.query(Card.idempotency_key)
+        .filter(Card.idempotency_key.in_(candidate_keys))
+        .all()
+    }
+
+    seen_in_batch: set[str] = set()
+    new_cards = []
+    for r, key in keyed:
+        if key not in existing_keys and key not in seen_in_batch:
+            seen_in_batch.add(key)
+            new_cards.append(Card(
+                deck_id=deck.id,
+                word=r["word"],
+                meaning=r["meaning"],
+                native=r["native"],
+                idempotency_key=key,
+            ))
+
+    db.add_all(new_cards)
+
+    rows_inserted = len(new_cards)
+    rows_skipped = rows_parsed - rows_inserted
+
+    batch = ImportBatch(
+        deck_id=deck.id,
+        source_file=source_file,
+        rows_parsed=rows_parsed,
+        rows_inserted=rows_inserted,
+        rows_skipped=rows_skipped,
+    )
+    db.add(batch)
+    db.commit()
+
+    return batch
+
+
 def import_vocab_file(
     db: Session,
     language: str,
@@ -103,66 +179,10 @@ def import_vocab_file(
         db (Session): SQLAlchemy session.
         language (str): Target language name (normalized internally).
         topic (str): Target topic name (normalized internally).
-        file_path (Path): Path to the source file.
+        file_path (Path): Path to the source CSV or TSV file.
 
     Returns:
         ImportBatch: ORM instance with rows_parsed / rows_inserted / rows_skipped.
-
-    Notes:
-        - Normalizes language and topic via normalize_deck_label() before any
-          DB operation — caller does not need to pre-normalize.
-        - Upserts Deck by (language, topic) unique pair.
-        - Fetches all candidate idempotency keys in one query, then bulk-inserts
-          only new cards — safe to re-run on the same file.
-        - Commits once after all rows are processed.
     """
-    language = normalize_deck_label(language)
-    topic = normalize_deck_label(topic)
-
-    deck = db.query(Deck).filter(Deck.language == language, Deck.topic == topic).first()
-    if not deck:
-        deck = Deck(language=language, topic=topic)
-        db.add(deck)
-        db.flush()
-
     rows = parse_vocab_file(file_path)
-    rows_parsed = len(rows)
-
-    keyed = [(r, compute_idempotency_key(language, topic, r["word"])) for r in rows]
-    candidate_keys = [key for _, key in keyed]
-
-    existing_keys = {
-        key
-        for (key,) in db.query(Card.idempotency_key)
-        .filter(Card.idempotency_key.in_(candidate_keys))
-        .all()
-    }
-
-    new_cards = [
-        Card(
-            deck_id=deck.id,
-            word=r["word"],
-            meaning=r["meaning"],
-            native=r["native"],
-            idempotency_key=key,
-        )
-        for r, key in keyed
-        if key not in existing_keys
-    ]
-
-    db.add_all(new_cards)
-
-    rows_inserted = len(new_cards)
-    rows_skipped = rows_parsed - rows_inserted
-
-    batch = ImportBatch(
-        deck_id=deck.id,
-        source_file=str(file_path),
-        rows_parsed=rows_parsed,
-        rows_inserted=rows_inserted,
-        rows_skipped=rows_skipped,
-    )
-    db.add(batch)
-    db.commit()
-
-    return batch
+    return import_rows(db, language, topic, rows, str(file_path))
