@@ -686,13 +686,14 @@ kbd {
   padding: .4rem .8rem; border: 1.5px solid var(--border);
   border-radius: 8px; cursor: pointer; font-size: .85rem;
   color: var(--text-secondary); transition: border-color .15s, background .15s;
+  user-select: none;
 }
-.lang-check-item input[type="checkbox"] { margin: 0; cursor: pointer; accent-color: var(--accent); }
 .lang-check-item.selected {
   border-color: var(--accent);
   background: color-mix(in srgb, var(--accent) 8%, transparent);
   color: var(--text-primary);
 }
+.lang-check-item:not(.selected) { opacity: .55; }
 
 /* ── Responsive ─────────────────────────────────────────────────────────────── */
 

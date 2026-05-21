@@ -946,34 +946,41 @@ document.getElementById('btn-test-start').addEventListener('click', async () => 
 
 // ── Total Recall Setup ────────────────────────────────────────────────────────────
 
+function _updateTotalRecallStart() {
+  const btn = document.getElementById('btn-big-start');
+  const ok  = App.totalRecallLangs.size >= 2;
+  btn.disabled = !ok;
+  btn.title    = ok ? '' : 'Select at least 2 languages to start';
+}
+
 function showBigTestSetup() {
   showScreen('screen-big-test-setup');
 
-  // Language checklist — default all selected
   const langs = [...new Set(App.decks.map(d => d.language))].sort();
   App.totalRecallLangs = new Set(langs);
 
   const langContainer = document.getElementById('total-recall-langs');
-  langContainer.innerHTML = langs.map(lang => `
-    <label class="lang-check-item selected">
-      <input type="checkbox" value="${esc(lang)}" checked>
-      ${langPillHtml(lang)}
-      <span>${esc(lang)}</span>
-    </label>`).join('');
+  langContainer.innerHTML = langs.map(lang =>
+    `<div class="lang-check-item selected" data-lang="${esc(lang)}">
+       ${langPillHtml(lang)}<span>${esc(lang)}</span>
+     </div>`
+  ).join('');
 
   langContainer.querySelectorAll('.lang-check-item').forEach(item => {
-    item.addEventListener('change', () => {
-      const cb = item.querySelector('input[type="checkbox"]');
-      if (cb.checked) {
-        App.totalRecallLangs.add(cb.value);
-        item.classList.add('selected');
-      } else {
-        if (App.totalRecallLangs.size <= 1) { cb.checked = true; return; }
-        App.totalRecallLangs.delete(cb.value);
+    item.addEventListener('click', () => {
+      const lang = item.dataset.lang;
+      if (App.totalRecallLangs.has(lang)) {
+        App.totalRecallLangs.delete(lang);
         item.classList.remove('selected');
+      } else {
+        App.totalRecallLangs.add(lang);
+        item.classList.add('selected');
       }
+      _updateTotalRecallStart();
     });
   });
+
+  _updateTotalRecallStart();
 
   renderModeGrid('big-mode-grid', App.bigTestMode, null);
 
@@ -994,15 +1001,20 @@ function showBigTestSetup() {
 document.getElementById('btn-big-test-back').addEventListener('click', showHome);
 
 document.getElementById('btn-big-start').addEventListener('click', async () => {
+  if (App.totalRecallLangs.size < 2) {
+    await showAlert('Select at least 2 languages before starting Total Recall.');
+    return;
+  }
   const btn = document.getElementById('btn-big-start');
   setLoading(btn, true);
+  const selectedLangs = [...App.totalRecallLangs];
   const res = await api('POST', '/api/quiz/start', {
     scope:      'big_test',
     deck_id:    null,
     mode:       App.bigTestMode,
     direction:  '1_and_2',
     card_count: App.bigTestCount,
-    languages:  [...App.totalRecallLangs],
+    languages:  selectedLangs,
   });
 
   if (!res || !res.ok) {
