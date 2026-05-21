@@ -6,10 +6,10 @@
 ## Overview
 
 Lexio is a personal language flashcard web application for studying Spanish,
-Mandarin, Japanese, and Norsk. It supports:
+Mandarin, Japanese, and Norwegian. It supports:
 - Vocabulary organized by **language → topic** (nested folders)
 - Three quiz modes: **multiple-choice, true/false, typing**
-- **Four quiz directions** for Japanese/Mandarin (see Direction table); Spanish/Norsk use directions 1–2 only
+- **Four quiz directions** for Japanese/Mandarin (see Direction table); Spanish/Norwegian use directions 1–2 only
 - **Diacritics-insensitive** answer matching on all languages
 - Per-card progress tracking (seen count, correct rate, weakness score)
 - **Test mode**: one language + one topic folder per session
@@ -49,7 +49,7 @@ Mandarin, Japanese, and Norsk. It supports:
 | Language | Script stored as `word` | `native` field | Typing input |
 |---|---|---|---|
 | Spanish | Spanish word (e.g. `café`) | empty | diacritics-insensitive Latin |
-| Norsk | Norsk word (e.g. `kjærlighet`) | empty | diacritics-insensitive Latin |
+| Norwegian | Norwegian word (e.g. `kjærlighet`) | empty | diacritics-insensitive Latin |
 | Japanese | Romaji (e.g. `konnichiwa`) | Kana/Kanji (e.g. `こんにちは`) | romaji, diacritics-insensitive |
 | Mandarin | Pinyin (e.g. `ni hao`) | Characters (e.g. `你好`) | pinyin, tone-marks insensitive |
 
@@ -366,7 +366,7 @@ LIMIT :card_count;
 **Rules:**
 - Directions 3 and 4 are only available when the card has a non-empty `native` field
 - Cards missing `native` silently fall back to directions 1 and 2 only
-- Spanish and Norsk cards always use directions 1 and 2 only
+- Spanish and Norwegian cards always use directions 1 and 2 only
 - **Big Test** is locked to directions 1 and 2 regardless of language — for
   uniformity when mixing all languages in one session
 - In Test mode the user picks a direction preference:
@@ -798,7 +798,7 @@ def get_streak(db: Session) -> dict:
 2. **Test Setup** — pick language → pick topic → pick mode (MCQ / T-F / Typing)
    → pick direction → Start
    - Direction options shown depend on language:
-     - Spanish/Norsk: `Word → Meaning` | `Meaning → Word` | `Both`
+     - Spanish/Norwegian: `Word → Meaning` | `Meaning → Word` | `Both`
      - Japanese/Mandarin: above + `Characters → Meaning` | `Characters → Reading` | `All available` | `Random`
    - If language has < 4 cards: MCQ option is disabled with tooltip
 
@@ -871,7 +871,7 @@ library.
 | Spanish | Red | `#E63946` | `ES` |
 | Mandarin | Gold | `#F4A261` | `ZH` |
 | Japanese | Indigo | `#4361EE` | `JA` |
-| Norsk | Teal | `#2A9D8F` | `NO` |
+| Norwegian | Teal | `#2A9D8F` | `NO` |
 
 These colors also serve as accent colors on the dashboard stat blocks and
 weakest cards table — consistent visual language across the whole app.

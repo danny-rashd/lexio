@@ -1,0 +1,1040 @@
+word,meaning,native
+# ── Verbs ────────────────────────────────────────────────────────────────────
+是,to be,shì
+有,to have,yǒu
+做,to do / to make,zuò
+说,to say / to speak,shuō
+去,to go,qù
+来,to come,lái
+看,to see / to look,kàn
+听,to listen / to hear,tīng
+想,to think / to want,xiǎng
+知道,to know,zhīdào
+能,to be able to / can,néng
+要,to want / to need,yào
+给,to give,gěi
+问,to ask,wèn
+回答,to answer,huí dá
+喜欢,to like,xǐhuān
+爱,to love,ài
+吃,to eat,chī
+喝,to drink,hē
+睡觉,to sleep,shuì jiào
+走,to walk,zǒu
+跑,to run,pǎo
+开,to open / to drive,kāi
+关,to close,guān
+买,to buy,mǎi
+卖,to sell,mài
+付钱,to pay,fù qián
+找,to look for / to find,zhǎo
+写,to write,xiě
+读,to read,dú
+学习,to study / to learn,xuéxí
+工作,to work,gōngzuò
+帮助,to help,bāngzhù
+用,to use,yòng
+换,to change,huàn
+开始,to begin / to start,kāishǐ
+结束,to end / to finish,jiéshù
+等,to wait,děng
+旅行,to travel,lǚxíng
+参观,to visit,cānguān
+游泳,to swim,yóuyǒng
+飞,to fly,fēi
+开车,to drive,kāichē
+坐,to sit,zuò
+站,to stand,zhàn
+决定,to decide,juédìng
+选择,to choose,xuǎnzé
+记得,to remember,jìde
+忘记,to forget,wàngjì
+相信,to believe / to trust,xiāngxìn
+同意,to agree,tóngyi
+拒绝,to refuse,jùjué
+接受,to accept / to receive,jiēshòu
+发送,to send,fāsòng
+理解,to understand / to solve,lǐjiě
+减少,to reduce,jiǎnshǎo
+增加,to increase,zēngjiā
+改变,to change,gǎibiàn
+保证,to guarantee,bǎozhèng
+建议,to suggest,jiànyì
+检查,to check,jiǎnchá
+准备,to prepare,zhǔnbèi
+发展,to develop,fāzhǎn
+教,to teach,jiào
+搬,to move (objects),bān
+推,to push,tuī
+拉,to pull,lā
+扔,to throw,rēng
+拿,to hold / to take,ná
+放,to put / to place,fàng
+收,to collect / to receive,shōu
+打,to hit / to play (sports),dǎ
+踢,to kick,tī
+跳,to jump,tiào
+唱歌,to sing,chàng gē
+跳舞,to dance,tiào wǔ
+做饭,to cook,zuò fàn
+打扫,to clean / to sweep,dǎsǎo
+洗,to wash,xǐ
+睡,to sleep,shuì
+休息,to rest,xiūxi
+修,to repair,xiū
+订,to book / to order,dìng
+借,to borrow / to lend,jiè
+还,to return (something),huán
+逃,to escape / to flee,táo
+救,to save / to rescue,jiù
+保护,to protect,bǎohù
+鼓励,to encourage,gǔlì
+禁止,to forbid,jìnzhǐ
+允许,to allow,yǔnxǔ
+确认,to confirm,quèrèn
+取消,to cancel,qǔxiāo
+推迟,to postpone,tuīchí
+毕业,to graduate,bìyè
+入学,to enrol,rùxué
+结婚,to get married,jiéhūn
+离婚,to get divorced,líhūn
+# ── Nouns — People & Society ─────────────────────────────────────────────────
+人,person / people,rén
+男人,man,nánrén
+女人,woman,nǚrén
+孩子,child,háizi
+男孩,boy,nánhái
+女孩,girl,nǚhái
+老人,elderly person,lǎorén
+朋友,friend,péngyou
+邻居,neighbour,línjū
+同事,colleague,tóngshì
+老师,teacher,lǎoshī
+学生,student,xuésheng
+医生,doctor,yīshēng
+护士,nurse,hùshi
+警察,police,jǐngchá
+士兵,soldier,shìbīng
+工人,worker,gōngrén
+农民,farmer,nóngmín
+商人,merchant / businessman,shāngrén
+官员,official,guānyuán
+# ── Nouns — Family ────────────────────────────────────────────────────────────
+家庭,family,jiātíng
+父母,parents,fùmǔ
+父亲,father,fùqīn
+母亲,mother,mǔqīn
+儿子,son,érzi
+女儿,daughter,nǚ'ér
+哥哥,older brother,gēge
+弟弟,younger brother,dìdi
+姐姐,older sister,jiějie
+妹妹,younger sister,mèimei
+丈夫,husband,zhàngfu
+妻子,wife,qīzi
+祖父,paternal grandfather,zǔfù
+祖母,paternal grandmother,zǔmǔ
+外公,maternal grandfather,wàigōng
+外婆,maternal grandmother,wàipó
+叔叔,uncle,shūshu
+阿姨,aunt,āyí
+表哥,older male cousin,biǎogē
+表妹,younger female cousin,biǎomèi
+# ── Nouns — Time ─────────────────────────────────────────────────────────────
+时间,time,shíjiān
+年,year,nián
+月,month,yuè
+周,week,zhōu
+天,day,tiān
+小时,hour,xiǎoshí
+分钟,minute,fēnzhōng
+秒,second,miǎo
+早上,morning,zǎoshang
+下午,afternoon,xiàwǔ
+晚上,evening / night,wǎnshang
+今天,today,jīntiān
+明天,tomorrow,míngtiān
+昨天,yesterday,zuótiān
+现在,now / present,xiànzài
+过去,past,guòqù
+未来,future,wèilái
+以前,before / in the past,yǐqián
+以后,after / in the future,yǐhòu
+世纪,century,shìjì
+星期一,Monday,xīngqī yī
+星期二,Tuesday,xīngqī èr
+星期三,Wednesday,xīngqī sān
+星期四,Thursday,xīngqī sì
+星期五,Friday,xīngqī wǔ
+星期六,Saturday,xīngqī liù
+星期天,Sunday,xīngqī tiān
+一月,January,yī yuè
+二月,February,èr yuè
+三月,March,sān yuè
+四月,April,sì yuè
+五月,May,wǔ yuè
+六月,June,liù yuè
+七月,July,qī yuè
+八月,August,bā yuè
+九月,September,jiǔ yuè
+十月,October,shí yuè
+十一月,November,shíyī yuè
+十二月,December,shí'èr yuè
+春天,spring,chūntiān
+夏天,summer,xiàtiān
+秋天,autumn / fall,qiūtiān
+冬天,winter,dōngtiān
+# ── Nouns — Place & Direction ────────────────────────────────────────────────
+地方,place,dìfang
+国家,country,guójiā
+城市,city,chéngshì
+首都,capital city,shǒudū
+省,province,shěng
+镇,town,zhèn
+村庄,village,cūnzhuāng
+家,home / house,jiā
+学校,school,xuéxiào
+大学,university,dàxué
+医院,hospital,yīyuàn
+银行,bank,yínháng
+商店,shop,shāngdiàn
+市场,market,shìchǎng
+公园,park,gōngyuán
+图书馆,library,túshūguǎn
+酒店,hotel,jiǔdiàn
+餐厅,restaurant,cāntīng
+机场,airport,jīchǎng
+火车站,train station,huǒchē zhàn
+北方,north,běifāng
+南方,south,nánfāng
+东方,east,dōngfāng
+西方,west,xīfāng
+上面,above / on top,shàngmiàn
+下面,below / underneath,xiàmiàn
+前面,in front,qiánmiàn
+后面,behind / at the back,hòumiàn
+里面,inside,lǐmiàn
+外面,outside,wàimiàn
+左边,left side,zuǒbiān
+右边,right side,yòubiān
+中间,middle / between,zhōngjiān
+旁边,beside / next to,pángbiān
+附近,nearby,fùjìn
+# ── Nouns — Nature & Environment ────────────────────────────────────────────
+自然,nature,dàzìrán
+天空,sky,tiānkōng
+太阳,sun,tàiyáng
+月亮,moon,yuèliàng
+星星,star,xīngxīng
+云,cloud,yún
+雨,rain,yǔ
+雪,snow,xuě
+风,wind,fēng
+雷,thunder,léi
+闪电,lightning,shǎndiàn
+雾,fog / mist,wù
+冰,ice,bīng
+火,fire,huǒ
+土地,earth / land,tǔdì
+石头,stone,shítou
+山,mountain,shān
+河,river,hé
+湖,lake,hú
+海,sea,hǎi
+森林,forest,sēnlín
+田野,field,tiányě
+树,tree,shù
+花,flower,huā
+草,grass,cǎo
+植物,plant,zhíwù
+动物,animal,dòngwù
+狗,dog,gǒu
+猫,cat,māo
+鸟,bird,niǎo
+鱼,fish,yú
+马,horse,mǎ
+牛,cow,niú
+猪,pig,zhū
+羊,sheep,yáng
+鸡,chicken (animal),jī
+兔子,rabbit,tùzi
+蛇,snake,shé
+老虎,tiger,lǎohǔ
+狮子,lion,shīzi
+大象,elephant,dàxiàng
+# ── Nouns — Body ─────────────────────────────────────────────────────────────
+身体,body,shēntǐ
+头,head,tóu
+脸,face,liǎn
+眼睛,eye,yǎnjīng
+鼻子,nose,bízi
+嘴巴,mouth,zuǐba
+耳朵,ear,ěrduo
+牙齿,tooth,yáchǐ
+舌头,tongue,shétou
+脖子,neck,bózi
+肩膀,shoulder,jiānbǎng
+胳臂,arm,gēbei
+手,hand,shǒu
+手指,finger,shǒuzhǐ
+腿,leg,tuǐ
+脚,foot,jiǎo
+膝盖,knee,xīgài
+心脏,heart,xīnzàng
+肺,lung,fèi
+胃,stomach,wèi
+脑,brain,nǎo
+血,blood,xuè
+骨头,bone,gǔtou
+肌肉,muscle,jīròu
+皮肤,skin,pífū
+头发,hair,tóufa
+# ── Nouns — Food & Drink ─────────────────────────────────────────────────────
+食物,food,shíwù
+饭,cooked rice / meal,fàn
+面包,bread,miànbāo
+面条,noodles,miàntiáo
+饺子,dumplings,jiǎozi
+包子,steamed buns,bāozi
+馒头,steamed bread,mántou
+米饭,steamed rice,mǐfàn
+粥,porridge / congee,zhōu
+豆腐,tofu,dòufu
+蔬菜,vegetables,shūcài
+水果,fruit,shuíguǒ
+肉,meat,ròu
+鸡肉,chicken (meat),jī ròu
+猪肉,pork,zhūròu
+牛肉,beef,niúròu
+鱼肉,fish (food),yúròu
+鸡蛋,egg,jīdàn
+牛奶,milk,niúnǎi
+奶酪,cheese,nǎilào
+黄油,butter,huángyóu
+油,oil,yóu
+盐,salt,yán
+糖,sugar,táng
+酱油,soy sauce,jiàngyóu
+醋,vinegar,cù
+咖啡,coffee,kāfēi
+茶,tea,chá
+啤酒,beer,píjiǔ
+葡萄酒,wine,pútaojiǔ
+果汁,juice,guǒzhī
+水,water,shuǐ
+苹果,apple,píngguǒ
+香蕉,banana,xiāngjiāo
+橘子,orange,júzi
+草莓,strawberry,cǎoméi
+西瓜,watermelon,xīguā
+葡萄,grapes,pútao
+柠檬,lemon,níngméng
+桃子,peach,táozi
+梨,pear,lí
+西红柿,tomato,xīhóngshì
+黄瓜,cucumber,huángguā
+生菜,lettuce,shēngcài
+胡萝卜,carrot,húluóbo
+土豆,potato,tǔdòu
+洋葱,onion,yángcōng
+大蒜,garlic,dàsuàn
+辣椒,chilli pepper,làjiāo
+蘑菇,mushroom,mógu
+# ── Nouns — Clothing ─────────────────────────────────────────────────────────
+衣服,clothes,yīfu
+衬衫,shirt,chènshān
+裤子,trousers,kùzi
+裙子,skirt,qúnzi
+外套,jacket / coat,wàitào
+鞋子,shoes,xiézi
+袜子,socks,wàzi
+帽子,hat,màozi
+围巾,scarf,wéijīn
+手套,gloves,shǒutào
+# ── Nouns — Home & Objects ───────────────────────────────────────────────────
+桌子,table,zhuōzi
+椅子,chair,yǐzi
+沙发,sofa,shāfā
+床,bed,chuáng
+书桌,desk,shūzhuō
+窗户,window,chuānghu
+门,door,mén
+地板,floor,dìbǎn
+墙,wall,qiáng
+天花板,ceiling,tiānhuābǎn
+灯,lamp / light,dēng
+镜子,mirror,jìngzi
+冰箱,fridge,bīngxiāng
+洗衣机,washing machine,xǐyījī
+电视,television,diànshì
+电脑,computer,diànnǎo
+手机,mobile phone,shǒujī
+钥匙,key,yàoshi
+包,bag,bāo
+书包,school bag / backpack,shūbāo
+钱包,wallet,qiánbāo
+雨伞,umbrella,yǔsǎn
+眼镜,glasses,yǎnjìng
+手表,watch,shǒubiǎo
+纸,paper,zhǐ
+笔,pen,bǐ
+书,book,shū
+# ── Nouns — Transport & Travel ───────────────────────────────────────────────
+交通,transport,jiāotōng
+汽车,car,qìchē
+公车,bus,gōngchē
+火车,train,huǒchē
+飞机,airplane,fēijī
+船,ship / boat,chuán
+自行车,bicycle,zìxíngchē
+摩托车,motorcycle,mótuōchē
+地铁,subway / metro,dìtiě
+出租车,taxi,chūzūchē
+车票,ticket,chēpiào
+护照,passport,hùzhào
+行李,luggage / suitcase,xínglǐ
+地图,map,dìtú
+路,road / path,lù
+街道,street,jiēdào
+桥,bridge,qiáo
+# ── Nouns — Health & Medicine ────────────────────────────────────────────────
+健康,health,jiànkāng
+疾病,illness,jíbìng
+药物,medicine,yàowù
+手术,surgery / operation,shǒushù
+注射,injection / shot,zhùshè
+疫苗,vaccine,yìmiáo
+诊断,diagnosis,zhěnduàn
+症状,symptom,zhèngzhuàng
+发烧,fever,fāshāo
+咳嗽,cough,késòu
+头痛,headache,tóutòng
+感冒,cold (illness),gǎnmào
+过敏,allergy,guòmǐn
+# ── Nouns — Education ────────────────────────────────────────────────────────
+教育,education,jiàoyù
+知识,knowledge,zhīshi
+科学,science,kēxué
+数学,mathematics,shùxué
+语文,Chinese language,yǔwén
+历史,history,lìshǐ
+地理,geography,dìlǐ
+音乐,music,yīnyuè
+体育,physical education,tǐyù
+艺术,art,yìshù
+考试,exam,kǎoshì
+作业,homework,zuòyè
+课堂,classroom,kètáng
+校长,principal / headmaster,xiàozhǎng
+# ── Nouns — Work & Economy ───────────────────────────────────────────────────
+公司,company,gōngsī
+老板,boss,lǎobǎn
+员工,employee,yuángōng
+薪水,salary,xīnshuǐ
+钱,money,qián
+价格,price,jiàgé
+折扣,discount,zhékòu
+税,tax,shuì
+贸易,trade,màoyì
+竞争,competition,jìngzhēng
+投资,investment,tóuzī
+利润,profit,lìrùn
+损失,loss,sǔnshī
+预算,budget,yùsuàn
+合同,contract,hétong
+# ── Nouns — Technology ───────────────────────────────────────────────────────
+技术,technology / technique,jìshù
+网络,network / internet,wǎngluò
+软件,software,ruǎnjiàn
+应用,application / app,yìngyòng
+数据,data,shùjù
+信息,information,xìnxī
+密码,password,mìmǎ
+屏幕,screen,píngmù
+键盘,keyboard,jiànpán
+鼠标,mouse (computer),shǔbiāo
+打印机,printer,dǎyìnjī
+平板电脑,tablet,píng bǎn diànnǎo
+充电器,charger,chōngdiànqì
+电池,battery,diànchí
+相机,camera,xiàngjī
+# ── Nouns — Arts & Culture ───────────────────────────────────────────────────
+文化,culture,wénhuà
+语言,language,yǔyán
+文学,literature,wénxué
+诗歌,poetry,shīgē
+小说,novel,xiǎoshuō
+故事,story,gùshi
+电影,film / movie,diànyǐng
+歌曲,song,gēqǔ
+舞蹈,dance,wǔdǎo
+绘画,painting,huìhuà
+雕塑,sculpture,diāosù
+建筑,architecture,jiànzhú
+博物馆,museum,bówùguǎn
+剧场,theatre,jùchǎng
+节日,festival / holiday,jiérì
+传统,tradition,chuántǒng
+习俗,custom / habit,xísú
+# ── Nouns — Emotions & Mind ──────────────────────────────────────────────────
+心,heart / mind,xīn
+感情,feelings / emotion,gǎnqíng
+快乐,happiness / joy,kuàilè
+悲伤,sadness,bēishāng
+愤怒,anger,fènnù
+恐惧,fear,kǒngjù
+惊讶,surprise,jīngyà
+希望,hope,xīwàng
+梦想,dream,mèngxiǎng
+信心,confidence,xìnxīn
+勇气,courage,yǒngqì
+耐心,patience,nàixīn
+# ── Nouns — Society & Politics ───────────────────────────────────────────────
+社会,society,shèhuì
+政府,government,zhèngfǔ
+政治,politics,zhèngzhì
+民主,democracy,mínzhǔ
+法律,law,fǎlǜ
+权利,right,quánlì
+责任,responsibility,zérèn
+自由,freedom,zìyóu
+平等,equality,píngděng
+和平,peace,hépíng
+战争,war,zhànzhēng
+选举,election,xuǎnjǔ
+政党,political party,zhèngdǎng
+军队,army,jūnduì
+边界,border,biānjiè
+# ── Nouns — Environment ──────────────────────────────────────────────────────
+环境,environment,huánjìng
+气候,climate,qìhòu
+温度,temperature,wēndù
+污染,pollution,wūrǎn
+能源,energy,néngyuán
+资源,resource,zīyuán
+垃圾,garbage / rubbish,lājī
+回收,recycling,huíshōu
+全球变暖,global warming,quánqiú biànnuǎn
+洪水,flood,hóngshuǐ
+地震,earthquake,dìzhèn
+台风,typhoon,táifēng
+干旱,drought,gānhàn
+# ── Adjectives ───────────────────────────────────────────────────────────────
+好,good,hǎo
+坏,bad,huài
+大,big,dà
+小,small,xiǎo
+新,new,xīn
+旧,old,jiù
+年轻,young,niánqīng
+高,tall / high,gāo
+矮,short / low,ǎi
+长,long,cháng
+短,short,duǎn
+宽,wide,kuān
+窄,narrow,zhǎi
+胖,fat,pàng
+瘦,thin,shòu
+强,strong,qiáng
+弱,weak,ruò
+快,fast,kuài
+慢,slow,màn
+容易,easy,róngyì
+难,difficult,nán
+重要,important,zhòng yào
+必要,necessary,bì yào
+可能,possible,kě néng
+真,true / real,zhēn
+假,false,jiǎ
+安全,safe,ānquán
+危险,dangerous,wēixiǎn
+有钱,rich,yǒuqián
+穷,poor,qióng
+高兴,happy,gāoxìng
+难过,sad,nánguò
+生气,angry,shēngqì
+冷静,calm,lěngjìng
+紧张,nervous,jǐnzhāng
+无聊,boring,wúliào
+有趣,interesting,yǒuqù
+漂亮,beautiful,piàoliang
+丑,ugly,chǒu
+干净,clean,gānjìng
+脏,dirty,zāng
+满,full,mǎn
+空,empty,kōng
+忙,busy,máng
+不同,different,bùtóng
+一样,same,yīyàng
+特殊,special,tèshū
+普通,normal / ordinary,pǔtōng
+奇怪,strange,qíguài
+常见,common,chángjian
+稀有,rare,xīyǒu
+现代,modern,xiàndài
+古代,ancient,gǔdài
+人造,artificial,rénzào
+负责,responsible,fùzé
+聪明,intelligent / clever,cōngmíng
+认真,serious / earnest,rènzhēn
+友好,friendly,yǒuhǎo
+诚实,honest,chéngshí
+大方,generous,dàfāng
+勇敢,brave,yǒnggǎn
+积极,positive / active,jīpō
+消极,negative / passive,xiāojí
+完整,complete,wánzhěng
+完美,perfect,wánměi
+正确,correct,zhèngquè
+精确,exact,jīngquè
+官方,official,guānfāng
+正式,formal,zhèngshì
+国际,international,guójì
+公共,public,gōnggòng
+私人,private,sīrén
+可口,delicious,kěkǒu
+辣,spicy,là
+甜,sweet,tián
+苦,bitter,kǔ
+咸,salty,xián
+酸,sour,suān
+新鲜,fresh,xīnxiān
+热,hot,rè
+冷,cold,lěng
+温暖,warm,wēnnuǎn
+潮湿,humid / damp,cháoshī
+干燥,dry,gānzào
+# ── Adverbs ──────────────────────────────────────────────────────────────────
+很,very,hěn
+更,more,gèng
+也,also / too,yě
+已经,already,yǐjīng
+从来没,never,cónglái méi
+总是,always,zǒng shì
+差不多,almost,chàbuduō
+只,only,zhǐ
+足够,enough,zúgòu
+太,too much,tài
+一点,a little,yīdiǎn
+很多,a lot,hěn duō
+也许,perhaps,yěxǔ
+肯定,certainly,kěndìng
+真的,really,zhēn de
+完全,completely,wánquán
+绝对,absolutely,juéduì
+特别,especially,tèbié
+这里,here,zhèlǐ
+那里,there,nàlǐ
+远,far,yuǎn
+马上,immediately,mǎshàng
+最后,finally / last,zuìhòu
+# ── Measure words ────────────────────────────────────────────────────────────
+个,general measure word,gè
+本,measure for books,běn
+块,measure for pieces / chunks,kuài
+件,measure for items of clothing,jiàn
+双,pair,shuāng
+杯,cup of,bēi
+瓶,bottle of,píng
+碗,bowl of,wǎn
+盘,plate of,pán
+张,measure for flat objects,zhāng
+条,measure for long thin objects,tiáo
+把,measure for objects with handles,bǎ
+支,measure for stick-like objects,zhī
+台,measure for machines,tái
+# ── Pronouns ─────────────────────────────────────────────────────────────────
+我,I / me,wǒ
+你,you,nǐ
+他,he / him,tā
+她,she / her,tā
+它,it,tā
+我们,we / us,wǒmen
+你们,you all,nǐmen
+他们,they / them,tāmen
+这,this,zhè
+那,that,nà
+什么,something / what,shénme
+没什么,nothing,méi shénme
+某人,someone,mǒurén
+没人,nobody,méi rén
+所有,everything / all,suǒyǒu
+# ── Numbers ──────────────────────────────────────────────────────────────────
+一,one,yī
+二,two,èr
+三,three,sān
+四,four,sì
+五,five,wǔ
+六,six,liù
+七,seven,qī
+八,eight,bā
+九,nine,jiǔ
+十,ten,shí
+十一,eleven,shíyī
+十二,twelve,shí'èr
+二十,twenty,èrshí
+三十,thirty,sānshí
+四十,forty,sìshí
+五十,fifty,wǔshí
+一百,one hundred,yībǎi
+一千,one thousand,yīqiān
+一万,ten thousand,yīwàn
+一百万,one million,yībǎiwàn
+第一,first,dì yī
+# ── Question words ───────────────────────────────────────────────────────────
+谁,who,shuí
+哪个,which,nǎ gè
+哪里,where,nǎlǐ
+什么时候,when,shénme shíhòu
+怎么,how,zěnme
+多少,how much / how many,duōshǎo
+为什么,why,wèishéme
+# ── More verbs ────────────────────────────────────────────────────────────────
+分享,to share,fēnxiǎng
+合作,to cooperate,hézuò
+谈判,to negotiate,tánpàn
+雇用,to hire,gùyòng
+出口,to export,chūkǒu
+进口,to import,jìnkǒu
+投票,to vote,tóupiào
+治理,to govern,zhìlǐ
+装饰,to decorate,zhuāngshì
+批准,to approve,pīzhǔn
+申请,to apply,shēnqǐng
+实现,to achieve,shíxiàn
+混合,to mix,hùnhé
+庆祝,to celebrate,qìngzhù
+抱怨,to complain,bàoyuàn
+原谅,to forgive,yuánliàng
+尝试,to attempt,chángshì
+分析,to analyse,fēnxī
+比较,to compare,bǐjiào
+讨论,to discuss,tǎolùn
+计划,to plan,jìhuà
+组织,to organize,zǔzhī
+控制,to control,kòngzhì
+量,to measure,liàng
+改善,to improve,gǎishàn
+装修,to renovate,zhuāngxiū
+维修,to repair,wéixiū
+连接,to connect,liánjie
+下载,to download,xiàzài
+上传,to upload,shàngchuán
+编程,to program,biānchéng
+设计,to design,shèjì
+发明,to invent,fāmíng
+发现,to discover,fāxiàn
+调查,to investigate,diàochá
+研究,to research,yánjiū
+享受,to enjoy,xiǎngshòu
+痛苦,to suffer,tòngkǔ
+照顾,to take care of,zhàogù
+营救,to rescue / to save,yíngjì
+变老,to age / to grow old,biànlǎo
+# ── More nouns — Society ──────────────────────────────────────────────────────
+民族,ethnicity / nationality,mínzú
+文明,civilization,wénmíng
+宗教,religion,zōngjiào
+哲学,philosophy,zhéxué
+经济,economy,jīngjì
+工业,industry,gōngyè
+农业,agriculture,nóngyè
+科技,science and technology,kējì
+医学,medicine (field),yīxué
+法学,law (study),fǎxué
+心理学,psychology,xīnlǐxué
+社会学,sociology,shèhuìxué
+人类学,anthropology,rénlèixué
+地质学,geology,dìzhìxué
+天文学,astronomy,tiānwénxué
+生物学,biology,shēngwùxué
+化学,chemistry,huàxué
+物理,physics,wùlǐ
+数字,digit / number,shùzì
+统计,statistics,tǒngjì
+通信,communication,tōngxìn
+# ── More nouns — Home ─────────────────────────────────────────────────────────
+房间,room,fángjiān
+厨房,kitchen,chúfáng
+卫生间,bathroom,wèishēngjiān
+客厅,living room,kètīng
+卧室,bedroom,wòshì
+阳台,balcony,yángtái
+地下室,basement,dìxiàshì
+楼梯,staircase,lóutī
+电梯,lift / elevator,diàntī
+走廊,corridor,zǒuláng
+屋顶,roof,wūdǐng
+地基,foundation,dìjī
+暖气,heating,nuǎnqì
+空调,air conditioning,kōngtiáo
+烤箱,oven,kǎoxiāng
+微波炉,microwave,wēibōlú
+洗碗机,dishwasher,xǐwǎnjī
+书架,bookshelf,shūjià
+抽屉,drawer,chōuti
+衣柜,wardrobe,yīguì
+地毯,carpet / rug,dìtǎn
+窗帘,curtain,chuānglián
+毛巾,towel,máojīn
+被子,duvet / quilt,bèizi
+枕头,pillow,zhěntou
+# ── More nouns — Materials ────────────────────────────────────────────────────
+木材,wood (material),mùcái
+金属,metal,jīnshǔ
+塑料,plastic,sùliào
+玻璃,glass,bōlí
+布料,fabric / cloth,bùliào
+羊毛,wool,yángmáo
+棉,cotton,mián
+皮革,leather,pígé
+丝绸,silk,sīchóu
+钢,steel,gāng
+铁,iron,tiě
+铜,copper,tóng
+金,gold,jīn
+银,silver,yín
+钻石,diamond,zuànshí
+宝石,gemstone,bǎoshí
+砖,brick,zhuān
+水泥,cement,shuǐní
+# ── More nouns — Personal items ──────────────────────────────────────────────
+香水,perfume,xiāngshuǐ
+肥皂,soap,fèizào
+洗发水,shampoo,xǐfàshuǐ
+牙刷,toothbrush,yáshuā
+牙膏,toothpaste,yágāo
+刮刀,razor,guādāo
+梳子,comb,shūzi
+化妆品,cosmetics,huàzhuāngpǐn
+口红,lipstick,kǒuhóng
+背包,backpack,bèibāo
+戒指,ring,jièzhi
+项链,necklace,xiàngliàn
+耳环,earring,ěrhuán
+# ── More nouns — Transport ────────────────────────────────────────────────────
+高铁,high-speed rail,gāotiě
+轮船,ocean liner,lúnchuán
+直升机,helicopter,zhíshēngjī
+港口,port / harbour,gǎngkǒu
+码头,pier / wharf,mǎtóu
+高速公路,motorway / highway,gāosù gōnglù
+交叉口,intersection,jiāochākǒu
+红绿灯,traffic light,hónglǜdēng
+停车场,car park,tíngchē chǎng
+加油站,petrol station,jiāyóu zhàn
+# ── More nouns — Health ───────────────────────────────────────────────────────
+血压,blood pressure,xuèyā
+体温,body temperature,tǐwēn
+脉搏,pulse,màibó
+病毒,virus,bìngdú
+细菌,bacteria,xìjùn
+免疫,immunity,miǎnyì
+治疗,therapy / treatment,zhìliáo
+手术室,operating room,shǒushù shì
+急救,first aid,jíjiù
+救护车,ambulance,jiùhù chē
+# ── More nouns — Education ────────────────────────────────────────────────────
+课程,curriculum / course,kèchéng
+讲座,lecture,jiǎngzuò
+论文,thesis / paper,lùnwén
+奖学金,scholarship,jiǎngxuéjīn
+学费,tuition fee,xuéfèi
+校园,campus,xiàoyuán
+实验室,laboratory,shíyàn shì
+图书,books / literature,túshū
+笔记,notes,bǐjì
+词典,dictionary,cídiǎn
+# ── More nouns — Work ─────────────────────────────────────────────────────────
+职业,profession / career,zhíyè
+简历,CV / résumé,jiǎnlì
+面试,interview,miànshì
+协议,agreement,xiéyì
+会议,meeting,huìyì
+报告,report,bàogào
+项目,project,xiàngmù
+目标,objective / goal,mùbiāo
+截止日期,deadline,jiézhǐ rìqī
+薪资,remuneration,xīnzī
+奖金,bonus,jiǎngjīn
+福利,benefits / welfare,fúlì
+假期,holiday / leave,jiàqī
+办公室,office,bàngōngshì
+文件,document / file,wénjiàn
+合伙人,partner,héhuǒrén
+客户,client / customer,kèhù
+供应商,supplier,gōngyīng shāng
+# ── More nouns — Finance ──────────────────────────────────────────────────────
+股票,stock / shares,gǔpiào
+债务,debt,zhàiwù
+贷款,loan,dàikuǎn
+利率,interest rate,lìlǜ
+通货膨胀,inflation,tōnghuò péngzhàng
+汇率,exchange rate,huìlǜ
+账户,account,zhànghù
+存款,deposit / savings,cúnkuǎn
+支出,expenditure,zhīchū
+收入,income / revenue,shōurù
+亏损,loss / deficit,kuīsǔn
+审计,audit,shěnjì
+发票,invoice,fāpiào
+收据,receipt,shōujù
+# ── More nouns — Technology ───────────────────────────────────────────────────
+人工智能,artificial intelligence,réngōng zhìnéng
+大数据,big data,dà shùjù
+云计算,cloud computing,yún jìsuàn
+区块链,blockchain,qūkuài liàn
+机器人,robot,jīqìrén
+无人机,drone,wúrénjī
+虚拟现实,virtual reality,xūnǐ xiànshí
+增强现实,augmented reality,zēngqiáng xiànshí
+社交媒体,social media,shèjiāo méitǐ
+搜索引擎,search engine,sōusuǒ yǐnqíng
+网站,website,wǎngzhàn
+电子邮件,email,diànzǐ yóujiàn
+黑客,hacker,hēikè
+病毒 (电脑),computer virus,bìngdú
+# ── More nouns — Culture & Traditions ────────────────────────────────────────
+汉字,Chinese character,hànzì
+书法,calligraphy,shūfǎ
+国画,Chinese painting,guóhuà
+陶瓷,porcelain / ceramics,táocí
+功夫,kung fu / martial arts,gōngfū
+太极,tai chi,tàijí
+茶道,tea ceremony,chádào
+春节,Chinese New Year,chūnjié
+中秋节,Mid-Autumn Festival,zhōngqiū jié
+端午节,Dragon Boat Festival,duānwǔ jié
+七夕节,Qixi Festival,qīxī jié
+元宵节,Lantern Festival,yuánxiāo jié
+舞龙,dragon dance,wǔ lóng
+舞狮,lion dance,wǔ shī
+红包,red envelope (gift),hóngbāo
+对联,Spring Festival couplet,duìlián
+灯笼,lantern,dēnglóng
+鞭炮,firecracker,biānpào
+# ── More adjectives ───────────────────────────────────────────────────────────
+复杂,complex / complicated,fùzá
+简单,simple,jiǎndān
+直接,direct,zhíjiē
+间接,indirect,jiànjiē
+明显,obvious / clear,míngxiǎn
+隐藏,hidden,yǐncáng
+公平,fair,gōngpíng
+不公平,unfair,bù gōngpíng
+合理,reasonable,hélǐ
+不合理,unreasonable,bù hélǐ
+合法,legal,héfǎ
+非法,illegal,fēifǎ
+临时,temporary,línshí
+永久,permanent,yǒngjiǔ
+紧急,urgent,jǐnjí
+可持续,sustainable,kě chíxù
+有效,effective / valid,yǒuxiào
+无效,ineffective / invalid,wúxiào
+充分,sufficient,chōngfèn
+不足,insufficient,bùzú
+丰富,abundant / rich,fēngfù
+稀少,scarce / rare,xīshǎo
+# ── More adverbs ──────────────────────────────────────────────────────────────
+经常,often / frequently,jīngcháng
+偶尔,occasionally,ǒu'ěr
+从不,never,cóng bù
+有时,sometimes,yǒushí
+立刻,immediately,lìkè
+慢慢地,slowly,màn màn de
+仔细地,carefully,zǐxì de
+明显地,obviously,míngxiǎn de
+大概,probably / approximately,dàgài
+实际上,actually / in fact,shíjì shang
+总共,altogether / in total,zǒnggòng
+分别,separately / respectively,fēnbié
+互相,mutually / each other,hùxiāng
+直接地,directly,zhíjiē de
+间接地,indirectly,jiànjiē de
+飓风,hurricane,jùfēng
+龙卷风,tornado,lóng juǎn fēng
+火山,volcano,huǒshān
+雪崩,avalanche,xuě bēng
+泥石流,mudslide,ní shí liú
+野火,wildfire,yěhuǒ
+烟,smoke,yān
+灰尘,ash / dust,huīchén
+煤炭,coal,méitàn
+石油,petroleum / oil,shíyóu
+铝,aluminium,lǚ
+锌,zinc,xīn
+铅,lead (metal),qiān
+腰带,belt,yāodài
+太阳镜,sunglasses,tàiyáng jìng
+肝脏,liver,gānzàng
+肾脏,kidney,shènzàng
+膀胱,bladder,pángguāng
+食道,oesophagus,shídào
+肠子,intestine,chángzi
+拇指,thumb,mǔzhǐ
+食指,index finger,shízhǐ
+中指,middle finger,zhōngzhǐ
+无名指,ring finger,wúmíng zhǐ
+小指,little finger,xiǎozhǐ
+脚踝,ankle,jiǎohuái
+脚趾,toe,jiǎozhǐ
+额头,forehead,étóu
+下巴,chin,xiàba
+脸颊,cheek,liǎnjiá
+眉毛,eyebrow,méimao
+睫毛,eyelash,jiémáo
+腋下,armpit,yèxia
+手腕,wrist,shǒuwàn
+阳光,sunlight,yángguāng
+月光,moonlight,yuèguāng
+彩虹,rainbow,cǎihóng
+露水,dew,lùshuǐ
+潮水,tide,cháoshuǐ
+沙漠,desert,shāmò
+草原,grassland / steppe,cǎoyuán
+丛林,jungle,cónglín
+热带,tropics,rèdài
+极地,polar region,jídì
+海峡,strait / channel,hǎixiá
+半岛,peninsula,bàndǎo
+岛屿,island,dǎoyǔ
+海湾,bay / gulf,hǎiwān
+峡谷,canyon / gorge,xiágǔ
+平原,plain / flatland,píngyuán
+高原,plateau,gāoyuán
+盆地,basin,péndì
+三角洲,delta,sānjiǎozhōu
+瀑布,waterfall,pùbù
+温泉,hot spring,wēnquán
+洞穴,cave,dòngxué
+悬崖,cliff,xuányá
+沙丘,sand dune,shāqiū
+冰川,glacier,bīngchuān
+沼泽,swamp,zhǎozé
+珊瑚礁,coral reef,shānhú jiāo
+海藻,seaweed,hǎizǎo
+钢铁,steel and iron,gāngtiě
+混凝土,concrete,hùnníngtǔ
+橡胶,rubber,xiàngjiāo
+玉,jade,yù
+翡翠,emerald / jade,fěicuì
+琥珀,amber,hǔpò
+象牙,ivory,xiàngyá
+虎皮,tiger skin,hǔpí
+羽毛,feather,yǔmáo
+贝壳,shell,bèiké
+珍珠,pearl,zhēnzhū
+珊瑚,coral,shānhú
+琉璃,coloured glaze,liúlí
+烟花,fireworks,yānhuā
+爆竹,firecracker,bàozhú
+灯谜,lantern riddle,dēng mí
+烟花爆竹,fireworks and firecrackers,yānhuā bàozhú
+元宵,sweet rice ball,yuánxiāo
+汤圆,glutinous rice ball,tāngyuán
+月饼,mooncake,yuèbǐng
+粽子,rice dumpling (zongzi),zòngzi
+腊肉,cured meat,làròu
+火锅,hot pot,huǒguō
+烤鸭,roast duck,kǎoyā

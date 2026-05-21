@@ -1,12 +1,12 @@
 # Lexio
 
-A personal language flashcard web app for studying Spanish, Mandarin, Japanese, and Norsk. Import vocabulary from CSV files and test yourself with multiple-choice, true/false, or typing quizzes across four card directions — including native script prompts for Japanese and Mandarin.
+A personal language flashcard web app for studying Spanish, Mandarin, Japanese, and Norwegian. Import vocabulary from CSV files and test yourself with multiple-choice, true/false, or typing quizzes across four card directions — including native script prompts for Japanese and Mandarin.
 
 ---
 
 ## Features
 
-- **4 languages** — Spanish, Mandarin, Japanese, Norsk (extensible to any language)
+- **4 languages** — Spanish, Mandarin, Japanese, Norwegian (extensible to any language)
 - **3 quiz modes** — Multiple Choice, True/False, Typing
 - **4 quiz directions** — Word→Meaning, Meaning→Word, Characters→Meaning, Characters→Reading
 - **Big Test** — cross-language quiz weighted toward your weakest cards

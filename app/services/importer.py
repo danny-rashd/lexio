@@ -35,10 +35,14 @@ def compute_idempotency_key(language: str, topic: str, word: str) -> str:
 
     Notes:
         Word is diacritics-stripped and lowercased before hashing so 'Café'
-        and 'cafe' produce the same key. Language and topic are not normalized
-        here — callers must pass already-normalized values.
+        and 'cafe' produce the same key. For CJK scripts (Japanese, Mandarin)
+        normalize_text() strips all characters to an empty string; in that
+        case the raw lowercased word is used directly so each character or
+        compound remains a distinct key.
     """
-    raw = f"{language}:{topic}:{normalize_text(word)}"
+    normalized = normalize_text(word)
+    key_word = normalized if normalized.strip() else word.lower().strip()
+    raw = f"{language}:{topic}:{key_word}"
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
 

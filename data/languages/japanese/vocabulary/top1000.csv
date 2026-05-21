@@ -1,0 +1,1015 @@
+word,meaning,native
+# ── Verbs ────────────────────────────────────────────────────────────────────
+iru,to be / to exist (animate),いる
+aru,to be / to exist (inanimate),ある
+suru,to do,する
+iku,to go,行く
+kuru,to come,来る
+miru,to see / to look,見る
+kiku,to hear / to listen / to ask,聞く
+iu,to say,言う
+omou,to think,思う
+wakaru,to understand,わかる
+shiru,to know,知る
+naru,to become,なる
+tsukau,to use,使う
+taberu,to eat,食べる
+nomu,to drink,飲む
+kaku,to write,書く
+yomu,to read,読む
+hanasu,to speak / to talk,話す
+au,to meet,会う
+kaeru,to return / to go home,帰る
+deru,to leave / to exit,出る
+hairu,to enter,入る
+mitsukeru,to find,見つける
+motsu,to hold / to have,持つ
+okiru,to wake up / to happen,起きる
+neru,to sleep,寝る
+hashiru,to run,走る
+aruku,to walk,歩く
+oyogu,to swim,泳ぐ
+tobu,to fly / to jump,飛ぶ
+tsukuru,to make / to create,作る
+kowasu,to break,壊す
+haku,to put on (shoes/pants),はく
+kiru,to wear / to cut,着る
+nugु,to take off (clothes),脱ぐ
+noseru,to put on / to load,乗せる
+oriru,to get off / to come down,降りる
+nooru,to ride / to get on,乗る
+toru,to take / to pick up,取る
+okuru,to send,送る
+morau,to receive,もらう
+ageru,to give (to someone),あげる
+kureru,to give (to me),くれる
+kasu,to lend,貸す
+kariru,to borrow,借りる
+kau,to buy,買う
+uru,to sell,売る
+harau,to pay,払う
+sagasu,to search / to look for,探す
+mitsukaru,to be found,見つかる
+katsu,to win,勝つ
+makeru,to lose,負ける
+isogु,to hurry,急ぐ
+tomaru,to stop / to stay,止まる
+hajimeru,to begin,始める
+owaru,to end / to finish,終わる
+kangaeru,to think / to consider,考える
+kimeru,to decide,決める
+erabu,to choose,選ぶ
+narau,to learn / to take lessons,習う
+oshieru,to teach / to tell,教える
+tasukeru,to help / to rescue,助ける
+tetsudau,to help / to assist,手伝う
+naosu,to fix / to correct,直す
+kesu,to erase / to turn off,消す
+tsukeru,to attach / to turn on,つける
+hiraku,to open,開く
+shimeru,to close,閉める
+dasu,to take out / to send,出す
+ireru,to put in,入れる
+suteru,to throw away,捨てる
+katazukeru,to tidy up,片付ける
+arau,to wash,洗う
+soji suru,to clean,掃除する
+ryori suru,to cook,料理する
+benkyou suru,to study,勉強する
+shigoto suru,to work,仕事する
+undou suru,to exercise,運動する
+ryokou suru,to travel,旅行する
+sanpo suru,to take a walk,散歩する
+denwa suru,to make a phone call,電話する
+yobi suru,to invite,予備する
+keikaku suru,to plan,計画する
+junbi suru,to prepare,準備する
+setsumei suru,to explain,説明する
+soudan suru,to consult,相談する
+renshuu suru,to practice,練習する
+kakunin suru,to confirm,確認する
+chuumon suru,to order,注文する
+yoyaku suru,to reserve,予約する
+# ── Nouns ────────────────────────────────────────────────────────────────────
+jikan,time,時間
+nen,year,年
+jinsei,life,人生
+otoko,man,男
+onna,woman,女
+hi,day,日
+mono,thing,もの
+bubun,part,部分
+basho,place,場所
+toki,time / moment,時
+houhou,way / method,方法
+hito,person,人
+te,hand,手
+sekai,world,世界
+kai,time (occurrence),回
+baai,case / situation,場合
+shigoto,work / job,仕事
+mondai,problem,問題
+kuni,country,国
+machi,town / city,町
+ie,house / home,家
+mizu,water,水
+guruupu,group,グループ
+kaisha,company,会社
+namae,name,名前
+kazu,number,数
+katachi,shape / form,形
+shisutemu,system,システム
+rei,example,例
+ten,point,点
+seifu,government,政府
+jouhou,information,情報
+rekishi,history,歴史
+kazoku,family,家族
+shakai,society,社会
+reberu,level,レベル
+shurui,type / kind,種類
+kankei,relationship,関係
+katei,process,過程
+saabisu,service,サービス
+seiji,politics,政治
+henka,change,変化
+kekka,result,結果
+okane,money,お金
+tsuki,month,月
+shuu,week,週
+yoru,night,夜
+asa,morning,朝
+gogo,afternoon,午後
+yuu,evening,夕
+fun,minute,分
+byou,second,秒
+seiki,century,世紀
+mirai,future,未来
+kako,past,過去
+genzai,present,現在
+hajimari,beginning,始まり
+owari,end,終わり
+chuushin,centre,中心
+kita,north,北
+minami,south,南
+higashi,east,東
+nishi,west,西
+michi,road / path,道
+tobira,door,扉
+mado,window,窓
+yuka,floor,床
+tenjou,ceiling,天井
+kabe,wall,壁
+heya,room,部屋
+daidokoro,kitchen,台所
+ofuro,bath / bathroom,お風呂
+niwa,garden,庭
+tatemono,building,建物
+apato,apartment,アパート
+hoteru,hotel,ホテル
+byouin,hospital,病院
+gakkou,school,学校
+daigaku,university,大学
+toshokan,library,図書館
+mise,shop / store,店
+ichiba,market,市場
+ginkou,bank,銀行
+otera,temple,お寺
+kouen,park,公園
+kaigan,beach,海岸
+yama,mountain,山
+kawa,river,川
+mizuumi,lake,湖
+umi,sea,海
+mori,forest,森
+nohara,field,野原
+sora,sky,空
+taiyou,sun,太陽
+hoshi,star,星
+kumo,cloud,雲
+ame,rain,雨
+yuki,snow,雪
+kaze,wind,風
+tsuchi,earth / soil,土
+ishi,stone,石
+ki,tree,木
+hana,flower,花
+shokubutsu,plant,植物
+kusa,grass,草
+doubutsu,animal,動物
+inu,dog,犬
+neko,cat,猫
+tori,bird,鳥
+sakana,fish,魚
+uma,horse,馬
+ushi,cow,牛
+karada,body,体
+atama,head,頭
+kao,face,顔
+me,eye,目
+kuchi,mouth,口
+mimi,ear,耳
+ha,tooth,歯
+shita,tongue,舌
+kubi,neck,首
+kata,shoulder,肩
+ude,arm,腕
+hiji,elbow,肘
+tekubi,wrist,手首
+yubi,finger,指
+ashi,leg / foot,足
+hiza,knee,膝
+shinzou,heart,心臓
+hai,lung,肺
+i,stomach,胃
+nou,brain,脳
+chi,blood,血
+hone,bone,骨
+kinniku,muscle,筋肉
+hada,skin,肌
+kami,hair,髪
+fuku,clothes,服
+shatsu,shirt,シャツ
+zubon,trousers,ズボン
+sukato,skirt,スカート
+doresu,dress,ドレス
+jaketto,jacket,ジャケット
+kooto,coat,コート
+kutsu,shoes,靴
+kutsushita,socks,靴下
+boushi,hat,帽子
+maafuraa,scarf,マフラー
+tebukuro,gloves,手袋
+pan,bread,パン
+gohan,cooked rice / meal,ご飯
+pasuta,pasta,パスタ
+niku,meat,肉
+toriniku,chicken,鶏肉
+tamago,egg,卵
+gyuunyuu,milk,牛乳
+chiiizu,cheese,チーズ
+bataa,butter,バター
+abura,oil,油
+shio,salt,塩
+satou,sugar,砂糖
+koohii,coffee,コーヒー
+ocha,tea,お茶
+wain,wine,ワイン
+biiru,beer,ビール
+juusu,juice,ジュース
+kudamono,fruit,果物
+ringo,apple,りんご
+orenji,orange,オレンジ
+budou,grapes,ぶどう
+banana,banana,バナナ
+ichigo,strawberry,いちご
+remon,lemon,レモン
+tomato,tomato,トマト
+retasu,lettuce,レタス
+ninjin,carrot,にんじん
+tamanegi,onion,たまねぎ
+ninniku,garlic,にんにく
+jagaimo,potato,じゃがいも
+hon,book,本
+peeji,page,ページ
+tegami,letter,手紙
+shinbun,newspaper,新聞
+zasshi,magazine,雑誌
+nyuusu,news,ニュース
+shitsumon,question,質問
+kotae,answer,答え
+kangae,idea,考え
+iken,opinion,意見
+kotoba,word,言葉
+bun,sentence,文
+gengo,language,言語
+bunka,culture,文化
+geijutsu,art,芸術
+ongaku,music,音楽
+uta,song,歌
+eiga,film / movie,映画
+gekijou,theatre,劇場
+supootsu,sport,スポーツ
+sakkaa,football / soccer,サッカー
+tenisu,tennis,テニス
+suiei,swimming,水泳
+resu,race,レース
+chiimu,team,チーム
+geemu,game,ゲーム
+shouri,victory,勝利
+haiboku,defeat,敗北
+shouhin,prize,賞品
+ryokou,journey / trip,旅行
+yasumi,holiday / rest,休み
+koutsuu,transport,交通
+kuruma,car,車
+basu,bus,バス
+densha,train,電車
+hikouki,airplane,飛行機
+fune,ship,船
+jitensha,bicycle,自転車
+otobai,motorcycle,オートバイ
+kippu,ticket,切符
+pasupooto,passport,パスポート
+suutsu,suitcase,スーツケース
+chizu,map,地図
+gijutsu,technology,技術
+pasokon,computer,パソコン
+denwa,phone,電話
+intaanetto,internet,インターネット
+gamen,screen,画面
+kiibodo,keyboard,キーボード
+kamera,camera,カメラ
+terebi,television,テレビ
+rajio,radio,ラジオ
+akari,light,明かり
+oto,sound,音
+iro,colour,色
+ao,blue,青
+midori,green,緑
+kiiro,yellow,黄色
+kuro,black,黒
+shiro,white,白
+haiiro,grey,灰色
+itami,pain,痛み
+byouki,illness,病気
+kusuri,medicine,薬
+isha,doctor,医者
+kangoshi,nurse,看護師
+kenkou,health,健康
+kokoro,mind / heart,心
+kimochi,feeling / emotion,気持ち
+kyoufu,fear,恐怖
+yorokobi,joy,喜び
+kanashimi,sadness,悲しみ
+ai,love,愛
+nikushimi,hate,憎しみ
+kibou,hope,希望
+shinjitsu,truth,真実
+uso,lie,嘘
+seigi,justice,正義
+houritsu,law,法律
+keisatsu,police,警察
+sensou,war,戦争
+heiwa,peace,平和
+jiko,accident,事故
+kiken,danger,危険
+anzen,safety,安全
+seikou,success,成功
+shippai,failure,失敗
+konnan,difficulty,困難
+kaiketsu,solution,解決
+kikai,opportunity,機会
+kenri,right,権利
+sekinin,responsibility,責任
+jiyu,freedom,自由
+byoudou,equality,平等
+komyuniti,community,コミュニティ
+kokumin,nation / people,国民
+chiiki,region,地域
+shuto,capital city,首都
+jinkou,population,人口
+keizai,economy,経済
+boueki,trade,貿易
+sangyou,industry,産業
+nougyou,agriculture,農業
+kankyou,environment,環境
+shizen,nature,自然
+enerugii,energy,エネルギー
+shigen,resource,資源
+osen,pollution,汚染
+kikou,climate,気候
+ondo,temperature,温度
+# ── Adjectives ───────────────────────────────────────────────────────────────
+ii,good,いい
+warui,bad,悪い
+ooki,big,大きい
+chiisai,small,小さい
+atarashii,new,新しい
+furui,old,古い
+wakai,young,若い
+takai,tall / expensive,高い
+hikui,low / short,低い
+nagai,long,長い
+mijikai,short,短い
+hiroi,wide / spacious,広い
+semai,narrow / small (space),狭い
+futoi,fat / thick,太い
+hosoi,thin,細い
+tsuyoi,strong,強い
+yowai,weak,弱い
+hayai,fast,速い
+osoi,slow / late,遅い
+yasashii,easy / kind,優しい
+muzukashii,difficult,難しい
+daiji,important,大事
+hitsuyou,necessary,必要
+kanousei,possibility / potential,可能性
+hontou,true / real,本当
+yuufu,rich,裕福
+mazushii,poor,貧しい
+ureshii,happy,嬉しい
+kanashii,sad,悲しい
+okotte iru,angry,怒っている
+ochitsuite iru,calm,落ち着いている
+kinchousuru,nervous,緊張する
+tsumaranai,boring,つまらない
+omoshiroi,interesting,面白い
+utsukushii,beautiful,美しい
+minikui,ugly,醜い
+kirei,clean / pretty,きれい
+kitanai,dirty,汚い
+ippai,full,いっぱい
+kara,empty,空
+aite iru,open,開いている
+shimatte iru,closed,閉まっている
+jiyuu,free,自由
+isogashii,busy,忠しい
+chigau,different,違う
+onaji,same,同じ
+tokubetsu,special,特別
+futsuu,normal,普通
+hen,strange,変
+yoku aru,common,よくある
+mezurashii,rare,珍しい
+kinkyu,urgent,緊急
+gendai,modern,現代
+kodai,ancient,古代
+jinkouteki,artificial,人工的
+taishiteki,physical,体質的
+seishinteki,mental,精神的
+shakaitekina,social,社会的な
+seijitekina,political,政治的な
+keizaiteki,economic,経済的
+bunkashiki,cultural,文化式
+kokuminteki,national,国民的
+kokusaiteki,international,国際的
+chiikiteki,local,地域的
+koukyou,public,公共
+watashiteki,private,私的
+kojin,personal,個人
+senmonka,professional,専門家
+kashikoi,intelligent / clever,賢い
+makajime,serious,真剣
+okashii,funny,おかしい
+shinsetsu,kind / friendly,親切
+shoujiki,honest,正直
+kimanai,generous,気前ない
+yuukan,brave,勇敢
+nintai,patient,忍耐
+kassei,active,活性
+# ── Adverbs ──────────────────────────────────────────────────────────────────
+totemo,very,とても
+motto,more,もっと
+motto sukunaku,less,もっと少なく
+mo,also / too,も
+mou,already,もう
+mada,still / not yet,まだ
+kesshite,never,決して
+itsumo,always,いつも
+hotondo,almost,ほとんど
+dake,only,だけ
+juubun,enough,十分
+sugiru,too much,すぎる
+sukoshi,a little,少し
+takusan,a lot,たくさん
+jyouzu,well / skillfully,上手
+heta,badly,下手
+motto yoku,better,もっとよく
+hayaku,quickly,速く
+yukkuri,slowly,ゆっくり
+kantan ni,easily,簡単に
+tabun,probably,たぶん
+moshikashitara,perhaps,もしかしたら
+zettai ni,certainly,絶対に
+hontou ni,really,本当に
+kanzen ni,completely,完全に
+mattaku,absolutely / completely,全く
+tokuni,especially,特に
+omo ni,mainly,主に
+daitai,generally,大体
+yoku,often,よく
+metta ni,rarely,めったに
+sugu ni,immediately,すぐに
+saigo ni,finally,最後に
+koko,here,ここ
+asoko,there,あそこ
+chikaku,near,近く
+tooku,far,遠く
+naka ni,inside,中に
+soto ni,outside,外に
+ue ni,up / above,上に
+shita ni,down / below,下に
+mae ni,in front / before,前に
+ushiro ni,behind,後ろに
+# ── Particles and conjunctions ───────────────────────────────────────────────
+wa,topic marker,は
+ga,subject marker,が
+wo,object marker,を
+ni,at / in / to,に
+de,at / by / with,で
+to,and / with / quotation,と
+no,possessive,の
+ka,question marker,か
+ne,isn't it / right?,ね
+yo,assertion marker,よ
+made,until / to,まで
+demo,but / however,でも
+dakara,so / therefore,だから
+shikashi,but / however,しかし
+sosite,and then,そして
+mata,also / again,また
+moshi,if,もし
+node,because / so,ので
+keredo,but / however,けれど
+# ── Pronouns ─────────────────────────────────────────────────────────────────
+watashi,I / me,私
+anata,you,あなた
+kare,he / him,彼
+kanojo,she / her,彼女
+watashitachi,we / us,私たち
+anatatachi,you all,あなたたち
+karera,they / them,彼ら
+kore,this,これ
+sore,that,それ
+are,that (far),あれ
+nani ka,something,何か
+nanimo nai,nothing,何もない
+dareka,someone,誰か
+dare mo,nobody,誰も
+subete,everything,すべて
+# ── Numbers ──────────────────────────────────────────────────────────────────
+ichi,one,一
+san,three,三
+shi / yon,four,四
+go,five,五
+roku,six,六
+nana / shichi,seven,七
+hachi,eight,八
+ku / kyuu,nine,九
+juu,ten,十
+juuichi,eleven,十一
+juuni,twelve,十二
+nijuu,twenty,二十
+sanjuu,thirty,三十
+yonjuu,forty,四十
+gojuu,fifty,五十
+hyaku,one hundred,百
+sen,one thousand,千
+ichiman,ten thousand,一万
+hyakuman,one million,百万
+# ── Question words ───────────────────────────────────────────────────────────
+nani,what,何
+dare,who,誰
+dore,which,どれ
+doko,where,どこ
+itsu,when,いつ
+dou,how,どう
+ikura,how much,いくら
+naze / doushite,why,なぜ
+# ── Days of the week ─────────────────────────────────────────────────────────
+getsuyoubi,Monday,月曜日
+kayoubi,Tuesday,火曜日
+suiyoubi,Wednesday,水曜日
+mokuyoubi,Thursday,木曜日
+kin'youbi,Friday,金曜日
+doyoubi,Saturday,土曜日
+nichiyoubi,Sunday,日曜日
+# ── Months ───────────────────────────────────────────────────────────────────
+ichigatsu,January,一月
+nigatsu,February,二月
+sangatsu,March,三月
+shigatsu,April,四月
+gogatsu,May,五月
+rokugatsu,June,六月
+shichigatsu,July,七月
+hachigatsu,August,八月
+kugatsu,September,九月
+juugatsu,October,十月
+juuichigatsu,November,十一月
+juunigatsu,December,十二月
+# ── Seasons ──────────────────────────────────────────────────────────────────
+haru,spring,春
+natsu,summer,夏
+aki,autumn / fall,秋
+fuyu,winter,冬
+# ── Professions ──────────────────────────────────────────────────────────────
+bengoshi,lawyer,弁護士
+enjinia,engineer,エンジニア
+kenchikuka,architect,建築家
+ryourinin,chef / cook,料理人
+ongakuka,musician,音楽家
+geijutsuka,artist,芸術家
+sakka,writer,作家
+kiisha,journalist,記者
+kagakusha,scientist,科学者
+haisha,dentist,歯医者
+yakuzaishi,pharmacist,薬剤師
+shoubousha,firefighter,消防士
+pairotto,pilot,パイロット
+untenshu,driver,運転手
+seibi koushuu,mechanic,整備工
+denki koujishi,electrician,電気工事士
+daiku,carpenter,大工
+niwa shi,gardener,庭師
+ueitaa,waiter,ウエイター
+juugyouin,employee,従業員
+joushi,boss / superior,上司
+buchoo,department head,部長
+manejaa,manager,マネージャー
+hisho,secretary,秘書
+kaikeishi,accountant,会計士
+ekonomisuto,economist,エコノミスト
+shinriishi,psychologist,心理士
+shakaigakusha,sociologist,社会学者
+rekishika,historian,歴史家
+# ── More verbs ───────────────────────────────────────────────────────────────
+giron suru,to discuss / to argue,議論する
+hikaku suru,to compare,比較する
+bunseki suru,to analyse,分析する
+soshiki suru,to organize,組織する
+kanri suru,to control / to manage,管理する
+hakaru,to measure / to weigh,測る
+kaizen suru,to improve,改善する
+kaifu suru,to renovate,改修する
+shuurii suru,to repair,修理する
+setsuzoku suru,to connect,接続する
+daunroodo suru,to download,ダウンロードする
+appuroodo suru,to upload,アップロードする
+puroguramingu suru,to program,プログラミングする
+sekkei suru,to design,設計する
+hatsumei suru,to invent,発明する
+hakken suru,to discover,発見する
+choosa suru,to investigate,調査する
+benkyousuru,to study,勉強する
+kyousou suru,to compete,競争する
+tanoshimu,to enjoy,楽しむ
+kurushimu,to suffer,苦しむ
+sewa suru,to take care of,世話する
+kyouryoku suru,to cooperate,協力する
+koushou suru,to negotiate,交渉する
+yatouu,to hire,雇う
+yuushutsu suru,to export,輸出する
+yuunyuu suru,to import,輸入する
+touhyou suru,to vote,投票する
+oshokuji suru,to govern,統治する
+kazaru,to decorate,飾る
+ādovaisu suru,to advise,アドバイスする
+shounin suru,to approve,承認する
+moushikomu,to apply,申し込む
+tassei suru,to achieve,達成する
+mazeru,to mix,混ぜる
+yorokobu,to be glad / to rejoice,喜ぶ
+nayamu,to worry / to be troubled,悩む
+akogareru,to admire / to long for,憧れる
+utagau,to doubt,疑う
+shinjiru,to believe / to trust,信じる
+yadoru,to lodge / to stay,宿る
+hikkoshi suru,to move (house),引っ越しする
+sotsugyou suru,to graduate,卒業する
+nyuugaku suru,to enrol,入学する
+kekkon suru,to get married,結婚する
+rikon suru,to get divorced,離婚する
+tanjou suru,to be born,誕生する
+# ── More nouns ───────────────────────────────────────────────────────────────
+minshushugi,democracy,民主主義,
+dokusai,dictatorship,独裁,
+senkyo,election,選挙
+seitou,political party,政党
+zeikin,tax,税金
+shakkin,debt,借金
+risoku,interest,利息
+toushi,investment,投資
+rieki,profit,利益
+sonshitsu,loss,損失
+yosan,budget,予算
+keiyaku,contract,契約
+gouii,agreement,合意
+ruuru,rule,ルール
+kisei,regulation,規制
+kikan,institution,機関
+soshiki,organization,組織
+kyoukai,association,協会
+kaigi,meeting,会議
+kokusai kaigi,conference,国際会議
+houkoku,report,報告
+toukei,statistics,統計
+kenkyuu,research,研究
+jikken,experiment,実験
+kenkyuujo,laboratory,研究所
+kurinikku,clinic,クリニック
+yakkyoku,pharmacy,薬局
+shohousen,prescription,処方箋
+shindan,diagnosis,診断
+shoujou,symptom,症状
+wakuchin,vaccine,ワクチン
+shujutsu,surgery / operation,手術
+ryouhou,therapy,療法
+shinrigaku,psychology,心理学
+sutoresu,stress,ストレス
+fuan,anxiety,不安
+uutsu,depression,うつ
+erika,area / zone,エリア
+chounaikai,neighbourhood,町内会
+kokkyou,border,国境
+ken,prefecture,県
+shi,city / municipality,市
+mura,village,村
+chika,basement,地下
+yaneura,attic,屋根裏
+terasu,terrace,テラス
+barukoni,balcony,バルコニー
+erebeetaa,lift / elevator,エレベーター
+kaidan,staircase,階段
+rouka,corridor,廊下
+ki (zairyou),wood (material),木
+kinzoku,metal,金属
+purasuchikku,plastic,プラスチック
+garasu,glass,ガラス
+nuno,fabric / cloth,布
+ooii,wool,ウール
+wata,cotton,綿
+kinu,silk,絹
+koosui,perfume,香水
+sekken,soap,石鹸
+shanpuu,shampoo,シャンプー
+haburashi,toothbrush,歯ブラシ
+hamigaki,toothpaste,歯磨き
+kamisori,razor,かみそり
+kagami,mirror,鏡
+taoru,towel,タオル
+moufu,blanket,毛布
+makura,pillow,枕
+mattoresu,mattress,マットレス
+kagu,furniture,家具
+sofaa,sofa,ソファ
+isu,chair,椅子
+teeburu,table,テーブル
+tsuukue,desk,机
+ranpu,lamp,ランプ
+kaaten,curtain,カーテン
+juutan,carpet / rug,じゅうたん
+tana,shelf,棚
+hikidashi,drawer,引き出し
+yoofuku dansu,wardrobe,洋服ダンス
+reizouko,fridge,冷蔵庫
+oobun,oven,オーブン
+denshi renji,microwave,電子レンジ
+shokki araikki,dishwasher,食器洗い機
+sentakuki,washing machine,洗濯機
+eakon,air conditioner,エアコン
+danbou,heating,暖房
+shuuryou suru,to complete / to finish,終了する
+shiken,exam / test,試験
+jugyou,class / lesson,授業
+sukejuuru,schedule,スケジュール
+shime kiri,deadline,締め切り
+purojekuto,project,プロジェクト
+mokuhyou,objective / goal,目標
+senryaku,strategy,戦略
+shikaku,qualification / certificate,資格
+mensetsu,interview,面接
+dooryou,colleague,同僚
+shounin,promotion (at work),昇進
+shuunyuu,income / revenue,収入
+kyuuryou,salary,給料
+roukou suru,to go on strike,労行する
+roudou kumiai,trade union,労働組合
+shitsugyou,unemployment,失業
+taishoku,retirement,退職
+nenkyu,paid leave,年休
+keizai seichou,economic growth,経済成長
+kiki,crisis,危機
+kaiketsu suru,to solve / to resolve,解決する
+jyouyaku,treaty,条約
+doumei,alliance,同盟
+kyouryoku,cooperation,協力
+eikyou,influence,影響
+kenryoku,power / authority,権力
+gimu,duty / obligation,義務
+tokken,privilege,特権
+chousen,challenge,挑戦
+shinpo,progress,進歩
+kakushin,innovation,革新
+hakken,discovery,発見
+hatsumei,invention,発明
+seichou,growth,成長
+taikou,decline,対抗
+dapyou,compromise,妥協
+funso,conflict,紛争
+risuku,risk,リスク
+chansu,chance / opportunity,チャンス
+riten,advantage,利点
+ketten,disadvantage / defect,欠点
+hinshitsu,quality,品質
+suijun,level / standard,水準
+seika,result / achievement,成果
+paafooomansu,performance,パフォーマンス
+kaizen,improvement,改善
+tenki,weather,天気
+kumori,cloudy,曇り
+hare,sunny,晴れ
+ame no hi,rainy day,雨の日
+arashi,storm,嵐
+mushiatsui,humid / sultry,蒸し暑い
+kanki,dry weather,乾期
+shitsu,moisture / humidity,湿
+chousei,adjustment,調整
+kyouka,strengthening,強化
+suishin,promotion / advancement,推進
+kakusan,spread / diffusion,拡散
+choutatsu,procurement,調達
+kanri,management / control,管理
+haifu,distribution,配布
+jouho,information,情報
+tsuushin,communication,通信
+henshin,reply / response,返信
+hookoku,report,報告
+bunseki,analysis,分析
+hyouka,evaluation,評価
+sakusei,creation / production,作成
+settei,setting / configuration,設定
+henkou,change / modification,変更
+sakujo,deletion,削除
+tsuika,addition,追加
+ninshiki,recognition,認識
+rikai,understanding / comprehension,理解
+hyoujun,standard,標準
+kikaku,planning / standard,企画
+kankyou mondai,environmental issue,環境問題
+ondanka,global warming,温暖化
+setsuden,power saving,節電
+saisei enerugii,renewable energy,再生エネルギー
+risaikuru,recycling,リサイクル
+haiki butsu,waste / garbage,廃棄物
+shizen saigai,natural disaster,自然災害
+jishin,earthquake,地震
+tsunami,tsunami,津波
+taifuu,typhoon,台風
+koozui,flood,洪水
+kanpatsu,drought,干ばつ
+settou,theft,窃盗
+sagi,fraud / scam,詐欺
+keiyaku ihan,breach of contract,契約違反
+ninmu,mission / duty,任務
+senmon,specialty / expertise,専門
+kinou,function / feature,機能
+seinou,performance / capability,性能
+youryou,capacity,容量
+sokudo,speed,速度
+seido,accuracy / precision,精度
+kouritsu,efficiency,効率
+kigyou,company / enterprise,企業
+kabushiki,stock / shares,株式
+tousan,bankruptcy,倒産
+gappei,merger,合併
+baishuu,acquisition,買収
+kyousou,competition,競争
+shijou,market,市場
+nedan,price,値段
+waribiki,discount,割引
+zeikan,customs,税関
+yunyu zei,import tax,輸入税
+yushutsu,export,輸出
+kyokyuu,supply,供給
+juyo,demand,需要
+seisan,production,生産
+syouhi,consumption,消費
+ryuutsu,distribution / circulation,流通
+hanbaiten,retail store,販売店
+soukou,warehouse,倉庫
+hacchuu,order / requisition,発注
+nouki,delivery date,納期
+ryou,quantity / amount,量
+seiryu,trend / mainstream,主流
+suki ru,skill,スキル
+kyaria,career,キャリア
+shoukaku,promotion (rank),昇格
+deta,data,データ
+kyori,distance,距離
+juuryou,weight,重量
+saizu,size,サイズ
+kiri,fog / mist,霧
+kaminari,thunder / lightning,雷
+arare,hail,霰
+koori,ice,氷
+yukidoke,snowmelt,雪解け
+tatsumaki,tornado,竜巻
+kazan,volcano,火山
+yamakata,landslide,山崩れ
+sansei u,acid rain,酸性雨
+haigasuoke,exhaust / emissions,排ガス
+nenshou,combustion / burning,燃焼
+nenryou,fuel,燃料
+sekiyu,petroleum / oil,石油
+sekitan,coal,石炭
+hagane,steel,鋼
+tetsu,iron,鉄
+kin,gold,金
+gin,silver,銀
+daiyamondo,diamond,ダイヤモンド
+houseki,gemstone,宝石
+ressun,lesson (e.g. music),レッスン
+kyoushitsu,classroom,教室
+shokudou,dining hall / canteen,食堂
+uketuke,reception desk,受付
+kaikei,cashier / accounting,会計
+keisanki,calculator,計算機
+purinta,printer,プリンター
+sukyanaa,scanner,スキャナー
+faakkusu,fax,ファックス
+denshibook,e-book,電子ブック
+tablet,tablet,タブレット
+sumaato foon,smartphone,スマートフォン
+charger,charger,チャージャー
+denchi,battery,電池
+ketsuatsu,blood pressure,血圧
+taion,body temperature,体温
+myaku,pulse,脈
+chuusha,injection / shot,注射
+zai,medicine / drug,剤
+netsu,fever,熱
+sekki,bloodwork,血気
+kokyuu,breathing / respiration,呼吸
+shoki,digestion,消化
+menyuu,menu,メニュー
+ryouri,cuisine / cooking,料理
+karaage,Japanese fried chicken,唐揚げ
+sushi,sushi,寿司
+ramen,ramen noodles,ラーメン
+soba,buckwheat noodles,そば
+udon,udon noodles,うどん
+onigiri,rice ball,おにぎり
+bento,boxed meal,弁当
+wagashi,Japanese sweets,和菓子
+sakura,cherry blossom,桜
+matsuri,festival,祭り
+yukata,summer kimono,浴衣
+kimono,traditional garment,着物
+jinja,Shinto shrine,神社
+torii,torii gate,鳥居
+futon,futon bed,布団
+zabuton,floor cushion,座布団
+tatami,tatami mat,畳
+engawa,veranda,縁側
+sudare,bamboo blind,すだれ
+shoji,paper sliding door,障子
+fusuma,opaque sliding door,ふすま
+tokonoma,alcove,床の間
+ikebana,flower arrangement,生け花
+bonsai,bonsai tree,盆栽
+origami,paper folding,折り紙
+shodo,calligraphy,書道
+judo,judo,柔道
+karate,karate,空手
+kendo,kendo (swordsmanship),剣道
+sumo,sumo wrestling,相撲
+akimbo,arms akimbo,あきんぼ
+omiyage,souvenir,お土産
+oshougatsu,New Year,お正月
+ohanami,cherry blossom viewing,お花見
+tanabata,Star Festival,七夕
+obon,Obon Festival,お盆
+setsubun,Bean Throwing Festival,節分
+shougatsu kazari,New Year decoration,正月飾り
+hamaya,good luck arrow,破魔矢
+ema,votive tablet,絵馬
+omikuji,fortune slip,おみくじ
+ofuda,amulet,お札
+noren,shop curtain,のれん
+furoshiki,wrapping cloth,風呂敷
+tabi,split-toe socks,足袋
+geta,wooden clogs,下駄
+zori,sandals,草履
+hakama,traditional skirt trousers,袴
+obi,kimono sash,帯
+sensu,folding fan,扇子
+uchiwa,flat fan,うちわ
+chochin,paper lantern,提灯
+taiko,drum,太鼓
+shamisen,three-string instrument,三味線
+koto,Japanese harp,琴
+oshigoto,profession / work,お仕事
+gaido,guide,ガイド
+honyaku,translation,翻訳
+kaigi shitsu,meeting room,会議室
+rokkaa,locker,ロッカー
+keitai denwa,mobile phone,携帯電話
+insatsu,printing,印刷
+kokkyo,national border,国境
+toshi,urban area,都市
+chihou,region / local area,地方
+shizen kai,nature world,自然界
+takai sora,high sky,高い空
+yoru hoshi,night star,夜の星
+midori no ki,green tree,緑の木
+aoi umi,blue sea,青い海
+shiroi yuki,white snow,白い雪
+akai hana,red flower,赤い花
+hiroi nohara,wide field,広い野原
+fukai mori,deep forest,深い森
+nagai kawa,long river,長い川
+takai yama,tall mountain,高い山
+ooki mizuumi,large lake,大きい湖
+atarashii gijutsu,new technology,新しい技術
+kankyou hogo,environmental protection,環境保護

@@ -7,6 +7,8 @@ const LANG = {
   norsk:    { code: 'NO', cls: 'pill-no', native: false },
   japanese: { code: 'JA', cls: 'pill-ja', native: true  },
   mandarin: { code: 'ZH', cls: 'pill-zh', native: true  },
+  french:   { code: 'FR', cls: 'pill-fr', native: false },
+  german:   { code: 'DE', cls: 'pill-de', native: false },
 };
 
 const DIR_LABELS = {
@@ -736,20 +738,23 @@ function showImport(preselectedDeck) {
   showScreen('screen-import');
 }
 
-function _populateImportLangSelect(preselected) {
-  const sel   = document.getElementById('sel-import-lang');
-  const inp   = document.getElementById('inp-import-lang-new');
-  const langs = [...new Set(App.decks.map(d => d.language))].sort();
+const SUPPORTED_LANGS = ['spanish', 'mandarin', 'japanese', 'norsk', 'french', 'german'];
 
-  sel.innerHTML = langs.map(l => `<option value="${esc(l)}">${esc(l)}</option>`).join('')
-    + '<option value="__new__">+ New language…</option>';
+function _populateImportLangSelect(preselected) {
+  const sel = document.getElementById('sel-import-lang');
+  const inp = document.getElementById('inp-import-lang-new');
+
+  // Always show the 4 supported languages; also include any extras already in DB
+  const existing = App.decks.map(d => d.language);
+  const langs    = [...new Set([...SUPPORTED_LANGS, ...existing])].sort();
+
+  sel.innerHTML = langs.map(l => `<option value="${esc(l)}">${esc(l)}</option>`).join('');
 
   if (preselected && langs.includes(preselected)) sel.value = preselected;
 
-  const isNew = sel.value === '__new__';
-  inp.classList.toggle('hidden', !isNew);
-  if (isNew) inp.focus();
-  _populateImportTopicSelect(isNew ? '' : sel.value);
+  // No "New language" option — hide the text input entirely
+  inp.classList.add('hidden');
+  _populateImportTopicSelect(sel.value);
 }
 
 function _populateImportTopicSelect(language) {
@@ -765,17 +770,7 @@ function _populateImportTopicSelect(language) {
 }
 
 document.getElementById('sel-import-lang').addEventListener('change', () => {
-  const sel = document.getElementById('sel-import-lang');
-  const inp = document.getElementById('inp-import-lang-new');
-  if (sel.value === '__new__') {
-    inp.classList.remove('hidden');
-    inp.focus();
-    document.getElementById('sel-import-topic').innerHTML = '<option value="__new__">+ New topic…</option>';
-    document.getElementById('inp-import-topic-new').classList.remove('hidden');
-  } else {
-    inp.classList.add('hidden');
-    _populateImportTopicSelect(sel.value);
-  }
+  _populateImportTopicSelect(document.getElementById('sel-import-lang').value);
 });
 
 document.getElementById('sel-import-topic').addEventListener('change', () => {
@@ -785,10 +780,7 @@ document.getElementById('sel-import-topic').addEventListener('change', () => {
 });
 
 function _importLang() {
-  const sel = document.getElementById('sel-import-lang');
-  return sel.value === '__new__'
-    ? document.getElementById('inp-import-lang-new').value.trim()
-    : sel.value;
+  return document.getElementById('sel-import-lang').value;
 }
 
 function _importTopic() {
