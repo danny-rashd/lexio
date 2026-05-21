@@ -149,6 +149,12 @@ document.getElementById('form-login').addEventListener('submit', async e => {
 
 document.getElementById('btn-logout').addEventListener('click', logout);
 
+document.getElementById('btn-demo').addEventListener('click', () => {
+  document.getElementById('inp-username').value = 'demo';
+  document.getElementById('inp-password').value = 'demo';
+  document.getElementById('form-login').requestSubmit();
+});
+
 // ── Home ──────────────────────────────────────────────────────────────────────
 
 async function showHome() {

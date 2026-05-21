@@ -236,6 +236,37 @@ button:disabled { opacity: .4; cursor: default; }
   letter-spacing: .01em;
 }
 
+.login-divider {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  color: var(--text-secondary);
+  font-size: .8rem;
+}
+.login-divider::before,
+.login-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.btn-demo {
+  width: 100%;
+  padding: .72rem;
+  font-size: .9rem;
+  border-radius: 9px;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  transition: border-color .15s, color .15s, background .15s;
+}
+.btn-demo:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+}
+
 /* ── Page header ────────────────────────────────────────────────────────────── */
 .page-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
 .page-header h2 { font-size: 1.4rem; flex: 1; }

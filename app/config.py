@@ -8,6 +8,8 @@ class Settings(BaseSettings):
     JWT_EXPIRE_MINUTES: int = 10080
     ADMIN_USERNAME: str
     ADMIN_PASSWORD: str
+    DEMO_USERNAME: str = "demo"
+    DEMO_PASSWORD: str = "demo"
     DATA_DIR: str = "./data/languages"
     TYPING_FUZZY_THRESHOLD: float = 0.85
     DEFAULT_QUIZ_CARD_COUNT: int = 20

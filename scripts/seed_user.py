@@ -9,25 +9,23 @@ from app.models.user import User
 from app.services.auth import hash_password
 
 
-def seed_admin() -> None:
+def _seed(username: str, password: str, label: str) -> None:
     db = SessionLocal()
     try:
-        existing = db.query(User).filter(User.username == settings.ADMIN_USERNAME).first()
-        if existing:
-            print(f"User '{settings.ADMIN_USERNAME}' already exists — skipping.")
+        if db.query(User).filter(User.username == username).first():
+            print(f"{label} user '{username}' already exists — skipping.")
             return
-
-        user = User(
-            username=settings.ADMIN_USERNAME,
-            hashed_password=hash_password(settings.ADMIN_PASSWORD),
+        db.add(User(
+            username=username,
+            hashed_password=hash_password(password),
             is_active=True,
-        )
-        db.add(user)
+        ))
         db.commit()
-        print(f"User '{settings.ADMIN_USERNAME}' created.")
+        print(f"{label} user '{username}' created.")
     finally:
         db.close()
 
 
 if __name__ == "__main__":
-    seed_admin()
+    _seed(settings.ADMIN_USERNAME, settings.ADMIN_PASSWORD, "Admin")
+    _seed(settings.DEMO_USERNAME,  settings.DEMO_PASSWORD,  "Demo")
