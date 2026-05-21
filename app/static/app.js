@@ -739,8 +739,11 @@ function _populateImportLangSelect(preselected) {
     + '<option value="__new__">+ New language…</option>';
 
   if (preselected && langs.includes(preselected)) sel.value = preselected;
-  inp.classList.add('hidden');
-  _populateImportTopicSelect(sel.value);
+
+  const isNew = sel.value === '__new__';
+  inp.classList.toggle('hidden', !isNew);
+  if (isNew) inp.focus();
+  _populateImportTopicSelect(isNew ? '' : sel.value);
 }
 
 function _populateImportTopicSelect(language) {
@@ -750,7 +753,9 @@ function _populateImportTopicSelect(language) {
 
   sel.innerHTML = topics.map(t => `<option value="${esc(t)}">${esc(t)}</option>`).join('')
     + '<option value="__new__">+ New topic…</option>';
-  inp.classList.add('hidden');
+
+  const isNew = sel.value === '__new__';
+  inp.classList.toggle('hidden', !isNew);
 }
 
 document.getElementById('sel-import-lang').addEventListener('change', () => {
