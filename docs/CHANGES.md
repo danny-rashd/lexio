@@ -1,5 +1,44 @@
 # Post-launch changes
 
+## In-app modals, audio feedback, smart typing (2026-05-21)
+
+### In-app modals
+Replaced all browser `alert()` and `confirm()` dialogs with a styled in-app modal overlay.
+The modal matches the existing dark/light theme and animates in with a subtle scale-in effect.
+Destructive confirms (End Quiz, Delete Card) use a red confirm button.
+
+- `app/static/index.html` — modal overlay HTML added
+- `app/static/style.css` — modal styles + `@keyframes modal-in` animation
+- `app/static/app.js` — `showAlert()` and `showConfirm()` (Promise-based); all `alert()`/`confirm()` replaced
+
+### Audio feedback
+Short synthesized sounds on every quiz answer using the Web Audio API — no audio files needed.
+Correct: ascending two-note chime (C5 → E5). Wrong: brief low sawtooth tone (E4).
+
+- `app/static/app.js` — `playSound(correct)` called inside `showFeedback()`
+
+### Smart typing submit
+Typing mode now detects matches as you type instead of always requiring a button click.
+
+- **Exact match** (correct diacritics, case-insensitive) → auto-submits immediately, no remark
+- **Normalised match** (wrong/missing diacritics) → submit button required; feedback shows *"Correct — proper spelling: día"*
+- **No match** → submit button required; shows incorrect + correct answer
+
+- `app/static/app.js` — `stripDiacritics()` helper; `input` event listener on typing field; updated submit handler; `handleAnswer(diacriticsRemark)` parameter; updated `showFeedback()`
+
+---
+
+## French and German pill colours updated (2026-05-21)
+
+Previous colours clashed with existing language pills (FR cobalt overlapped JA indigo; DE amber overlapped ZH salmon).
+
+- FR: `#0055A4` → `#7C3AED` (violet — unique hue, no overlap with any other language)
+- DE: `#E67700` → `#991B1B` (dark maroon — clearly distinct from ES bright red and ZH salmon)
+
+Final 6-pill palette: red (ES) · salmon (ZH) · indigo (JA) · teal (NO) · violet (FR) · maroon (DE)
+
+---
+
 ## French and German support (2026-05-21)
 
 Added French (FR) and German (DE) as supported languages.

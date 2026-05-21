@@ -78,6 +78,68 @@ function esc(str) {
     .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
+function showAlert(message, confirmText = 'OK') {
+  return new Promise(resolve => {
+    document.getElementById('modal-message').textContent = message;
+    document.getElementById('modal-cancel').classList.add('hidden');
+    const btn = document.getElementById('modal-confirm');
+    btn.textContent = confirmText;
+    btn.className = 'btn-primary';
+    document.getElementById('modal-overlay').classList.remove('hidden');
+    const handler = () => {
+      document.getElementById('modal-overlay').classList.add('hidden');
+      btn.removeEventListener('click', handler);
+      resolve();
+    };
+    btn.addEventListener('click', handler);
+  });
+}
+
+function showConfirm(message, confirmText = 'Confirm', danger = false) {
+  return new Promise(resolve => {
+    document.getElementById('modal-message').textContent = message;
+    const cancel  = document.getElementById('modal-cancel');
+    const confirm = document.getElementById('modal-confirm');
+    cancel.classList.remove('hidden');
+    confirm.textContent = confirmText;
+    confirm.className = danger ? 'btn-danger' : 'btn-primary';
+    document.getElementById('modal-overlay').classList.remove('hidden');
+    const yes = () => { close(); resolve(true); };
+    const no  = () => { close(); resolve(false); };
+    function close() {
+      document.getElementById('modal-overlay').classList.add('hidden');
+      confirm.removeEventListener('click', yes);
+      cancel.removeEventListener('click', no);
+    }
+    confirm.addEventListener('click', yes);
+    cancel.addEventListener('click', no);
+  });
+}
+
+function playSound(correct) {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const pairs = correct ? [[523, 0], [659, 0.13]] : [[280, 0]];
+    pairs.forEach(([freq, offset]) => {
+      const osc  = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.type = correct ? 'sine' : 'sawtooth';
+      osc.frequency.value = freq;
+      const t = ctx.currentTime + offset;
+      gain.gain.setValueAtTime(0.22, t);
+      gain.gain.exponentialRampToValueAtTime(0.001, t + 0.28);
+      osc.start(t);
+      osc.stop(t + 0.28);
+    });
+  } catch (_) {}
+}
+
+function stripDiacritics(str) {
+  return str.normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
+}
+
 function langConfig(language) {
   return LANG[language.toLowerCase()] || { code: language.slice(0, 2).toUpperCase(), cls: 'pill-xx', native: false };
 }
@@ -149,7 +211,9 @@ document.getElementById('form-login').addEventListener('submit', async e => {
   }
 });
 
-document.getElementById('btn-logout').addEventListener('click', logout);
+document.getElementById('btn-logout').addEventListener('click', async () => {
+  if (await showConfirm('Log out?', 'Log out')) logout();
+});
 
 document.getElementById('btn-demo').addEventListener('click', () => {
   document.getElementById('inp-username').value = 'demo';
@@ -372,7 +436,7 @@ document.getElementById('btn-test-start').addEventListener('click', async () => 
 
   if (!res || !res.ok) {
     const err = await res?.json().catch(() => ({}));
-    alert(err.detail || 'Could not start quiz.');
+    await showAlert(err.detail || 'Could not start quiz.');
     return;
   }
 
@@ -415,7 +479,7 @@ document.getElementById('btn-big-start').addEventListener('click', async () => {
 
   if (!res || !res.ok) {
     const err = await res?.json().catch(() => ({}));
-    alert(err.detail || 'Could not start Big Test.');
+    await showAlert(err.detail || 'Could not start Big Test.');
     return;
   }
 
@@ -527,28 +591,48 @@ function renderTyping() {
   wrap.classList.remove('hidden');
   const inp = document.getElementById('quiz-type-inp');
   inp.value = '';
+  inp.disabled = false;
   document.getElementById('quiz-type-submit').disabled = false;
   setTimeout(() => inp.focus(), 50);
 }
 
+document.getElementById('quiz-type-inp').addEventListener('input', () => {
+  const q = App.quiz.question;
+  if (!q || q.type !== 'typing') return;
+  const inp     = document.getElementById('quiz-type-inp');
+  const input   = inp.value;
+  const correct = String(q.correct_answer);
+  if (input.toLowerCase().trim() === correct.toLowerCase().trim()) {
+    inp.disabled = true;
+    document.getElementById('quiz-type-submit').disabled = true;
+    handleAnswer(input, null, false);
+  }
+});
+
 document.getElementById('quiz-type-submit').addEventListener('click', () => {
-  const answer = document.getElementById('quiz-type-inp').value.trim();
+  const inp    = document.getElementById('quiz-type-inp');
+  const answer = inp.value.trim();
   if (!answer) return;
+  const q       = App.quiz.question;
+  const correct = String(q.correct_answer);
+  const needsRemark = stripDiacritics(answer) === stripDiacritics(correct)
+                   && answer.toLowerCase().trim() !== correct.toLowerCase().trim();
+  inp.disabled = true;
   document.getElementById('quiz-type-submit').disabled = true;
-  handleAnswer(answer, null);
+  handleAnswer(answer, null, needsRemark);
 });
 
 document.getElementById('quiz-type-inp').addEventListener('keydown', e => {
   if (e.key === 'Enter') document.getElementById('quiz-type-submit').click();
 });
 
-async function handleAnswer(userAnswer, correctAnswer) {
+async function handleAnswer(userAnswer, correctAnswer, diacriticsRemark = false) {
   const q    = App.quiz.question;
   const body = { card_id: q.card_id, direction: q.resolved_direction, user_answer: userAnswer };
   if (correctAnswer !== null) body.correct_answer = correctAnswer;
 
   const res = await api('POST', `/api/quiz/${App.quiz.sessionId}/answer`, body);
-  if (!res || !res.ok) { alert('Failed to submit answer.'); return; }
+  if (!res || !res.ok) { await showAlert('Failed to submit answer.'); return; }
 
   const data = await res.json();
   App.quiz.answered++;
@@ -563,10 +647,11 @@ async function handleAnswer(userAnswer, correctAnswer) {
   });
 
   updateQuizProgress();
-  showFeedback(data.is_correct, data.correct_answer, data.question);
+  playSound(data.is_correct);
+  showFeedback(data.is_correct, data.correct_answer, data.question, diacriticsRemark);
 }
 
-function showFeedback(isCorrect, correctAnswer, nextQuestion) {
+function showFeedback(isCorrect, correctAnswer, nextQuestion, diacriticsRemark = false) {
   const fb = document.getElementById('quiz-feedback');
   fb.className = `feedback ${isCorrect ? 'correct' : 'wrong'}`;
   fb.classList.remove('hidden');
@@ -576,10 +661,16 @@ function showFeedback(isCorrect, correctAnswer, nextQuestion) {
 
   const correctEl = document.getElementById('feedback-correct');
   const mode      = App.quiz.mode;
-  const showAns   = !isCorrect || mode === 'typing';
-  if (showAns) {
+
+  if (!isCorrect) {
     const display = correctAnswer === 'true' ? 'True' : correctAnswer === 'false' ? 'False' : correctAnswer;
     correctEl.textContent = `Answer: ${display}`;
+    correctEl.classList.remove('hidden');
+  } else if (mode === 'typing' && diacriticsRemark) {
+    correctEl.textContent = `Correct — proper spelling: ${correctAnswer}`;
+    correctEl.classList.remove('hidden');
+  } else if (mode === 'typing') {
+    correctEl.textContent = `Answer: ${correctAnswer}`;
     correctEl.classList.remove('hidden');
   } else {
     correctEl.classList.add('hidden');
@@ -646,8 +737,8 @@ function showResults() {
   }
 }
 
-document.getElementById('btn-quiz-exit').addEventListener('click', () => {
-  if (confirm('End this quiz?')) showHome();
+document.getElementById('btn-quiz-exit').addEventListener('click', async () => {
+  if (await showConfirm('End this quiz?', 'End Quiz', true)) showHome();
 });
 
 document.getElementById('btn-results-home').addEventListener('click', showHome);
@@ -712,7 +803,7 @@ function renderBrowsePagination(page) {
 
 document.getElementById('browse-tbody').addEventListener('click', async e => {
   const btn = e.target.closest('[data-delete-id]');
-  if (!btn || !confirm('Delete this card?')) return;
+  if (!btn || !await showConfirm('Delete this card?', 'Delete', true)) return;
   const res = await api('DELETE', `/api/cards/${btn.dataset.deleteId}`);
   if (res?.status === 204) await loadBrowsePage(App.browse.page);
 });
@@ -820,9 +911,9 @@ document.getElementById('btn-import-submit').addEventListener('click', async () 
   const file     = App.importFile || fileInput.files[0];
   const resultEl = document.getElementById('import-result');
 
-  if (!language) { alert('Please enter a language name.'); return; }
-  if (!topic)    { alert('Please enter a topic name.'); return; }
-  if (!file)     { alert('Please select a file.'); return; }
+  if (!language) { await showAlert('Please enter a language name.'); return; }
+  if (!topic)    { await showAlert('Please enter a topic name.'); return; }
+  if (!file)     { await showAlert('Please select a file.'); return; }
 
   const formData = new FormData();
   formData.append('file', file);

@@ -63,15 +63,14 @@ def _card_language(db: Session, card: Card) -> str:
 def _build_question(db: Session, session: QuizSession, card: Card) -> dict:
     stats = db.query(CardStat).filter(CardStat.card_id == card.id).all()
     direction = pick_direction(session.direction, card, stats or None)
+    language = _card_language(db, card)
 
     if session.mode == "mcq":
-        language = _card_language(db, card)
         pool = get_distractor_pool(db, language, card.id)
         distractors = random.sample(pool, min(3, len(pool)))
         q = build_mcq_question(card, distractors, direction)
 
     elif session.mode == "true_false":
-        language = _card_language(db, card)
         pool = get_distractor_pool(db, language, card.id)
         wrong_answer = None
         if pool and random.random() < 0.5:
