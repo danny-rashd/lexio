@@ -1,20 +1,65 @@
 # Lexio
 
-A personal language flashcard web app for studying Spanish, Mandarin, Japanese, and Norwegian. Import vocabulary from CSV files and test yourself with multiple-choice, true/false, or typing quizzes across four card directions — including native script prompts for Japanese and Mandarin.
+A personal language flashcard web app. Study vocabulary across six languages with multiple quiz modes, spaced repetition, AI essay feedback, immersion tracking, and a full progress dashboard.
 
 ---
 
 ## Features
 
-- **4 languages** — Spanish, Mandarin, Japanese, Norwegian (extensible to any language)
-- **3 quiz modes** — Multiple Choice, True/False, Typing
+### Study
+- **6 languages** — Spanish, French, German, Norwegian, Japanese, Mandarin
+- **4 quiz modes** — Multiple Choice, True/False, Typing, Flashcard
 - **4 quiz directions** — Word→Meaning, Meaning→Word, Characters→Meaning, Characters→Reading
-- **Big Test** — cross-language quiz weighted toward your weakest cards
 - **Hint system** — letter-reveal hints for typing mode (up to 3 presses)
-- **Progress tracking** — per-card, per-direction stats; weakness scores; daily streak
-- **Dark / light mode** — follows system preference, toggle in nav
-- **Idempotent imports** — re-importing the same file never creates duplicates
-- **Railway-ready** — Procfile + railway.toml included
+- **Text-to-speech** — 🔊 button on every quiz card and browse row using the browser's Web Speech API (no API key needed)
+
+### Spaced Repetition (SRS)
+- **SM-2 algorithm** — Flashcard mode grades (Again / Hard / Good / Easy) schedule each card on a due date
+- **Review sessions** — one-click review of only the cards due today, straight from the home screen
+- **SRS health** — per-language breakdown of New / Learning / Mature / Overdue cards on the Progress screen
+
+### Testing
+- **Big Test (Total Recall)** — cross-language quiz weighted toward your weakest cards; select which languages to include
+- **Retry missed** — restart a session with only the cards you got wrong
+- **Daily goal** — configurable card target with a progress bar on the home screen
+
+### Vocabulary Management
+- **CSV / TSV import** — standard `word,meaning,native` format; re-importing is fully idempotent
+- **Anki import** — upload `.apkg` files directly; map Anki fields to word/meaning/native before confirming
+- **Deck export** — download any deck as a `.lex` file (CSV with metadata comments); re-import preserves language and topic automatically
+- **Deck delete** — hard delete a deck and all its cards from the UI
+- **Browse** — paginated, searchable card table with sticky first column on mobile
+
+### AI Features
+- **Essay evaluation** — write an essay in any study language and receive instant AI feedback via Claude Haiku: Grammar (30%), Diacritics (20%), Spelling (20%), Fluency (15%), Punctuation (15%)
+- **Language detection** — essays are checked against the selected language before being sent for evaluation; mismatches are blocked or flagged
+- **Text mining** — paste a foreign-language text into a journal entry to extract vocabulary; Latin-script languages use a pure-Python tokeniser, CJK languages use DeepSeek for segmentation and meanings
+
+### Immersion Journal
+- **Session logging** — log time spent on any immersion activity (Watching, Listening, Reading, Speaking, Writing, Gaming, Other) with structured resource fields (type, creator, title/episode)
+- **Add words from entries** — manually add vocabulary from a log entry directly to your deck
+- **Parse text** — paste text from what you were reading/watching and extract new words to save
+
+### Progress & Analytics
+- **Activity heatmap** — 13-week calendar showing study intensity by day (quiz cards + immersion + essays); hover to see that day's breakdown
+- **Language proficiency** — per-language progress bars with Beginner/Developing/Proficient/Fluent badges; expandable per-direction breakdown
+- **Study Investment** — side-by-side quiz cards vs immersion time per language
+- **Essay sparklines** — per-language score trend line across all submissions
+- **Immersion activity mix** — stacked bars showing how immersion time is split by activity type per language
+- **Streak tracking** — current streak, longest streak, 30-day calendar
+
+### Accounts & Privacy
+- **Admin + Demo accounts** — admin account for personal use; demo account for public proof-of-concept
+- **Per-user data isolation** — all activity data (stats, sessions, streaks, journal, essays) is fully isolated per user; shared vocabulary is accessible to both
+- **Try Demo** — one-click guest access via a dedicated `/api/auth/demo` endpoint (no credentials in the frontend)
+- **Language visibility** — hide any language from the home page, dropdowns, and quizzes without deleting it; toggle per language from the Progress screen
+
+### UX
+- **Dark / light mode** — follows system preference; toggle in the nav bar
+- **Import preview** — see a preview of your file (format, row count, first 3 rows) before committing
+- **Human-readable errors** — all API errors translated to plain English in the UI
+- **Mobile layout** — responsive nav, sticky browse columns, single-column quiz on narrow screens
+- **Push notifications** — opt-in browser notifications when you hit your daily goal
 
 ---
 
@@ -22,11 +67,15 @@ A personal language flashcard web app for studying Spanish, Mandarin, Japanese, 
 
 | Layer | Choice |
 |---|---|
-| Backend | Python 3.12 + FastAPI |
+| Backend | Python 3.12+ + FastAPI |
 | Database | SQLAlchemy 2.x + SQLite (dev) / PostgreSQL (prod) |
 | Migrations | Alembic |
 | Auth | JWT (`python-jose`) + bcrypt (`passlib`) |
 | Frontend | Vanilla JS / HTML / CSS — no build step |
+| AI — Essay | Claude Haiku via Anthropic API |
+| AI — Text parsing (CJK) | DeepSeek API |
+| Language detection | `langdetect` (pure Python) |
+| Anki parsing | Python `zipfile` + `sqlite3` stdlib |
 | Testing | pytest |
 | Deploy | Railway |
 
@@ -34,36 +83,61 @@ A personal language flashcard web app for studying Spanish, Mandarin, Japanese, 
 
 ## Local setup
 
-### 1. Clone and install
+### 1. Clone and create a virtual environment
 
 ```bash
 git clone https://github.com/<your-username>/lexio.git
 cd lexio
+python3 -m venv .venv
+source .venv/bin/activate        # fish: source .venv/bin/activate.fish
 pip install -r requirements.txt
 ```
 
 ### 2. Create your `.env` file
 
-```bash
-cp .env.example .env
+```env
+DATABASE_URL=sqlite:///./flashcards.db
+SECRET_KEY=any-local-dev-string
+ADMIN_USERNAME=admin
+ADMIN_PASSWORD=localpass
+DEMO_USERNAME=demo
+DEMO_PASSWORD=demo
+JWT_EXPIRE_MINUTES=10080
+TYPING_FUZZY_THRESHOLD=0.85
+DEFAULT_QUIZ_CARD_COUNT=20
+DATA_DIR=./data/languages
+ESSAY_MIN_WORDS=20
+ESSAY_MAX_WORDS=500
+DEEPSEEK_API_KEY=          # required for CJK text parsing
+DEEPSEEK_MODEL=deepseek-chat
+ANTHROPIC_API_KEY=         # required for essay evaluation
+GOOGLE_TTS_API_KEY=        # optional — browser TTS is used when absent
 ```
 
-Edit `.env` — the defaults work for local development as-is. Never commit this file.
+Never commit `.env` — it is listed in `.gitignore`.
 
-### 3. Run migrations and seed the admin user
+### 3. Run migrations and seed users
 
 ```bash
 alembic upgrade head
 python scripts/seed_user.py
 ```
 
-### 4. Start the server
+### 4. (Optional) Pre-load vocabulary
+
+```bash
+python scripts/bulk_import.py
+```
+
+Walks `data/languages/<language>/<topic>/*.csv` and imports everything. Fully idempotent — safe to run repeatedly.
+
+### 5. Start the server
 
 ```bash
 uvicorn app.main:app --reload
 ```
 
-Open `http://localhost:8000` — log in with the credentials from your `.env` (`ADMIN_USERNAME` / `ADMIN_PASSWORD`).
+Open `http://localhost:8000`. Log in with `ADMIN_USERNAME` / `ADMIN_PASSWORD` or click **Try Demo**.
 
 ---
 
@@ -73,58 +147,28 @@ Open `http://localhost:8000` — log in with the credentials from your `.env` (`
 pytest tests/ -v
 ```
 
-All 58 tests should pass.
-
 ---
 
-## Importing vocabulary
-
-Vocabulary files live in `data/languages/<language>/<topic>/`. Sample files are included for all four languages.
-
-### File format
+## Vocabulary format
 
 ```csv
 word,meaning,native
 konnichiwa,hello,こんにちは
-arigatou,thank you,ありがとう
+café,coffee,
+学习,to study,xuéxí
 ```
 
 | Column | Required | Notes |
 |---|---|---|
-| `word` | Yes | Romaji / pinyin for JA/ZH; plain word for ES/NO |
+| `word` | Yes | Romaji/pinyin for JA/ZH; plain word for ES/FR/DE/NO |
 | `meaning` | Yes | English translation |
-| `native` | No | Kanji / kana / hanzi — leave blank for Latin-script languages |
+| `native` | No | Kana/kanji/hanzi — leave blank for Latin-script languages |
 
-**Rules:**
-- First row must be the header `word,meaning,native`
+- Header row must be `word,meaning,native`
 - Lines starting with `#` are comments and are skipped
 - Rows with an empty meaning are skipped
-- UTF-8 encoding required (files from Excel/Numbers are auto-detected)
+- UTF-8 encoding required
 - Re-importing the same file is safe — duplicates are skipped
-
-### Import via the UI
-
-1. Log in → click **Import** in the nav
-2. Select language and topic (or type a new one)
-3. Drop or browse to your CSV/TSV file → click **Import**
-
-### Import via the API
-
-```bash
-TOKEN=$(curl -s -X POST http://localhost:8000/api/auth/login \
-  -H "Content-Type: application/json" \
-  -d '{"username":"admin","password":"localpass"}' | python -m json.tool | grep access_token | cut -d'"' -f4)
-
-curl -s -X POST "http://localhost:8000/api/import?language=spanish&topic=greetings" \
-  -H "Authorization: Bearer $TOKEN" \
-  -F "file=@data/languages/spanish/greetings/basics.csv" | python -m json.tool
-```
-
----
-
-## API docs
-
-With the server running, visit `http://localhost:8000/docs` for the interactive Swagger UI covering all endpoints.
 
 ---
 
@@ -133,29 +177,30 @@ With the server running, visit `http://localhost:8000/docs` for the interactive 
 ### One-time setup
 
 1. Push to GitHub
-2. Railway → **New Project** → **Deploy from GitHub repo** → select this repo
+2. Railway → **New Project** → **Deploy from GitHub repo**
 3. Add a **PostgreSQL** plugin (Railway auto-injects `DATABASE_URL`)
-4. Set these environment variables in the Railway dashboard:
+4. Set environment variables in the Railway dashboard:
 
-| Variable | Value |
+| Variable | Notes |
 |---|---|
 | `SECRET_KEY` | `python -c "import secrets; print(secrets.token_hex(32))"` |
-| `ADMIN_USERNAME` | Your chosen username |
-| `ADMIN_PASSWORD` | A strong password |
-| `JWT_EXPIRE_MINUTES` | `10080` |
+| `ADMIN_USERNAME` | Your personal login username |
+| `ADMIN_PASSWORD` | Strong password |
+| `DEMO_USERNAME` | Public demo username (default: `demo`) |
+| `DEMO_PASSWORD` | Public demo password (default: `demo`) |
+| `JWT_EXPIRE_MINUTES` | `10080` (7 days) |
+| `ANTHROPIC_API_KEY` | Required for essay evaluation |
+| `DEEPSEEK_API_KEY` | Required for CJK text parsing |
+| `DEEPSEEK_MODEL` | `deepseek-chat` |
 | `TYPING_FUZZY_THRESHOLD` | `0.85` |
-| `BIG_TEST_CARD_OPTIONS` | `10,20,50,100` |
 | `MAX_UPLOAD_SIZE_MB` | `5` |
-| `HINT_MAX_PRESSES` | `3` |
 
-5. Redeploy — Railway runs `alembic upgrade head && python scripts/seed_user.py` before switching traffic
+5. First deploy runs `alembic upgrade head && python scripts/seed_user.py && python scripts/bulk_import.py` automatically via the `release` command in `Procfile`
 
 ### Ongoing deploys
 
 ```bash
-git add .
-git commit -m "your message"
-git push origin main   # triggers automatic redeploy
+git push origin main   # triggers automatic redeploy on Railway
 ```
 
 ---
@@ -165,15 +210,28 @@ git push origin main   # triggers automatic redeploy
 | Variable | Default | Description |
 |---|---|---|
 | `DATABASE_URL` | `sqlite:///./flashcards.db` | SQLite locally; auto-set to PostgreSQL on Railway |
-| `SECRET_KEY` | — | JWT signing key — **must be set in production** |
+| `SECRET_KEY` | — | JWT signing key — **required in production** |
 | `JWT_ALGORITHM` | `HS256` | JWT algorithm |
 | `JWT_EXPIRE_MINUTES` | `10080` | Token lifetime (7 days) |
-| `ADMIN_USERNAME` | — | Initial admin account username |
-| `ADMIN_PASSWORD` | — | Initial admin account password |
+| `ADMIN_USERNAME` | — | Admin account username |
+| `ADMIN_PASSWORD` | — | Admin account password |
+| `DEMO_USERNAME` | `demo` | Demo account username |
+| `DEMO_PASSWORD` | `demo` | Demo account password |
+| `ANTHROPIC_API_KEY` | — | Required for essay evaluation (Claude Haiku) |
+| `DEEPSEEK_API_KEY` | — | Required for CJK text mining (DeepSeek) |
+| `DEEPSEEK_MODEL` | `deepseek-chat` | DeepSeek model ID |
+| `GOOGLE_TTS_API_KEY` | — | Optional; browser TTS is used when not set |
+| `VAPID_PUBLIC_KEY` | — | Optional; required for push notifications |
+| `VAPID_PRIVATE_KEY` | — | Optional; required for push notifications |
+| `VAPID_SUBJECT` | — | Optional; contact email for push notifications |
+| `DATA_DIR` | `./data/languages` | Vocabulary file directory |
 | `TYPING_FUZZY_THRESHOLD` | `0.85` | SequenceMatcher ratio for fuzzy typing match |
-| `BIG_TEST_CARD_OPTIONS` | `10,20,50,100` | Allowed card counts for Big Test |
+| `DEFAULT_QUIZ_CARD_COUNT` | `20` | Default cards per session |
+| `BIG_TEST_CARD_OPTIONS` | `10,20,50,100` | Allowed card counts for Total Recall |
 | `MAX_UPLOAD_SIZE_MB` | `5` | Maximum vocabulary file upload size |
-| `HINT_MAX_PRESSES` | `3` | Maximum hint presses per question |
+| `ESSAY_MIN_WORDS` | `20` | Minimum words for essay submission |
+| `ESSAY_MAX_WORDS` | `500` | Maximum words for essay submission |
+| `HINT_MAX_PRESSES` | `3` | Maximum hint presses per quiz question |
 
 ---
 
@@ -182,21 +240,55 @@ git push origin main   # triggers automatic redeploy
 ```
 lexio/
 ├── app/
-│   ├── main.py          — FastAPI app factory + static mount
-│   ├── config.py        — Settings via pydantic-settings
-│   ├── database.py      — SQLAlchemy engine + session
-│   ├── models/          — ORM models (User, Deck, Card, CardStat, …)
-│   ├── schemas/         — Pydantic I/O shapes
-│   ├── services/        — Business logic (auth, importer, quiz_engine, progress)
-│   ├── routers/         — HTTP endpoints (auth, decks, cards, import, quiz, progress)
-│   ├── utils/           — text.py (normalize), hint.py (letter mask)
-│   └── static/          — Vanilla JS/HTML/CSS frontend
-├── alembic/             — Database migrations
-├── data/languages/      — Sample vocabulary files
+│   ├── main.py              — FastAPI app factory + static mount
+│   ├── config.py            — Settings via pydantic-settings
+│   ├── database.py          — SQLAlchemy engine + session
+│   ├── models/
+│   │   ├── user.py          — User accounts
+│   │   ├── card.py          — Deck + Card
+│   │   ├── progress.py      — CardStat, QuizSession, QuizAnswer, StudyLog
+│   │   ├── essay.py         — EssaySubmission
+│   │   ├── immersion.py     — ImmersionLog (journal entries)
+│   │   ├── settings.py      — Per-user key/value settings
+│   │   ├── push.py          — Push notification subscriptions
+│   │   └── import_log.py    — ImportBatch audit trail
+│   ├── schemas/             — Pydantic I/O shapes
+│   ├── services/
+│   │   ├── auth.py          — Password hashing, JWT
+│   │   ├── importer.py      — CSV/TSV vocab ingest
+│   │   ├── anki_parser.py   — .apkg unzip + SQLite read
+│   │   ├── quiz_engine.py   — Card selection, question building, answer checking
+│   │   ├── progress.py      — CardStat upsert, streak, weakest cards
+│   │   ├── srs.py           — SM-2 spaced repetition algorithm
+│   │   ├── essay_evaluator.py — Claude Haiku evaluation + language detection
+│   │   ├── text_parser.py   — Latin tokeniser + DeepSeek CJK segmentation
+│   │   ├── tts.py           — Google TTS synthesis (optional)
+│   │   └── push.py          — Web Push notification dispatch
+│   ├── routers/
+│   │   ├── auth.py          — /api/auth (login, demo, me)
+│   │   ├── decks.py         — /api/decks (list, detail, delete, export)
+│   │   ├── cards.py         — /api/cards (list, add, delete)
+│   │   ├── import_.py       — /api/import (CSV, Anki)
+│   │   ├── quiz.py          — /api/quiz (start, answer, result, hint)
+│   │   ├── progress.py      — /api/progress (stats, streak, dashboard, heatmap)
+│   │   ├── essay.py         — /api/essay (submit, history, stats)
+│   │   ├── immersion.py     — /api/immersion (log, list, stats)
+│   │   ├── journal.py       — /api/journal (parse-text)
+│   │   ├── settings.py      — /api/settings (daily-goal, hidden-languages, reset)
+│   │   ├── tts.py           — /api/tts (synthesise)
+│   │   └── push.py          — /api/push (subscribe, notify)
+│   ├── utils/
+│   │   ├── text.py          — normalize_text, normalize_deck_label
+│   │   └── hint.py          — generate_letter_mask, next_reveal
+│   └── static/              — Vanilla JS/HTML/CSS single-page frontend
+├── alembic/                 — Database migrations
+├── data/languages/          — Vocabulary files (auto-imported on deploy)
 ├── scripts/
-│   └── seed_user.py     — Create initial admin user (idempotent)
-├── tests/               — pytest test suite (58 tests)
-├── Procfile             — Railway process definition
-├── railway.toml         — Railway build config
+│   ├── seed_user.py         — Create admin + demo users (idempotent)
+│   ├── bulk_import.py       — Import all vocab files in data/languages/ (idempotent)
+│   └── gen_vapid_keys.py    — Generate VAPID keys for push notifications
+├── tests/                   — pytest test suite
+├── Procfile                 — Railway: web + release commands
+├── railway.toml             — Railway build config
 └── requirements.txt
 ```
