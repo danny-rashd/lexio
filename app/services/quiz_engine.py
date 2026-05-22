@@ -74,6 +74,7 @@ def select_cards_for_big_test(
     db: Session,
     count: int,
     languages: list[str] | None = None,
+    user_id: int = 1,
 ) -> list[Card]:
     """
     Select cards for a Total Recall session, weighted toward weakest cards.
@@ -97,6 +98,7 @@ def select_cards_for_big_test(
                 / func.nullif(func.sum(CardStat.times_seen), 0)
             ).label("weakness_score"),
         )
+        .filter(CardStat.user_id == user_id)
         .group_by(CardStat.card_id)
         .subquery()
     )

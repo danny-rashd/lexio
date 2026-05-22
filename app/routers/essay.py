@@ -9,7 +9,7 @@ from app.models.essay import EssaySubmission
 from app.models.user import User
 from app.routers.auth import get_current_user
 from app.schemas.essay import EssayHistoryItem, EssaySubmitRequest
-from app.services.essay_evaluator import evaluate_essay
+from app.services.essay_evaluator import check_language, evaluate_essay
 
 router = APIRouter(prefix="/api/essay", tags=["essay"])
 
@@ -18,7 +18,7 @@ router = APIRouter(prefix="/api/essay", tags=["essay"])
 def submit_essay(
     body: EssaySubmitRequest,
     db: Session = Depends(get_db),
-    _: User = Depends(get_current_user),
+    current_user: User = Depends(get_current_user),
 ) -> dict:
     if not settings.ANTHROPIC_API_KEY:
         raise HTTPException(
@@ -38,6 +38,25 @@ def submit_essay(
             detail=f"Essay must be {settings.ESSAY_MAX_WORDS} words or fewer.",
         )
 
+    lang_check = check_language(body.text, body.language)
+    warning = None
+    if not lang_check["match"]:
+        if lang_check["confidence"] >= 0.95:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail={
+                    "code":     "language_mismatch",
+                    "detected": lang_check["detected"],
+                    "selected": body.language.capitalize(),
+                },
+            )
+        elif lang_check["confidence"] >= 0.60:
+            warning = {
+                "code":     "language_uncertain",
+                "detected": lang_check["detected"],
+                "selected": body.language.capitalize(),
+            }
+
     try:
         evaluation = evaluate_essay(body.text, body.language)
     except ValueError as exc:
@@ -52,6 +71,7 @@ def submit_essay(
         ) from exc
 
     submission = EssaySubmission(
+        user_id=current_user.id,
         language=body.language,
         text=body.text,
         word_count=len(words),
@@ -63,9 +83,10 @@ def submit_essay(
     db.refresh(submission)
 
     return {
-        "id": submission.id,
+        "id":         submission.id,
         "word_count": len(words),
         "evaluation": evaluation,
+        "warning":    warning,
     }
 
 
@@ -74,9 +95,9 @@ def get_history(
     limit: int = Query(default=20, ge=1, le=100),
     language: str | None = Query(default=None),
     db: Session = Depends(get_db),
-    _: User = Depends(get_current_user),
+    current_user: User = Depends(get_current_user),
 ) -> list[EssayHistoryItem]:
-    query = db.query(EssaySubmission)
+    query = db.query(EssaySubmission).filter(EssaySubmission.user_id == current_user.id)
     if language:
         query = query.filter(EssaySubmission.language == language.lower().strip())
     return query.order_by(EssaySubmission.submitted_at.desc()).limit(limit).all()
@@ -86,9 +107,11 @@ def get_history(
 def get_essay(
     essay_id: int,
     db: Session = Depends(get_db),
-    _: User = Depends(get_current_user),
+    current_user: User = Depends(get_current_user),
 ) -> dict:
-    sub = db.query(EssaySubmission).filter(EssaySubmission.id == essay_id).first()
+    sub = db.query(EssaySubmission).filter(
+        EssaySubmission.id == essay_id, EssaySubmission.user_id == current_user.id
+    ).first()
     if not sub:
         raise HTTPException(status_code=404, detail="Essay not found")
     return {
@@ -105,9 +128,11 @@ def get_essay(
 @router.get("/stats")
 def get_essay_stats(
     db: Session = Depends(get_db),
-    _: User = Depends(get_current_user),
+    current_user: User = Depends(get_current_user),
 ) -> dict:
-    subs = db.query(EssaySubmission).order_by(EssaySubmission.submitted_at.desc()).all()
+    subs = db.query(EssaySubmission).filter(
+        EssaySubmission.user_id == current_user.id
+    ).order_by(EssaySubmission.submitted_at.desc()).all()
     if not subs:
         return {"total": 0, "average_score": 0.0, "best_score": 0.0, "by_language": {}, "recent": []}
 
@@ -133,5 +158,13 @@ def get_essay_stats(
         for s in subs[:5]
     ]
 
+    # Chronological score trend per language for sparklines
+    trend_by_language: dict[str, list] = {}
+    for s in reversed(subs):
+        trend_by_language.setdefault(s.language, []).append({
+            "date":  s.submitted_at.strftime("%Y-%m-%d"),
+            "score": round(s.overall_score, 1),
+        })
+
     return {"total": total, "average_score": avg_score, "best_score": best_score,
-            "by_language": by_language, "recent": recent}
+            "by_language": by_language, "recent": recent, "trend_by_language": trend_by_language}

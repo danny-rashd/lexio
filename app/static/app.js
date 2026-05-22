@@ -32,11 +32,22 @@ const LANG_BCP47 = {
   mandarin: 'zh-CN',
 };
 
+const ACT_COLORS = {
+  watching:  '#4361EE',
+  listening: '#F4A261',
+  reading:   '#22c55e',
+  speaking:  '#E63946',
+  writing:   '#7C3AED',
+  gaming:    '#2A9D8F',
+  other:     '#6B6B6B',
+};
+
 // ── State ─────────────────────────────────────────────────────────────────────
 
 const App = {
-  token:        sessionStorage.getItem('token'),
-  decks:        [],
+  token:          sessionStorage.getItem('token'),
+  hiddenLanguages: new Set(),
+  decks:          [],
   quiz: {
     sessionId:  null,
     mode:       null,
@@ -126,6 +137,10 @@ function esc(str) {
   return String(str)
     .replace(/&/g, '&amp;').replace(/</g, '&lt;')
     .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function titleCase(str) {
+  return str ? str.charAt(0).toUpperCase() + str.slice(1) : str;
 }
 
 async function speak(text, language) {
@@ -573,9 +588,22 @@ function showScreen(id) {
   document.getElementById('nav').classList.toggle('hidden', isLogin);
 }
 
+function _jwtUsername(token) {
+  try { return JSON.parse(atob(token.split('.')[1])).username || ''; }
+  catch { return ''; }
+}
+
+function _applyDemoBadge(token) {
+  const badge = document.getElementById('nav-demo-badge');
+  if (!badge) return;
+  const isDemo = _jwtUsername(token).toLowerCase() === 'demo';
+  badge.classList.toggle('hidden', !isDemo);
+}
+
 function logout() {
   sessionStorage.removeItem('token');
   App.token = null;
+  document.getElementById('nav-demo-badge')?.classList.add('hidden');
   showScreen('screen-login');
 }
 
@@ -681,6 +709,7 @@ document.getElementById('form-login').addEventListener('submit', async e => {
   if (res.ok) {
     App.token = (await res.json()).access_token;
     sessionStorage.setItem('token', App.token);
+    _applyDemoBadge(App.token);
     errEl.classList.add('hidden');
     initPWA();
     showHome();
@@ -696,10 +725,23 @@ document.getElementById('btn-logout').addEventListener('click', async () => {
   if (await showConfirm('Log out?', 'Log out')) logout();
 });
 
-document.getElementById('btn-demo').addEventListener('click', () => {
-  document.getElementById('inp-username').value = 'demo';
-  document.getElementById('inp-password').value = 'demo';
-  document.getElementById('form-login').requestSubmit();
+document.getElementById('btn-demo').addEventListener('click', async () => {
+  const btn   = document.getElementById('btn-demo');
+  const errEl = document.getElementById('login-err');
+  errEl.classList.add('hidden');
+  setLoading(btn, true);
+  const res = await api('POST', '/api/auth/demo');
+  setLoading(btn, false);
+  if (!res?.ok) {
+    const e = await res?.json().catch(() => ({}));
+    errEl.textContent = friendlyError(e?.detail);
+    errEl.classList.remove('hidden');
+    return;
+  }
+  App.token = (await res.json()).access_token;
+  sessionStorage.setItem('token', App.token);
+  _applyDemoBadge(App.token);
+  showHome();
 });
 
 // ── Home ──────────────────────────────────────────────────────────────────────
@@ -717,6 +759,22 @@ function _miniCalHtml(studiedDates) {
     }).join('') + '</div>';
 }
 
+async function _loadHiddenLanguages() {
+  const res = await api('GET', '/api/settings/hidden-languages');
+  if (res?.ok) {
+    const { hidden } = await res.json();
+    App.hiddenLanguages = new Set(hidden || []);
+  }
+}
+
+async function toggleHiddenLanguage(language, hidden) {
+  const res = await api('POST', '/api/settings/hidden-languages', { language, hidden });
+  if (res?.ok) {
+    const { hidden: updated } = await res.json();
+    App.hiddenLanguages = new Set(updated);
+  }
+}
+
 async function showHome() {
   showScreen('screen-home');
   document.getElementById('deck-container').innerHTML = _deckSkeletonHtml();
@@ -728,6 +786,7 @@ async function showHome() {
   const [decksRes, streakRes] = await Promise.all([
     api('GET', '/api/decks'),
     api('GET', '/api/progress/streak'),
+    _loadHiddenLanguages(),
   ]);
 
   if (!decksRes) return;
@@ -771,7 +830,7 @@ async function showHome() {
         <div class="home-quick-text">
           <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.15rem">
             ${langPillHtml(lastDeck.language)}
-            <span class="home-quick-title">Continue studying <strong>${esc(lastDeck.language)}</strong></span>
+            <span class="home-quick-title">Continue studying <strong>${esc(titleCase(lastDeck.language))}</strong></span>
           </div>
           <span class="text-secondary" style="font-size:.8rem">${esc(lastDeck.topic)} · ${seen} / ${lastDeck.card_count} seen</span>
         </div>
@@ -821,7 +880,8 @@ function renderDecks(decks, statsMap = {}) {
 
   const byLang = {};
   for (const deck of decks) {
-    (byLang[deck.language] = byLang[deck.language] || []).push(deck);
+    if (!App.hiddenLanguages.has(deck.language))
+      (byLang[deck.language] = byLang[deck.language] || []).push(deck);
   }
 
   container.innerHTML = Object.entries(byLang).map(([lang, langDecks]) => {
@@ -830,7 +890,7 @@ function renderDecks(decks, statsMap = {}) {
     <div class="lang-group" data-language="${esc(lang)}">
       <div class="lang-group-header">
         ${langPillHtml(lang)}
-        <h3>${esc(lang)}</h3>
+        <h3>${esc(titleCase(lang))}</h3>
         ${pct > 0 ? `<span class="lang-pct">${pct}% studied</span>` : ''}
       </div>
       <div class="topic-grid">
@@ -984,10 +1044,10 @@ document.getElementById('btn-nav-progress').addEventListener('click', showProgre
 function showTestSetup(preselectedDeck) {
   showScreen('screen-test-setup');
 
-  const languages = [...new Set(App.decks.map(d => d.language))];
+  const languages = [...new Set(App.decks.map(d => d.language))].filter(l => !App.hiddenLanguages.has(l));
   const selLang   = document.getElementById('sel-language');
   const selTopic  = document.getElementById('sel-topic');
-  selLang.innerHTML = languages.map(l => `<option value="${esc(l)}">${esc(l)}</option>`).join('');
+  selLang.innerHTML = languages.map(l => `<option value="${esc(l)}">${esc(titleCase(l))}</option>`).join('');
 
   if (preselectedDeck) selLang.value = preselectedDeck.language;
 
@@ -1133,6 +1193,7 @@ document.getElementById('btn-test-start').addEventListener('click', async () => 
   }
 
   const data = await res.json();
+  setLoading(btn, false);
   initQuizState(data, deckId);
 
   // Remember last used deck for quick-start card on Home
@@ -1158,13 +1219,13 @@ function _updateTotalRecallStart() {
 function showBigTestSetup() {
   showScreen('screen-big-test-setup');
 
-  const langs = [...new Set(App.decks.map(d => d.language))].sort();
+  const langs = [...new Set(App.decks.map(d => d.language))].filter(l => !App.hiddenLanguages.has(l)).sort();
   App.totalRecallLangs = new Set(langs);
 
   const langContainer = document.getElementById('total-recall-langs');
   langContainer.innerHTML = langs.map(lang =>
     `<div class="lang-check-item selected" data-lang="${esc(lang)}">
-       ${langPillHtml(lang)}<span>${esc(lang)}</span>
+       ${langPillHtml(lang)}<span>${esc(titleCase(lang))}</span>
      </div>`
   ).join('');
 
@@ -1231,6 +1292,7 @@ document.getElementById('btn-big-start').addEventListener('click', async () => {
   }
 
   const data = await res.json();
+  setLoading(btn, false);
   initQuizState(data, null);
   showScreen('screen-quiz');
   renderQuizQuestion(data.question);
@@ -1661,7 +1723,7 @@ document.getElementById('btn-results-home').addEventListener('click', showHome);
 async function showBrowse(deck) {
   App.browse.deck = deck;
   App.browse.page = 1;
-  document.getElementById('browse-title').textContent = `${deck.language} / ${deck.topic}`;
+  document.getElementById('browse-title').textContent = `${titleCase(deck.language)} / ${deck.topic}`;
   document.getElementById('inp-search').value = '';
   document.getElementById('btn-browse-export').classList.remove('hidden');
   document.getElementById('btn-browse-delete').classList.remove('hidden');
@@ -1783,11 +1845,11 @@ function _populateImportLangSelect(preselected) {
   const sel = document.getElementById('sel-import-lang');
   const inp = document.getElementById('inp-import-lang-new');
 
-  // Always show the 4 supported languages; also include any extras already in DB
+  // Show all supported languages including any extras in DB (hidden ones still importable)
   const existing = App.decks.map(d => d.language);
   const langs    = [...new Set([...SUPPORTED_LANGS, ...existing])].sort();
 
-  sel.innerHTML = langs.map(l => `<option value="${esc(l)}">${esc(l)}</option>`).join('');
+  sel.innerHTML = langs.map(l => `<option value="${esc(l)}">${esc(titleCase(l))}</option>`).join('');
 
   if (preselected && langs.includes(preselected)) sel.value = preselected;
 
@@ -2122,22 +2184,33 @@ document.getElementById('btn-import-submit').addEventListener('click', async () 
 
 // ── Progress ──────────────────────────────────────────────────────────────────
 
-function _streakCalendarHtml(studiedDates) {
-  const studied = new Set(studiedDates);
-  const today   = new Date();
-  let html      = '<div class="streak-calendar">';
-  for (let i = 29; i >= 0; i--) {
-    const d    = new Date(today);
+function _activityHeatmapHtml(daysMap) {
+  const today = new Date();
+  const cells = [];
+  for (let i = 90; i >= 0; i--) {
+    const d   = new Date(today);
     d.setDate(d.getDate() - i);
-    const iso  = d.toISOString().split('T')[0];
-    const cls  = [
-      'day-sq',
-      studied.has(iso) ? 'studied' : '',
-      i === 0 ? 'today' : '',
-    ].filter(Boolean).join(' ');
-    html += `<div class="${cls}" title="${iso}"></div>`;
+    const iso = d.toISOString().split('T')[0];
+    const day = daysMap?.[iso];
+    let heat  = 0;
+    if (day) {
+      const score = (day.cards / 50) + (day.immersion_minutes / 90) + (day.essays * 0.5);
+      heat = Math.min(4, Math.max(1, Math.ceil(score * 2)));
+    }
+    const cls = ['heat-cell', `heat-${heat}`, i === 0 ? 'heat-today' : ''].filter(Boolean).join(' ');
+    const tipParts = [iso];
+    if (day?.cards)             tipParts.push(`${day.cards} cards`);
+    if (day?.immersion_minutes) tipParts.push(`${_fmtMins(day.immersion_minutes)} immersion`);
+    if (day?.essays)            tipParts.push(`${day.essays} essay${day.essays > 1 ? 's' : ''}`);
+    if (day?.immersion_detail?.length) tipParts.push(...day.immersion_detail.slice(0, 2));
+    cells.push(`<div class="${cls}" data-tip="${tipParts.join('|')}"></div>`);
   }
-  return html + '</div>';
+  return `<div class="heat-grid" id="heat-grid">${cells.join('')}</div>
+    <div class="heat-legend">Less
+      <div class="heat-legend-cells">
+        <div class="heat-0"></div><div class="heat-1"></div><div class="heat-2"></div><div class="heat-3"></div><div class="heat-4"></div>
+      </div>
+    More</div>`;
 }
 
 const DIRECTION_LABELS = {
@@ -2163,6 +2236,7 @@ function _langColour(language) {
 
 function _renderProficiency(languages) {
   const container = document.getElementById('lang-proficiency');
+  container._lastLanguages = languages;
   if (!languages.length) { container.innerHTML = '<p class="text-secondary" style="font-size:.85rem">No study data yet.</p>'; return; }
 
   container.innerHTML = languages.map(l => {
@@ -2186,12 +2260,37 @@ function _renderProficiency(languages) {
         }).join('')
       : '<p class="prof-no-data">No direction data yet — complete a quiz to see breakdown.</p>';
 
+    const srs      = l.srs_health || {new: 0, learning: 0, mature: 0, overdue: 0};
+    const srsTotal = srs.new + srs.learning + srs.mature + srs.overdue || 1;
+    const srsBar   = `
+      <div class="srs-health">
+        <div class="srs-bar">
+          <div class="srs-seg srs-new"      style="width:${Math.round(srs.new/srsTotal*100)}%"      title="New: ${srs.new}"></div>
+          <div class="srs-seg srs-learning" style="width:${Math.round(srs.learning/srsTotal*100)}%" title="Learning: ${srs.learning}"></div>
+          <div class="srs-seg srs-mature"   style="width:${Math.round(srs.mature/srsTotal*100)}%"   title="Mature: ${srs.mature}"></div>
+          <div class="srs-seg srs-overdue"  style="width:${Math.round(srs.overdue/srsTotal*100)}%"  title="Overdue: ${srs.overdue}"></div>
+        </div>
+        <div class="srs-legend">
+          <span class="srs-legend-item"><span class="srs-legend-dot" style="background:var(--border)"></span>New ${srs.new}</span>
+          <span class="srs-legend-item"><span class="srs-legend-dot" style="background:#F4A261"></span>Learning ${srs.learning}</span>
+          <span class="srs-legend-item"><span class="srs-legend-dot" style="background:#22c55e"></span>Mature ${srs.mature}</span>
+          ${srs.overdue ? `<span class="srs-legend-item"><span class="srs-legend-dot" style="background:#ef4444"></span>Overdue ${srs.overdue}</span>` : ''}
+        </div>
+      </div>`;
+
+    const isHidden  = App.hiddenLanguages.has(l.language);
+    const eyeTitle  = isHidden ? 'Show in app' : 'Hide from app';
+    const eyeIcon   = isHidden
+      ? `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88"/></svg>`
+      : `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"/><path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>`;
+
     return `
-      <div class="card prof-card" data-lang="${esc(l.language)}">
+      <div class="card prof-card ${isHidden ? 'prof-card-hidden' : ''}" data-lang="${esc(l.language)}">
         <div class="prof-header">
           ${langPillHtml(l.language)}
           <span class="prof-name">${esc(l.language)}</span>
           <span class="prof-badge ${badge.cls}">${badge.label}</span>
+          <button class="prof-eye-btn" data-lang="${esc(l.language)}" data-hidden="${isHidden}" title="${eyeTitle}" onclick="event.stopPropagation()">${eyeIcon}</button>
           <span class="prof-expand">&#9658;</span>
         </div>
         <div class="prof-bar-row">
@@ -2201,12 +2300,25 @@ function _renderProficiency(languages) {
           <span class="prof-rate-label">${scorePct}%</span>
         </div>
         <p class="prof-coverage">${correctPct}% correct · ${l.cards_seen || 0} / ${l.total_cards} words seen (${covPct}% coverage)</p>
+        ${srsBar}
         <div class="prof-directions">${dirRows}</div>
       </div>`;
   }).join('');
 
   container.querySelectorAll('.prof-card').forEach(card => {
-    card.addEventListener('click', () => card.classList.toggle('open'));
+    card.addEventListener('click', e => {
+      if (e.target.closest('.prof-eye-btn')) return;
+      card.classList.toggle('open');
+    });
+  });
+
+  container.querySelectorAll('.prof-eye-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const lang      = btn.dataset.lang;
+      const nowHidden = btn.dataset.hidden !== 'true';
+      await toggleHiddenLanguage(lang, nowHidden);
+      _renderProficiency(container._lastLanguages);
+    });
   });
 }
 
@@ -2282,6 +2394,33 @@ const ACTIVITY_COLOURS = {
   speaking: 'act-speaking', writing: 'act-writing',   gaming: 'act-gaming', other: 'act-other',
 };
 
+const RESOURCE_TYPE_LABELS = {
+  podcast: { creator: 'Channel',   detail: 'Episode title'   },
+  tv_show: { creator: 'Show',      detail: 'Episode'         },
+  movie:   { creator: 'Title',     detail: 'Year'            },
+  music:   { creator: 'Artist',    detail: 'Track / Album'   },
+  video:   { creator: 'Channel',   detail: 'Video title'     },
+  book:    { creator: 'Author',    detail: 'Chapter / Page'  },
+  app:     { creator: 'App name',  detail: 'Feature / Mode'  },
+  other:   { creator: 'Name',      detail: 'Details'         },
+};
+
+function _updateResourceLabels() {
+  const type   = document.getElementById('journal-resource-type')?.value || 'other';
+  const labels = RESOURCE_TYPE_LABELS[type] || RESOURCE_TYPE_LABELS.other;
+  const cLabel = document.getElementById('journal-creator-label');
+  const dLabel = document.getElementById('journal-detail-label');
+  if (cLabel) cLabel.childNodes[0].textContent = labels.creator + ' ';
+  if (dLabel) dLabel.childNodes[0].textContent = labels.detail + ' ';
+  const cInput = document.getElementById('journal-resource-creator');
+  const dInput = document.getElementById('journal-resource-detail');
+  if (cInput) cInput.placeholder = labels.creator;
+  if (dInput) dInput.placeholder = labels.detail;
+}
+
+document.getElementById('journal-resource-type')
+  ?.addEventListener('change', _updateResourceLabels);
+
 let _journalRating    = 0;
 let _journalPage      = 1;
 const _JOURNAL_LIMIT  = 20;
@@ -2297,18 +2436,20 @@ async function showJournal() {
   showScreen('screen-journal');
   _journalRating = 0;
   document.querySelectorAll('.rating-star').forEach(s => s.classList.remove('active'));
+  _updateResourceLabels();
 
   // Set today's date
   document.getElementById('journal-date').valueAsDate = new Date();
 
-  // Populate language dropdowns
-  const langs = [...new Set(App.decks.map(d => d.language))].sort();
+  // Populate language dropdowns (journal log uses visible langs only; history filter shows all)
+  const langs       = [...new Set(App.decks.map(d => d.language))].sort();
+  const visibleLangs = langs.filter(l => !App.hiddenLanguages.has(l));
   const langSel = document.getElementById('journal-lang');
-  langSel.innerHTML = langs.map(l => `<option value="${esc(l)}">${esc(l)}</option>`).join('');
+  langSel.innerHTML = visibleLangs.map(l => `<option value="${esc(l)}">${esc(titleCase(l))}</option>`).join('');
 
   const filterSel = document.getElementById('journal-filter-lang');
   filterSel.innerHTML = '<option value="">All languages</option>' +
-    langs.map(l => `<option value="${esc(l)}">${esc(l)}</option>`).join('');
+    langs.map(l => `<option value="${esc(l)}">${esc(titleCase(l))}</option>`).join('');
 
   _journalPage = 1;
   await _loadJournalStats();
@@ -2318,37 +2459,73 @@ async function showJournal() {
 async function _loadJournalStats() {
   const res = await api('GET', '/api/immersion/stats');
   if (!res?.ok) return;
-  const s   = await res.json();
-  const el  = document.getElementById('journal-stats');
+  const s  = await res.json();
+  const el = document.getElementById('journal-stats');
 
   if (s.total_entries === 0) { el.classList.add('hidden'); return; }
 
-  const topLangs = Object.entries(s.by_language).sort((a, b) => b[1] - a[1]);
-  const maxLang  = topLangs[0]?.[1] || 1;
-  const langBars = topLangs.map(([lang, mins]) => `
-    <div class="journal-stat-bar-row">
-      <span class="journal-stat-bar-label">${esc(lang)}</span>
-      <div class="journal-stat-bar-bg">
-        <div class="journal-stat-bar-fill" style="width:${Math.round(mins/maxLang*100)}%"></div>
+  const byLangAct = s.by_lang_activity || {};
+  const topLangs  = Object.entries(s.by_language || {}).sort((a, b) => b[1] - a[1]);
+
+  const langRows = topLangs.map(([lang, mins]) => `
+    <div class="jstat-lang-row">
+      <div class="jstat-lang-left">
+        ${langPillHtml(lang)}
+        <span class="jstat-lang-name">${esc(titleCase(lang))}</span>
       </div>
-      <span class="journal-stat-bar-val">${_fmtMins(mins)}</span>
+      <div class="jstat-lang-bar">${_actMixHtml(byLangAct[lang])}</div>
+      <span class="jstat-lang-val">${_fmtMins(mins)}</span>
     </div>`).join('');
 
+  const usedActs = [...new Set(Object.values(byLangAct).flatMap(a => Object.keys(a)))];
+  const legend   = usedActs.map(a =>
+    `<span><span class="act-legend-dot" style="background:${ACT_COLORS[a] || '#6B6B6B'}"></span>${a}</span>`
+  ).join('');
+
+  const weekLabel  = s.week_minutes > 0
+    ? _fmtMins(s.week_minutes)
+    : 'No activity';
+  const weekSub    = s.week_entries
+    ? `${s.week_entries} session${s.week_entries !== 1 ? 's' : ''} this week`
+    : 'nothing logged yet this week';
+
   el.innerHTML = `
-    <div class="journal-stat">
-      <span class="journal-stat-num">${_fmtMins(s.total_minutes)}</span>
-      <span class="journal-stat-label">total immersion</span>
+    <div class="jstat-hero-row">
+      <div class="jstat-hero">
+        <span class="jstat-hero-label">This week</span>
+        <span class="jstat-hero-num">${weekLabel}</span>
+        <span class="jstat-hero-sub">${weekSub}</span>
+      </div>
+      <div class="jstat-secondary">
+        <div class="jstat-sec-item">
+          <span class="jstat-sec-num">${_fmtMins(s.total_minutes)}</span>
+          <span class="jstat-sec-label">all time</span>
+        </div>
+        <div class="jstat-sec-divider"></div>
+        <div class="jstat-sec-item">
+          <span class="jstat-sec-num">${s.total_entries}</span>
+          <span class="jstat-sec-label">sessions</span>
+        </div>
+      </div>
     </div>
-    <div class="journal-stat">
-      <span class="journal-stat-num">${_fmtMins(s.week_minutes)}</span>
-      <span class="journal-stat-label">this week</span>
-    </div>
-    <div class="journal-stat">
-      <span class="journal-stat-num">${s.total_entries}</span>
-      <span class="journal-stat-label">sessions logged</span>
-    </div>
-    <div class="journal-stat-bar-wrap">${langBars}</div>`;
+    ${topLangs.length ? `
+    <div class="jstat-langs">
+      <span class="jstat-langs-label">By language</span>
+      ${langRows}
+      ${legend ? `<div class="act-legend" style="margin-top:.4rem">${legend}</div>` : ''}
+    </div>` : ''}`;
+
   el.classList.remove('hidden');
+}
+
+function _resourceDisplay(e) {
+  if (e.resource_type) {
+    const typeLabel = e.resource_type.replace('_', ' ');
+    const parts     = [e.resource_creator, e.resource_detail].filter(Boolean).map(esc);
+    const detail    = parts.length ? parts.join(' — ') : '';
+    return `<span class="resource-type-tag">${esc(typeLabel)}</span>${detail ? ' ' + detail : ''}`;
+  }
+  return esc(e.resource || '');
 }
 
 async function _loadJournalHistory() {
@@ -2366,23 +2543,22 @@ async function _loadJournalHistory() {
   } else {
     container.innerHTML = entries.map(e => `
       <div class="journal-entry" id="jentry-${e.id}">
-        <div class="journal-entry-main">
-          <div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:.25rem">
+        <div class="je-header">
+          <div class="je-header-left">
             <span class="activity-badge ${ACTIVITY_COLOURS[e.activity_type] || 'act-other'}">${esc(e.activity_type)}</span>
             ${langPillHtml(e.language)}
+            <span class="je-duration">${_fmtMins(e.duration_minutes)}</span>
+            ${e.rating ? `<span class="journal-stars">${_stars(e.rating)}</span>` : ''}
           </div>
-          <div class="journal-entry-resource">${esc(e.resource)}</div>
-          <div class="journal-entry-meta">${new Date(e.logged_at).toLocaleDateString()}</div>
-          ${e.notes ? `<div class="journal-entry-notes">${esc(e.notes)}</div>` : ''}
-          <div style="display:flex;align-items:center;gap:.5rem;margin-top:.4rem;flex-wrap:wrap">
-            <button class="btn-ghost btn-sm jaf-toggle" data-entry="${e.id}" data-lang="${esc(e.language)}">+ Add word</button>
-            ${e.word_count > 0 ? `<button class="jaf-word-count" data-entry="${e.id}" data-lang="${esc(e.language)}">${e.word_count} word${e.word_count !== 1 ? 's' : ''}</button>` : ''}
-          </div>
+          <button class="je-delete" onclick="deleteJournalEntry(${e.id})" title="Delete entry">×</button>
         </div>
-        <div class="journal-entry-side">
-          <span class="journal-duration">${_fmtMins(e.duration_minutes)}</span>
-          ${e.rating ? `<span class="journal-stars">${_stars(e.rating)}</span>` : ''}
-          <button class="btn-danger btn-sm" onclick="deleteJournalEntry(${e.id})">×</button>
+        <div class="je-resource">${_resourceDisplay(e)}</div>
+        <div class="je-meta">${new Date(e.logged_at).toLocaleDateString(undefined, {year:'numeric',month:'short',day:'numeric'})}</div>
+        ${e.notes ? `<div class="je-notes">"${esc(e.notes)}"</div>` : ''}
+        <div class="je-actions">
+          <button class="btn-ghost btn-sm jaf-toggle" data-entry="${e.id}" data-lang="${esc(e.language)}">+ Add word</button>
+          <button class="btn-ghost btn-sm ptx-toggle" data-entry="${e.id}" data-lang="${esc(e.language)}">⛏ Parse text</button>
+          ${e.word_count > 0 ? `<button class="jaf-word-count" data-entry="${e.id}" data-lang="${esc(e.language)}">${e.word_count} word${e.word_count !== 1 ? 's' : ''}</button>` : ''}
         </div>
       </div>
       <div class="jaf-form hidden" id="jaf-${e.id}" data-lang="${esc(e.language)}" data-entry="${e.id}">
@@ -2403,6 +2579,15 @@ async function _loadJournalHistory() {
           <button class="btn-ghost   btn-sm jaf-cancel" data-entry="${e.id}">Cancel</button>
           <span class="jaf-status"></span>
         </div>
+      </div>
+      <div class="ptx-panel hidden" id="ptx-${e.id}" data-lang="${esc(e.language)}" data-entry="${e.id}">
+        <textarea class="ptx-textarea" placeholder="Paste ${titleCase(e.language)} text here…"></textarea>
+        <div class="ptx-actions">
+          <button class="btn-primary btn-sm ptx-extract" data-entry="${e.id}">Extract words</button>
+          <button class="btn-ghost   btn-sm ptx-close"   data-entry="${e.id}">Cancel</button>
+          <span class="ptx-status"></span>
+        </div>
+        <div class="ptx-results hidden"></div>
       </div>`).join('');
   }
 
@@ -2449,6 +2634,199 @@ document.querySelectorAll('.journal-quick').forEach(btn => {
     inp.value = Math.max(1, (parseInt(inp.value, 10) || 0) + parseInt(btn.dataset.add, 10));
   });
 });
+
+// ── Parse text from journal ───────────────────────────────────────────────────
+
+document.getElementById('journal-history').addEventListener('click', e => {
+  // Toggle parse-text panel
+  const toggleBtn = e.target.closest('.ptx-toggle');
+  if (toggleBtn) {
+    const panel = document.getElementById(`ptx-${toggleBtn.dataset.entry}`);
+    if (!panel) return;
+    const opening = panel.classList.contains('hidden');
+    // Close all other ptx panels first
+    document.querySelectorAll('.ptx-panel').forEach(p => p.classList.add('hidden'));
+    if (opening) {
+      panel.classList.remove('hidden');
+      panel.querySelector('.ptx-textarea')?.focus();
+    }
+    return;
+  }
+
+  // Close button
+  const closeBtn = e.target.closest('.ptx-close');
+  if (closeBtn) {
+    document.getElementById(`ptx-${closeBtn.dataset.entry}`)?.classList.add('hidden');
+    return;
+  }
+
+  // Extract button
+  const extractBtn = e.target.closest('.ptx-extract');
+  if (extractBtn) { _ptxExtract(extractBtn.dataset.entry); return; }
+
+  // Select-all chips
+  const selAllBtn = e.target.closest('.ptx-select-all');
+  if (selAllBtn) {
+    const panel = document.getElementById(`ptx-${selAllBtn.dataset.entry}`);
+    panel?.querySelectorAll('.ptx-word-chip:not(.known)').forEach(c => c.classList.add('selected'));
+    _ptxSyncTable(selAllBtn.dataset.entry);
+    return;
+  }
+
+  // Word chip toggle
+  const chip = e.target.closest('.ptx-word-chip:not(.known)');
+  if (chip) {
+    chip.classList.toggle('selected');
+    _ptxSyncTable(chip.closest('.ptx-panel').dataset.entry);
+    return;
+  }
+
+  // Save selected
+  const saveBtn = e.target.closest('.ptx-save');
+  if (saveBtn) { _ptxSave(saveBtn.dataset.entry); return; }
+});
+
+function _ptxSyncTable(entryId) {
+  const panel    = document.getElementById(`ptx-${entryId}`);
+  const results  = panel?.querySelector('.ptx-results');
+  if (!panel || !results) return;
+
+  const selected = [...panel.querySelectorAll('.ptx-word-chip.selected')];
+  const tbody    = results.querySelector('.ptx-tbody');
+  if (!tbody) return;
+
+  // Add rows for newly selected chips, remove rows for deselected
+  const selectedWords = new Set(selected.map(c => c.dataset.word));
+  tbody.querySelectorAll('tr[data-word]').forEach(row => {
+    if (!selectedWords.has(row.dataset.word)) row.remove();
+  });
+  selected.forEach(chip => {
+    const word = chip.dataset.word;
+    if (!tbody.querySelector(`tr[data-word="${CSS.escape(word)}"]`)) {
+      const row = document.createElement('tr');
+      row.dataset.word = word;
+      row.innerHTML = `
+        <td><input class="ptx-inp-word"    value="${esc(word)}"                   placeholder="Word"></td>
+        <td><input class="ptx-inp-meaning" value="${esc(chip.dataset.meaning || '')}" placeholder="Meaning"></td>
+        <td><input class="ptx-inp-native"  value="${esc(chip.dataset.native  || '')}" placeholder="—"></td>`;
+      tbody.appendChild(row);
+    }
+  });
+
+  const saveRow = results.querySelector('.ptx-save-row');
+  if (saveRow) saveRow.style.display = selected.length ? '' : 'none';
+}
+
+async function _ptxExtract(entryId) {
+  const panel    = document.getElementById(`ptx-${entryId}`);
+  const lang     = panel.dataset.lang;
+  const text     = panel.querySelector('.ptx-textarea').value.trim();
+  const statusEl = panel.querySelector('.ptx-status');
+  const results  = panel.querySelector('.ptx-results');
+
+  if (!text) { statusEl.textContent = 'Paste some text first.'; return; }
+
+  const extractBtn = panel.querySelector('.ptx-extract');
+  setLoading(extractBtn, true);
+  statusEl.textContent = '';
+  results.classList.add('hidden');
+
+  const res = await api('POST', '/api/journal/parse-text', { text, language: lang });
+  setLoading(extractBtn, false);
+
+  if (!res?.ok) {
+    const err = await res?.json().catch(() => ({}));
+    statusEl.textContent = friendlyError(err?.detail);
+    return;
+  }
+
+  const data    = await res.json();
+  const isCjk   = data.cjk;
+  const newWords = data.new   || [];
+  const known    = data.known || [];
+
+  if (!newWords.length && !known.length) {
+    statusEl.textContent = 'No words found in the text.';
+    return;
+  }
+
+  statusEl.textContent = `${data.total} word${data.total !== 1 ? 's' : ''} found`;
+
+  const newChips = newWords.map(w => `
+    <span class="ptx-word-chip selected"
+          data-word="${esc(w.word)}" data-meaning="${esc(w.meaning)}" data-native="${esc(w.native)}">
+      ${esc(w.word)}${w.meaning ? `<span style="font-size:.72rem;color:var(--text-secondary);margin-left:.2rem">${esc(w.meaning)}</span>` : ''}
+    </span>`).join('');
+
+  const knownChips = known.length ? `
+    <div class="ptx-section-label" style="margin-top:.6rem">Already in your deck (${known.length})</div>
+    <div class="ptx-word-grid">${known.map(w => `
+      <span class="ptx-word-chip known" data-word="${esc(w.word)}">${esc(w.word)}</span>`
+    ).join('')}</div>` : '';
+
+  const meaningHint = isCjk
+    ? '' : '<p style="font-size:.75rem;color:var(--text-secondary);margin:.3rem 0 .5rem">Fill in meanings before saving.</p>';
+
+  results.innerHTML = `
+    <div class="ptx-section-label">
+      New words (${newWords.length})
+      <button class="ptx-select-all" data-entry="${entryId}" style="margin-left:.5rem">Select all</button>
+    </div>
+    <div class="ptx-word-grid">${newChips}</div>
+    ${knownChips}
+    ${meaningHint}
+    <table class="ptx-table" style="${newWords.length ? '' : 'display:none'}">
+      <thead><tr><th>Word</th><th>Meaning</th><th>Native</th></tr></thead>
+      <tbody class="ptx-tbody"></tbody>
+    </table>
+    <div class="ptx-save-row" style="margin-top:.5rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap">
+      <button class="btn-primary btn-sm ptx-save"  data-entry="${entryId}">Save selected</button>
+      <button class="btn-ghost   btn-sm ptx-close" data-entry="${entryId}">Cancel</button>
+      <span class="ptx-save-status" style="font-size:.8rem"></span>
+    </div>`;
+
+  results.classList.remove('hidden');
+  _ptxSyncTable(entryId);
+}
+
+async function _ptxSave(entryId) {
+  const panel    = document.getElementById(`ptx-${entryId}`);
+  const lang     = panel.dataset.lang;
+  const statusEl = panel.querySelector('.ptx-save-status');
+  const saveBtn  = panel.querySelector('.ptx-save');
+  const rows     = [...panel.querySelectorAll('.ptx-tbody tr[data-word]')];
+
+  const words = rows.map(row => ({
+    word:    row.querySelector('.ptx-inp-word')?.value.trim(),
+    meaning: row.querySelector('.ptx-inp-meaning')?.value.trim(),
+    native:  row.querySelector('.ptx-inp-native')?.value.trim() || null,
+  })).filter(w => w.word);
+
+  if (!words.length) { statusEl.textContent = 'Select at least one word.'; return; }
+
+  setLoading(saveBtn, true);
+  statusEl.textContent = '';
+
+  const deckRes = await api('POST', '/api/decks', { language: lang, topic: 'journal' });
+  if (!deckRes?.ok) { setLoading(saveBtn, false); statusEl.textContent = 'Could not find deck.'; return; }
+  const deck = await deckRes.json();
+
+  let added = 0, skipped = 0;
+  for (const w of words) {
+    const res = await api('POST', '/api/cards',
+      { deck_id: deck.id, word: w.word, meaning: w.meaning || '(no meaning)', native: w.native, source_log_id: parseInt(entryId) });
+    if (res?.status === 201)  added++;
+    else if (res?.status === 409) skipped++;
+  }
+
+  setLoading(saveBtn, false);
+  const parts = [];
+  if (added)   parts.push(`${added} saved`);
+  if (skipped) parts.push(`${skipped} already in deck`);
+  statusEl.textContent = parts.join(', ') + '.';
+
+  if (added) await _loadJournalHistory();
+}
 
 // ── Add word from journal ──────────────────────────────────────────────────────
 
@@ -2600,25 +2978,31 @@ document.getElementById('essay-filter-lang').addEventListener('change', _loadEss
 
 // Submit log
 document.getElementById('btn-journal-log').addEventListener('click', async () => {
-  const language        = document.getElementById('journal-lang').value;
-  const activity_type   = document.getElementById('journal-activity').value;
-  const resource        = document.getElementById('journal-resource').value.trim();
+  const language         = document.getElementById('journal-lang').value;
+  const activity_type    = document.getElementById('journal-activity').value;
+  const resource_type    = document.getElementById('journal-resource-type').value;
+  const resource_creator = document.getElementById('journal-resource-creator').value.trim() || null;
+  const resource_detail  = document.getElementById('journal-resource-detail').value.trim() || null;
   const duration_minutes = parseInt(document.getElementById('journal-duration').value, 10);
-  const notes           = document.getElementById('journal-notes').value.trim() || null;
-  const dateVal         = document.getElementById('journal-date').value;
-  const errEl           = document.getElementById('journal-err');
+  const notes            = document.getElementById('journal-notes').value.trim() || null;
+  const dateVal          = document.getElementById('journal-date').value;
+  const errEl            = document.getElementById('journal-err');
   errEl.classList.add('hidden');
 
-  if (!resource) { errEl.textContent = 'Please enter a resource name.'; errEl.classList.remove('hidden'); return; }
-  if (!duration_minutes || duration_minutes < 1) { errEl.textContent = 'Duration must be at least 1 minute.'; errEl.classList.remove('hidden'); return; }
+  if (!duration_minutes || duration_minutes < 1) {
+    errEl.textContent = 'Duration must be at least 1 minute.';
+    errEl.classList.remove('hidden');
+    return;
+  }
 
   const logged_at = dateVal ? new Date(dateVal + 'T12:00:00').toISOString() : new Date().toISOString();
 
   const btn = document.getElementById('btn-journal-log');
   setLoading(btn, true);
   const res = await api('POST', '/api/immersion', {
-    language, activity_type, resource, duration_minutes,
-    notes, rating: _journalRating || null, logged_at,
+    language, activity_type,
+    resource_type, resource_creator, resource_detail,
+    duration_minutes, notes, rating: _journalRating || null, logged_at,
   });
   setLoading(btn, false);
 
@@ -2629,10 +3013,11 @@ document.getElementById('btn-journal-log').addEventListener('click', async () =>
     return;
   }
 
-  // Reset form, reload
-  document.getElementById('journal-resource').value = '';
-  document.getElementById('journal-notes').value = '';
-  document.getElementById('journal-duration').value = '30';
+  // Reset form
+  document.getElementById('journal-resource-creator').value = '';
+  document.getElementById('journal-resource-detail').value  = '';
+  document.getElementById('journal-notes').value            = '';
+  document.getElementById('journal-duration').value         = '30';
   _journalRating = 0;
   document.querySelectorAll('.rating-star').forEach(s => s.classList.remove('active'));
   _journalPage = 1;
@@ -2669,21 +3054,23 @@ async function _loadEssayHistory() {
 async function showEssay() {
   showScreen('screen-essay');
   document.getElementById('essay-result').classList.add('hidden');
+  document.getElementById('essay-lang-warning').classList.add('hidden');
   document.getElementById('essay-form-card').classList.remove('hidden');
   document.getElementById('essay-form-err').classList.add('hidden');
   document.getElementById('essay-textarea').value = '';
   document.getElementById('essay-word-count').textContent = '0 words';
   document.getElementById('btn-essay-submit').disabled = true;
 
-  const langs = [...new Set(App.decks.map(d => d.language))].sort();
-  const langList = langs.length ? langs : SUPPORTED_LANGS;
+  const langs     = [...new Set(App.decks.map(d => d.language))].sort();
+  const langList  = langs.length ? langs : SUPPORTED_LANGS;
+  const visLangs  = langList.filter(l => !App.hiddenLanguages.has(l));
 
   document.getElementById('sel-essay-lang').innerHTML =
-    langList.map(l => `<option value="${esc(l)}">${esc(l)}</option>`).join('');
+    visLangs.map(l => `<option value="${esc(l)}">${esc(titleCase(l))}</option>`).join('');
 
   document.getElementById('essay-filter-lang').innerHTML =
     '<option value="">All languages</option>' +
-    langList.map(l => `<option value="${esc(l)}">${esc(l)}</option>`).join('');
+    langList.map(l => `<option value="${esc(l)}">${esc(titleCase(l))}</option>`).join('');
 
   await _loadEssayHistory();
 }
@@ -2705,14 +3092,30 @@ document.getElementById('btn-essay-submit').addEventListener('click', async () =
   const res = await api('POST', '/api/essay/submit', { language, text });
   setLoading(btn, false);
 
+  const warningEl = document.getElementById('essay-lang-warning');
+  warningEl.classList.add('hidden');
+
   if (!res || !res.ok) {
     const e = await res?.json().catch(() => ({}));
-    errEl.textContent = friendlyError(e?.detail);
+    const detail = e?.detail;
+    if (detail?.code === 'language_mismatch') {
+      errEl.textContent = `This essay looks like ${detail.detected}, not ${detail.selected}. Please check your language selection or rewrite in ${detail.selected}.`;
+    } else {
+      errEl.textContent = friendlyError(typeof detail === 'string' ? detail : detail?.message);
+    }
     errEl.classList.remove('hidden');
     return;
   }
 
   const data = await res.json();
+
+  if (data.warning?.code === 'language_uncertain') {
+    const w = data.warning;
+    document.getElementById('essay-lang-warning-text').textContent =
+      `Heads up: this essay may be in ${w.detected}, not ${w.selected}. The evaluation was run anyway — scores may be inaccurate if the language is wrong.`;
+    warningEl.classList.remove('hidden');
+  }
+
   _renderEssayResult(data.evaluation);
   document.getElementById('essay-form-card').classList.add('hidden');
   document.getElementById('essay-result').classList.remove('hidden');
@@ -2816,8 +3219,125 @@ document.getElementById('essay-modal-close').addEventListener('click', () => {
 });
 
 document.getElementById('btn-essay-back').addEventListener('click', showHome);
+document.getElementById('essay-lang-warning-dismiss').addEventListener('click', () => {
+  document.getElementById('essay-lang-warning').classList.add('hidden');
+});
 
 // ── Progress ──────────────────────────────────────────────────────────────────
+
+function _sparklineHtml(trend, w = 110, h = 32) {
+  if (!trend?.length) return '';
+  if (trend.length === 1) {
+    const col = trend[0].score >= 70 ? '#22c55e' : trend[0].score >= 50 ? '#F4A261' : '#ef4444';
+    return `<span style="font-size:.9rem;font-weight:700;color:${col}">${trend[0].score}%</span>`;
+  }
+  const scores = trend.map(t => t.score);
+  const min    = Math.min(...scores);
+  const max    = Math.max(...scores);
+  const range  = (max - min) || 1;
+  const step   = w / (scores.length - 1);
+  const pts    = scores.map((s, i) => `${+(i * step).toFixed(1)},${+(h - ((s - min) / range) * (h - 4) - 2).toFixed(1)}`).join(' ');
+  const last   = scores[scores.length - 1];
+  const first  = scores[0];
+  const col    = last >= first ? '#22c55e' : '#ef4444';
+  const arrow  = last > first ? '↑' : last < first ? '↓' : '→';
+  const lx     = +((scores.length - 1) * step).toFixed(1);
+  const ly     = +(h - ((last - min) / range) * (h - 4) - 2).toFixed(1);
+  return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" style="overflow:visible;flex-shrink:0">
+    <polyline points="${pts}" fill="none" stroke="${col}" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+    <circle cx="${lx}" cy="${ly}" r="2.5" fill="${col}"/>
+  </svg><span style="font-size:.82rem;font-weight:700;color:${col};margin-left:.35rem">${last}% ${arrow}</span>`;
+}
+
+function _actMixHtml(byActivity) {
+  if (!byActivity) return '';
+  const total = Object.values(byActivity).reduce((a, b) => a + b, 0);
+  if (!total) return '';
+  const segs = Object.entries(byActivity)
+    .sort((a, b) => b[1] - a[1])
+    .map(([act, mins]) => {
+      const pct = Math.round(mins / total * 100);
+      return `<div class="act-seg" style="width:${pct}%;background:${ACT_COLORS[act] || '#6B6B6B'}" title="${act}: ${_fmtMins(mins)}"></div>`;
+    }).join('');
+  return `<div class="act-bar">${segs}</div>`;
+}
+
+function _renderStudyInvestment(dashLangs, immStats) {
+  const el = document.getElementById('study-investment');
+  const ct = document.getElementById('study-investment-content');
+  if (!dashLangs?.length) { el.classList.add('hidden'); return; }
+
+  const quizByLang = Object.fromEntries(dashLangs.map(l => [l.language, l.quiz_cards_total || 0]));
+  const imByLang   = immStats?.by_language || {};
+  const langs      = [...new Set([...Object.keys(quizByLang), ...Object.keys(imByLang)])];
+  if (!langs.length) { el.classList.add('hidden'); return; }
+
+  const maxQuiz = Math.max(...langs.map(l => quizByLang[l] || 0), 1);
+  const maxIm   = Math.max(...langs.map(l => imByLang[l]   || 0), 1);
+
+  const rows = langs
+    .sort((a, b) => (quizByLang[b] || 0) + (imByLang[b] || 0) - ((quizByLang[a] || 0) + (imByLang[a] || 0)))
+    .map(lang => {
+      const qCards = quizByLang[lang] || 0;
+      const iMins  = imByLang[lang]   || 0;
+      const qPct   = Math.round(qCards / maxQuiz * 100);
+      const iPct   = Math.round(iMins  / maxIm   * 100);
+      return `<div class="invest-row">
+        ${langPillHtml(lang)}
+        <span class="invest-lang-name">${esc(lang)}</span>
+        <div class="invest-bars">
+          <div class="invest-bar-row">
+            <div class="invest-bar-bg"><div class="invest-bar-fill" style="width:${qPct}%;background:#4361EE"></div></div>
+            <span class="invest-bar-val">${qCards.toLocaleString()} cards</span>
+          </div>
+          <div class="invest-bar-row">
+            <div class="invest-bar-bg"><div class="invest-bar-fill" style="width:${iPct}%;background:#2A9D8F"></div></div>
+            <span class="invest-bar-val">${iMins ? _fmtMins(iMins) : '—'}</span>
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+
+  ct.innerHTML = `
+    <div class="invest-header">
+      <span><span class="invest-header-dot" style="background:#4361EE"></span>Quiz cards answered</span>
+      <span><span class="invest-header-dot" style="background:#2A9D8F"></span>Immersion time</span>
+    </div>
+    ${rows}`;
+  el.classList.remove('hidden');
+}
+
+function _initHeatmapTooltip() {
+  const grid    = document.getElementById('heat-grid');
+  const tooltip = document.getElementById('heatmap-tooltip');
+  if (!grid || !tooltip) return;
+
+  grid.addEventListener('mouseover', e => {
+    const cell = e.target.closest('.heat-cell');
+    if (!cell?.dataset.tip) return;
+    const parts = cell.dataset.tip.split('|');
+    tooltip.innerHTML = `<strong>${parts[0]}</strong>${parts.slice(1).map(p => `<br>${p}`).join('')}`;
+    tooltip.style.display = 'block';
+    const r = cell.getBoundingClientRect();
+    tooltip.style.left = `${Math.min(r.left + window.scrollX, window.innerWidth - 230)}px`;
+    tooltip.style.top  = `${r.top + window.scrollY - tooltip.offsetHeight - 8}px`;
+  });
+  grid.addEventListener('mouseout', e => {
+    if (!e.relatedTarget?.closest?.('.heat-cell')) tooltip.style.display = 'none';
+  });
+  grid.addEventListener('click', e => {
+    const cell = e.target.closest('.heat-cell');
+    if (!cell?.dataset.tip) return;
+    const parts = cell.dataset.tip.split('|');
+    tooltip.innerHTML = `<strong>${parts[0]}</strong>${parts.slice(1).map(p => `<br>${p}`).join('')}`;
+    tooltip.style.display = tooltip.style.display === 'none' ? 'block' : 'none';
+    if (tooltip.style.display === 'block') {
+      const r = cell.getBoundingClientRect();
+      tooltip.style.left = `${Math.min(r.left + window.scrollX, window.innerWidth - 230)}px`;
+      tooltip.style.top  = `${r.top + window.scrollY - tooltip.offsetHeight - 8}px`;
+    }
+  });
+}
 
 async function showProgress() {
   showScreen('screen-progress');
@@ -2827,14 +3347,20 @@ async function showProgress() {
   document.getElementById('lang-proficiency').innerHTML = '';
   document.getElementById('profile-writing').classList.add('hidden');
   document.getElementById('profile-immersion').classList.add('hidden');
+  document.getElementById('study-investment').classList.add('hidden');
+  document.getElementById('heatmap-tooltip').style.display = 'none';
 
-  const [streakRes, weakestRes, dashRes, essayRes, immersionRes] = await Promise.all([
+  const [streakRes, weakestRes, dashRes, essayRes, immersionRes, dailyRes] = await Promise.all([
     api('GET', '/api/progress/streak'),
     api('GET', '/api/progress/weakest?limit=500'),
     api('GET', '/api/progress/dashboard'),
     api('GET', '/api/essay/stats'),
     api('GET', '/api/immersion/stats'),
+    api('GET', '/api/progress/daily-activity?days=91'),
   ]);
+
+  let daysMap = {};
+  if (dailyRes?.ok) { const d = await dailyRes.json(); daysMap = d.days || {}; }
 
   if (streakRes?.ok) {
     const s = await streakRes.json();
@@ -2850,9 +3376,10 @@ async function showProgress() {
         <span class="text-secondary" style="margin-left:auto">${s.total_days} days studied</span>
       </div>
       <p class="text-secondary" style="font-size:.8rem;margin-bottom:.5rem">
-        Last 30 days — ${s.studied_today ? 'studied today ✓' : 'not studied today'}
+        Last 13 weeks — ${s.studied_today ? 'studied today ✓' : 'not studied today'}
       </p>
-      ${_streakCalendarHtml(s.studied_dates_last_30 || [])}`;
+      ${_activityHeatmapHtml(daysMap)}`;
+    _initHeatmapTooltip();
   }
 
   if (weakestRes?.ok) {
@@ -2861,64 +3388,68 @@ async function showProgress() {
     _renderWeakestTable();
   }
 
+  let dashData = null;
   if (dashRes?.ok) {
-    const dash = await dashRes.json();
-    _renderProficiency(dash.languages || []);
+    dashData = await dashRes.json();
+    _renderProficiency(dashData.languages || []);
   }
 
-  // Writing section
+  let immData = null;
+  if (immersionRes?.ok) immData = await immersionRes.json();
+
+  _renderStudyInvestment(dashData?.languages, immData);
+
+  // Writing section — sparklines per language
   if (essayRes?.ok) {
     const e = await essayRes.json();
     if (e.total > 0) {
-      const langBars = Object.entries(e.by_language).sort((a, b) => b[1].avg_score - a[1].avg_score)
+      const trend = e.trend_by_language || {};
+      const sparkRows = Object.entries(e.by_language)
+        .sort((a, b) => b[1].avg_score - a[1].avg_score)
         .map(([lang, v]) => `
-          <div class="journal-stat-bar-row">
-            <span class="journal-stat-bar-label" style="text-transform:capitalize">${esc(lang)}</span>
-            <div class="journal-stat-bar-bg">
-              <div class="journal-stat-bar-fill" style="width:${v.avg_score}%;background:#4361EE"></div>
+          <div class="essay-spark-row">
+            <div class="essay-spark-left">
+              ${langPillHtml(lang)}
+              <span style="font-size:.82rem;text-transform:capitalize">${esc(lang)}</span>
+              <span class="text-secondary" style="font-size:.75rem">${v.count} essay${v.count > 1 ? 's' : ''}</span>
             </div>
-            <span class="journal-stat-bar-val">${v.avg_score}%</span>
+            <div class="essay-spark-right">${_sparklineHtml(trend[lang])}</div>
           </div>`).join('');
-      const recent = (e.recent || []).map(r =>
-        `<span style="display:inline-block;background:color-mix(in srgb,var(--accent) 12%,transparent);
-         border-radius:6px;padding:.2rem .5rem;font-size:.8rem;font-weight:700;margin:.15rem">
-         ${langPillHtml(r.language)} ${Math.round(r.overall_score)}%</span>`
-      ).join('');
       document.getElementById('profile-writing-content').innerHTML = `
         <div class="journal-stats" style="border:none;padding:0;margin-bottom:.75rem">
           <div class="journal-stat"><span class="journal-stat-num">${e.total}</span><span class="journal-stat-label">essays</span></div>
           <div class="journal-stat"><span class="journal-stat-num">${e.average_score}%</span><span class="journal-stat-label">avg score</span></div>
-          <div class="journal-stat"><span class="journal-stat-num">${e.best_score}%</span><span class="journal-stat-label">best score</span></div>
+          <div class="journal-stat"><span class="journal-stat-num">${e.best_score}%</span><span class="journal-stat-label">best</span></div>
         </div>
-        ${langBars ? `<div style="margin-bottom:.5rem">${langBars}</div>` : ''}
-        ${recent ? `<p class="text-secondary" style="font-size:.75rem;margin-bottom:.3rem">Recent</p>${recent}` : ''}`;
+        ${sparkRows}`;
       document.getElementById('profile-writing').classList.remove('hidden');
     }
   }
 
-  // Immersion section
-  if (immersionRes?.ok) {
-    const im = await immersionRes.json();
-    if (im.total_entries > 0) {
-      const topLangs = Object.entries(im.by_language || {}).sort((a, b) => b[1] - a[1]);
-      const maxMins  = topLangs[0]?.[1] || 1;
-      const langBars = topLangs.map(([lang, mins]) => `
-        <div class="journal-stat-bar-row">
-          <span class="journal-stat-bar-label" style="text-transform:capitalize">${esc(lang)}</span>
-          <div class="journal-stat-bar-bg">
-            <div class="journal-stat-bar-fill" style="width:${Math.round(mins/maxMins*100)}%;background:#2A9D8F"></div>
-          </div>
-          <span class="journal-stat-bar-val">${_fmtMins(mins)}</span>
-        </div>`).join('');
-      document.getElementById('profile-immersion-content').innerHTML = `
-        <div class="journal-stats" style="border:none;padding:0;margin-bottom:.75rem">
-          <div class="journal-stat"><span class="journal-stat-num">${_fmtMins(im.total_minutes)}</span><span class="journal-stat-label">total</span></div>
-          <div class="journal-stat"><span class="journal-stat-num">${_fmtMins(im.week_minutes)}</span><span class="journal-stat-label">this week</span></div>
-          <div class="journal-stat"><span class="journal-stat-num">${im.total_entries}</span><span class="journal-stat-label">sessions</span></div>
-        </div>
-        ${langBars}`;
-      document.getElementById('profile-immersion').classList.remove('hidden');
-    }
+  // Immersion section — activity mix stacked bars
+  if (immData?.total_entries > 0) {
+    const byLangAct  = immData.by_lang_activity || {};
+    const topLangs   = Object.entries(immData.by_language || {}).sort((a, b) => b[1] - a[1]);
+    const actMixRows = topLangs.map(([lang, mins]) => `
+      <div class="act-mix-row">
+        ${langPillHtml(lang)}
+        <span class="act-mix-lang">${esc(lang)}</span>
+        ${_actMixHtml(byLangAct[lang])}
+        <span style="font-size:.75rem;color:var(--text-secondary);white-space:nowrap;margin-left:.4rem">${_fmtMins(mins)}</span>
+      </div>`).join('');
+    const usedActs = [...new Set(Object.values(byLangAct).flatMap(a => Object.keys(a)))];
+    const legend   = usedActs.map(a =>
+      `<span><span class="act-legend-dot" style="background:${ACT_COLORS[a] || '#6B6B6B'}"></span>${a}</span>`
+    ).join('');
+    document.getElementById('profile-immersion-content').innerHTML = `
+      <div class="journal-stats" style="border:none;padding:0;margin-bottom:.75rem">
+        <div class="journal-stat"><span class="journal-stat-num">${_fmtMins(immData.total_minutes)}</span><span class="journal-stat-label">total</span></div>
+        <div class="journal-stat"><span class="journal-stat-num">${_fmtMins(immData.week_minutes)}</span><span class="journal-stat-label">this week</span></div>
+        <div class="journal-stat"><span class="journal-stat-num">${immData.total_entries}</span><span class="journal-stat-label">sessions</span></div>
+      </div>
+      ${actMixRows}
+      ${legend ? `<div class="act-legend">${legend}</div>` : ''}`;
+    document.getElementById('profile-immersion').classList.remove('hidden');
   }
 }
 
@@ -3003,6 +3534,6 @@ document.getElementById('reset-modal-confirm').addEventListener('click', async (
 
 (function init() {
   initTheme();
-  if (App.token) { initPWA(); showHome(); }
+  if (App.token) { _applyDemoBadge(App.token); initPWA(); showHome(); }
   else showScreen('screen-login');
 }());

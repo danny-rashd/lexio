@@ -70,8 +70,10 @@ def _card_language(db: Session, card: Card) -> str:
     return deck.language if deck else ""
 
 
-def _build_question(db: Session, session: QuizSession, card: Card) -> dict:
-    stats = db.query(CardStat).filter(CardStat.card_id == card.id).all()
+def _build_question(db: Session, session: QuizSession, card: Card, user_id: int) -> dict:
+    stats = db.query(CardStat).filter(
+        CardStat.user_id == user_id, CardStat.card_id == card.id
+    ).all()
     direction = pick_direction(session.direction, card, stats or None)
     language = _card_language(db, card)
 
@@ -147,7 +149,7 @@ def _evaluate(
 def start_quiz(
     body: QuizStartRequest,
     db: Session = Depends(get_db),
-    _: User = Depends(get_current_user),
+    current_user: User = Depends(get_current_user),
 ) -> dict:
     if body.scope not in _VALID_SCOPES:
         raise HTTPException(status_code=400, detail=f"scope must be one of {sorted(_VALID_SCOPES)}")
@@ -159,7 +161,7 @@ def start_quiz(
             raise HTTPException(status_code=400, detail="deck_id is required for review scope")
         direction = "all_available"
         mode      = "flashcard"
-        cards     = select_due_cards(db, body.deck_id, body.card_count)
+        cards     = select_due_cards(db, body.deck_id, body.card_count, user_id=current_user.id)
         if not cards:
             raise HTTPException(status_code=400, detail="No cards due for review in this deck.")
     else:
@@ -175,7 +177,7 @@ def start_quiz(
                 raise HTTPException(status_code=404, detail="Deck not found")
             cards = select_cards_for_test(db, body.deck_id, body.card_count)
         else:
-            cards = select_cards_for_big_test(db, body.card_count, languages=body.languages or None)
+            cards = select_cards_for_big_test(db, body.card_count, languages=body.languages or None, user_id=current_user.id)
         if not cards:
             raise HTTPException(status_code=400, detail="No active cards available for this session")
 
@@ -185,6 +187,7 @@ def start_quiz(
         else None
     )
     session = QuizSession(
+        user_id=current_user.id,
         mode=mode,
         scope=body.scope,
         deck_id=body.deck_id,
@@ -198,7 +201,7 @@ def start_quiz(
     db.refresh(session)
 
     first_card = cards[0]
-    question = _build_question(db, session, first_card)
+    question = _build_question(db, session, first_card, current_user.id)
 
     return {
         "session_id": session.id,
@@ -215,9 +218,11 @@ def submit_answer(
     session_id: int,
     body: QuizAnswerRequest,
     db: Session = Depends(get_db),
-    _: User = Depends(get_current_user),
+    current_user: User = Depends(get_current_user),
 ) -> dict:
-    session = db.query(QuizSession).filter(QuizSession.id == session_id).first()
+    session = db.query(QuizSession).filter(
+        QuizSession.id == session_id, QuizSession.user_id == current_user.id
+    ).first()
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
     if session.finished_at:
@@ -232,6 +237,7 @@ def submit_answer(
     )
 
     answer = QuizAnswer(
+        user_id=current_user.id,
         session_id=session.id,
         card_id=card.id,
         direction=body.direction,
@@ -245,7 +251,7 @@ def submit_answer(
         session.correct += 1
 
     grade = body.user_answer if session.mode == "flashcard" else None
-    upsert_card_stat(db, card.id, body.direction, is_correct, grade=grade)
+    upsert_card_stat(db, current_user.id, card.id, body.direction, is_correct, grade=grade)
 
     db.flush()
 
@@ -255,7 +261,7 @@ def submit_answer(
     if next_card is None:
         session.finished_at = datetime.now(timezone.utc)
         db.commit()
-        log_study_day(db, cards_seen=session.total)
+        log_study_day(db, current_user.id, cards_seen=session.total)
         return {
             "is_correct": is_correct,
             "correct_answer": correct_answer_str,
@@ -263,7 +269,7 @@ def submit_answer(
         }
 
     db.commit()
-    next_question = _build_question(db, session, next_card)
+    next_question = _build_question(db, session, next_card, current_user.id)
 
     return {
         "is_correct": is_correct,
@@ -276,9 +282,11 @@ def submit_answer(
 def get_result(
     session_id: int,
     db: Session = Depends(get_db),
-    _: User = Depends(get_current_user),
+    current_user: User = Depends(get_current_user),
 ) -> dict:
-    session = db.query(QuizSession).filter(QuizSession.id == session_id).first()
+    session = db.query(QuizSession).filter(
+        QuizSession.id == session_id, QuizSession.user_id == current_user.id
+    ).first()
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
 

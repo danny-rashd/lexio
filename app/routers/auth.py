@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import Session
 
+from app.config import settings
 from app.database import get_db
 from app.models.user import User
 from app.schemas.auth import LoginRequest, TokenResponse
@@ -28,6 +29,16 @@ def login(body: LoginRequest, db: Session = Depends(get_db)) -> TokenResponse:
     user = db.query(User).filter(User.username == body.username, User.is_active.is_(True)).first()
     if not user or not verify_password(body.password, user.hashed_password):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid credentials")
+    return TokenResponse(access_token=create_access_token(user_id=user.id, username=user.username))
+
+
+@router.post("/demo", response_model=TokenResponse)
+def demo_login(db: Session = Depends(get_db)) -> TokenResponse:
+    if not settings.DEMO_USERNAME or not settings.DEMO_PASSWORD:
+        raise HTTPException(status_code=status.HTTP_503_SERVICE_UNAVAILABLE, detail="Demo mode is not enabled.")
+    user = db.query(User).filter(User.username == settings.DEMO_USERNAME, User.is_active.is_(True)).first()
+    if not user or not verify_password(settings.DEMO_PASSWORD, user.hashed_password):
+        raise HTTPException(status_code=status.HTTP_503_SERVICE_UNAVAILABLE, detail="Demo account is not available.")
     return TokenResponse(access_token=create_access_token(user_id=user.id, username=user.username))
 
 

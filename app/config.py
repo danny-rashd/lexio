@@ -18,6 +18,8 @@ class Settings(BaseSettings):
     MAX_UPLOAD_SIZE_APKG_MB: int = 200
     HINT_MAX_PRESSES: int = 3
     ANTHROPIC_API_KEY: str = ""
+    DEEPSEEK_API_KEY: str = ""
+    DEEPSEEK_MODEL: str = "deepseek-chat"
     ESSAY_MAX_WORDS: int = 500
     ESSAY_MIN_WORDS: int = 20
     GOOGLE_TTS_API_KEY: str = ""

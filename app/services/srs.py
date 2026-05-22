@@ -58,7 +58,7 @@ def next_review(
     return new_interval, new_ef, due_date, new_reps
 
 
-def count_due(db: Session, deck_id: int) -> int:
+def count_due(db: Session, deck_id: int, user_id: int = 1) -> int:
     """
     Count cards in a deck that are due for SRS review today.
 
@@ -78,6 +78,7 @@ def count_due(db: Session, deck_id: int) -> int:
         db.query(func.count(func.distinct(CardStat.card_id)))
         .join(Card, Card.id == CardStat.card_id)
         .filter(
+            CardStat.user_id == user_id,
             Card.deck_id == deck_id,
             Card.is_active.is_(True),
             CardStat.srs_due_date <= today,
@@ -88,7 +89,7 @@ def count_due(db: Session, deck_id: int) -> int:
     )
 
 
-def select_due_cards(db: Session, deck_id: int, count: int) -> list[Card]:
+def select_due_cards(db: Session, deck_id: int, count: int, user_id: int = 1) -> list[Card]:
     """
     Select cards due for SRS review from a deck.
 
@@ -110,6 +111,7 @@ def select_due_cards(db: Session, deck_id: int, count: int) -> list[Card]:
         for row in db.query(CardStat.card_id)
         .join(Card, Card.id == CardStat.card_id)
         .filter(
+            CardStat.user_id == user_id,
             Card.deck_id == deck_id,
             Card.is_active.is_(True),
             CardStat.srs_due_date <= today,

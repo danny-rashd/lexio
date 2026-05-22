@@ -15,6 +15,7 @@ class CardStat(Base):
     __tablename__ = "card_stats"
 
     id: Mapped[int] = mapped_column(primary_key=True)
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"), nullable=False, default=1)
     card_id: Mapped[int] = mapped_column(ForeignKey("cards.id"), nullable=False)
     direction: Mapped[str] = mapped_column(String, nullable=False)
     times_seen: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
@@ -29,8 +30,9 @@ class CardStat(Base):
 
     __table_args__ = (
         CheckConstraint(f"direction IN {_DIRECTIONS}", name="ck_card_stats_direction"),
-        UniqueConstraint("card_id", "direction", name="uq_card_stats_card_direction"),
+        UniqueConstraint("user_id", "card_id", "direction", name="uq_card_stats_user_card_direction"),
         Index("idx_card_stats_card", "card_id"),
+        Index("idx_card_stats_user", "user_id"),
         Index("idx_card_stats_due", "srs_due_date"),
     )
 
@@ -39,6 +41,7 @@ class QuizSession(Base):
     __tablename__ = "quiz_sessions"
 
     id: Mapped[int] = mapped_column(primary_key=True)
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"), nullable=False, default=1)
     mode: Mapped[str] = mapped_column(String, nullable=False)
     scope: Mapped[str] = mapped_column(String, nullable=False)
     deck_id: Mapped[int | None] = mapped_column(ForeignKey("decks.id"), nullable=True)
@@ -65,6 +68,7 @@ class QuizAnswer(Base):
     __tablename__ = "quiz_answers"
 
     id: Mapped[int] = mapped_column(primary_key=True)
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"), nullable=False, default=1)
     session_id: Mapped[int] = mapped_column(ForeignKey("quiz_sessions.id"), nullable=False)
     card_id: Mapped[int] = mapped_column(ForeignKey("cards.id"), nullable=False)
     direction: Mapped[str] = mapped_column(String, nullable=False)
@@ -84,7 +88,12 @@ class StudyLog(Base):
     __tablename__ = "study_logs"
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    study_date: Mapped[date] = mapped_column(Date, nullable=False, unique=True)
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"), nullable=False, default=1)
+    study_date: Mapped[date] = mapped_column(Date, nullable=False)
     sessions: Mapped[int] = mapped_column(Integer, default=1, nullable=False)
     cards_seen: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now(), nullable=False)
+
+    __table_args__ = (
+        UniqueConstraint("user_id", "study_date", name="uq_study_log_user_date"),
+    )

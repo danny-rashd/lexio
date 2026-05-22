@@ -13,14 +13,15 @@ from app.schemas.immersion import ImmersionLogCreate, ImmersionLogResponse
 
 router = APIRouter(prefix="/api/immersion", tags=["immersion"])
 
-_VALID_ACTIVITIES = {"reading", "listening", "watching", "speaking", "writing", "gaming", "other"}
+_VALID_ACTIVITIES    = {"reading", "listening", "watching", "speaking", "writing", "gaming", "other"}
+_VALID_RESOURCE_TYPES = {"podcast", "tv_show", "movie", "music", "video", "book", "app", "other"}
 
 
 @router.post("", response_model=ImmersionLogResponse, status_code=status.HTTP_201_CREATED)
 def create_log(
     body: ImmersionLogCreate,
     db: Session = Depends(get_db),
-    _: User = Depends(get_current_user),
+    current_user: User = Depends(get_current_user),
 ) -> ImmersionLogResponse:
     if body.activity_type.lower() not in _VALID_ACTIVITIES:
         raise HTTPException(status_code=400, detail=f"activity_type must be one of {sorted(_VALID_ACTIVITIES)}")
@@ -28,11 +29,23 @@ def create_log(
         raise HTTPException(status_code=400, detail="duration_minutes must be greater than 0")
     if body.rating is not None and not (1 <= body.rating <= 5):
         raise HTTPException(status_code=400, detail="rating must be between 1 and 5")
+    if body.resource_type and body.resource_type.lower() not in _VALID_RESOURCE_TYPES:
+        raise HTTPException(status_code=400, detail=f"resource_type must be one of {sorted(_VALID_RESOURCE_TYPES)}")
+
+    # Derive legacy resource field for backward compat with old display code
+    resource = body.resource.strip() if body.resource else None
+    if not resource and (body.resource_creator or body.resource_detail):
+        parts  = [p.strip() for p in [body.resource_creator, body.resource_detail] if p and p.strip()]
+        resource = " — ".join(parts) if parts else None
 
     log = ImmersionLog(
+        user_id=current_user.id,
         language=body.language.lower().strip(),
         activity_type=body.activity_type.lower(),
-        resource=body.resource.strip(),
+        resource=resource,
+        resource_type=body.resource_type.lower() if body.resource_type else None,
+        resource_creator=body.resource_creator.strip() if body.resource_creator else None,
+        resource_detail=body.resource_detail.strip() if body.resource_detail else None,
         duration_minutes=body.duration_minutes,
         notes=body.notes,
         rating=body.rating,
@@ -50,9 +63,9 @@ def list_logs(
     limit: int = Query(default=30, ge=1, le=200),
     page: int = Query(default=1, ge=1),
     db: Session = Depends(get_db),
-    _: User = Depends(get_current_user),
+    current_user: User = Depends(get_current_user),
 ) -> list[ImmersionLogResponse]:
-    query = db.query(ImmersionLog)
+    query = db.query(ImmersionLog).filter(ImmersionLog.user_id == current_user.id)
     if language:
         query = query.filter(ImmersionLog.language == language.lower().strip())
     offset = (page - 1) * limit
@@ -81,7 +94,7 @@ def list_logs(
 def get_log_words(
     log_id: int,
     db: Session = Depends(get_db),
-    _: User = Depends(get_current_user),
+    current_user: User = Depends(get_current_user),
 ) -> list[dict]:
     cards = (
         db.query(Card)
@@ -96,9 +109,11 @@ def get_log_words(
 def delete_log(
     log_id: int,
     db: Session = Depends(get_db),
-    _: User = Depends(get_current_user),
+    current_user: User = Depends(get_current_user),
 ) -> None:
-    log = db.query(ImmersionLog).filter(ImmersionLog.id == log_id).first()
+    log = db.query(ImmersionLog).filter(
+        ImmersionLog.id == log_id, ImmersionLog.user_id == current_user.id
+    ).first()
     if not log:
         raise HTTPException(status_code=404, detail="Log entry not found")
     db.delete(log)
@@ -108,14 +123,15 @@ def delete_log(
 @router.get("/stats")
 def get_stats(
     db: Session = Depends(get_db),
-    _: User = Depends(get_current_user),
+    current_user: User = Depends(get_current_user),
 ) -> dict:
     today      = datetime.now(timezone.utc).date()
     week_start = today - timedelta(days=6)
 
-    all_logs   = db.query(ImmersionLog).all()
+    all_logs   = db.query(ImmersionLog).filter(ImmersionLog.user_id == current_user.id).all()
     week_logs  = db.query(ImmersionLog).filter(
-        func.date(ImmersionLog.logged_at) >= week_start
+        ImmersionLog.user_id == current_user.id,
+        func.date(ImmersionLog.logged_at) >= week_start,
     ).all()
 
     total_minutes = sum(l.duration_minutes for l in all_logs)
@@ -127,10 +143,17 @@ def get_stats(
         by_language[l.language]      = by_language.get(l.language, 0) + l.duration_minutes
         by_activity[l.activity_type] = by_activity.get(l.activity_type, 0) + l.duration_minutes
 
+    by_lang_activity: dict[str, dict[str, int]] = {}
+    for l in all_logs:
+        la = by_lang_activity.setdefault(l.language, {})
+        la[l.activity_type] = la.get(l.activity_type, 0) + l.duration_minutes
+
     return {
-        "total_minutes": total_minutes,
-        "week_minutes":  week_minutes,
-        "by_language":   by_language,
-        "by_activity":   by_activity,
-        "total_entries": len(all_logs),
+        "total_minutes":    total_minutes,
+        "week_minutes":     week_minutes,
+        "week_entries":     len(week_logs),
+        "by_language":      by_language,
+        "by_activity":      by_activity,
+        "by_lang_activity": by_lang_activity,
+        "total_entries":    len(all_logs),
     }

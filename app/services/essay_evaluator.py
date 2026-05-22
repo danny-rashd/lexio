@@ -1,8 +1,29 @@
 import json
 
 import anthropic
+from langdetect import LangDetectException, detect_langs
 
 from app.config import settings
+
+# Map app language names → accepted langdetect codes
+_LANG_CODES: dict[str, list[str]] = {
+    "spanish":  ["es"],
+    "french":   ["fr"],
+    "german":   ["de"],
+    "norsk":    ["no", "nb", "nn", "da"],  # Danish is nearly identical; avoid false positives
+    "japanese": ["ja"],
+    "mandarin": ["zh-cn", "zh-tw", "zh"],
+}
+
+# Human-readable names for detected codes shown in warnings
+_CODE_TO_NAME: dict[str, str] = {
+    "es": "Spanish",   "fr": "French",    "de": "German",
+    "no": "Norwegian", "nb": "Norwegian", "nn": "Norwegian", "da": "Danish",
+    "ja": "Japanese",  "zh-cn": "Mandarin", "zh-tw": "Mandarin", "zh": "Mandarin",
+    "en": "English",   "pt": "Portuguese", "it": "Italian",
+    "nl": "Dutch",     "sv": "Swedish",    "ko": "Korean",
+    "ru": "Russian",   "ar": "Arabic",     "pl": "Polish",
+}
 
 _CLIENT: anthropic.Anthropic | None = None
 
@@ -40,6 +61,46 @@ Return ONLY this JSON (no other text):
   }},
   "overall_feedback": "2-3 sentences: what the learner did well and the single most important thing to improve"
 }}"""
+
+
+def check_language(text: str, expected_language: str) -> dict:
+    """
+    Detect the language of the submitted text and compare against the selected language.
+
+    Args:
+        text (str): Essay text to inspect.
+        expected_language (str): App language name (e.g. 'french').
+
+    Returns:
+        dict with keys:
+            match (bool): True if detected language is consistent with expected.
+            confidence (float): Probability of the top detected language (0–1).
+            detected (str | None): Human-readable name of detected language,
+                or None if detection failed or matched.
+
+    Notes:
+        Detection is skipped (match=True) for unsupported language names.
+        langdetect can be unreliable on very short texts; confidence < 0.60
+        is treated as inconclusive and should not trigger a hard block.
+    """
+    expected_codes = _LANG_CODES.get(expected_language.lower(), [])
+    if not expected_codes:
+        return {"match": True, "confidence": 1.0, "detected": None}
+
+    try:
+        results = detect_langs(text)
+    except LangDetectException:
+        return {"match": True, "confidence": 0.0, "detected": None}
+
+    if not results:
+        return {"match": True, "confidence": 0.0, "detected": None}
+
+    top = results[0]
+    if top.lang in expected_codes:
+        return {"match": True, "confidence": top.prob, "detected": None}
+
+    detected_name = _CODE_TO_NAME.get(top.lang, top.lang.upper())
+    return {"match": False, "confidence": top.prob, "detected": detected_name}
 
 
 def _client() -> anthropic.Anthropic:

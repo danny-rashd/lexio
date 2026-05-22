@@ -39,6 +39,7 @@
       <circle cx="131" cy="103" r="4" fill="#EDE9FE"/>
     </svg>
   </span>
+  <span id="nav-demo-badge" class="nav-demo-badge hidden">Demo</span>
   <div class="nav-right">
     <button id="btn-nav-home-tab" class="btn-ghost hidden">Home</button>
     <button id="btn-nav-journal" class="btn-ghost nav-btn">
@@ -461,9 +462,27 @@
             <option value="other">Other</option>
           </select>
         </div>
-        <div style="grid-column:1/-1">
-          <label for="journal-resource">Resource <span class="text-secondary">(e.g. Netflix — Money Heist, Podcast name)</span></label>
-          <input id="journal-resource" type="text" placeholder="What did you use?">
+        <div>
+          <label for="journal-resource-type">Resource type</label>
+          <select id="journal-resource-type">
+            <option value="podcast">Podcast</option>
+            <option value="tv_show">TV Show</option>
+            <option value="movie">Movie</option>
+            <option value="music">Music</option>
+            <option value="video">Video</option>
+            <option value="book">Book</option>
+            <option value="app">App</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div><!-- spacer on narrow grids --></div>
+        <div>
+          <label id="journal-creator-label" for="journal-resource-creator">Channel <span class="text-secondary">(optional)</span></label>
+          <input id="journal-resource-creator" type="text" placeholder="">
+        </div>
+        <div>
+          <label id="journal-detail-label" for="journal-resource-detail">Episode title <span class="text-secondary">(optional)</span></label>
+          <input id="journal-resource-detail" type="text" placeholder="">
         </div>
         <div>
           <label for="journal-duration">Duration (minutes)</label>
@@ -532,6 +551,10 @@
       <p id="essay-form-err" class="error hidden"></p>
     </div>
 
+    <div id="essay-lang-warning" class="essay-lang-warning hidden">
+      <span id="essay-lang-warning-text"></span>
+      <button id="essay-lang-warning-dismiss" class="essay-lang-warning-close" aria-label="Dismiss">×</button>
+    </div>
     <div id="essay-result" class="hidden">
       <div class="essay-score-header card" style="padding:1.5rem;margin-top:1rem;display:flex;align-items:center;gap:1.5rem">
         <div id="essay-score-ring" class="score-ring"></div>
@@ -580,6 +603,13 @@
     <div id="streak-card" class="card streak-card"></div>
     <h3 class="section-label">Language Proficiency</h3>
     <div id="lang-proficiency"></div>
+
+    <!-- Study Investment section -->
+    <div id="study-investment" class="hidden">
+      <h3 class="section-label" style="margin-top:1.25rem">Study Investment</h3>
+      <div id="study-investment-content" class="card" style="padding:1rem 1.25rem;margin-bottom:.5rem"></div>
+    </div>
+
     <!-- Writing section -->
     <div id="profile-writing" class="hidden">
       <h3 class="section-label" style="margin-top:1.25rem">Writing Practice</h3>
@@ -725,6 +755,7 @@
   </div>
 </div>
 
+<div id="heatmap-tooltip" class="heatmap-tooltip" style="display:none"></div>
 <script src="/app.js"></script>
 </body>
 </html>
