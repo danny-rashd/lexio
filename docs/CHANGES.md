@@ -1,5 +1,23 @@
 # Post-launch changes
 
+## Phase 16 — Immersion tracking journal (2026-05-22)
+
+Log time spent on immersion activities outside the app — watching, reading, listening, etc.
+
+**Log entry captures:** language, activity type (Watching/Listening/Reading/Speaking/Writing/Gaming/Other), resource name (free text), duration in minutes, date (retroactive logging supported), optional notes, optional 1–5 star rating.
+
+**Stats strip:** total immersion time, this week's time, session count, per-language breakdown with bar chart — shown at top of Journal screen once at least one entry exists.
+
+**History:** paginated list (20/page) with filter by language. Each entry shows activity badge (colour-coded), language pill, resource name, date, duration, star rating, delete button.
+
+**Quick duration buttons:** +15 / +30 / +60 minute buttons for fast entry.
+
+**Endpoints:** `POST /api/immersion`, `GET /api/immersion`, `DELETE /api/immersion/{id}`, `GET /api/immersion/stats`. New Alembic migration (`immersion_logs` table).
+
+**Files:** `app/models/immersion.py`, migration, `app/routers/immersion.py`, `app/schemas/immersion.py`, `app/main.py`, `app/static/`
+
+---
+
 ## Phase 15 — Essay evaluation (2026-05-22)
 
 Write an essay in any of your study languages and get instant AI feedback via Claude Haiku.

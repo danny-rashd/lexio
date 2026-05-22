@@ -355,7 +355,7 @@ Frontend:
 
 ---
 
-## Phase 16 — Immersion tracking journal `Planned`
+## Phase 16 — Immersion tracking journal `Done`
 
 **Problem:** Language acquisition happens outside the app — watching shows, reading books, listening to podcasts. There's no way to log this time or see how it contributes to overall study effort.
 

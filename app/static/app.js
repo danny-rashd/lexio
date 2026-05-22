@@ -449,6 +449,7 @@ document.addEventListener('keydown', e => {
       'screen-big-test-setup':  'btn-big-test-back',
       'screen-browse':          'btn-browse-back',
       'screen-import':          'btn-import-back',
+      'screen-journal':         'btn-journal-back',
       'screen-essay':           'btn-essay-back',
       'screen-progress':        'btn-progress-back',
     };
@@ -776,6 +777,7 @@ document.getElementById('btn-big-test').addEventListener('click', showBigTestSet
 document.getElementById('btn-test-home').addEventListener('click', () => showTestSetup(null));
 document.getElementById('btn-nav-import').addEventListener('click', () => showImport(null));
 document.getElementById('btn-nav-home-tab').addEventListener('click', showHome);
+document.getElementById('btn-nav-journal').addEventListener('click', showJournal);
 document.getElementById('btn-nav-essay').addEventListener('click', showEssay);
 document.getElementById('btn-nav-progress').addEventListener('click', showProgress);
 
@@ -2040,6 +2042,208 @@ document.getElementById('progress-table-head').addEventListener('click', e => {
   _renderWeakestTable();
 });
 
+// ── Journal ───────────────────────────────────────────────────────────────────
+
+const ACTIVITY_COLOURS = {
+  watching: 'act-watching', listening: 'act-listening', reading: 'act-reading',
+  speaking: 'act-speaking', writing: 'act-writing',   gaming: 'act-gaming', other: 'act-other',
+};
+
+let _journalRating    = 0;
+let _journalPage      = 1;
+const _JOURNAL_LIMIT  = 20;
+
+function _fmtMins(mins) {
+  const h = Math.floor(mins / 60), m = mins % 60;
+  return h > 0 ? `${h}h${m > 0 ? ` ${m}m` : ''}` : `${m}m`;
+}
+
+function _stars(n) { return n ? '★'.repeat(n) + '☆'.repeat(5 - n) : ''; }
+
+async function showJournal() {
+  showScreen('screen-journal');
+  _journalRating = 0;
+  document.querySelectorAll('.rating-star').forEach(s => s.classList.remove('active'));
+
+  // Set today's date
+  document.getElementById('journal-date').valueAsDate = new Date();
+
+  // Populate language dropdowns
+  const langs = [...new Set(App.decks.map(d => d.language))].sort();
+  const langSel = document.getElementById('journal-lang');
+  langSel.innerHTML = langs.map(l => `<option value="${esc(l)}">${esc(l)}</option>`).join('');
+
+  const filterSel = document.getElementById('journal-filter-lang');
+  filterSel.innerHTML = '<option value="">All languages</option>' +
+    langs.map(l => `<option value="${esc(l)}">${esc(l)}</option>`).join('');
+
+  _journalPage = 1;
+  await _loadJournalStats();
+  await _loadJournalHistory();
+}
+
+async function _loadJournalStats() {
+  const res = await api('GET', '/api/immersion/stats');
+  if (!res?.ok) return;
+  const s   = await res.json();
+  const el  = document.getElementById('journal-stats');
+
+  if (s.total_entries === 0) { el.classList.add('hidden'); return; }
+
+  const topLangs = Object.entries(s.by_language).sort((a, b) => b[1] - a[1]);
+  const maxLang  = topLangs[0]?.[1] || 1;
+  const langBars = topLangs.map(([lang, mins]) => `
+    <div class="journal-stat-bar-row">
+      <span class="journal-stat-bar-label">${esc(lang)}</span>
+      <div class="journal-stat-bar-bg">
+        <div class="journal-stat-bar-fill" style="width:${Math.round(mins/maxLang*100)}%"></div>
+      </div>
+      <span class="journal-stat-bar-val">${_fmtMins(mins)}</span>
+    </div>`).join('');
+
+  el.innerHTML = `
+    <div class="journal-stat">
+      <span class="journal-stat-num">${_fmtMins(s.total_minutes)}</span>
+      <span class="journal-stat-label">total immersion</span>
+    </div>
+    <div class="journal-stat">
+      <span class="journal-stat-num">${_fmtMins(s.week_minutes)}</span>
+      <span class="journal-stat-label">this week</span>
+    </div>
+    <div class="journal-stat">
+      <span class="journal-stat-num">${s.total_entries}</span>
+      <span class="journal-stat-label">sessions logged</span>
+    </div>
+    <div class="journal-stat-bar-wrap">${langBars}</div>`;
+  el.classList.remove('hidden');
+}
+
+async function _loadJournalHistory() {
+  const lang   = document.getElementById('journal-filter-lang').value;
+  const params = new URLSearchParams({ limit: _JOURNAL_LIMIT, page: _journalPage });
+  if (lang) params.set('language', lang);
+
+  const res = await api('GET', `/api/immersion?${params}`);
+  if (!res?.ok) return;
+  const entries = await res.json();
+
+  const container = document.getElementById('journal-history');
+  if (!entries.length && _journalPage === 1) {
+    container.innerHTML = '<p class="text-secondary" style="font-size:.85rem;padding:.5rem 0">No sessions logged yet. Log your first session above.</p>';
+  } else {
+    container.innerHTML = entries.map(e => `
+      <div class="journal-entry" id="jentry-${e.id}">
+        <div class="journal-entry-main">
+          <div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:.25rem">
+            <span class="activity-badge ${ACTIVITY_COLOURS[e.activity_type] || 'act-other'}">${esc(e.activity_type)}</span>
+            ${langPillHtml(e.language)}
+          </div>
+          <div class="journal-entry-resource">${esc(e.resource)}</div>
+          <div class="journal-entry-meta">${new Date(e.logged_at).toLocaleDateString()}</div>
+          ${e.notes ? `<div class="journal-entry-notes">${esc(e.notes)}</div>` : ''}
+        </div>
+        <div class="journal-entry-side">
+          <span class="journal-duration">${_fmtMins(e.duration_minutes)}</span>
+          ${e.rating ? `<span class="journal-stars">${_stars(e.rating)}</span>` : ''}
+          <button class="btn-danger btn-sm" onclick="deleteJournalEntry(${e.id})">×</button>
+        </div>
+      </div>`).join('');
+  }
+
+  const pg = document.getElementById('journal-pagination');
+  pg.innerHTML = '';
+  if (_journalPage > 1) {
+    const p = document.createElement('button');
+    p.className = 'btn-outline btn-sm'; p.textContent = '← Prev';
+    p.onclick = () => { _journalPage--; _loadJournalHistory(); };
+    pg.appendChild(p);
+  }
+  if (entries.length === _JOURNAL_LIMIT) {
+    const n = document.createElement('button');
+    n.className = 'btn-outline btn-sm'; n.textContent = 'Next →';
+    n.onclick = () => { _journalPage++; _loadJournalHistory(); };
+    pg.appendChild(n);
+  }
+}
+
+async function deleteJournalEntry(id) {
+  if (!await showConfirm('Delete this log entry?', 'Delete', true)) return;
+  const res = await api('DELETE', `/api/immersion/${id}`);
+  if (res?.status === 204) {
+    await _loadJournalStats();
+    await _loadJournalHistory();
+  }
+}
+
+// Rating stars
+document.getElementById('journal-rating').querySelectorAll('.rating-star').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const val = parseInt(btn.dataset.val, 10);
+    _journalRating = _journalRating === val ? 0 : val;
+    document.querySelectorAll('.rating-star').forEach((s, i) =>
+      s.classList.toggle('active', i < _journalRating)
+    );
+  });
+});
+
+// Quick duration buttons
+document.querySelectorAll('.journal-quick').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const inp = document.getElementById('journal-duration');
+    inp.value = Math.max(1, (parseInt(inp.value, 10) || 0) + parseInt(btn.dataset.add, 10));
+  });
+});
+
+// Filter change
+document.getElementById('journal-filter-lang').addEventListener('change', () => {
+  _journalPage = 1;
+  _loadJournalHistory();
+});
+
+// Submit log
+document.getElementById('btn-journal-log').addEventListener('click', async () => {
+  const language        = document.getElementById('journal-lang').value;
+  const activity_type   = document.getElementById('journal-activity').value;
+  const resource        = document.getElementById('journal-resource').value.trim();
+  const duration_minutes = parseInt(document.getElementById('journal-duration').value, 10);
+  const notes           = document.getElementById('journal-notes').value.trim() || null;
+  const dateVal         = document.getElementById('journal-date').value;
+  const errEl           = document.getElementById('journal-err');
+  errEl.classList.add('hidden');
+
+  if (!resource) { errEl.textContent = 'Please enter a resource name.'; errEl.classList.remove('hidden'); return; }
+  if (!duration_minutes || duration_minutes < 1) { errEl.textContent = 'Duration must be at least 1 minute.'; errEl.classList.remove('hidden'); return; }
+
+  const logged_at = dateVal ? new Date(dateVal + 'T12:00:00').toISOString() : new Date().toISOString();
+
+  const btn = document.getElementById('btn-journal-log');
+  setLoading(btn, true);
+  const res = await api('POST', '/api/immersion', {
+    language, activity_type, resource, duration_minutes,
+    notes, rating: _journalRating || null, logged_at,
+  });
+  setLoading(btn, false);
+
+  if (!res?.ok) {
+    const e = await res?.json().catch(() => ({}));
+    errEl.textContent = friendlyError(e?.detail);
+    errEl.classList.remove('hidden');
+    return;
+  }
+
+  // Reset form, reload
+  document.getElementById('journal-resource').value = '';
+  document.getElementById('journal-notes').value = '';
+  document.getElementById('journal-duration').value = '30';
+  _journalRating = 0;
+  document.querySelectorAll('.rating-star').forEach(s => s.classList.remove('active'));
+  _journalPage = 1;
+  await _loadJournalStats();
+  await _loadJournalHistory();
+});
+
+document.getElementById('btn-journal-back').addEventListener('click', showHome);
+
 // ── Essay ─────────────────────────────────────────────────────────────────────
 
 const _CAT_LABELS   = { grammar: 'Grammar', spelling: 'Spelling', punctuation: 'Punctuation', diacritics: 'Diacritics', fluency: 'Fluency' };
@@ -2175,14 +2379,18 @@ document.getElementById('btn-essay-back').addEventListener('click', showHome);
 async function showProgress() {
   showScreen('screen-progress');
   document.getElementById('progress-empty').classList.add('hidden');
-  document.getElementById('streak-card').innerHTML    = _progressSkeletonHtml();
-  document.getElementById('progress-tbody').innerHTML = '';
+  document.getElementById('streak-card').innerHTML      = _progressSkeletonHtml();
+  document.getElementById('progress-tbody').innerHTML   = '';
   document.getElementById('lang-proficiency').innerHTML = '';
+  document.getElementById('profile-writing').classList.add('hidden');
+  document.getElementById('profile-immersion').classList.add('hidden');
 
-  const [streakRes, weakestRes, dashRes] = await Promise.all([
+  const [streakRes, weakestRes, dashRes, essayRes, immersionRes] = await Promise.all([
     api('GET', '/api/progress/streak'),
     api('GET', '/api/progress/weakest?limit=500'),
     api('GET', '/api/progress/dashboard'),
+    api('GET', '/api/essay/stats'),
+    api('GET', '/api/immersion/stats'),
   ]);
 
   if (streakRes?.ok) {
@@ -2213,6 +2421,61 @@ async function showProgress() {
   if (dashRes?.ok) {
     const dash = await dashRes.json();
     _renderProficiency(dash.languages || []);
+  }
+
+  // Writing section
+  if (essayRes?.ok) {
+    const e = await essayRes.json();
+    if (e.total > 0) {
+      const langBars = Object.entries(e.by_language).sort((a, b) => b[1].avg_score - a[1].avg_score)
+        .map(([lang, v]) => `
+          <div class="journal-stat-bar-row">
+            <span class="journal-stat-bar-label" style="text-transform:capitalize">${esc(lang)}</span>
+            <div class="journal-stat-bar-bg">
+              <div class="journal-stat-bar-fill" style="width:${v.avg_score}%;background:#4361EE"></div>
+            </div>
+            <span class="journal-stat-bar-val">${v.avg_score}%</span>
+          </div>`).join('');
+      const recent = (e.recent || []).map(r =>
+        `<span style="display:inline-block;background:color-mix(in srgb,var(--accent) 12%,transparent);
+         border-radius:6px;padding:.2rem .5rem;font-size:.8rem;font-weight:700;margin:.15rem">
+         ${langPillHtml(r.language)} ${Math.round(r.overall_score)}%</span>`
+      ).join('');
+      document.getElementById('profile-writing-content').innerHTML = `
+        <div class="journal-stats" style="border:none;padding:0;margin-bottom:.75rem">
+          <div class="journal-stat"><span class="journal-stat-num">${e.total}</span><span class="journal-stat-label">essays</span></div>
+          <div class="journal-stat"><span class="journal-stat-num">${e.average_score}%</span><span class="journal-stat-label">avg score</span></div>
+          <div class="journal-stat"><span class="journal-stat-num">${e.best_score}%</span><span class="journal-stat-label">best score</span></div>
+        </div>
+        ${langBars ? `<div style="margin-bottom:.5rem">${langBars}</div>` : ''}
+        ${recent ? `<p class="text-secondary" style="font-size:.75rem;margin-bottom:.3rem">Recent</p>${recent}` : ''}`;
+      document.getElementById('profile-writing').classList.remove('hidden');
+    }
+  }
+
+  // Immersion section
+  if (immersionRes?.ok) {
+    const im = await immersionRes.json();
+    if (im.total_entries > 0) {
+      const topLangs = Object.entries(im.by_language || {}).sort((a, b) => b[1] - a[1]);
+      const maxMins  = topLangs[0]?.[1] || 1;
+      const langBars = topLangs.map(([lang, mins]) => `
+        <div class="journal-stat-bar-row">
+          <span class="journal-stat-bar-label" style="text-transform:capitalize">${esc(lang)}</span>
+          <div class="journal-stat-bar-bg">
+            <div class="journal-stat-bar-fill" style="width:${Math.round(mins/maxMins*100)}%;background:#2A9D8F"></div>
+          </div>
+          <span class="journal-stat-bar-val">${_fmtMins(mins)}</span>
+        </div>`).join('');
+      document.getElementById('profile-immersion-content').innerHTML = `
+        <div class="journal-stats" style="border:none;padding:0;margin-bottom:.75rem">
+          <div class="journal-stat"><span class="journal-stat-num">${_fmtMins(im.total_minutes)}</span><span class="journal-stat-label">total</span></div>
+          <div class="journal-stat"><span class="journal-stat-num">${_fmtMins(im.week_minutes)}</span><span class="journal-stat-label">this week</span></div>
+          <div class="journal-stat"><span class="journal-stat-num">${im.total_entries}</span><span class="journal-stat-label">sessions</span></div>
+        </div>
+        ${langBars}`;
+      document.getElementById('profile-immersion').classList.remove('hidden');
+    }
   }
 }
 

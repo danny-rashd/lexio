@@ -12,8 +12,9 @@
   <span id="nav-home" class="nav-brand">Lexio</span>
   <div class="nav-right">
     <button id="btn-nav-home-tab" class="btn-ghost" data-short="Hm">Home</button>
+    <button id="btn-nav-journal" class="btn-ghost" data-short="Jrn">Journal</button>
     <button id="btn-nav-essay" class="btn-ghost" data-short="Es">Essay</button>
-    <button id="btn-nav-progress" class="btn-ghost" data-short="Stats">Progress</button>
+    <button id="btn-nav-progress" class="btn-ghost" data-short="Pro">Profile</button>
     <button id="btn-nav-import" class="btn-ghost" data-short="+">Import</button>
     <button id="btn-theme" class="btn-ghost btn-icon" aria-label="Toggle theme">&#9788;</button>
     <button id="btn-logout" class="btn-ghost" data-short="Out">Log out</button>
@@ -346,6 +347,83 @@
   </section>
 
   <!-- ── Progress / Dashboard (Phase 16) ───────────────────────────────────── -->
+  <!-- ── Journal ───────────────────────────────────────────────────────────── -->
+  <section id="screen-journal" class="hidden">
+    <div class="page-header">
+      <button class="btn-back" id="btn-journal-back">&#8592; Back</button>
+      <h2>Immersion Journal</h2>
+    </div>
+
+    <!-- Stats strip -->
+    <div id="journal-stats" class="journal-stats card hidden"></div>
+
+    <!-- Log form -->
+    <div class="card form-card" style="margin-top:.75rem">
+      <h3 style="font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--text-secondary)">Log a Session</h3>
+      <div class="journal-form-grid">
+        <div>
+          <label for="journal-lang">Language</label>
+          <select id="journal-lang"></select>
+        </div>
+        <div>
+          <label for="journal-activity">Activity</label>
+          <select id="journal-activity">
+            <option value="watching">Watching</option>
+            <option value="listening">Listening</option>
+            <option value="reading">Reading</option>
+            <option value="speaking">Speaking</option>
+            <option value="writing">Writing</option>
+            <option value="gaming">Gaming</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div style="grid-column:1/-1">
+          <label for="journal-resource">Resource <span class="text-secondary">(e.g. Netflix — Money Heist, Podcast name)</span></label>
+          <input id="journal-resource" type="text" placeholder="What did you use?">
+        </div>
+        <div>
+          <label for="journal-duration">Duration (minutes)</label>
+          <div style="display:flex;gap:.4rem;align-items:center">
+            <input id="journal-duration" type="number" min="1" max="600" value="30" style="flex:1">
+            <button class="btn-ghost btn-sm journal-quick" data-add="15">+15</button>
+            <button class="btn-ghost btn-sm journal-quick" data-add="30">+30</button>
+            <button class="btn-ghost btn-sm journal-quick" data-add="60">+60</button>
+          </div>
+        </div>
+        <div>
+          <label for="journal-date">Date</label>
+          <input id="journal-date" type="date">
+        </div>
+        <div style="grid-column:1/-1">
+          <label>Rating <span class="text-secondary">(optional)</span></label>
+          <div class="journal-rating" id="journal-rating">
+            <button class="rating-star" data-val="1">★</button>
+            <button class="rating-star" data-val="2">★</button>
+            <button class="rating-star" data-val="3">★</button>
+            <button class="rating-star" data-val="4">★</button>
+            <button class="rating-star" data-val="5">★</button>
+          </div>
+        </div>
+        <div style="grid-column:1/-1">
+          <label for="journal-notes">Notes <span class="text-secondary">(optional)</span></label>
+          <input id="journal-notes" type="text" placeholder="Any thoughts on the session?">
+        </div>
+      </div>
+      <button id="btn-journal-log" class="btn-primary">Log Session</button>
+      <p id="journal-err" class="error hidden"></p>
+    </div>
+
+    <!-- History -->
+    <h3 class="section-label" style="margin-top:1.25rem">History</h3>
+    <div style="display:flex;gap:.5rem;margin-bottom:.75rem;align-items:center">
+      <select id="journal-filter-lang" style="padding:.4rem .75rem;border:1.5px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text-primary);font-size:.85rem;outline:none">
+        <option value="">All languages</option>
+      </select>
+    </div>
+    <div id="journal-history"></div>
+    <div id="journal-pagination" class="pagination"></div>
+  </section>
+
   <!-- ── Essay ─────────────────────────────────────────────────────────────── -->
   <section id="screen-essay" class="hidden">
     <div class="page-header">
@@ -399,7 +477,7 @@
   <section id="screen-progress" class="hidden">
     <div class="page-header">
       <button class="btn-back" id="btn-progress-back">&#8592; Back</button>
-      <h2>Progress</h2>
+      <h2>Profile</h2>
     </div>
     <div id="progress-empty" class="empty-state hidden">
       <div class="empty-icon">
@@ -414,6 +492,18 @@
     <div id="streak-card" class="card streak-card"></div>
     <h3 class="section-label">Language Proficiency</h3>
     <div id="lang-proficiency"></div>
+    <!-- Writing section -->
+    <div id="profile-writing" class="hidden">
+      <h3 class="section-label" style="margin-top:1.25rem">Writing Practice</h3>
+      <div id="profile-writing-content" class="card" style="padding:1rem 1.25rem;margin-bottom:.5rem"></div>
+    </div>
+
+    <!-- Immersion section -->
+    <div id="profile-immersion" class="hidden">
+      <h3 class="section-label" style="margin-top:1.25rem">Immersion</h3>
+      <div id="profile-immersion-content" class="card" style="padding:1rem 1.25rem;margin-bottom:.5rem"></div>
+    </div>
+
     <h3 class="section-label" style="margin-top:1.25rem">Weakest Cards</h3>
     <div class="table-wrap">
       <table class="data-table">

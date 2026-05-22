@@ -101,3 +101,38 @@ def get_essay(
         "evaluation": json.loads(sub.evaluation),
         "submitted_at": sub.submitted_at,
     }
+
+
+@router.get("/stats")
+def get_essay_stats(
+    db: Session = Depends(get_db),
+    _: User = Depends(get_current_user),
+) -> dict:
+    subs = db.query(EssaySubmission).order_by(EssaySubmission.submitted_at.desc()).all()
+    if not subs:
+        return {"total": 0, "average_score": 0.0, "best_score": 0.0, "by_language": {}, "recent": []}
+
+    total      = len(subs)
+    avg_score  = round(sum(s.overall_score for s in subs) / total, 1)
+    best_score = round(max(s.overall_score for s in subs), 1)
+
+    lang_agg: dict[str, dict] = {}
+    for s in subs:
+        if s.language not in lang_agg:
+            lang_agg[s.language] = {"count": 0, "total": 0.0}
+        lang_agg[s.language]["count"]  += 1
+        lang_agg[s.language]["total"]  += s.overall_score
+
+    by_language = {
+        lang: {"count": v["count"], "avg_score": round(v["total"] / v["count"], 1)}
+        for lang, v in lang_agg.items()
+    }
+
+    recent = [
+        {"id": s.id, "language": s.language, "overall_score": s.overall_score,
+         "submitted_at": s.submitted_at.isoformat()}
+        for s in subs[:5]
+    ]
+
+    return {"total": total, "average_score": avg_score, "best_score": best_score,
+            "by_language": by_language, "recent": recent}
