@@ -2877,6 +2877,81 @@ async function showProgress() {
 
 document.getElementById('btn-progress-back').addEventListener('click', showHome);
 
+// ── Reset ─────────────────────────────────────────────────────────────────────
+
+const _RESET_PHRASES = {
+  soft: [
+    "He went galumphing back",
+    "And burbled as it came",
+    "He chortled in his joy",
+    "All mimsy were the borogoves",
+    "Beware the Jabberwock my son",
+    "The mome raths outgrabe",
+    "Did gyre and gimble",
+    "My beamish boy",
+  ],
+  hard: [
+    "Twas brillig and the slithy toves",
+    "The vorpal blade went snicker snack",
+    "Came whiffling through the tulgey wood",
+    "The Jabberwock with eyes of flame",
+    "And as in uffish thought he stood",
+    "Long time the manxome foe he sought",
+    "O frabjous day Callooh Callay",
+    "Did gyre and gimble in the wabe",
+  ],
+};
+
+let _resetType = null;
+
+function _openResetModal(type) {
+  _resetType = type;
+  const phrases  = _RESET_PHRASES[type];
+  const phrase   = phrases[Math.floor(Math.random() * phrases.length)];
+  const isSoft   = type === 'soft';
+
+  document.getElementById('reset-modal-title').textContent =
+    isSoft ? 'Soft Reset' : 'Hard Reset — this cannot be undone';
+  document.getElementById('reset-modal-desc').textContent = isSoft
+    ? 'All quiz history, card statistics, essays and journal entries will be permanently deleted. Your decks and vocabulary cards will be kept.'
+    : 'Every deck, card, statistic, essay and journal entry will be permanently deleted. Only your username and password will remain.';
+  document.getElementById('reset-modal-phrase').textContent = phrase;
+  document.getElementById('reset-modal-input').value = '';
+  document.getElementById('reset-modal-input').classList.remove('match');
+  document.getElementById('reset-modal-confirm').disabled = true;
+  document.getElementById('reset-modal-hint').classList.remove('hidden');
+  document.getElementById('reset-modal-overlay').classList.remove('hidden');
+  setTimeout(() => document.getElementById('reset-modal-input').focus(), 80);
+}
+
+document.getElementById('btn-soft-reset').addEventListener('click', () => _openResetModal('soft'));
+document.getElementById('btn-hard-reset').addEventListener('click', () => _openResetModal('hard'));
+
+document.getElementById('reset-modal-cancel').addEventListener('click', () => {
+  document.getElementById('reset-modal-overlay').classList.add('hidden');
+});
+
+document.getElementById('reset-modal-input').addEventListener('input', e => {
+  const expected = document.getElementById('reset-modal-phrase').textContent;
+  const matches  = e.target.value === expected;
+  e.target.classList.toggle('match', matches);
+  document.getElementById('reset-modal-confirm').disabled = !matches;
+});
+
+document.getElementById('reset-modal-confirm').addEventListener('click', async () => {
+  const btn = document.getElementById('reset-modal-confirm');
+  setLoading(btn, true);
+  const res = await api('POST', '/api/settings/reset', { type: _resetType });
+  setLoading(btn, false);
+  document.getElementById('reset-modal-overlay').classList.add('hidden');
+  if (!res?.ok) { await showAlert('Reset failed. Please try again.'); return; }
+  const msg = _resetType === 'soft'
+    ? 'Statistics cleared. Your vocabulary is intact.'
+    : 'All data wiped. Starting fresh.';
+  await showAlert(msg);
+  showHome();
+});
+
 // ── Init ──────────────────────────────────────────────────────────────────────
 
 (function init() {

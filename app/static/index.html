@@ -606,7 +606,47 @@
       </table>
     </div>
     <div id="progress-pagination" class="pagination"></div>
+
+    <!-- Danger zone -->
+    <div class="danger-zone">
+      <h3 class="section-label danger-zone-label">Danger Zone</h3>
+      <div class="danger-zone-card">
+        <div class="danger-zone-row">
+          <div>
+            <p class="danger-zone-title">Soft Reset</p>
+            <p class="danger-zone-desc">Clears all statistics, quiz history, essays and journal entries. Keeps your decks and vocabulary.</p>
+          </div>
+          <button id="btn-soft-reset" class="btn-danger btn-sm">Reset stats</button>
+        </div>
+        <div class="danger-zone-divider"></div>
+        <div class="danger-zone-row">
+          <div>
+            <p class="danger-zone-title">Hard Reset</p>
+            <p class="danger-zone-desc">Deletes everything — decks, vocabulary, all history. Only your username and password are kept.</p>
+          </div>
+          <button id="btn-hard-reset" class="btn-danger btn-sm">Wipe all data</button>
+        </div>
+      </div>
+    </div>
   </section>
+
+  <!-- Reset confirmation modal -->
+  <div id="reset-modal-overlay" class="modal-overlay hidden" role="dialog" aria-modal="true">
+    <div class="modal-box card reset-modal-box">
+      <p id="reset-modal-title" class="reset-modal-title"></p>
+      <p id="reset-modal-desc" class="text-secondary" style="font-size:.88rem;margin-bottom:1.1rem;line-height:1.5"></p>
+      <div class="reset-modal-phrase-wrap">
+        <p class="reset-modal-phrase-label">Type this to confirm:</p>
+        <p id="reset-modal-phrase" class="reset-modal-phrase"></p>
+      </div>
+      <input id="reset-modal-input" type="text" class="reset-modal-input" placeholder="Type the phrase exactly…" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+      <p id="reset-modal-hint" class="reset-modal-hint hidden">Case-sensitive · no punctuation needed</p>
+      <div class="modal-actions" style="margin-top:1rem">
+        <button id="reset-modal-cancel" class="btn-ghost">Cancel</button>
+        <button id="reset-modal-confirm" class="btn-danger" disabled>Confirm reset</button>
+      </div>
+    </div>
+  </div>
 
 </main>
 

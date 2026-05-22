@@ -1,12 +1,17 @@
 from datetime import date, datetime
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
 from sqlalchemy import func
 from sqlalchemy.orm import Session
 
 from app.database import get_db
-from app.models.progress import QuizAnswer
+from app.models.card import Card, Deck
+from app.models.essay import EssaySubmission
+from app.models.immersion import ImmersionLog
+from app.models.import_log import ImportBatch
+from app.models.progress import CardStat, QuizAnswer, QuizSession, StudyLog
+from app.models.push import PushSubscription
 from app.models.settings import UserSetting
 from app.models.user import User
 from app.routers.auth import get_current_user
@@ -77,3 +82,47 @@ def set_daily_goal(
         db.add(UserSetting(key="daily_goal", value=str(body.goal)))
     db.commit()
     return {"goal": body.goal}
+
+
+class ResetRequest(BaseModel):
+    type: str = Field(..., pattern="^(soft|hard)$")
+
+
+@router.post("/reset")
+def reset_data(
+    body: ResetRequest,
+    db: Session = Depends(get_db),
+    _: User = Depends(get_current_user),
+) -> dict:
+    """
+    Reset app data. Soft keeps decks and cards; hard deletes everything except the user account.
+
+    Args:
+        body (ResetRequest): type must be 'soft' or 'hard'.
+        db (Session): Database session.
+        _ (User): Authenticated user (unused beyond auth check).
+
+    Returns:
+        dict: Confirmation of reset type performed.
+
+    Notes:
+        Deletes are ordered to respect FK constraints. Hard reset preserves
+        the users table so the account remains accessible after reset.
+    """
+    # Both reset types clear all activity data
+    db.query(QuizAnswer).delete(synchronize_session=False)
+    db.query(QuizSession).delete(synchronize_session=False)
+    db.query(CardStat).delete(synchronize_session=False)
+    db.query(StudyLog).delete(synchronize_session=False)
+    db.query(EssaySubmission).delete(synchronize_session=False)
+    db.query(ImmersionLog).delete(synchronize_session=False)
+
+    if body.type == "hard":
+        db.query(ImportBatch).delete(synchronize_session=False)
+        db.query(PushSubscription).delete(synchronize_session=False)
+        db.query(UserSetting).delete(synchronize_session=False)
+        db.query(Card).delete(synchronize_session=False)
+        db.query(Deck).delete(synchronize_session=False)
+
+    db.commit()
+    return {"reset": body.type}
