@@ -64,7 +64,7 @@ nav {
   top: 0;
   z-index: 100;
 }
-.nav-brand  { font-weight: 700; font-size: 1.1rem; cursor: pointer; color: var(--accent); letter-spacing: -.5px; }
+.nav-brand  { cursor: pointer; display: flex; align-items: center; }
 .nav-right  { display: flex; align-items: center; gap: .25rem; }
 .btn-icon   { font-size: 1.1rem; }
 .nav-btn    { display: flex; align-items: center; gap: .3rem; }
@@ -177,18 +177,12 @@ button:disabled { opacity: .4; cursor: default; }
 .login-header { text-align: center; }
 
 .login-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  background: var(--accent);
-  color: #fff;
-  font-size: 1.5rem;
-  font-weight: 900;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   margin-bottom: .75rem;
-  box-shadow: 0 4px 14px color-mix(in srgb, var(--accent) 40%, transparent);
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(91, 33, 182, .45);
 }
 
 .login-brand {
@@ -808,9 +802,33 @@ kbd {
 .essay-error-fix       { color: #166534; font-weight: 600; }
 
 /* Essay history modal */
-.essay-modal-box         { max-width: 700px; width: 94vw; max-height: 85vh; overflow-y: auto; }
-.essay-modal-header      { display: flex; justify-content: space-between; align-items: center; }
+.essay-modal-box         { max-width: 700px; width: 94vw; max-height: 88vh; overflow-y: auto;
+                           display: flex; flex-direction: column; gap: 0; padding: 1.25rem; }
+.essay-modal-header      { display: flex; justify-content: space-between; align-items: center;
+                           padding-bottom: .9rem; border-bottom: 1px solid var(--border); }
 .essay-modal-header-left { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; }
+.essay-modal-score-card  { display: flex; align-items: center; gap: 1.25rem;
+                           padding: 1rem 1.1rem; margin: .9rem 0;
+                           border-radius: 10px; border-left: 4px solid var(--border);
+                           background: var(--bg-secondary); }
+.essay-modal-score-card.great { border-left-color: var(--success);
+                                background: color-mix(in srgb, var(--success) 6%, var(--bg-secondary)); }
+.essay-modal-score-card.ok    { border-left-color: var(--warn);
+                                background: color-mix(in srgb, var(--warn) 6%, var(--bg-secondary)); }
+.essay-modal-score-card.poor  { border-left-color: var(--danger);
+                                background: color-mix(in srgb, var(--danger) 6%, var(--bg-secondary)); }
+.essay-modal-section     { padding-top: .9rem; border-top: 1px solid var(--border); margin-top: .75rem; }
+.essay-modal-toggle-btn  { display: flex; align-items: center; justify-content: space-between;
+                           width: 100%; background: none; border: none; cursor: pointer;
+                           font-size: .8rem; font-weight: 700; text-transform: uppercase;
+                           letter-spacing: .05em; color: var(--text-secondary);
+                           padding: 0; margin-bottom: .6rem; }
+.essay-modal-toggle-btn:hover { color: var(--text-primary); }
+.essay-modal-toggle-btn.open svg { transform: rotate(180deg); }
+.essay-modal-text        { font-size: .88rem; line-height: 1.75; color: var(--text-secondary);
+                           white-space: pre-wrap; margin: 0;
+                           padding: .75rem; background: var(--bg-secondary);
+                           border-radius: 8px; border: 1px solid var(--border); }
 
 /* ── Responsive ─────────────────────────────────────────────────────────────── */
 

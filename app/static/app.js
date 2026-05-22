@@ -2713,19 +2713,40 @@ function _renderEssayResult(ev) {
   document.getElementById('essay-errors').innerHTML       = _essayErrorsHtml(ev);
 }
 
-function _renderEssayModal(ev, language, meta) {
+function _renderEssayModal(ev, language, meta, text = '') {
   const score   = Math.round(ev.overall_score || 0);
+  const grade   = score >= 80 ? 'great' : score >= 50 ? 'ok' : 'poor';
   const overlay = document.getElementById('essay-modal-overlay');
-  const ring    = document.getElementById('essay-modal-ring');
+
+  const ring = document.getElementById('essay-modal-ring');
   ring.textContent = `${score}%`;
-  ring.className   = `score-ring ${score >= 80 ? 'great' : score >= 50 ? 'ok' : 'poor'}`;
-  document.getElementById('essay-modal-lang-pill').innerHTML  = langPillHtml(language || '');
-  document.getElementById('essay-modal-meta').textContent     = meta || '';
+  ring.className   = `score-ring ${grade}`;
+
+  const scoreCard = document.getElementById('essay-modal-score-card');
+  scoreCard.className = `essay-modal-score-card ${grade}`;
+
+  document.getElementById('essay-modal-lang-pill').innerHTML = langPillHtml(language || '');
+  document.getElementById('essay-modal-meta').textContent    = meta || '';
+  document.getElementById('essay-modal-text').textContent    = text || '';
+
+  // Reset essay toggle to collapsed
+  const toggleBtn  = document.getElementById('btn-essay-modal-toggle');
+  const textWrap   = document.getElementById('essay-modal-text-wrap');
+  toggleBtn.classList.remove('open');
+  textWrap.classList.add('hidden');
+
   overlay.querySelector('.essay-modal-feedback').textContent  = ev.overall_feedback || '';
   overlay.querySelector('.essay-modal-categories').innerHTML  = _essayCatsHtml(ev);
   overlay.querySelector('.essay-modal-errors').innerHTML      = _essayErrorsHtml(ev);
   overlay.classList.remove('hidden');
 }
+
+document.getElementById('btn-essay-modal-toggle').addEventListener('click', () => {
+  const btn  = document.getElementById('btn-essay-modal-toggle');
+  const wrap = document.getElementById('essay-modal-text-wrap');
+  const open = wrap.classList.toggle('hidden');
+  btn.classList.toggle('open', !open);
+});
 
 document.getElementById('btn-essay-new').addEventListener('click', () => {
   document.getElementById('essay-result').classList.add('hidden');
@@ -2740,7 +2761,7 @@ async function loadEssay(id) {
   if (!res?.ok) return;
   const data = await res.json();
   const meta = `${data.word_count} words · ${new Date(data.submitted_at).toLocaleDateString()}`;
-  _renderEssayModal(data.evaluation, data.language, meta);
+  _renderEssayModal(data.evaluation, data.language, meta, data.text);
 }
 
 document.getElementById('essay-modal-close').addEventListener('click', () => {
