@@ -381,6 +381,56 @@ Integration with Progress screen: immersion time shown alongside quiz stats.
 
 ---
 
+## Phase 17 — Text-to-Speech (TTS) `Done`
+
+**Problem:** Vocabulary cards show text only. Learners who are building listening comprehension or learning pronunciation have no audio feedback.
+
+**How it works:** Browser's built-in Web Speech API (`speechSynthesis`) — zero cost, no API key, no backend changes. Language is mapped to a BCP-47 locale (`es-ES`, `fr-FR`, `de-DE`, `nb-NO`, `ja-JP`, `zh-CN`).
+
+**Scope:**
+
+Frontend only:
+- `speak(text, language)` utility function — cancels any in-progress speech, then speaks the given text with the correct locale
+- **Quiz screen:** 🔊 Speak button appears below the question word (hidden if browser has no TTS support). In flashcard mode the word is auto-spoken when the card appears; in other modes the button is available on demand.
+- **Browse screen:** 🔊 button on every row — speaks the word in the deck's language
+
+**Files:** `app/static/app.js`, `app/static/index.html`, `app/static/style.css`
+
+---
+
+## Phase 18 — Daily study goal + progress bar `Done`
+
+**Problem:** There is no daily target, so sessions feel open-ended. A simple goal counter would give each session a clear finish line and a sense of accomplishment.
+
+**Scope:**
+
+Frontend only (localStorage):
+- Default goal: 20 cards per day (configurable in a small settings popover on the Home screen)
+- Top-of-home progress bar: "Today: 14 / 20 cards" — fills as quiz answers are submitted during the day
+- Counter resets at midnight (compare `new Date().toDateString()` with stored date)
+- Completion state: bar turns green and shows "Goal reached!" with a small celebration
+
+**Files:** `app/static/app.js`, `app/static/index.html`, `app/static/style.css`
+
+---
+
+## Phase 19 — "Add to deck" from Journal `Done`
+
+**Problem:** When logging an immersion session in the Journal, learners often encounter new vocabulary. Currently there is no way to capture those words without leaving the Journal and navigating to Import.
+
+**Scope:**
+
+Frontend only:
+- Each Journal log entry gets a small "+ Add word" button
+- Click opens a compact inline form: word / meaning / native (optional) — language pre-filled from the log entry's language
+- On submit: `POST /api/cards` with the deck that matches the entry's language + a "journal" topic (create it if it doesn't exist)
+- Success: a small "Added!" confirmation next to the button; form collapses
+
+**Files:** `app/static/app.js`, `app/static/index.html`, `app/static/style.css`
+**API:** existing `POST /api/cards` and `POST /api/decks` endpoints — no new endpoints needed
+
+---
+
 ## Notes
 
 **Phase ordering constraints:**

@@ -5,6 +5,7 @@ from sqlalchemy import func
 from sqlalchemy.orm import Session
 
 from app.database import get_db
+from app.models.card import Card
 from app.models.immersion import ImmersionLog
 from app.models.user import User
 from app.routers.auth import get_current_user
@@ -55,7 +56,40 @@ def list_logs(
     if language:
         query = query.filter(ImmersionLog.language == language.lower().strip())
     offset = (page - 1) * limit
-    return query.order_by(ImmersionLog.logged_at.desc()).offset(offset).limit(limit).all()
+    logs = query.order_by(ImmersionLog.logged_at.desc()).offset(offset).limit(limit).all()
+
+    log_ids = [l.id for l in logs]
+    counts: dict[int, int] = {}
+    if log_ids:
+        rows = (
+            db.query(Card.source_log_id, func.count(Card.id))
+            .filter(Card.source_log_id.in_(log_ids), Card.is_active.is_(True))
+            .group_by(Card.source_log_id)
+            .all()
+        )
+        counts = {log_id: cnt for log_id, cnt in rows}
+
+    result = []
+    for log in logs:
+        d = ImmersionLogResponse.model_validate(log)
+        d.word_count = counts.get(log.id, 0)
+        result.append(d)
+    return result
+
+
+@router.get("/{log_id}/words")
+def get_log_words(
+    log_id: int,
+    db: Session = Depends(get_db),
+    _: User = Depends(get_current_user),
+) -> list[dict]:
+    cards = (
+        db.query(Card)
+        .filter(Card.source_log_id == log_id, Card.is_active.is_(True))
+        .order_by(Card.created_at)
+        .all()
+    )
+    return [{"word": c.word, "meaning": c.meaning, "native": c.native} for c in cards]
 
 
 @router.delete("/{log_id}", status_code=status.HTTP_204_NO_CONTENT)

@@ -23,5 +23,6 @@ class ImmersionLogResponse(BaseModel):
     rating: int | None
     logged_at: datetime
     created_at: datetime
+    word_count: int = 0
 
     model_config = {"from_attributes": True}

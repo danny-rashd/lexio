@@ -45,7 +45,9 @@ body {
   background: var(--bg-secondary);
   color: var(--text-primary);
   min-height: 100vh;
+  min-height: 100dvh;
   transition: background .2s, color .2s;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 /* ── Nav ────────────────────────────────────────────────────────────────────── */
@@ -54,7 +56,8 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 0 1.25rem;
-  height: 54px;
+  padding-top: env(safe-area-inset-top, 0px);
+  height: calc(54px + env(safe-area-inset-top, 0px));
   background: var(--bg-card);
   border-bottom: 1px solid var(--border);
   position: sticky;
@@ -306,6 +309,13 @@ button:disabled { opacity: .4; cursor: default; }
 .mini-sq.studied  { background: var(--accent); opacity: .8; }
 .mini-sq.today    { outline: 1.5px solid var(--accent); outline-offset: 1px; }
 
+/* Daily goal bar */
+.home-daily-goal    { padding: .75rem 1rem; margin-bottom: 1rem; }
+.daily-goal-header  { display: flex; justify-content: space-between; align-items: center; margin-bottom: .5rem; font-size: .85rem; font-weight: 500; }
+.daily-goal-track   { height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; }
+.daily-goal-fill    { height: 100%; width: 0%; background: var(--accent); border-radius: 4px; transition: width .4s ease; }
+.daily-goal-fill.goal-reached { background: var(--success); }
+
 /* Quick-start card */
 .home-quick { padding: .9rem 1.1rem; margin-bottom: 1rem; }
 .home-quick-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
@@ -405,6 +415,8 @@ button:disabled { opacity: .4; cursor: default; }
 .quiz-body    { display: flex; flex-direction: column; gap: 1.25rem; }
 .quiz-native  { font-size: 1.5rem; color: var(--text-secondary); }
 .quiz-question { font-size: 1.3rem; font-weight: 700; line-height: 1.4; }
+.tts-row { margin-top: -.5rem; }
+.btn-tts-row { font-size: .85rem; padding: .2rem .5rem; }
 
 .mcq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
 .mcq-btn  { padding: .85rem 1rem; border: 1.5px solid var(--border); border-radius: 10px;
@@ -513,6 +525,7 @@ button:disabled { opacity: .4; cursor: default; }
 .cell-correct { color: #166534; font-weight: 600; }
 .cell-wrong   { color: var(--danger); }
 .pagination { display: flex; align-items: center; gap: .75rem; margin-top: 1rem; justify-content: center; }
+.browse-actions { display: flex; gap: .4rem; align-items: center; white-space: nowrap; }
 
 /* ── Import preview ─────────────────────────────────────────────────────────── */
 .import-preview { padding: 1rem 0; display: flex; flex-direction: column; gap: .6rem; }
@@ -678,6 +691,10 @@ kbd {
 }
 .modal-message { font-size: .95rem; line-height: 1.5; color: var(--text-primary); }
 .modal-actions  { display: flex; justify-content: flex-end; gap: .6rem; }
+.goal-modal-input { width: 100%; padding: .55rem .75rem; margin: .75rem 0 1rem;
+                    border: 1.5px solid var(--border); border-radius: 8px;
+                    background: var(--bg-secondary); color: var(--text-primary);
+                    font-size: 1rem; box-sizing: border-box; }
 
 /* ── Language checklist (Total Recall) ─────────────────────────────────────── */
 .lang-checklist { display: flex; flex-wrap: wrap; gap: .5rem; }
@@ -739,6 +756,25 @@ kbd {
 .journal-duration { font-size: .85rem; font-weight: 700; color: var(--text-primary); }
 .journal-stars    { font-size: .85rem; color: var(--warn); letter-spacing: -.05em; }
 
+/* Add-word inline form */
+.jaf-form    { padding: .65rem 1rem; margin-bottom: .5rem; margin-top: -.5rem;
+               background: var(--bg-secondary); border: 1px solid var(--border);
+               border-top: none; border-radius: 0 0 var(--radius) var(--radius); }
+.jaf-table   { width: 100%; border-collapse: collapse; margin-bottom: .5rem; }
+.jaf-table th { font-size: .72rem; font-weight: 700; text-transform: uppercase;
+                letter-spacing: .04em; color: var(--text-secondary); padding: .25rem .4rem; }
+.jaf-table td { padding: .25rem .3rem; }
+.jaf-table input { width: 100%; padding: .35rem .5rem; border: 1.5px solid var(--border);
+                   border-radius: 6px; background: var(--bg-card); color: var(--text-primary);
+                   font-size: .85rem; box-sizing: border-box; }
+.jaf-table input:focus { outline: none; border-color: var(--accent); }
+.jaf-actions { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+.jaf-status  { font-size: .8rem; }
+.jaf-word-count { background: color-mix(in srgb, var(--accent) 12%, transparent);
+                  color: var(--accent); border: none; border-radius: 20px;
+                  padding: .15rem .6rem; font-size: .78rem; font-weight: 600; cursor: pointer; }
+.jaf-word-count:hover { background: color-mix(in srgb, var(--accent) 22%, transparent); }
+
 .journal-stat-bar-wrap { flex: 1; }
 .journal-stat-bar-row  { display: flex; align-items: center; gap: .6rem; margin-bottom: .35rem; }
 .journal-stat-bar-label { font-size: .78rem; color: var(--text-secondary); width: 90px; flex-shrink: 0; }
@@ -768,6 +804,11 @@ kbd {
 .essay-error-original  { color: var(--danger); font-weight: 600; }
 .essay-error-issue     { color: var(--text-secondary); }
 .essay-error-fix       { color: #166534; font-weight: 600; }
+
+/* Essay history modal */
+.essay-modal-box         { max-width: 700px; width: 94vw; max-height: 85vh; overflow-y: auto; }
+.essay-modal-header      { display: flex; justify-content: space-between; align-items: center; }
+.essay-modal-header-left { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; }
 
 /* ── Responsive ─────────────────────────────────────────────────────────────── */
 

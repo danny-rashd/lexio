@@ -17,6 +17,7 @@ class CardCreate(BaseModel):
     word: str
     meaning: str
     native: str | None = None
+    source_log_id: int | None = None
 
 
 class CardResponse(BaseModel):

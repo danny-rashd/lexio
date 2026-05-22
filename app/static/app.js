@@ -23,6 +23,15 @@ const DIR_LABELS = {
 
 const BIG_COUNT_OPTIONS = [10, 20, 50, 100];
 
+const LANG_BCP47 = {
+  spanish:  'es-ES',
+  french:   'fr-FR',
+  german:   'de-DE',
+  norsk:    'nb-NO',
+  japanese: 'ja-JP',
+  mandarin: 'zh-CN',
+};
+
 // ── State ─────────────────────────────────────────────────────────────────────
 
 const App = {
@@ -118,6 +127,91 @@ function esc(str) {
     .replace(/&/g, '&amp;').replace(/</g, '&lt;')
     .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
+
+async function speak(text, language) {
+  if (!text) return;
+  try {
+    const res = await api('GET', `/api/tts?text=${encodeURIComponent(text)}&language=${encodeURIComponent(language || '')}`);
+    if (res?.ok) {
+      const blob = await res.blob();
+      const url  = URL.createObjectURL(blob);
+      if (window._ttsAudio) {
+        window._ttsAudio.pause();
+        URL.revokeObjectURL(window._ttsAudio._blobUrl);
+      }
+      const audio = new Audio(url);
+      audio._blobUrl = url;
+      window._ttsAudio = audio;
+      audio.play();
+      audio.onended = () => URL.revokeObjectURL(url);
+      return;
+    }
+  } catch (_) { /* fall through to browser TTS */ }
+  // Fallback: browser Web Speech API
+  if (window.speechSynthesis) {
+    window.speechSynthesis.cancel();
+    const utt = new SpeechSynthesisUtterance(text);
+    utt.lang = LANG_BCP47[language?.toLowerCase()] || 'en-US';
+    window.speechSynthesis.speak(utt);
+  }
+}
+
+// ── Daily goal ─────────────────────────────────────────────────────────────────
+
+function _renderDailyGoal(goal, done) {
+  const pct     = Math.min(100, Math.round((done / goal) * 100));
+  const reached = done >= goal;
+  document.getElementById('daily-goal-label').textContent =
+    reached ? `Goal reached! ${done} cards today` : `Today: ${done} / ${goal} cards`;
+  const bar = document.getElementById('daily-goal-bar');
+  bar.style.width = `${pct}%`;
+  bar.classList.toggle('goal-reached', reached);
+  document.getElementById('home-daily-goal').classList.remove('hidden');
+}
+
+async function _fetchAndRenderDailyGoal() {
+  const res = await api('GET', '/api/settings/daily-goal');
+  if (!res?.ok) return;
+  const data = await res.json();
+  const wasReached = data.today_count - 1 < data.goal && data.today_count >= data.goal;
+  _renderDailyGoal(data.goal, data.today_count);
+  if (wasReached && Notification.permission === 'granted') {
+    sendPushNotification('Goal reached! 🎉', `You studied ${data.today_count} cards today.`);
+  }
+}
+
+document.getElementById('btn-set-goal').addEventListener('click', async () => {
+  const res = await api('GET', '/api/settings/daily-goal');
+  const current = res?.ok ? (await res.json()).goal : 20;
+  const inp = document.getElementById('goal-modal-input');
+  inp.value = String(current);
+  document.getElementById('goal-modal-overlay').classList.remove('hidden');
+  setTimeout(() => { inp.select(); }, 50);
+});
+
+document.getElementById('words-modal-close').addEventListener('click', () => {
+  document.getElementById('words-modal-overlay').classList.add('hidden');
+});
+
+document.getElementById('goal-modal-cancel').addEventListener('click', () => {
+  document.getElementById('goal-modal-overlay').classList.add('hidden');
+});
+
+document.getElementById('goal-modal-confirm').addEventListener('click', async () => {
+  const val = parseInt(document.getElementById('goal-modal-input').value, 10);
+  if (!val || val < 1 || val > 500) {
+    await showAlert('Enter a number between 1 and 500.');
+    return;
+  }
+  document.getElementById('goal-modal-overlay').classList.add('hidden');
+  const res = await api('PUT', '/api/settings/daily-goal', { goal: val });
+  if (res?.ok) await _fetchAndRenderDailyGoal();
+});
+
+document.getElementById('goal-modal-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter')  document.getElementById('goal-modal-confirm').click();
+  if (e.key === 'Escape') document.getElementById('goal-modal-overlay').classList.add('hidden');
+});
 
 function showAlert(message, confirmText = 'OK') {
   return new Promise(resolve => {
@@ -502,6 +596,72 @@ document.getElementById('btn-theme').addEventListener('click', () => {
   document.getElementById('btn-theme').textContent = next === 'dark' ? '☀' : '☽';
 });
 
+// ── PWA / Push notifications ──────────────────────────────────────────────────
+
+let _swRegistration = null;
+let _pushSubscription = null;
+
+async function initPWA() {
+  if (!('serviceWorker' in navigator)) return;
+  try {
+    _swRegistration = await navigator.serviceWorker.register('/sw.js');
+  } catch (_) { return; }
+
+  // Only show the bell if push is supported and not already granted/denied
+  if (!('PushManager' in window)) return;
+  if (Notification.permission === 'denied') return;
+
+  const btn = document.getElementById('btn-notif');
+  if (Notification.permission === 'granted') {
+    await _syncPushSubscription();
+    btn.title = 'Notifications on';
+    btn.style.opacity = '1';
+  } else {
+    btn.classList.remove('hidden');
+  }
+}
+
+async function _syncPushSubscription() {
+  if (!_swRegistration) return;
+  const keyRes = await api('GET', '/api/push/vapid-public-key');
+  if (!keyRes?.ok) return;
+  const { public_key } = await keyRes.json();
+
+  const sub = await _swRegistration.pushManager.subscribe({
+    userVisibleOnly: true,
+    applicationServerKey: _urlBase64ToUint8Array(public_key),
+  });
+  _pushSubscription = sub;
+
+  const j = sub.toJSON();
+  await api('POST', '/api/push/subscribe', {
+    endpoint: j.endpoint,
+    p256dh:   j.keys.p256dh,
+    auth:     j.keys.auth,
+  });
+}
+
+function _urlBase64ToUint8Array(base64String) {
+  const padding = '='.repeat((4 - base64String.length % 4) % 4);
+  const base64  = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
+  const raw     = atob(base64);
+  return Uint8Array.from([...raw].map(c => c.charCodeAt(0)));
+}
+
+async function sendPushNotification(title, body, url = '/') {
+  await api('POST', '/api/push/notify', { title, body, url });
+}
+
+document.getElementById('btn-notif').addEventListener('click', async () => {
+  const permission = await Notification.requestPermission();
+  if (permission !== 'granted') return;
+  await _syncPushSubscription();
+  const btn = document.getElementById('btn-notif');
+  btn.title   = 'Notifications on';
+  btn.style.opacity = '1';
+  await showAlert('Notifications enabled! You\'ll be notified when you hit your daily goal.');
+});
+
 // ── Login ─────────────────────────────────────────────────────────────────────
 
 document.getElementById('form-login').addEventListener('submit', async e => {
@@ -522,6 +682,7 @@ document.getElementById('form-login').addEventListener('submit', async e => {
     App.token = (await res.json()).access_token;
     sessionStorage.setItem('token', App.token);
     errEl.classList.add('hidden');
+    initPWA();
     showHome();
   } else {
     const err = await res.json().catch(() => ({}));
@@ -562,6 +723,7 @@ async function showHome() {
   document.getElementById('weakest-section').classList.add('hidden');  // kept in DOM, not shown on home
   document.getElementById('home-streak').classList.add('hidden');
   document.getElementById('home-quick-start').classList.add('hidden');
+  _fetchAndRenderDailyGoal();
 
   const [decksRes, streakRes] = await Promise.all([
     api('GET', '/api/decks'),
@@ -1091,12 +1253,25 @@ function renderQuizQuestion(question) {
 
   document.getElementById('quiz-question').textContent = question.question;
 
+  // TTS button — use speak_text (raw foreign word) not the full English prompt
+  const speakText = question.speak_text || question.question;
+  const ttsBtn = document.getElementById('btn-tts');
+  ttsBtn.classList.remove('hidden');
+  ttsBtn.dataset.text = speakText;
+  ttsBtn.dataset.lang = question.language || '';
+
   if (question.type === 'mcq')             renderMcq(question);
   else if (question.type === 'true_false') renderTf(question);
   else if (question.type === 'flashcard')  renderFlashcard(question);
   else                                     renderTyping();
 
   if (question.type === 'typing')    document.getElementById('quiz-hint-row').classList.remove('hidden');
+
+  // Auto-speak in flashcard mode only when the displayed text IS the foreign word
+  // (skip meaning_to_word: speak_text would be the answer, giving it away)
+  if (question.type === 'flashcard' && speakText === question.question) {
+    speak(speakText, question.language);
+  }
 }
 
 function renderMcq(question) {
@@ -1172,6 +1347,11 @@ function revealFlashcard() {
 }
 
 document.getElementById('btn-reveal').addEventListener('click', revealFlashcard);
+
+document.getElementById('btn-tts').addEventListener('click', () => {
+  const btn = document.getElementById('btn-tts');
+  speak(btn.dataset.text, btn.dataset.lang);
+});
 
 document.getElementById('flashcard-grade').querySelectorAll('.grade-btn').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -1485,7 +1665,10 @@ function renderBrowseCards(cards) {
       <td>${esc(c.word)}</td>
       <td>${esc(c.meaning)}</td>
       <td>${c.native ? esc(c.native) : '<span style="color:var(--text-secondary)">—</span>'}</td>
-      <td><button class="btn-danger btn-sm" data-delete-id="${c.id}">Delete</button></td>
+      <td class="browse-actions">
+        <button class="btn-ghost btn-sm btn-tts-row" data-speak="${esc(c.word)}" data-lang="${esc(App.browse.deck?.language || '')}" aria-label="Speak">🔊</button>
+        <button class="btn-danger btn-sm" data-delete-id="${c.id}">Delete</button>
+      </td>
     </tr>`).join('');
 }
 
@@ -1513,6 +1696,9 @@ function renderBrowsePagination(page) {
 }
 
 document.getElementById('browse-tbody').addEventListener('click', async e => {
+  const ttsBtn = e.target.closest('[data-speak]');
+  if (ttsBtn) { speak(ttsBtn.dataset.speak, ttsBtn.dataset.lang); return; }
+
   const btn = e.target.closest('[data-delete-id]');
   if (!btn || !await showConfirm('Delete this card?', 'Delete', true)) return;
   const res = await api('DELETE', `/api/cards/${btn.dataset.deleteId}`);
@@ -2141,11 +2327,34 @@ async function _loadJournalHistory() {
           <div class="journal-entry-resource">${esc(e.resource)}</div>
           <div class="journal-entry-meta">${new Date(e.logged_at).toLocaleDateString()}</div>
           ${e.notes ? `<div class="journal-entry-notes">${esc(e.notes)}</div>` : ''}
+          <div style="display:flex;align-items:center;gap:.5rem;margin-top:.4rem;flex-wrap:wrap">
+            <button class="btn-ghost btn-sm jaf-toggle" data-entry="${e.id}" data-lang="${esc(e.language)}">+ Add word</button>
+            ${e.word_count > 0 ? `<button class="jaf-word-count" data-entry="${e.id}" data-lang="${esc(e.language)}">${e.word_count} word${e.word_count !== 1 ? 's' : ''}</button>` : ''}
+          </div>
         </div>
         <div class="journal-entry-side">
           <span class="journal-duration">${_fmtMins(e.duration_minutes)}</span>
           ${e.rating ? `<span class="journal-stars">${_stars(e.rating)}</span>` : ''}
           <button class="btn-danger btn-sm" onclick="deleteJournalEntry(${e.id})">×</button>
+        </div>
+      </div>
+      <div class="jaf-form hidden" id="jaf-${e.id}" data-lang="${esc(e.language)}" data-entry="${e.id}">
+        <table class="jaf-table">
+          <thead><tr><th>Word</th><th>Meaning</th><th>Native (optional)</th><th></th></tr></thead>
+          <tbody class="jaf-rows">
+            <tr class="jaf-row">
+              <td><input class="jaf-word"    type="text" placeholder="Word"></td>
+              <td><input class="jaf-meaning" type="text" placeholder="Meaning"></td>
+              <td><input class="jaf-native"  type="text" placeholder="—"></td>
+              <td><button class="btn-ghost btn-sm jaf-remove-row" title="Remove">×</button></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="jaf-actions">
+          <button class="btn-ghost btn-sm jaf-add-row" data-entry="${e.id}">+ Add row</button>
+          <button class="btn-primary btn-sm jaf-submit" data-entry="${e.id}">Save all</button>
+          <button class="btn-ghost   btn-sm jaf-cancel" data-entry="${e.id}">Cancel</button>
+          <span class="jaf-status"></span>
         </div>
       </div>`).join('');
   }
@@ -2194,11 +2403,153 @@ document.querySelectorAll('.journal-quick').forEach(btn => {
   });
 });
 
+// ── Add word from journal ──────────────────────────────────────────────────────
+
+function _jafNewRow() {
+  const tr = document.createElement('tr');
+  tr.className = 'jaf-row';
+  tr.innerHTML = `
+    <td><input class="jaf-word"    type="text" placeholder="Word"></td>
+    <td><input class="jaf-meaning" type="text" placeholder="Meaning"></td>
+    <td><input class="jaf-native"  type="text" placeholder="—"></td>
+    <td><button class="btn-ghost btn-sm jaf-remove-row" title="Remove">×</button></td>`;
+  return tr;
+}
+
+function _jafReset(form) {
+  const tbody = form.querySelector('.jaf-rows');
+  tbody.innerHTML = '';
+  tbody.appendChild(_jafNewRow());
+  form.querySelector('.jaf-status').textContent = '';
+  form.classList.add('hidden');
+}
+
+document.getElementById('journal-history').addEventListener('click', async e => {
+  // Toggle form open/closed
+  const toggleBtn = e.target.closest('.jaf-toggle');
+  if (toggleBtn) {
+    const form = document.getElementById(`jaf-${toggleBtn.dataset.entry}`);
+    form.classList.toggle('hidden');
+    if (!form.classList.contains('hidden')) form.querySelector('.jaf-word').focus();
+    return;
+  }
+
+  // Add a row
+  const addRowBtn = e.target.closest('.jaf-add-row');
+  if (addRowBtn) {
+    const form = document.getElementById(`jaf-${addRowBtn.dataset.entry}`);
+    const row  = _jafNewRow();
+    form.querySelector('.jaf-rows').appendChild(row);
+    row.querySelector('.jaf-word').focus();
+    return;
+  }
+
+  // Remove a row (keep at least one)
+  const removeBtn = e.target.closest('.jaf-remove-row');
+  if (removeBtn) {
+    const tbody = removeBtn.closest('.jaf-rows');
+    if (tbody.querySelectorAll('.jaf-row').length > 1) removeBtn.closest('.jaf-row').remove();
+    return;
+  }
+
+  // Cancel
+  const cancelBtn = e.target.closest('.jaf-cancel');
+  if (cancelBtn) {
+    _jafReset(document.getElementById(`jaf-${cancelBtn.dataset.entry}`));
+    return;
+  }
+
+  // Open word count modal
+  const countBtn = e.target.closest('.jaf-word-count');
+  if (countBtn) {
+    const logId = countBtn.dataset.entry;
+    const lang  = countBtn.dataset.lang;
+    document.getElementById('words-modal-title').textContent =
+      `Words from this ${lang} session`;
+    document.getElementById('words-modal-list').innerHTML =
+      '<p class="text-secondary" style="font-size:.85rem">Loading…</p>';
+    document.getElementById('words-modal-overlay').classList.remove('hidden');
+    const res = await api('GET', `/api/immersion/${logId}/words`);
+    if (!res?.ok) {
+      document.getElementById('words-modal-list').innerHTML =
+        '<p class="text-secondary" style="font-size:.85rem">Could not load words.</p>';
+      return;
+    }
+    const words = await res.json();
+    document.getElementById('words-modal-list').innerHTML = words.length
+      ? `<table class="data-table"><thead><tr><th>Word</th><th>Meaning</th><th>Native</th></tr></thead>
+         <tbody>${words.map(w => `<tr>
+           <td>${esc(w.word)}</td>
+           <td>${esc(w.meaning)}</td>
+           <td>${w.native ? esc(w.native) : '<span style="color:var(--text-secondary)">—</span>'}</td>
+         </tr>`).join('')}</tbody></table>`
+      : '<p class="text-secondary" style="font-size:.85rem">No words saved from this entry.</p>';
+    return;
+  }
+
+  // Submit all rows
+  const submitBtn = e.target.closest('.jaf-submit');
+  if (!submitBtn) return;
+
+  const form   = document.getElementById(`jaf-${submitBtn.dataset.entry}`);
+  const lang   = form.dataset.lang;
+  const logId  = parseInt(form.dataset.entry, 10);
+  const status = form.querySelector('.jaf-status');
+
+  const rows = [...form.querySelectorAll('.jaf-row')].map(tr => ({
+    word:    tr.querySelector('.jaf-word').value.trim(),
+    meaning: tr.querySelector('.jaf-meaning').value.trim(),
+    native:  tr.querySelector('.jaf-native').value.trim() || null,
+  })).filter(r => r.word && r.meaning);
+
+  if (!rows.length) {
+    status.textContent = 'Fill in at least one word and meaning.';
+    status.style.color = 'var(--danger)';
+    return;
+  }
+
+  setLoading(submitBtn, true);
+  status.textContent = '';
+
+  const deckRes = await api('POST', '/api/decks', { language: lang, topic: 'journal' });
+  if (!deckRes?.ok) {
+    setLoading(submitBtn, false);
+    status.textContent = 'Could not find deck.';
+    status.style.color = 'var(--danger)';
+    return;
+  }
+  const deck = await deckRes.json();
+
+  let added = 0, skipped = 0;
+  for (const row of rows) {
+    const res = await api('POST', '/api/cards',
+      { deck_id: deck.id, word: row.word, meaning: row.meaning, native: row.native, source_log_id: logId });
+    if (res?.status === 201)    added++;
+    else if (res?.status === 409) skipped++;
+  }
+
+  setLoading(submitBtn, false);
+  const parts = [];
+  if (added)   parts.push(`${added} added`);
+  if (skipped) parts.push(`${skipped} already in deck`);
+  status.textContent = parts.join(', ') + '.';
+  status.style.color = added ? 'var(--success)' : 'var(--text-secondary)';
+
+  if (added) {
+    // Refresh this entry's word count badge
+    await _loadJournalHistory();
+  } else {
+    setTimeout(() => { _jafReset(form); }, 2000);
+  }
+});
+
 // Filter change
 document.getElementById('journal-filter-lang').addEventListener('change', () => {
   _journalPage = 1;
   _loadJournalHistory();
 });
+
+document.getElementById('essay-filter-lang').addEventListener('change', _loadEssayHistory);
 
 // Submit log
 document.getElementById('btn-journal-log').addEventListener('click', async () => {
@@ -2250,20 +2601,44 @@ const _CAT_LABELS   = { grammar: 'Grammar', spelling: 'Spelling', punctuation: '
 const _CAT_WEIGHTS  = { grammar: 30, spelling: 20, punctuation: 15, diacritics: 20, fluency: 15 };
 const _CAT_COLOURS  = { grammar: '#4361EE', spelling: '#22c55e', punctuation: '#f59e0b', diacritics: '#E63946', fluency: '#2A9D8F' };
 
-function showEssay() {
+async function _loadEssayHistory() {
+  const lang = document.getElementById('essay-filter-lang').value;
+  const url  = `/api/essay/history?limit=20${lang ? `&language=${encodeURIComponent(lang)}` : ''}`;
+  const res  = await api('GET', url);
+  if (!res?.ok) return;
+  const items = await res.json();
+  document.getElementById('essay-history-tbody').innerHTML = items.length
+    ? items.map(item => `<tr>
+        <td>${new Date(item.submitted_at).toLocaleDateString()}</td>
+        <td>${langPillHtml(item.language)}</td>
+        <td>${item.word_count}</td>
+        <td><strong>${Math.round(item.overall_score)}%</strong></td>
+        <td><button class="btn-ghost btn-sm" onclick="loadEssay(${item.id})">View</button></td>
+      </tr>`).join('')
+    : '<tr><td colspan="5" style="text-align:center;padding:1.5rem;color:var(--text-secondary)">No essays yet.</td></tr>';
+  document.getElementById('essay-history-section').classList.remove('hidden');
+}
+
+async function showEssay() {
   showScreen('screen-essay');
   document.getElementById('essay-result').classList.add('hidden');
-  document.getElementById('essay-history-section').classList.add('hidden');
   document.getElementById('essay-form-card').classList.remove('hidden');
   document.getElementById('essay-form-err').classList.add('hidden');
   document.getElementById('essay-textarea').value = '';
   document.getElementById('essay-word-count').textContent = '0 words';
   document.getElementById('btn-essay-submit').disabled = true;
 
-  const sel = document.getElementById('sel-essay-lang');
   const langs = [...new Set(App.decks.map(d => d.language))].sort();
-  sel.innerHTML = (langs.length ? langs : SUPPORTED_LANGS)
-    .map(l => `<option value="${esc(l)}">${esc(l)}</option>`).join('');
+  const langList = langs.length ? langs : SUPPORTED_LANGS;
+
+  document.getElementById('sel-essay-lang').innerHTML =
+    langList.map(l => `<option value="${esc(l)}">${esc(l)}</option>`).join('');
+
+  document.getElementById('essay-filter-lang').innerHTML =
+    '<option value="">All languages</option>' +
+    langList.map(l => `<option value="${esc(l)}">${esc(l)}</option>`).join('');
+
+  await _loadEssayHistory();
 }
 
 document.getElementById('essay-textarea').addEventListener('input', () => {
@@ -2294,18 +2669,11 @@ document.getElementById('btn-essay-submit').addEventListener('click', async () =
   _renderEssayResult(data.evaluation);
   document.getElementById('essay-form-card').classList.add('hidden');
   document.getElementById('essay-result').classList.remove('hidden');
+  await _loadEssayHistory();
 });
 
-function _renderEssayResult(ev) {
-  const score = Math.round(ev.overall_score || 0);
-  const ring  = document.getElementById('essay-score-ring');
-  ring.textContent = `${score}%`;
-  ring.className   = `score-ring ${score >= 80 ? 'great' : score >= 50 ? 'ok' : 'poor'}`;
-  document.getElementById('essay-feedback').textContent = ev.overall_feedback || '';
-
-  // Category bars
-  const cats = document.getElementById('essay-categories');
-  cats.innerHTML = Object.entries(_CAT_LABELS).map(([key, label]) => {
+function _essayCatsHtml(ev) {
+  return Object.entries(_CAT_LABELS).map(([key, label]) => {
     const cat = ev.categories?.[key] || {};
     const s   = Math.round(cat.score ?? 100);
     const col = _CAT_COLOURS[key];
@@ -2318,22 +2686,45 @@ function _renderEssayResult(ev) {
       <div class="essay-bar-bg"><div class="essay-bar" style="width:${s}%;background:${col}"></div></div>
     </div>`;
   }).join('');
+}
 
-  // Error lists per category
-  const errsEl = document.getElementById('essay-errors');
-  const groups = Object.entries(_CAT_LABELS)
-    .map(([key, label]) => {
-      const errors = ev.categories?.[key]?.errors || [];
-      if (!errors.length) return '';
-      const items = errors.map(e => `
-        <div class="essay-error-item">
-          <span class="essay-error-original">"${esc(e.original || '')}"</span>
-          <span class="essay-error-issue">${esc(e.issue || '')}</span>
-          <span class="essay-error-fix">&#10140; ${esc(e.correction || '')}</span>
-        </div>`).join('');
-      return `<div class="essay-error-group"><h4>${label} errors</h4>${items}</div>`;
-    }).join('');
-  errsEl.innerHTML = groups || '<p class="text-secondary" style="font-size:.85rem">No specific errors flagged.</p>';
+function _essayErrorsHtml(ev) {
+  const groups = Object.entries(_CAT_LABELS).map(([key, label]) => {
+    const errors = ev.categories?.[key]?.errors || [];
+    if (!errors.length) return '';
+    const items = errors.map(e => `
+      <div class="essay-error-item">
+        <span class="essay-error-original">"${esc(e.original || '')}"</span>
+        <span class="essay-error-issue">${esc(e.issue || '')}</span>
+        <span class="essay-error-fix">&#10140; ${esc(e.correction || '')}</span>
+      </div>`).join('');
+    return `<div class="essay-error-group"><h4>${label} errors</h4>${items}</div>`;
+  }).join('');
+  return groups || '<p class="text-secondary" style="font-size:.85rem">No specific errors flagged.</p>';
+}
+
+function _renderEssayResult(ev) {
+  const score = Math.round(ev.overall_score || 0);
+  const ring  = document.getElementById('essay-score-ring');
+  ring.textContent = `${score}%`;
+  ring.className   = `score-ring ${score >= 80 ? 'great' : score >= 50 ? 'ok' : 'poor'}`;
+  document.getElementById('essay-feedback').textContent   = ev.overall_feedback || '';
+  document.getElementById('essay-categories').innerHTML   = _essayCatsHtml(ev);
+  document.getElementById('essay-errors').innerHTML       = _essayErrorsHtml(ev);
+}
+
+function _renderEssayModal(ev, language, meta) {
+  const score   = Math.round(ev.overall_score || 0);
+  const overlay = document.getElementById('essay-modal-overlay');
+  const ring    = document.getElementById('essay-modal-ring');
+  ring.textContent = `${score}%`;
+  ring.className   = `score-ring ${score >= 80 ? 'great' : score >= 50 ? 'ok' : 'poor'}`;
+  document.getElementById('essay-modal-lang-pill').innerHTML  = langPillHtml(language || '');
+  document.getElementById('essay-modal-meta').textContent     = meta || '';
+  overlay.querySelector('.essay-modal-feedback').textContent  = ev.overall_feedback || '';
+  overlay.querySelector('.essay-modal-categories').innerHTML  = _essayCatsHtml(ev);
+  overlay.querySelector('.essay-modal-errors').innerHTML      = _essayErrorsHtml(ev);
+  overlay.classList.remove('hidden');
 }
 
 document.getElementById('btn-essay-new').addEventListener('click', () => {
@@ -2344,33 +2735,17 @@ document.getElementById('btn-essay-new').addEventListener('click', () => {
   document.getElementById('btn-essay-submit').disabled = true;
 });
 
-document.getElementById('btn-essay-history').addEventListener('click', async () => {
-  const section = document.getElementById('essay-history-section');
-  if (!section.classList.contains('hidden')) { section.classList.add('hidden'); return; }
-  const res = await api('GET', '/api/essay/history?limit=20');
-  if (!res?.ok) return;
-  const items = await res.json();
-  document.getElementById('essay-history-tbody').innerHTML = items.length
-    ? items.map(item => `<tr>
-        <td>${new Date(item.submitted_at).toLocaleDateString()}</td>
-        <td>${langPillHtml(item.language)}</td>
-        <td>${item.word_count}</td>
-        <td><strong>${Math.round(item.overall_score)}%</strong></td>
-        <td><button class="btn-ghost btn-sm" onclick="loadEssay(${item.id})">View</button></td>
-      </tr>`).join('')
-    : '<tr><td colspan="5" style="text-align:center;padding:1.5rem;color:var(--text-secondary)">No essays yet.</td></tr>';
-  section.classList.remove('hidden');
-});
-
 async function loadEssay(id) {
   const res = await api('GET', `/api/essay/${id}`);
   if (!res?.ok) return;
   const data = await res.json();
-  _renderEssayResult(data.evaluation);
-  document.getElementById('essay-form-card').classList.add('hidden');
-  document.getElementById('essay-result').classList.remove('hidden');
-  document.getElementById('essay-history-section').classList.add('hidden');
+  const meta = `${data.word_count} words · ${new Date(data.submitted_at).toLocaleDateString()}`;
+  _renderEssayModal(data.evaluation, data.language, meta);
 }
+
+document.getElementById('essay-modal-close').addEventListener('click', () => {
+  document.getElementById('essay-modal-overlay').classList.add('hidden');
+});
 
 document.getElementById('btn-essay-back').addEventListener('click', showHome);
 
@@ -2485,6 +2860,6 @@ document.getElementById('btn-progress-back').addEventListener('click', showHome)
 
 (function init() {
   initTheme();
-  if (App.token) showHome();
+  if (App.token) { initPWA(); showHome(); }
   else showScreen('screen-login');
 }());

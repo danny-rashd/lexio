@@ -72,15 +72,14 @@ def submit_essay(
 @router.get("/history", response_model=list[EssayHistoryItem])
 def get_history(
     limit: int = Query(default=20, ge=1, le=100),
+    language: str | None = Query(default=None),
     db: Session = Depends(get_db),
     _: User = Depends(get_current_user),
 ) -> list[EssayHistoryItem]:
-    return (
-        db.query(EssaySubmission)
-        .order_by(EssaySubmission.submitted_at.desc())
-        .limit(limit)
-        .all()
-    )
+    query = db.query(EssaySubmission)
+    if language:
+        query = query.filter(EssaySubmission.language == language.lower().strip())
+    return query.order_by(EssaySubmission.submitted_at.desc()).limit(limit).all()
 
 
 @router.get("/{essay_id}")

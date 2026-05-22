@@ -54,6 +54,7 @@ def create_card(
         meaning=body.meaning,
         native=body.native,
         idempotency_key=key,
+        source_log_id=body.source_log_id,
     )
     db.add(card)
     db.commit()

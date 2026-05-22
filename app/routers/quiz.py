@@ -108,6 +108,11 @@ def _build_question(db: Session, session: QuizSession, card: Card) -> dict:
 
     q["resolved_direction"] = direction
     q["language"] = language
+    # speak_text is always the foreign-language text — never the English prompt
+    if direction in ("word_to_meaning", "meaning_to_word"):
+        q["speak_text"] = card.word
+    else:
+        q["speak_text"] = card.native or card.word
     return q
 
 

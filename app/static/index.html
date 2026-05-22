@@ -2,8 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Lexio</title>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Lexio">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="apple-touch-icon" href="/icons/icon-180.png">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -17,6 +23,7 @@
     <button id="btn-nav-progress" class="btn-ghost" data-short="Pro">Profile</button>
     <button id="btn-nav-import" class="btn-ghost" data-short="+">Import</button>
     <button id="btn-theme" class="btn-ghost btn-icon" aria-label="Toggle theme">&#9788;</button>
+    <button id="btn-notif" class="btn-ghost btn-icon hidden" aria-label="Enable notifications" title="Enable notifications">&#128276;</button>
     <button id="btn-logout" class="btn-ghost" data-short="Out">Log out</button>
   </div>
 </nav>
@@ -70,6 +77,17 @@
       <div class="home-cta">
         <button id="btn-big-test" class="btn-primary">Total Recall</button>
         <button id="btn-test-home" class="btn-outline">Test</button>
+      </div>
+    </div>
+
+    <!-- ── Daily goal ───────────────────────────────────────────────────── -->
+    <div id="home-daily-goal" class="card home-daily-goal hidden">
+      <div class="daily-goal-header">
+        <span id="daily-goal-label"></span>
+        <button id="btn-set-goal" class="btn-ghost btn-sm">Change goal</button>
+      </div>
+      <div class="daily-goal-track">
+        <div id="daily-goal-bar" class="daily-goal-fill"></div>
       </div>
     </div>
 
@@ -173,6 +191,9 @@
       <div id="quiz-lang-pill"></div>
       <p id="quiz-native-display" class="quiz-native hidden"></p>
       <p id="quiz-question" class="quiz-question"></p>
+      <div class="tts-row">
+        <button id="btn-tts" class="btn-ghost btn-sm hidden" aria-label="Speak word">🔊 Speak</button>
+      </div>
       <div id="quiz-mcq" class="mcq-grid hidden"></div>
       <div id="quiz-tf" class="tf-row hidden">
         <button class="tf-btn" data-val="true"><span class="kbd-badge">T</span>True</button>
@@ -459,12 +480,16 @@
       <div id="essay-errors" style="margin-top:1rem"></div>
       <div style="margin-top:1rem;display:flex;gap:.75rem">
         <button id="btn-essay-new" class="btn-primary">Write another</button>
-        <button id="btn-essay-history" class="btn-outline">View history</button>
       </div>
     </div>
 
     <div id="essay-history-section" class="hidden" style="margin-top:1.5rem">
       <h3 class="section-label">Past Essays</h3>
+      <div style="display:flex;gap:.5rem;margin-bottom:.75rem;align-items:center">
+        <select id="essay-filter-lang" style="padding:.4rem .75rem;border:1.5px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text-primary);font-size:.85rem;outline:none">
+          <option value="">All languages</option>
+        </select>
+      </div>
       <div class="table-wrap">
         <table class="data-table">
           <thead><tr><th>Date</th><th>Language</th><th>Words</th><th>Score</th><th></th></tr></thead>
@@ -528,6 +553,45 @@
     <div class="modal-actions">
       <button id="modal-cancel" class="btn-ghost">Cancel</button>
       <button id="modal-confirm" class="btn-primary">OK</button>
+    </div>
+  </div>
+</div>
+
+<div id="essay-modal-overlay" class="modal-overlay hidden" role="dialog" aria-modal="true">
+  <div class="modal-box card essay-modal-box">
+    <div class="essay-modal-header">
+      <div class="essay-modal-header-left">
+        <span id="essay-modal-lang-pill"></span>
+        <span id="essay-modal-meta" class="text-secondary" style="font-size:.82rem"></span>
+      </div>
+      <button id="essay-modal-close" class="btn-ghost btn-icon">&#10005;</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:1.5rem;margin-bottom:1rem;margin-top:.75rem">
+      <div id="essay-modal-ring" class="score-ring" style="flex-shrink:0;margin-bottom:0"></div>
+      <p class="essay-modal-feedback text-secondary" style="font-size:.9rem;line-height:1.5"></p>
+    </div>
+    <div class="essay-modal-categories" style="display:flex;flex-direction:column;gap:.6rem"></div>
+    <div class="essay-modal-errors" style="margin-top:1rem"></div>
+  </div>
+</div>
+
+<div id="words-modal-overlay" class="modal-overlay hidden" role="dialog" aria-modal="true">
+  <div class="modal-box card" style="max-width:480px;width:92vw">
+    <p id="words-modal-title" class="modal-message" style="font-weight:700;margin-bottom:.75rem"></p>
+    <div id="words-modal-list" style="max-height:320px;overflow-y:auto"></div>
+    <div class="modal-actions" style="margin-top:1rem">
+      <button id="words-modal-close" class="btn-primary">Close</button>
+    </div>
+  </div>
+</div>
+
+<div id="goal-modal-overlay" class="modal-overlay hidden" role="dialog" aria-modal="true">
+  <div class="modal-box card">
+    <p class="modal-message">Daily card goal</p>
+    <input id="goal-modal-input" type="number" min="1" max="500" placeholder="e.g. 20" class="goal-modal-input">
+    <div class="modal-actions">
+      <button id="goal-modal-cancel" class="btn-ghost">Cancel</button>
+      <button id="goal-modal-confirm" class="btn-primary">Save</button>
     </div>
   </div>
 </div>

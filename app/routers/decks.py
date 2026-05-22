@@ -3,6 +3,7 @@ import io
 from datetime import datetime, timezone
 
 from fastapi import APIRouter, Depends, HTTPException, Response, status
+from pydantic import BaseModel
 from sqlalchemy import func
 from sqlalchemy.orm import Session
 
@@ -13,8 +14,14 @@ from app.models.progress import CardStat, QuizAnswer, QuizSession
 from app.models.user import User
 from app.routers.auth import get_current_user
 from app.schemas.card import DeckResponse
+from app.utils.text import normalize_deck_label
 
 router = APIRouter(prefix="/api/decks", tags=["decks"])
+
+
+class DeckFindOrCreateRequest(BaseModel):
+    language: str
+    topic: str
 
 
 def _build_deck_response(
@@ -62,6 +69,34 @@ def list_decks(
         )
         for deck in decks
     ]
+
+
+@router.post("", response_model=DeckResponse, status_code=status.HTTP_200_OK)
+def find_or_create_deck(
+    body: DeckFindOrCreateRequest,
+    db: Session = Depends(get_db),
+    _: User = Depends(get_current_user),
+) -> DeckResponse:
+    language = normalize_deck_label(body.language)
+    topic    = normalize_deck_label(body.topic)
+    deck = db.query(Deck).filter(Deck.language == language, Deck.topic == topic).first()
+    if not deck:
+        deck = Deck(language=language, topic=topic)
+        db.add(deck)
+        db.commit()
+        db.refresh(deck)
+    card_count = (
+        db.query(func.count(Card.id))
+        .filter(Card.deck_id == deck.id, Card.is_active.is_(True))
+        .scalar() or 0
+    )
+    lang_count = (
+        db.query(func.count(Card.id))
+        .join(Deck, Deck.id == Card.deck_id)
+        .filter(Deck.language == language, Card.is_active.is_(True))
+        .scalar() or 0
+    )
+    return _build_deck_response(deck, card_count=card_count, language_card_count=lang_count)
 
 
 @router.get("/{deck_id}", response_model=DeckResponse)

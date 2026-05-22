@@ -20,6 +20,10 @@ class Settings(BaseSettings):
     ANTHROPIC_API_KEY: str = ""
     ESSAY_MAX_WORDS: int = 500
     ESSAY_MIN_WORDS: int = 20
+    GOOGLE_TTS_API_KEY: str = ""
+    VAPID_PRIVATE_KEY: str = ""
+    VAPID_PUBLIC_KEY: str = ""
+    VAPID_SUBJECT: str = "mailto:danny.rashd@gmail.com"
 
     @property
     def big_test_card_options(self) -> list[int]:

@@ -32,6 +32,9 @@ class Card(Base):
     native: Mapped[str | None] = mapped_column(String, nullable=True)
     idempotency_key: Mapped[str] = mapped_column(String, nullable=False, unique=True)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
+    source_log_id: Mapped[int | None] = mapped_column(
+        ForeignKey("immersion_logs.id", ondelete="SET NULL"), nullable=True
+    )
     created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now(), nullable=False)
 
     deck: Mapped["Deck"] = relationship("Deck", back_populates="cards")

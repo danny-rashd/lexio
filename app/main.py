@@ -3,7 +3,7 @@ from pathlib import Path
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 
-from app.routers import auth, cards, decks, essay, immersion, import_, progress, quiz
+from app.routers import auth, cards, decks, essay, immersion, import_, progress, push, quiz, settings, tts
 
 app = FastAPI(title="Lexio")
 
@@ -15,6 +15,9 @@ app.include_router(quiz.router)
 app.include_router(progress.router)
 app.include_router(essay.router)
 app.include_router(immersion.router)
+app.include_router(settings.router)
+app.include_router(tts.router)
+app.include_router(push.router)
 
 _static_dir = Path(__file__).parent / "static"
 if _static_dir.is_dir():
