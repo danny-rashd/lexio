@@ -512,17 +512,6 @@ document.addEventListener('keydown', e => {
         return;
       }
 
-      // T / F: True–False
-      const tfRow = document.getElementById('quiz-tf');
-      if (!tfRow.classList.contains('hidden')) {
-        if (e.key === 't' || e.key === 'T') {
-          e.preventDefault(); tfRow.querySelector('[data-val="true"]:not(:disabled)')?.click(); return;
-        }
-        if (e.key === 'f' || e.key === 'F') {
-          e.preventDefault(); tfRow.querySelector('[data-val="false"]:not(:disabled)')?.click(); return;
-        }
-      }
-
       // H: Hint
       if (e.key === 'h' || e.key === 'H') {
         const hintRow = document.getElementById('quiz-hint-row');
@@ -1136,7 +1125,7 @@ function checkMcqAvailability(language) {
   mcqBtn.disabled = tooFew;
   warning.classList.toggle('hidden', !tooFew);
   if (tooFew && App.testMode === 'mcq') {
-    App.testMode = 'true_false';
+    App.testMode = 'typing';
     document.querySelectorAll('#test-mode-grid .mode-card').forEach(b => {
       b.classList.toggle('active', b.dataset.mode === App.testMode);
     });
@@ -1331,7 +1320,7 @@ function renderQuizQuestion(question) {
   App.quiz.hintPresses  = 0;
 
   // Hide all input panels and feedback
-  ['quiz-feedback', 'quiz-mcq', 'quiz-tf', 'quiz-typing', 'quiz-hint-row',
+  ['quiz-feedback', 'quiz-mcq', 'quiz-typing', 'quiz-hint-row',
    'quiz-native-display', 'quiz-flashcard']
     .forEach(id => document.getElementById(id).classList.add('hidden'));
   document.getElementById('quiz-question').classList.remove('flashcard-front');
@@ -1364,7 +1353,6 @@ function renderQuizQuestion(question) {
   }
 
   if (question.type === 'mcq')             renderMcq(question);
-  else if (question.type === 'true_false') renderTf(question);
   else if (question.type === 'flashcard')  renderFlashcard(question);
   else                                     renderTyping();
 
@@ -1401,25 +1389,6 @@ function renderMcq(question) {
   });
 }
 
-function renderTf(question) {
-  const row = document.getElementById('quiz-tf');
-  row.classList.remove('hidden');
-  row.querySelectorAll('.tf-btn').forEach(b => { b.disabled = false; b.className = 'tf-btn'; });
-}
-
-document.getElementById('quiz-tf').querySelectorAll('.tf-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const q       = App.quiz.question;
-    const correct = String(q.correct_answer).toLowerCase();
-    const userVal = btn.dataset.val;
-    document.getElementById('quiz-tf').querySelectorAll('.tf-btn').forEach(b => {
-      b.disabled = true;
-      if (b.dataset.val === correct)              b.classList.add('correct');
-      else if (b === btn && userVal !== correct)  b.classList.add('wrong');
-    });
-    handleAnswer(userVal, correct);
-  });
-});
 
 function renderTyping() {
   const wrap = document.getElementById('quiz-typing');
@@ -1549,7 +1518,7 @@ function showFeedback(isCorrect, correctAnswer, nextQuestion, diacriticsRemark =
   if (mode === 'flashcard') {
     correctEl.classList.add('hidden');  // user already saw the answer
   } else if (!isCorrect) {
-    const display = correctAnswer === 'true' ? 'True' : correctAnswer === 'false' ? 'False' : correctAnswer;
+    const display = correctAnswer;
     correctEl.textContent = `Answer: ${display}`;
     correctEl.classList.remove('hidden');
   } else if (mode === 'typing' && diacriticsRemark) {
@@ -1609,6 +1578,7 @@ function _displayAnswer(a) {
 
 function showResults() {
   showScreen('screen-results');
+  _fetchAndRenderDailyGoal();
 
   const { total, correct, answers, scope, mode, direction, deckId } = App.quiz;
   const pct    = total > 0 ? Math.round((correct / total) * 100) : 0;
@@ -1698,7 +1668,7 @@ document.getElementById('btn-retry-missed').addEventListener('click', async () =
   setLoading(btn, true);
   const res = await api('POST', '/api/quiz/start', {
     scope: 'test', deck_id: deckId, mode, direction,
-    card_count: missed.length, shuffle: true,
+    card_ids: missed.map(a => a.card_id),
   });
   if (!res || !res.ok) {
     const e = await res?.json().catch(() => ({}));
@@ -1707,6 +1677,7 @@ document.getElementById('btn-retry-missed').addEventListener('click', async () =
     return;
   }
   const data = await res.json();
+  setLoading(btn, false);
   initQuizState(data, deckId);
   showScreen('screen-quiz');
   renderQuizQuestion(data.question);
@@ -2184,10 +2155,24 @@ document.getElementById('btn-import-submit').addEventListener('click', async () 
 
 // ── Progress ──────────────────────────────────────────────────────────────────
 
-function _activityHeatmapHtml(daysMap) {
+function _heatmapRange(daysMap) {
+  const today   = new Date();
+  const active  = Object.keys(daysMap || {}).sort();
+  if (!active.length) return { totalDays: 7, label: 'This week', cellSize: 26 };
+  const first     = new Date(active[0] + 'T00:00:00');
+  const daysSince = Math.round((today - first) / 86400000);
+  const weeks     = Math.min(13, Math.max(1, Math.ceil((daysSince + 1) / 7)));
+  const label     = weeks === 1  ? 'This week'
+                  : weeks === 13 ? 'Last 13 weeks'
+                  : `Last ${weeks} weeks`;
+  const cellSize  = Math.min(32, Math.max(13, Math.floor((195 - (weeks - 1) * 2) / weeks)));
+  return { totalDays: weeks * 7, label, cellSize };
+}
+
+function _activityHeatmapHtml(daysMap, totalDays = 91, cellSize = 13) {
   const today = new Date();
   const cells = [];
-  for (let i = 90; i >= 0; i--) {
+  for (let i = totalDays - 1; i >= 0; i--) {
     const d   = new Date(today);
     d.setDate(d.getDate() - i);
     const iso = d.toISOString().split('T')[0];
@@ -2205,7 +2190,7 @@ function _activityHeatmapHtml(daysMap) {
     if (day?.immersion_detail?.length) tipParts.push(...day.immersion_detail.slice(0, 2));
     cells.push(`<div class="${cls}" data-tip="${tipParts.join('|')}"></div>`);
   }
-  return `<div class="heat-grid" id="heat-grid">${cells.join('')}</div>
+  return `<div class="heat-grid" id="heat-grid" style="--heat-cell:${cellSize}px">${cells.join('')}</div>
     <div class="heat-legend">Less
       <div class="heat-legend-cells">
         <div class="heat-0"></div><div class="heat-1"></div><div class="heat-2"></div><div class="heat-3"></div><div class="heat-4"></div>
@@ -3370,15 +3355,36 @@ async function showProgress() {
       return;
     }
     document.getElementById('streak-card').innerHTML = `
-      <div class="streak-top">
-        <div class="streak-number">${s.current_streak}</div>
-        <span class="text-secondary">day streak</span>
-        <span class="text-secondary" style="margin-left:auto">${s.total_days} days studied</span>
-      </div>
-      <p class="text-secondary" style="font-size:.8rem;margin-bottom:.5rem">
-        Last 13 weeks — ${s.studied_today ? 'studied today ✓' : 'not studied today'}
-      </p>
-      ${_activityHeatmapHtml(daysMap)}`;
+      <div class="streak-inner">
+        <div class="streak-left">
+          ${(r => `<p class="streak-grid-label">${r.label}</p>${_activityHeatmapHtml(daysMap, r.totalDays, r.cellSize)}`)(_heatmapRange(daysMap))}
+        </div>
+        <div class="streak-right">
+          <div class="streak-stat">
+            <span class="streak-stat-num">${s.current_streak}</span>
+            <span class="streak-stat-lbl">day streak</span>
+          </div>
+          <div class="streak-stat">
+            <span class="streak-stat-num">${s.longest_streak}</span>
+            <span class="streak-stat-lbl">best streak</span>
+          </div>
+          <div class="streak-stat">
+            <span class="streak-stat-num">${s.total_days}</span>
+            <span class="streak-stat-lbl">days studied</span>
+          </div>
+          <div class="streak-stat">
+            <span class="streak-stat-num">${s.avg_cards_per_day ?? 0}</span>
+            <span class="streak-stat-lbl">avg cards/day</span>
+          </div>
+          <div class="streak-stat">
+            <span class="streak-stat-num">${daysMap[new Date().toISOString().split('T')[0]]?.cards ?? 0}</span>
+            <span class="streak-stat-lbl">cards today</span>
+          </div>
+          <span class="streak-today-pill ${s.studied_today ? 'streak-today-yes' : 'streak-today-no'}">
+            ${s.studied_today ? '✓ studied today' : '○ not yet today'}
+          </span>
+        </div>
+      </div>`;
     _initHeatmapTooltip();
   }
 

@@ -230,48 +230,6 @@ def build_mcq_question(card: Card, distractors: list[Card], direction: str) -> d
     return result
 
 
-def build_true_false_question(card: Card, wrong_answer: str | None, direction: str) -> dict:
-    """
-    Build one True/False question dict.
-
-    Args:
-        card (Card): The card being tested.
-        wrong_answer (str | None): A wrong answer from another card in the
-            same language pool. Pass None to produce a correct-pair question.
-        direction (str): One of the 4 resolved direction values.
-
-    Returns:
-        dict: Keys — type, card_id, direction, question, displayed_answer,
-        correct_answer (bool). correct_answer is True when wrong_answer is None.
-
-    Notes:
-        The caller is responsible for the 50/50 True/False distribution by
-        randomly passing None or a wrong answer string.
-    """
-    is_correct = wrong_answer is None
-
-    if direction == "word_to_meaning":
-        displayed = card.meaning if is_correct else wrong_answer
-        question = f"Does '{card.word}' mean '{displayed}'?"
-    elif direction == "meaning_to_word":
-        displayed = card.word if is_correct else wrong_answer
-        question = f"Is '{displayed}' the word for '{card.meaning}'?"
-    elif direction == "native_to_meaning":
-        displayed = card.meaning if is_correct else wrong_answer
-        question = f"Does '{card.native}' mean '{displayed}'?"
-    else:
-        displayed = card.word if is_correct else wrong_answer
-        question = f"Is the reading of '{card.native}' '{displayed}'?"
-
-    return {
-        "type": "true_false",
-        "card_id": card.id,
-        "direction": direction,
-        "question": question,
-        "displayed_answer": displayed,
-        "correct_answer": is_correct,
-    }
-
 
 def build_typing_question(card: Card, direction: str) -> dict:
     """

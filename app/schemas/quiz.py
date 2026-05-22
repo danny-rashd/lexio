@@ -8,6 +8,7 @@ class QuizStartRequest(BaseModel):
     direction: str = "1_and_2"
     card_count: int = 20
     languages: list[str] | None = None
+    card_ids: list[int] | None = None  # when set, use exactly these cards (retry missed)
 
 
 class QuizAnswerRequest(BaseModel):

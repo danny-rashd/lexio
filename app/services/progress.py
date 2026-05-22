@@ -227,10 +227,15 @@ def get_streak(db: Session, user_id: int) -> dict:
         if d in log_dates
     )
 
+    total_cards_seen = sum(log.cards_seen for log in logs)
+    avg_per_day      = round(total_cards_seen / len(logs)) if logs else 0
+
     return {
-        "current_streak": current_streak,
-        "longest_streak": longest,
-        "total_days": len(logs),
-        "studied_today": studied_today,
+        "current_streak":      current_streak,
+        "longest_streak":      longest,
+        "total_days":          len(logs),
+        "studied_today":       studied_today,
         "studied_dates_last_30": studied_dates_last_30,
+        "total_cards_seen":    total_cards_seen,
+        "avg_cards_per_day":   avg_per_day,
     }

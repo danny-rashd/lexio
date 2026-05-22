@@ -51,7 +51,8 @@ def get_daily_goal(
     ).first()
     goal = int(setting.value) if setting else _DEFAULT_DAILY_GOAL
 
-    today_start = datetime.combine(date.today(), datetime.min.time())
+    from datetime import timezone
+    today_start = datetime.combine(datetime.now(timezone.utc).date(), datetime.min.time())
     today_count: int = (
         db.query(func.count(QuizAnswer.id))
         .filter(

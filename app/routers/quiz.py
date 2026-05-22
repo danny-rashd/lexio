@@ -16,7 +16,6 @@ from app.services.progress import log_study_day, upsert_card_stat
 from app.services.srs import select_due_cards
 from app.services.quiz_engine import (
     build_mcq_question,
-    build_true_false_question,
     build_typing_question,
     check_answer,
     get_distractor_pool,
@@ -28,7 +27,7 @@ from app.utils.hint import first_and_last, generate_letter_mask, next_reveal
 
 router = APIRouter(prefix="/api/quiz", tags=["quiz"])
 
-_VALID_MODES = {"mcq", "true_false", "typing", "flashcard"}
+_VALID_MODES = {"mcq", "typing", "flashcard"}
 _VALID_SCOPES = {"test", "big_test", "review"}
 _VALID_DIRECTIONS = {"1_only", "2_only", "3_only", "4_only", "1_and_2", "all_available", "random"}
 
@@ -82,18 +81,6 @@ def _build_question(db: Session, session: QuizSession, card: Card, user_id: int)
         distractors = random.sample(pool, min(3, len(pool)))
         q = build_mcq_question(card, distractors, direction)
 
-    elif session.mode == "true_false":
-        pool = get_distractor_pool(db, language, card.id)
-        wrong_answer = None
-        if pool and random.random() < 0.5:
-            wrong_card = random.choice(pool)
-            wrong_answer = (
-                wrong_card.meaning
-                if direction in ("word_to_meaning", "native_to_meaning")
-                else wrong_card.word
-            )
-        q = build_true_false_question(card, wrong_answer, direction)
-
     elif session.mode == "flashcard":
         q = build_typing_question(card, direction)
         q["type"] = "flashcard"
@@ -129,11 +116,6 @@ def _evaluate(
         server_correct = card.meaning
     else:
         server_correct = card.word
-
-    if mode == "true_false":
-        ua = (user_answer or "").lower().strip()
-        ca = (correct_answer_client or "").lower().strip()
-        return ua == ca, ca
 
     if mode == "flashcard":
         is_correct = (user_answer or "").lower().strip() in ("hard", "good", "easy")
@@ -175,7 +157,13 @@ def start_quiz(
             deck = db.query(Deck).filter(Deck.id == body.deck_id).first()
             if not deck:
                 raise HTTPException(status_code=404, detail="Deck not found")
-            cards = select_cards_for_test(db, body.deck_id, body.card_count)
+            if body.card_ids:
+                cards = db.query(Card).filter(
+                    Card.id.in_(body.card_ids), Card.is_active.is_(True)
+                ).all()
+                random.shuffle(cards)
+            else:
+                cards = select_cards_for_test(db, body.deck_id, body.card_count)
         else:
             cards = select_cards_for_big_test(db, body.card_count, languages=body.languages or None, user_id=current_user.id)
         if not cards:
@@ -250,8 +238,10 @@ def submit_answer(
     if is_correct:
         session.correct += 1
 
-    grade = body.user_answer if session.mode == "flashcard" else None
-    upsert_card_stat(db, current_user.id, card.id, body.direction, is_correct, grade=grade)
+    # MCQ answers don't update card stats — recognition ≠ recall mastery
+    if session.mode != "mcq":
+        grade = body.user_answer if session.mode == "flashcard" else None
+        upsert_card_stat(db, current_user.id, card.id, body.direction, is_correct, grade=grade)
 
     db.flush()
 

@@ -448,7 +448,6 @@ button:disabled { opacity: .4; cursor: default; }
   flex-shrink: 0;
 }
 .mcq-btn   { gap: .65rem; }
-.tf-btn    { gap: .5rem; justify-content: center; }
 @media (hover: none) { .kbd-badge { display: none; } }
 
 /* ── Quiz ───────────────────────────────────────────────────────────────────── */
@@ -471,12 +470,6 @@ button:disabled { opacity: .4; cursor: default; }
 .mcq-btn.correct { border-color: var(--success); background: #dcfce7; color: #166534; }
 .mcq-btn.wrong   { border-color: var(--danger);  background: #fee2e2; color: #991b1b; }
 
-.tf-row { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
-.tf-btn { padding: 1rem; border: 1.5px solid var(--border); border-radius: 10px;
-          background: var(--bg-card); font-size: 1rem; font-weight: 700; color: var(--text-primary); }
-.tf-btn:hover:not(:disabled) { border-color: var(--accent); }
-.tf-btn.correct { border-color: var(--success); background: #dcfce7; color: #166534; }
-.tf-btn.wrong   { border-color: var(--danger);  background: #fee2e2; color: #991b1b; }
 
 .typing-row { display: flex; gap: .6rem; }
 .typing-row input { flex: 1; padding: .65rem .9rem; border: 1.5px solid var(--border);
@@ -639,9 +632,27 @@ button:disabled { opacity: .4; cursor: default; }
 
 /* ── Progress screen ────────────────────────────────────────────────────────── */
 .streak-card { padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; }
-.streak-top  { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1rem; }
-.streak-number { font-size: 2rem; font-weight: 800; color: var(--accent); }
 .streak-calendar { display: flex; flex-wrap: wrap; gap: 3px; margin-top: .75rem; }
+
+/* Two-column streak card layout */
+.streak-inner { display: flex; gap: 1.75rem; align-items: center; justify-content: center; }
+.streak-left  { flex-shrink: 0; }
+.streak-grid-label { font-size: .72rem; color: var(--text-secondary); margin-bottom: .3rem; }
+.streak-right { flex: 0 0 auto; display: grid; grid-template-columns: repeat(3, 1fr);
+                column-gap: 1.25rem; row-gap: .75rem; align-content: start; align-items: end; }
+.streak-stat  { display: flex; flex-direction: column; align-items: center; gap: .1rem; }
+.streak-stat-num    { font-size: 1.6rem; font-weight: 800; color: var(--accent); line-height: 1; }
+.streak-stat-lbl    { font-size: .65rem; font-weight: 600; letter-spacing: .07em;
+                      text-transform: uppercase; color: var(--text-secondary); text-align: center; }
+.streak-today-pill  { display: flex; align-items: center; justify-content: center;
+                      font-size: .68rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+                      border-radius: 99px; padding: .25rem .65rem; width: 100%; text-align: center; }
+.streak-today-yes   { background: color-mix(in srgb, #22c55e 15%, transparent); color: #15803d; }
+.streak-today-no    { background: var(--bg-secondary); color: var(--text-secondary); }
+[data-theme="dark"] .streak-today-yes { color: #86efac; }
+@media (max-width: 480px) {
+  .streak-inner { flex-direction: column; gap: 1rem; }
+}
 .day-sq { width: 18px; height: 18px; border-radius: 3px; background: var(--border); cursor: default; }
 .day-sq.studied { background: var(--accent); opacity: .85; }
 .day-sq.today   { outline: 2px solid var(--accent); outline-offset: 1px; }
@@ -651,12 +662,15 @@ button:disabled { opacity: .4; cursor: default; }
   display: grid;
   grid-template-rows: repeat(7, 13px);
   grid-auto-flow: column;
-  grid-auto-columns: 13px;
-  gap: 2px;
+  grid-auto-columns: var(--heat-cell, 13px);
+  gap: 3px;
   margin-top: .75rem;
   overflow-x: auto;
+  background: var(--bg-card);
+  border-radius: 6px;
+  padding: 3px;
 }
-.heat-cell { border-radius: 2px; cursor: pointer; transition: opacity .1s; }
+.heat-cell { border-radius: 4px; cursor: pointer; transition: opacity .1s; }
 .heat-cell:hover { opacity: .75; }
 .heat-0 { background: var(--border); }
 .heat-1 { background: color-mix(in srgb, var(--accent) 35%, transparent); }
@@ -1074,7 +1088,6 @@ kbd {
 /* Single-column answer grids and stacked typing */
 @media (max-width: 500px) {
   .mcq-grid { grid-template-columns: 1fr; }
-  .tf-row   { grid-template-columns: 1fr; }
   .typing-row { flex-direction: column; }
   .home-header { flex-direction: column; }
   .home-cta { align-self: flex-start; }
