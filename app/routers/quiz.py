@@ -121,7 +121,7 @@ def _evaluate(
         is_correct = (user_answer or "").lower().strip() in ("hard", "good", "easy")
         return is_correct, server_correct
 
-    is_correct = check_answer(user_answer or "", server_correct, fuzzy=(mode == "typing"))
+    is_correct = check_answer(user_answer or "", server_correct)
     return is_correct, server_correct
 
 
