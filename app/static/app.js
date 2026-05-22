@@ -836,13 +836,14 @@ function renderDecks(decks, statsMap = {}) {
       <div class="topic-grid">
         ${langDecks.map(deck => {
           const s    = statsMap[deck.id];
-          const seen = s?.cards_seen || 0;
-          const pctD = deck.card_count > 0 ? Math.round(seen / deck.card_count * 100) : 0;
+          const seen      = s?.cards_seen || 0;
+          const remaining = Math.max(0, deck.card_count - seen);
+          const pctD      = deck.card_count > 0 ? Math.round(seen / deck.card_count * 100) : 0;
           return `
           <div class="card topic-card" data-deck-id="${deck.id}">
             <div class="topic-card-header">
               <span class="topic-name">${esc(deck.topic)}</span>
-              <span class="badge">${deck.card_count}</span>
+              <span class="badge ${remaining === 0 ? 'badge-done' : ''}">${remaining === 0 ? '✓' : remaining}</span>
             </div>
             <div class="topic-progress">
               <div class="topic-progress-bar-bg">
@@ -850,12 +851,30 @@ function renderDecks(decks, statsMap = {}) {
               </div>
               <span class="topic-progress-label">${seen} / ${deck.card_count} seen</span>
             </div>
-            <div class="topic-actions" style="margin-top:.5rem">
+            <div class="topic-actions">
               ${s?.due_count > 0 ? `<button class="btn-primary btn-sm" data-action="review" data-deck-id="${deck.id}">Review <span class="due-badge">${s.due_count}</span></button>` : ''}
-              <button class="btn-outline btn-sm" data-action="test"   data-deck-id="${deck.id}">Test</button>
-              <button class="btn-ghost btn-sm"   data-action="browse" data-deck-id="${deck.id}">Browse</button>
-              <button class="btn-ghost btn-sm"   data-action="export" data-deck-id="${deck.id}">Export</button>
-              <button class="btn-danger btn-sm"  data-action="delete" data-deck-id="${deck.id}">Delete</button>
+              <button class="btn-primary btn-sm deck-test-btn" data-action="test" data-deck-id="${deck.id}">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z"/></svg>
+                Test
+              </button>
+              <div class="deck-menu-wrap">
+                <button class="btn-ghost btn-sm deck-menu-btn" data-action="menu" data-deck-id="${deck.id}" aria-label="More options">&#8943;</button>
+                <div class="deck-menu-dropdown hidden" id="deck-menu-${deck.id}">
+                  <button class="deck-menu-item" data-action="browse" data-deck-id="${deck.id}">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"/><path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>
+                    Browse
+                  </button>
+                  <button class="deck-menu-item" data-action="export" data-deck-id="${deck.id}">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+                    Export
+                  </button>
+                  <div class="deck-menu-divider"></div>
+                  <button class="deck-menu-item deck-menu-danger" data-action="delete" data-deck-id="${deck.id}">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"/></svg>
+                    Delete
+                  </button>
+                </div>
+              </div>
             </div>
           </div>`;
         }).join('')}
@@ -870,11 +889,29 @@ document.getElementById('deck-container').addEventListener('click', e => {
   const deckId = parseInt(btn.dataset.deckId, 10);
   const deck   = App.decks.find(d => d.id === deckId);
   if (!deck) return;
+
+  if (btn.dataset.action === 'menu') {
+    const dropdown = document.getElementById(`deck-menu-${deckId}`);
+    document.querySelectorAll('.deck-menu-dropdown').forEach(d => { if (d !== dropdown) d.classList.add('hidden'); });
+    dropdown.classList.toggle('hidden');
+    return;
+  }
+
+  // Close any open dropdown before navigating
+  document.querySelectorAll('.deck-menu-dropdown').forEach(d => d.classList.add('hidden'));
+
   if (btn.dataset.action === 'review') startReview(deck);
   if (btn.dataset.action === 'test')   showTestSetup(deck);
   if (btn.dataset.action === 'browse') showBrowse(deck);
   if (btn.dataset.action === 'export') exportDeck(deck);
   if (btn.dataset.action === 'delete') deleteDeck(deck);
+});
+
+// Close dropdowns when clicking outside
+document.addEventListener('click', e => {
+  if (!e.target.closest('.deck-menu-wrap')) {
+    document.querySelectorAll('.deck-menu-dropdown').forEach(d => d.classList.add('hidden'));
+  }
 });
 
 async function startReview(deck) {
@@ -936,7 +973,6 @@ document.getElementById('nav-home').addEventListener('click', showHome);
 document.getElementById('no-decks-cta').addEventListener('click', () => showImport(null));
 document.getElementById('progress-empty-cta').addEventListener('click', showHome);
 document.getElementById('btn-big-test').addEventListener('click', showBigTestSetup);
-document.getElementById('btn-test-home').addEventListener('click', () => showTestSetup(null));
 document.getElementById('btn-nav-import').addEventListener('click', () => showImport(null));
 document.getElementById('btn-nav-home-tab').addEventListener('click', showHome);
 document.getElementById('btn-nav-journal').addEventListener('click', showJournal);
@@ -1253,25 +1289,32 @@ function renderQuizQuestion(question) {
 
   document.getElementById('quiz-question').textContent = question.question;
 
-  // TTS button — use speak_text (raw foreign word) not the full English prompt
-  const speakText = question.speak_text || question.question;
-  const ttsBtn = document.getElementById('btn-tts');
-  ttsBtn.classList.remove('hidden');
-  ttsBtn.dataset.text = speakText;
-  ttsBtn.dataset.lang = question.language || '';
+  // TTS button — hidden for meaning_to_word (speaking would reveal the answer)
+  const speakText   = question.speak_text || question.question;
+  const isMtoW      = question.resolved_direction === 'meaning_to_word';
+  const ttsBtn      = document.getElementById('btn-tts');
+  if (isMtoW) {
+    ttsBtn.classList.add('hidden');
+  } else {
+    ttsBtn.classList.remove('hidden');
+    ttsBtn.dataset.text = speakText;
+    ttsBtn.dataset.lang = question.language || '';
+  }
 
   if (question.type === 'mcq')             renderMcq(question);
   else if (question.type === 'true_false') renderTf(question);
   else if (question.type === 'flashcard')  renderFlashcard(question);
   else                                     renderTyping();
 
-  if (question.type === 'typing')    document.getElementById('quiz-hint-row').classList.remove('hidden');
+  if (question.type === 'typing') document.getElementById('quiz-hint-row').classList.remove('hidden');
 
-  // Auto-speak in flashcard mode only when the displayed text IS the foreign word
-  // (skip meaning_to_word: speak_text would be the answer, giving it away)
-  if (question.type === 'flashcard' && speakText === question.question) {
-    speak(speakText, question.language);
-  }
+  // Auto-speak on card appearance:
+  // — flashcard: only when the prompt IS the foreign word (not meaning_to_word)
+  // — MCQ / typing: only for word_to_meaning direction
+  const autoSpeakNow =
+    (question.type === 'flashcard' && speakText === question.question) ||
+    (question.type !== 'flashcard' && question.resolved_direction === 'word_to_meaning');
+  if (autoSpeakNow) speak(speakText, question.language);
 }
 
 function renderMcq(question) {
@@ -1463,6 +1506,10 @@ function showFeedback(isCorrect, correctAnswer, nextQuestion, diacriticsRemark =
   const advance = () => nextQuestion ? renderQuizQuestion(nextQuestion) : showResults();
   btnNext.onclick = () => { clearCountdown(); advance(); };
   startCountdown(advance);
+
+  // Auto-speak the foreign word during the countdown
+  const q = App.quiz.question;
+  if (q?.speak_text) speak(q.speak_text, q.language);
 }
 
 // ── Hint ──────────────────────────────────────────────────────────────────────
