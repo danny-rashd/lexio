@@ -64,9 +64,11 @@ nav {
   top: 0;
   z-index: 100;
 }
-.nav-brand { font-weight: 700; font-size: 1.1rem; cursor: pointer; color: var(--accent); letter-spacing: -.5px; }
+.nav-brand  { font-weight: 700; font-size: 1.1rem; cursor: pointer; color: var(--accent); letter-spacing: -.5px; }
 .nav-right  { display: flex; align-items: center; gap: .25rem; }
 .btn-icon   { font-size: 1.1rem; }
+.nav-btn    { display: flex; align-items: center; gap: .3rem; }
+.nav-icon   { width: 18px; height: 18px; flex-shrink: 0; }
 
 /* ── Main ───────────────────────────────────────────────────────────────────── */
 main { max-width: 780px; margin: 0 auto; padding: 2rem 1rem 5rem; }
@@ -827,10 +829,11 @@ kbd {
   .data-table th:first-child { background: var(--bg-secondary); }
 }
 
-/* Abbreviate nav labels on very narrow screens */
-@media (max-width: 420px) {
-  .nav-right .btn-ghost[data-short] { font-size: 0; padding: .4rem .5rem; }
-  .nav-right .btn-ghost[data-short]::after { content: attr(data-short); font-size: .82rem; }
+/* Icon-only nav on narrow screens */
+@media (max-width: 500px) {
+  .nav-label { display: none; }
+  .nav-btn   { padding: .4rem .45rem; }
+  .nav-icon  { width: 20px; height: 20px; }
 }
 
 /* Single-column answer grids and stacked typing */
