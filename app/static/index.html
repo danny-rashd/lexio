@@ -12,6 +12,7 @@
   <span id="nav-home" class="nav-brand">Lexio</span>
   <div class="nav-right">
     <button id="btn-nav-home-tab" class="btn-ghost" data-short="Hm">Home</button>
+    <button id="btn-nav-essay" class="btn-ghost" data-short="Es">Essay</button>
     <button id="btn-nav-progress" class="btn-ghost" data-short="Stats">Progress</button>
     <button id="btn-nav-import" class="btn-ghost" data-short="+">Import</button>
     <button id="btn-theme" class="btn-ghost btn-icon" aria-label="Toggle theme">&#9788;</button>
@@ -345,6 +346,56 @@
   </section>
 
   <!-- ── Progress / Dashboard (Phase 16) ───────────────────────────────────── -->
+  <!-- ── Essay ─────────────────────────────────────────────────────────────── -->
+  <section id="screen-essay" class="hidden">
+    <div class="page-header">
+      <button class="btn-back" id="btn-essay-back">&#8592; Back</button>
+      <h2>Essay Practice</h2>
+    </div>
+
+    <div class="card form-card" id="essay-form-card">
+      <label for="sel-essay-lang">Language</label>
+      <select id="sel-essay-lang"></select>
+
+      <label for="essay-textarea">Your essay
+        <span id="essay-word-count" class="text-secondary" style="font-weight:400;margin-left:.5rem">0 words</span>
+      </label>
+      <textarea id="essay-textarea" rows="10"
+                placeholder="Write your essay here…"
+                style="width:100%;padding:.75rem;border:1.5px solid var(--border);border-radius:9px;
+                       font-size:.95rem;line-height:1.6;resize:vertical;background:var(--bg-secondary);
+                       color:var(--text-primary);font-family:inherit;outline:none"></textarea>
+
+      <button id="btn-essay-submit" class="btn-primary" disabled>Evaluate Essay</button>
+      <p id="essay-form-err" class="error hidden"></p>
+    </div>
+
+    <div id="essay-result" class="hidden">
+      <div class="essay-score-header card" style="padding:1.5rem;margin-top:1rem;display:flex;align-items:center;gap:1.5rem">
+        <div id="essay-score-ring" class="score-ring"></div>
+        <div>
+          <p id="essay-feedback" class="text-secondary" style="font-size:.9rem;line-height:1.5;max-width:480px"></p>
+        </div>
+      </div>
+      <div id="essay-categories" style="display:flex;flex-direction:column;gap:.6rem;margin-top:1rem"></div>
+      <div id="essay-errors" style="margin-top:1rem"></div>
+      <div style="margin-top:1rem;display:flex;gap:.75rem">
+        <button id="btn-essay-new" class="btn-primary">Write another</button>
+        <button id="btn-essay-history" class="btn-outline">View history</button>
+      </div>
+    </div>
+
+    <div id="essay-history-section" class="hidden" style="margin-top:1.5rem">
+      <h3 class="section-label">Past Essays</h3>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Date</th><th>Language</th><th>Words</th><th>Score</th><th></th></tr></thead>
+          <tbody id="essay-history-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
   <section id="screen-progress" class="hidden">
     <div class="page-header">
       <button class="btn-back" id="btn-progress-back">&#8592; Back</button>

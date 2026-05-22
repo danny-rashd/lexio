@@ -17,6 +17,9 @@ class Settings(BaseSettings):
     MAX_UPLOAD_SIZE_MB: int = 5
     MAX_UPLOAD_SIZE_APKG_MB: int = 200
     HINT_MAX_PRESSES: int = 3
+    ANTHROPIC_API_KEY: str = ""
+    ESSAY_MAX_WORDS: int = 500
+    ESSAY_MIN_WORDS: int = 20
 
     @property
     def big_test_card_options(self) -> list[int]:

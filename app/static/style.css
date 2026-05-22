@@ -695,6 +695,27 @@ kbd {
 }
 .lang-check-item:not(.selected) { opacity: .55; }
 
+/* ── Essay ──────────────────────────────────────────────────────────────────── */
+#essay-textarea:focus { border-color: var(--accent); }
+.essay-cat-bar { padding: .75rem 1rem; background: var(--bg-card);
+                 border: 1px solid var(--border); border-radius: var(--radius); }
+.essay-cat-header { display: flex; align-items: center; justify-content: space-between;
+                    margin-bottom: .5rem; font-size: .88rem; font-weight: 600; }
+.essay-cat-score { font-size: .85rem; color: var(--text-secondary); }
+.essay-bar-bg { height: 6px; background: var(--border); border-radius: 99px; overflow: hidden; }
+.essay-bar    { height: 100%; border-radius: 99px; transition: width .5s ease; }
+.essay-error-group { margin-bottom: 1rem; }
+.essay-error-group h4 { font-size: .8rem; font-weight: 700; text-transform: uppercase;
+                         letter-spacing: .06em; color: var(--text-secondary); margin-bottom: .4rem; }
+.essay-error-item { display: flex; flex-direction: column; gap: .15rem;
+                    padding: .5rem .75rem; border-radius: 8px;
+                    background: color-mix(in srgb, var(--danger) 6%, var(--bg-card));
+                    border: 1px solid color-mix(in srgb, var(--danger) 20%, transparent);
+                    margin-bottom: .35rem; font-size: .85rem; }
+.essay-error-original  { color: var(--danger); font-weight: 600; }
+.essay-error-issue     { color: var(--text-secondary); }
+.essay-error-fix       { color: #166534; font-weight: 600; }
+
 /* ── Responsive ─────────────────────────────────────────────────────────────── */
 
 /* Nav wraps gracefully on narrow screens */

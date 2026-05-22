@@ -1,4 +1,5 @@
 fastapi
+anthropic
 uvicorn[standard]
 python-multipart
 sqlalchemy

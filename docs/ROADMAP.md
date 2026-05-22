@@ -315,6 +315,72 @@ Frontend:
 
 ---
 
+## Phase 15 — Essay evaluation (Claude Haiku) `Done`
+
+**Problem:** Flashcards and quizzes test recognition and recall, but not productive writing ability. A learner can know 1000 words and still be unable to compose a coherent paragraph.
+
+**How it works:**
+1. User selects the language they're writing in
+2. Types an essay (20–500 words, configurable via `ESSAY_MAX_WORDS`)
+3. Submits → backend calls Claude Haiku with a structured evaluation prompt
+4. Results displayed as scored categories with specific error callouts
+5. Submission stored in DB so writing progress is trackable over time
+
+**Scoring categories (weighted):**
+| Category | Weight | Notes |
+|---|---|---|
+| Grammar | 30% | Verb conjugation, sentence structure, agreement |
+| Diacritics | 20% | Missing accent = −2 pts, wrong accent = −4 pts; 100 for JP/ZH (no Latin diacritics) |
+| Spelling | 20% | Incorrect word spelling |
+| Fluency | 15% | Natural expression, vocabulary range |
+| Punctuation | 15% | Correct use of commas, periods, etc. |
+
+**Scope:**
+
+Backend:
+- `app/models/essay.py` — `EssaySubmission` table (language, text, word_count, overall_score, evaluation JSON, submitted_at)
+- `app/services/essay_evaluator.py` — Claude Haiku API call with prompt caching on system prompt
+- `app/routers/essay.py` — `POST /api/essay/submit`, `GET /api/essay/history`
+- New Alembic migration
+
+Frontend:
+- **Essay** button added to nav
+- New screen: language selector, textarea with live word count, Submit button
+- Results view: overall score ring + category bars + error list per category
+- History section: past submissions with score and date
+
+**Config:** `ANTHROPIC_API_KEY` (required), `ESSAY_MAX_WORDS` (default 500)
+
+**Files:** `app/models/essay.py`, migration, `app/services/essay_evaluator.py`, `app/routers/essay.py`, `app/schemas/essay.py`, `app/main.py`, `app/static/`
+
+---
+
+## Phase 16 — Immersion tracking journal `Planned`
+
+**Problem:** Language acquisition happens outside the app — watching shows, reading books, listening to podcasts. There's no way to log this time or see how it contributes to overall study effort.
+
+**Scope:**
+
+A log entry captures:
+- Date
+- Language
+- Activity type (Reading / Listening / Watching / Speaking / Writing / Gaming / Other)
+- Resource name (e.g. "Netflix — Money Heist S2", "Podcast — Coffee Break Spanish")
+- Duration in minutes
+- Optional personal notes / rating (1–5)
+
+Dashboard shows:
+- Total hours per language (all time + this week)
+- Breakdown by activity type (bar chart)
+- Combined streak: quiz days + immersion days
+- Recent log entries (journal view)
+
+Integration with Progress screen: immersion time shown alongside quiz stats.
+
+**Files:** `app/models/immersion.py`, migration, `app/routers/immersion.py`, `app/static/`
+
+---
+
 ## Notes
 
 **Phase ordering constraints:**

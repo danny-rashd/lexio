@@ -449,6 +449,7 @@ document.addEventListener('keydown', e => {
       'screen-big-test-setup':  'btn-big-test-back',
       'screen-browse':          'btn-browse-back',
       'screen-import':          'btn-import-back',
+      'screen-essay':           'btn-essay-back',
       'screen-progress':        'btn-progress-back',
     };
     const backBtn = backMap[screen];
@@ -775,6 +776,7 @@ document.getElementById('btn-big-test').addEventListener('click', showBigTestSet
 document.getElementById('btn-test-home').addEventListener('click', () => showTestSetup(null));
 document.getElementById('btn-nav-import').addEventListener('click', () => showImport(null));
 document.getElementById('btn-nav-home-tab').addEventListener('click', showHome);
+document.getElementById('btn-nav-essay').addEventListener('click', showEssay);
 document.getElementById('btn-nav-progress').addEventListener('click', showProgress);
 
 // ── Test Setup ────────────────────────────────────────────────────────────────
@@ -947,10 +949,10 @@ document.getElementById('btn-test-start').addEventListener('click', async () => 
 // ── Total Recall Setup ────────────────────────────────────────────────────────────
 
 function _updateTotalRecallStart() {
-  const btn = document.getElementById('btn-big-start');
-  const ok  = App.totalRecallLangs.size >= 2;
-  btn.disabled = !ok;
-  btn.title    = ok ? '' : 'Select at least 2 languages to start';
+  const btn   = document.getElementById('btn-big-start');
+  const count = document.querySelectorAll('#total-recall-langs .lang-check-item.selected').length;
+  btn.disabled = count < 2;
+  btn.title    = count < 2 ? 'Select at least 2 languages to start' : '';
 }
 
 function showBigTestSetup() {
@@ -1001,13 +1003,17 @@ function showBigTestSetup() {
 document.getElementById('btn-big-test-back').addEventListener('click', showHome);
 
 document.getElementById('btn-big-start').addEventListener('click', async () => {
-  if (App.totalRecallLangs.size < 2) {
+  // Read directly from DOM — single source of truth, no Set state issues
+  const selectedLangs = [
+    ...document.querySelectorAll('#total-recall-langs .lang-check-item.selected')
+  ].map(el => el.dataset.lang).filter(Boolean);
+
+  if (selectedLangs.length < 2) {
     await showAlert('Select at least 2 languages before starting Total Recall.');
     return;
   }
   const btn = document.getElementById('btn-big-start');
   setLoading(btn, true);
-  const selectedLangs = [...App.totalRecallLangs];
   const res = await api('POST', '/api/quiz/start', {
     scope:      'big_test',
     deck_id:    null,
@@ -2033,6 +2039,138 @@ document.getElementById('progress-table-head').addEventListener('click', e => {
   _ptState.page = 1;
   _renderWeakestTable();
 });
+
+// ── Essay ─────────────────────────────────────────────────────────────────────
+
+const _CAT_LABELS   = { grammar: 'Grammar', spelling: 'Spelling', punctuation: 'Punctuation', diacritics: 'Diacritics', fluency: 'Fluency' };
+const _CAT_WEIGHTS  = { grammar: 30, spelling: 20, punctuation: 15, diacritics: 20, fluency: 15 };
+const _CAT_COLOURS  = { grammar: '#4361EE', spelling: '#22c55e', punctuation: '#f59e0b', diacritics: '#E63946', fluency: '#2A9D8F' };
+
+function showEssay() {
+  showScreen('screen-essay');
+  document.getElementById('essay-result').classList.add('hidden');
+  document.getElementById('essay-history-section').classList.add('hidden');
+  document.getElementById('essay-form-card').classList.remove('hidden');
+  document.getElementById('essay-form-err').classList.add('hidden');
+  document.getElementById('essay-textarea').value = '';
+  document.getElementById('essay-word-count').textContent = '0 words';
+  document.getElementById('btn-essay-submit').disabled = true;
+
+  const sel = document.getElementById('sel-essay-lang');
+  const langs = [...new Set(App.decks.map(d => d.language))].sort();
+  sel.innerHTML = (langs.length ? langs : SUPPORTED_LANGS)
+    .map(l => `<option value="${esc(l)}">${esc(l)}</option>`).join('');
+}
+
+document.getElementById('essay-textarea').addEventListener('input', () => {
+  const words = document.getElementById('essay-textarea').value.trim().split(/\s+/).filter(Boolean).length;
+  document.getElementById('essay-word-count').textContent = `${words} word${words !== 1 ? 's' : ''}`;
+  document.getElementById('btn-essay-submit').disabled = words < 20;
+});
+
+document.getElementById('btn-essay-submit').addEventListener('click', async () => {
+  const language = document.getElementById('sel-essay-lang').value;
+  const text     = document.getElementById('essay-textarea').value.trim();
+  const btn      = document.getElementById('btn-essay-submit');
+  const errEl    = document.getElementById('essay-form-err');
+  errEl.classList.add('hidden');
+
+  setLoading(btn, true);
+  const res = await api('POST', '/api/essay/submit', { language, text });
+  setLoading(btn, false);
+
+  if (!res || !res.ok) {
+    const e = await res?.json().catch(() => ({}));
+    errEl.textContent = friendlyError(e?.detail);
+    errEl.classList.remove('hidden');
+    return;
+  }
+
+  const data = await res.json();
+  _renderEssayResult(data.evaluation);
+  document.getElementById('essay-form-card').classList.add('hidden');
+  document.getElementById('essay-result').classList.remove('hidden');
+});
+
+function _renderEssayResult(ev) {
+  const score = Math.round(ev.overall_score || 0);
+  const ring  = document.getElementById('essay-score-ring');
+  ring.textContent = `${score}%`;
+  ring.className   = `score-ring ${score >= 80 ? 'great' : score >= 50 ? 'ok' : 'poor'}`;
+  document.getElementById('essay-feedback').textContent = ev.overall_feedback || '';
+
+  // Category bars
+  const cats = document.getElementById('essay-categories');
+  cats.innerHTML = Object.entries(_CAT_LABELS).map(([key, label]) => {
+    const cat = ev.categories?.[key] || {};
+    const s   = Math.round(cat.score ?? 100);
+    const col = _CAT_COLOURS[key];
+    const wt  = _CAT_WEIGHTS[key];
+    return `<div class="essay-cat-bar">
+      <div class="essay-cat-header">
+        <span>${label}</span>
+        <span class="essay-cat-score">${s}/100 <span class="text-secondary">(${wt}% weight)</span></span>
+      </div>
+      <div class="essay-bar-bg"><div class="essay-bar" style="width:${s}%;background:${col}"></div></div>
+    </div>`;
+  }).join('');
+
+  // Error lists per category
+  const errsEl = document.getElementById('essay-errors');
+  const groups = Object.entries(_CAT_LABELS)
+    .map(([key, label]) => {
+      const errors = ev.categories?.[key]?.errors || [];
+      if (!errors.length) return '';
+      const items = errors.map(e => `
+        <div class="essay-error-item">
+          <span class="essay-error-original">"${esc(e.original || '')}"</span>
+          <span class="essay-error-issue">${esc(e.issue || '')}</span>
+          <span class="essay-error-fix">&#10140; ${esc(e.correction || '')}</span>
+        </div>`).join('');
+      return `<div class="essay-error-group"><h4>${label} errors</h4>${items}</div>`;
+    }).join('');
+  errsEl.innerHTML = groups || '<p class="text-secondary" style="font-size:.85rem">No specific errors flagged.</p>';
+}
+
+document.getElementById('btn-essay-new').addEventListener('click', () => {
+  document.getElementById('essay-result').classList.add('hidden');
+  document.getElementById('essay-form-card').classList.remove('hidden');
+  document.getElementById('essay-textarea').value = '';
+  document.getElementById('essay-word-count').textContent = '0 words';
+  document.getElementById('btn-essay-submit').disabled = true;
+});
+
+document.getElementById('btn-essay-history').addEventListener('click', async () => {
+  const section = document.getElementById('essay-history-section');
+  if (!section.classList.contains('hidden')) { section.classList.add('hidden'); return; }
+  const res = await api('GET', '/api/essay/history?limit=20');
+  if (!res?.ok) return;
+  const items = await res.json();
+  document.getElementById('essay-history-tbody').innerHTML = items.length
+    ? items.map(item => `<tr>
+        <td>${new Date(item.submitted_at).toLocaleDateString()}</td>
+        <td>${langPillHtml(item.language)}</td>
+        <td>${item.word_count}</td>
+        <td><strong>${Math.round(item.overall_score)}%</strong></td>
+        <td><button class="btn-ghost btn-sm" onclick="loadEssay(${item.id})">View</button></td>
+      </tr>`).join('')
+    : '<tr><td colspan="5" style="text-align:center;padding:1.5rem;color:var(--text-secondary)">No essays yet.</td></tr>';
+  section.classList.remove('hidden');
+});
+
+async function loadEssay(id) {
+  const res = await api('GET', `/api/essay/${id}`);
+  if (!res?.ok) return;
+  const data = await res.json();
+  _renderEssayResult(data.evaluation);
+  document.getElementById('essay-form-card').classList.add('hidden');
+  document.getElementById('essay-result').classList.remove('hidden');
+  document.getElementById('essay-history-section').classList.add('hidden');
+}
+
+document.getElementById('btn-essay-back').addEventListener('click', showHome);
+
+// ── Progress ──────────────────────────────────────────────────────────────────
 
 async function showProgress() {
   showScreen('screen-progress');

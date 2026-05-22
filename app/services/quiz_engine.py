@@ -106,9 +106,13 @@ def select_cards_for_big_test(
         .filter(Card.is_active.is_(True))
     )
     if languages:
-        query = query.join(Deck, Deck.id == Card.deck_id).filter(
-            Deck.language.in_(languages)
-        )
+        eligible_ids = [
+            row.id for row in
+            db.query(Deck.id).filter(Deck.language.in_(languages)).all()
+        ]
+        if not eligible_ids:
+            return []
+        query = query.filter(Card.deck_id.in_(eligible_ids))
     return (
         query.order_by(subq.c.weakness_score.desc().nulls_first(), func.random())
         .limit(count)

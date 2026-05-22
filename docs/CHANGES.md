@@ -1,5 +1,25 @@
 # Post-launch changes
 
+## Phase 15 — Essay evaluation (2026-05-22)
+
+Write an essay in any of your study languages and get instant AI feedback via Claude Haiku.
+
+**Scoring breakdown (weighted):** Grammar 30% · Diacritics 20% · Spelling 20% · Fluency 15% · Punctuation 15%
+
+**Flow:** Write essay (20–500 words) → select language → Evaluate → see score ring + per-category bars + error list with corrections → optionally view history of past submissions.
+
+**Diacritics scoring:** missing accent (e→é) −2 pts, wrong accent (è→é) −4 pts. Japanese and Mandarin automatically score 100 on diacritics.
+
+**Backend:** `app/models/essay.py` (`EssaySubmission` table), `app/services/essay_evaluator.py` (Claude Haiku with prompt caching on system message), `app/routers/essay.py` (`POST /api/essay/submit`, `GET /api/essay/history`, `GET /api/essay/{id}`). New Alembic migration.
+
+**Config required:** `ANTHROPIC_API_KEY` must be set in Railway variables. `ESSAY_MAX_WORDS` (default 500), `ESSAY_MIN_WORDS` (default 20).
+
+**Frontend:** Essay nav button; new screen with language selector, textarea with live word count, score ring, category bars, error cards per category, history table.
+
+**Files:** `app/models/essay.py`, migration, `app/services/essay_evaluator.py`, `app/routers/essay.py`, `app/schemas/essay.py`, `app/main.py`, `requirements.txt`, `app/config.py`, `app/static/`
+
+---
+
 ## Phase 14 — SRS scheduling SM-2 (2026-05-21)
 
 Spaced repetition scheduling using the SM-2 algorithm. Flashcard grades now control when each card appears next.

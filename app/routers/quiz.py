@@ -1,3 +1,4 @@
+import json
 import random
 from datetime import datetime, timezone
 
@@ -50,6 +51,14 @@ def _next_card(db: Session, session: QuizSession, answered: set[int]) -> Card | 
     query = db.query(Card).filter(Card.is_active.is_(True))
     if session.scope == "test":
         query = query.filter(Card.deck_id == session.deck_id)
+    elif session.scope == "big_test" and session.language_filter:
+        languages = json.loads(session.language_filter)
+        eligible = [
+            row[0] for row in
+            db.query(Deck.id).filter(Deck.language.in_(languages)).all()
+        ]
+        if eligible:
+            query = query.filter(Card.deck_id.in_(eligible))
     if answered:
         query = query.filter(Card.id.not_in(answered))
 
@@ -165,6 +174,11 @@ def start_quiz(
         if not cards:
             raise HTTPException(status_code=400, detail="No active cards available for this session")
 
+    lang_filter = (
+        json.dumps(body.languages)
+        if body.scope == "big_test" and body.languages
+        else None
+    )
     session = QuizSession(
         mode=mode,
         scope=body.scope,
@@ -172,6 +186,7 @@ def start_quiz(
         direction=direction,
         total=len(cards),
         correct=0,
+        language_filter=lang_filter,
     )
     db.add(session)
     db.commit()
