@@ -1133,9 +1133,10 @@ function checkMcqAvailability(language) {
 }
 
 const MODE_INFO = [
-  { key: 'mcq',        label: 'Multiple Choice', desc: 'Pick the correct answer from 4 options'  },
-  { key: 'typing',     label: 'Typing',           desc: 'Type the answer from memory'              },
-  { key: 'flashcard',  label: 'Flashcard',        desc: 'Reveal the answer and grade yourself'      },
+  { key: 'mcq',        label: 'Multiple Choice', desc: 'Pick the correct answer from 4 options'   },
+  { key: 'typing',     label: 'Typing',           desc: 'Type the answer from memory'               },
+  { key: 'flashcard',  label: 'Flashcard',        desc: 'Reveal the answer and grade yourself'       },
+  { key: 'cloze',      label: 'Cloze',            desc: 'Fill in the blank from an example sentence' },
 ];
 
 function renderModeGrid(gridId, activeMode, _filter) {
@@ -1357,6 +1358,7 @@ function renderQuizQuestion(question) {
   else                                     renderTyping();
 
   if (question.type === 'typing') document.getElementById('quiz-hint-row').classList.remove('hidden');
+  // cloze: no hint (the sentence is already the context)
 
   // Auto-speak on card appearance:
   // — flashcard: only when the prompt IS the foreign word (not meaning_to_word)
@@ -1406,11 +1408,19 @@ function renderFlashcard(question) {
   const answerEl  = document.getElementById('flashcard-answer');
   const gradeEl   = document.getElementById('flashcard-grade');
   const revealBtn = document.getElementById('btn-reveal');
+  const sentEl    = document.getElementById('flashcard-sentence');
   answerEl.textContent = question.correct_answer;
   answerEl.classList.add('hidden');
   gradeEl.classList.add('hidden');
   gradeEl.querySelectorAll('.grade-btn').forEach(b => { b.disabled = false; });
   revealBtn.classList.remove('hidden');
+  if (question.sentence) {
+    sentEl.textContent = question.sentence.replace(/\{\{(.+?)\}\}/g, '$1');
+    sentEl.classList.add('hidden');
+  } else {
+    sentEl.textContent = '';
+    sentEl.classList.add('hidden');
+  }
   section.classList.remove('hidden');
 }
 
@@ -1418,6 +1428,8 @@ function revealFlashcard() {
   document.getElementById('flashcard-answer').classList.remove('hidden');
   document.getElementById('btn-reveal').classList.add('hidden');
   document.getElementById('flashcard-grade').classList.remove('hidden');
+  const sentEl = document.getElementById('flashcard-sentence');
+  if (sentEl.textContent) sentEl.classList.remove('hidden');
 }
 
 document.getElementById('btn-reveal').addEventListener('click', revealFlashcard);
@@ -1531,6 +1543,16 @@ function showFeedback(isCorrect, correctAnswer, nextQuestion, diacriticsRemark =
     correctEl.classList.add('hidden');
   }
 
+  const sentEl = document.getElementById('feedback-sentence');
+  const q = App.quiz.question;
+  if (q?.sentence) {
+    sentEl.textContent = q.sentence.replace(/\{\{(.+?)\}\}/g, '$1');
+    sentEl.classList.remove('hidden');
+  } else {
+    sentEl.textContent = '';
+    sentEl.classList.add('hidden');
+  }
+
   const btnNext = document.getElementById('btn-next');
   const nextLabel = nextQuestion ? 'Next →' : 'See Results';
   btnNext.innerHTML = `${nextLabel} <span class="kbd-badge" style="margin-left:.3rem">↵</span>`;
@@ -1539,7 +1561,6 @@ function showFeedback(isCorrect, correctAnswer, nextQuestion, diacriticsRemark =
   startCountdown(advance);
 
   // Auto-speak the foreign word during the countdown
-  const q = App.quiz.question;
   if (q?.speak_text) speak(q.speak_text, q.language);
 }
 
@@ -1740,17 +1761,21 @@ function renderBrowseCards(cards) {
     return;
   }
 
-  tbody.innerHTML = cards.map(c => `
-    <tr>
-      <td>${esc(c.word)}</td>
+  tbody.innerHTML = cards.map(c => {
+    const sentence = c.sentence ? c.sentence.replace(/\{\{(.+?)\}\}/g, '$1') : '';
+    return `
+    <tr class="browse-row${sentence ? ' browse-row-expandable' : ''}" data-card-id="${c.id}">
+      <td>${esc(c.word)}${sentence ? ' <span class="browse-expand-hint">▸</span>' : ''}</td>
       <td>${esc(c.meaning)}</td>
       <td>${c.native ? esc(c.native) : '<span style="color:var(--text-secondary)">—</span>'}</td>
       <td class="browse-actions">
         <button class="btn-ghost btn-sm btn-tts-row" data-speak="${esc(c.word)}" data-lang="${esc(App.browse.deck?.language || '')}" aria-label="Speak">🔊</button>
-        <button class="btn-ghost btn-sm" data-edit-id="${c.id}" data-edit-word="${esc(c.word)}" data-edit-meaning="${esc(c.meaning)}" data-edit-native="${esc(c.native || '')}">Edit</button>
+        <button class="btn-ghost btn-sm" data-edit-id="${c.id}" data-edit-word="${esc(c.word)}" data-edit-meaning="${esc(c.meaning)}" data-edit-native="${esc(c.native || '')}" data-edit-sentence="${esc(c.sentence || '')}">Edit</button>
         <button class="btn-danger btn-sm" data-delete-id="${c.id}">Delete</button>
       </td>
-    </tr>`).join('');
+    </tr>
+    ${sentence ? `<tr class="browse-sentence-row hidden" data-sentence-for="${c.id}"><td colspan="4" class="browse-sentence-cell">${esc(sentence)}</td></tr>` : ''}`;
+  }).join('');
 }
 
 function renderBrowsePagination(page) {
@@ -1783,6 +1808,22 @@ document.getElementById('browse-tbody').addEventListener('click', async e => {
   const editBtn = e.target.closest('[data-edit-id]');
   if (editBtn) { openCardEdit(editBtn); return; }
 
+  const row = e.target.closest('.browse-row-expandable');
+  if (row && !e.target.closest('button')) {
+    const cardId = row.dataset.cardId;
+    const sentRow = document.querySelector(`[data-sentence-for="${cardId}"]`);
+    const hint = row.querySelector('.browse-expand-hint');
+    const expanded = !sentRow.classList.contains('hidden');
+    sentRow.classList.toggle('hidden', expanded);
+    if (hint) hint.textContent = expanded ? '▸' : '▾';
+    if (!expanded) {
+      const ttsBtn = row.querySelector('.btn-tts-row');
+      const sentenceText = sentRow.querySelector('.browse-sentence-cell')?.textContent.trim();
+      if (ttsBtn && sentenceText) speak(sentenceText, ttsBtn.dataset.lang);
+    }
+    return;
+  }
+
   const btn = e.target.closest('[data-delete-id]');
   if (!btn || !await showConfirm('Delete this card?', 'Delete', true)) return;
   const res = await api('DELETE', `/api/cards/${btn.dataset.deleteId}`);
@@ -1795,9 +1836,10 @@ let _editingCardId = null;
 
 function openCardEdit(btn) {
   _editingCardId = btn.dataset.editId;
-  document.getElementById('card-edit-word').value    = btn.dataset.editWord;
-  document.getElementById('card-edit-meaning').value = btn.dataset.editMeaning;
-  document.getElementById('card-edit-native').value  = btn.dataset.editNative;
+  document.getElementById('card-edit-word').value     = btn.dataset.editWord;
+  document.getElementById('card-edit-meaning').value  = btn.dataset.editMeaning;
+  document.getElementById('card-edit-native').value   = btn.dataset.editNative;
+  document.getElementById('card-edit-sentence').value = btn.dataset.editSentence || '';
   document.getElementById('card-edit-err').classList.add('hidden');
   document.getElementById('card-edit-modal-overlay').classList.remove('hidden');
   document.getElementById('card-edit-word').focus();
@@ -1811,9 +1853,10 @@ function closeCardEdit() {
 document.getElementById('card-edit-cancel').addEventListener('click', closeCardEdit);
 
 document.getElementById('card-edit-save').addEventListener('click', async () => {
-  const word    = document.getElementById('card-edit-word').value.trim();
-  const meaning = document.getElementById('card-edit-meaning').value.trim();
-  const native  = document.getElementById('card-edit-native').value.trim();
+  const word     = document.getElementById('card-edit-word').value.trim();
+  const meaning  = document.getElementById('card-edit-meaning').value.trim();
+  const native   = document.getElementById('card-edit-native').value.trim();
+  const sentence = document.getElementById('card-edit-sentence').value.trim();
   const errEl   = document.getElementById('card-edit-err');
 
   if (!word || !meaning) {
@@ -1824,7 +1867,7 @@ document.getElementById('card-edit-save').addEventListener('click', async () => 
 
   const saveBtn = document.getElementById('card-edit-save');
   setLoading(saveBtn, true);
-  const res = await api('PATCH', `/api/cards/${_editingCardId}`, { word, meaning, native });
+  const res = await api('PATCH', `/api/cards/${_editingCardId}`, { word, meaning, native, sentence });
   setLoading(saveBtn, false);
 
   if (!res?.ok) {
@@ -2601,12 +2644,13 @@ async function _loadJournalHistory() {
       </div>
       <div class="jaf-form hidden" id="jaf-${e.id}" data-lang="${esc(e.language)}" data-entry="${e.id}">
         <table class="jaf-table">
-          <thead><tr><th>Word</th><th>Meaning</th><th>Native (optional)</th><th></th></tr></thead>
+          <thead><tr><th>Word</th><th>Meaning</th><th>Native (optional)</th><th>Sentence (optional)</th><th></th></tr></thead>
           <tbody class="jaf-rows">
             <tr class="jaf-row">
-              <td><input class="jaf-word"    type="text" placeholder="Word"></td>
-              <td><input class="jaf-meaning" type="text" placeholder="Meaning"></td>
-              <td><input class="jaf-native"  type="text" placeholder="—"></td>
+              <td><input class="jaf-word"     type="text" placeholder="Word"></td>
+              <td><input class="jaf-meaning"  type="text" placeholder="Meaning"></td>
+              <td><input class="jaf-native"   type="text" placeholder="—"></td>
+              <td><input class="jaf-sentence" type="text" placeholder="e.g. Il aime {{parler}}."></td>
               <td><button class="btn-ghost btn-sm jaf-remove-row" title="Remove">×</button></td>
             </tr>
           </tbody>
@@ -2872,9 +2916,10 @@ function _jafNewRow() {
   const tr = document.createElement('tr');
   tr.className = 'jaf-row';
   tr.innerHTML = `
-    <td><input class="jaf-word"    type="text" placeholder="Word"></td>
-    <td><input class="jaf-meaning" type="text" placeholder="Meaning"></td>
-    <td><input class="jaf-native"  type="text" placeholder="—"></td>
+    <td><input class="jaf-word"     type="text" placeholder="Word"></td>
+    <td><input class="jaf-meaning"  type="text" placeholder="Meaning"></td>
+    <td><input class="jaf-native"   type="text" placeholder="—"></td>
+    <td><input class="jaf-sentence" type="text" placeholder="e.g. Il aime {{parler}}."></td>
     <td><button class="btn-ghost btn-sm jaf-remove-row" title="Remove">×</button></td>`;
   return tr;
 }
@@ -2960,9 +3005,10 @@ document.getElementById('journal-history').addEventListener('click', async e => 
   const status = form.querySelector('.jaf-status');
 
   const rows = [...form.querySelectorAll('.jaf-row')].map(tr => ({
-    word:    tr.querySelector('.jaf-word').value.trim(),
-    meaning: tr.querySelector('.jaf-meaning').value.trim(),
-    native:  tr.querySelector('.jaf-native').value.trim() || null,
+    word:     tr.querySelector('.jaf-word').value.trim(),
+    meaning:  tr.querySelector('.jaf-meaning').value.trim(),
+    native:   tr.querySelector('.jaf-native').value.trim() || null,
+    sentence: tr.querySelector('.jaf-sentence').value.trim() || null,
   })).filter(r => r.word && r.meaning);
 
   if (!rows.length) {
@@ -2986,7 +3032,7 @@ document.getElementById('journal-history').addEventListener('click', async e => 
   let added = 0, skipped = 0;
   for (const row of rows) {
     const res = await api('POST', '/api/cards',
-      { deck_id: deck.id, word: row.word, meaning: row.meaning, native: row.native, source_log_id: logId });
+      { deck_id: deck.id, word: row.word, meaning: row.meaning, native: row.native, sentence: row.sentence, source_log_id: logId });
     if (res?.status === 201)    added++;
     else if (res?.status === 409) skipped++;
   }

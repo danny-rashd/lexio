@@ -82,10 +82,11 @@ def parse_vocab_file(file_path: Path) -> list[dict]:
                 continue
             word = row[0].strip()
             meaning = row[1].strip() if len(row) > 1 else ""
-            native = row[2].strip() if len(row) > 2 else ""
+            native   = row[2].strip() if len(row) > 2 else ""
+            sentence = row[3].strip() if len(row) > 3 else ""
             if not word or not meaning:
                 continue
-            rows.append({"word": word, "meaning": meaning, "native": native or None})
+            rows.append({"word": word, "meaning": meaning, "native": native or None, "sentence": sentence or None})
 
     return rows
 
@@ -145,8 +146,14 @@ def import_rows(
                 word=r["word"],
                 meaning=r["meaning"],
                 native=r["native"],
+                sentence=r.get("sentence"),
                 idempotency_key=key,
             ))
+        elif key in existing_keys and r.get("sentence"):
+            db.query(Card).filter(
+                Card.idempotency_key == key,
+                Card.sentence.is_(None),
+            ).update({"sentence": r["sentence"]})
 
     db.add_all(new_cards)
 

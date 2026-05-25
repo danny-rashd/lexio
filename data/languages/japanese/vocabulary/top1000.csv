@@ -1,1015 +1,1015 @@
-word,meaning,native
+word,meaning,native,sentence
 # ── Verbs ────────────────────────────────────────────────────────────────────
-iru,to be / to exist (animate),いる
-aru,to be / to exist (inanimate),ある
-suru,to do,する
-iku,to go,行く
-kuru,to come,来る
-miru,to see / to look,見る
-kiku,to hear / to listen / to ask,聞く
-iu,to say,言う
-omou,to think,思う
-wakaru,to understand,わかる
-shiru,to know,知る
-naru,to become,なる
-tsukau,to use,使う
-taberu,to eat,食べる
-nomu,to drink,飲む
-kaku,to write,書く
-yomu,to read,読む
-hanasu,to speak / to talk,話す
-au,to meet,会う
-kaeru,to return / to go home,帰る
-deru,to leave / to exit,出る
-hairu,to enter,入る
-mitsukeru,to find,見つける
-motsu,to hold / to have,持つ
-okiru,to wake up / to happen,起きる
-neru,to sleep,寝る
-hashiru,to run,走る
-aruku,to walk,歩く
-oyogu,to swim,泳ぐ
-tobu,to fly / to jump,飛ぶ
-tsukuru,to make / to create,作る
-kowasu,to break,壊す
-haku,to put on (shoes/pants),はく
-kiru,to wear / to cut,着る
-nugु,to take off (clothes),脱ぐ
-noseru,to put on / to load,乗せる
-oriru,to get off / to come down,降りる
-nooru,to ride / to get on,乗る
-toru,to take / to pick up,取る
-okuru,to send,送る
-morau,to receive,もらう
-ageru,to give (to someone),あげる
-kureru,to give (to me),くれる
-kasu,to lend,貸す
-kariru,to borrow,借りる
-kau,to buy,買う
-uru,to sell,売る
-harau,to pay,払う
-sagasu,to search / to look for,探す
-mitsukaru,to be found,見つかる
-katsu,to win,勝つ
-makeru,to lose,負ける
-isogु,to hurry,急ぐ
-tomaru,to stop / to stay,止まる
-hajimeru,to begin,始める
-owaru,to end / to finish,終わる
-kangaeru,to think / to consider,考える
-kimeru,to decide,決める
-erabu,to choose,選ぶ
-narau,to learn / to take lessons,習う
-oshieru,to teach / to tell,教える
-tasukeru,to help / to rescue,助ける
-tetsudau,to help / to assist,手伝う
-naosu,to fix / to correct,直す
-kesu,to erase / to turn off,消す
-tsukeru,to attach / to turn on,つける
-hiraku,to open,開く
-shimeru,to close,閉める
-dasu,to take out / to send,出す
-ireru,to put in,入れる
-suteru,to throw away,捨てる
-katazukeru,to tidy up,片付ける
-arau,to wash,洗う
-soji suru,to clean,掃除する
-ryori suru,to cook,料理する
-benkyou suru,to study,勉強する
-shigoto suru,to work,仕事する
-undou suru,to exercise,運動する
-ryokou suru,to travel,旅行する
-sanpo suru,to take a walk,散歩する
-denwa suru,to make a phone call,電話する
-yobi suru,to invite,予備する
-keikaku suru,to plan,計画する
-junbi suru,to prepare,準備する
-setsumei suru,to explain,説明する
-soudan suru,to consult,相談する
-renshuu suru,to practice,練習する
-kakunin suru,to confirm,確認する
-chuumon suru,to order,注文する
-yoyaku suru,to reserve,予約する
+iru,to be / to exist (animate),いる,猫がここに{{いる}}。
+aru,to be / to exist (inanimate),ある,机の上に本が{{ある}}。
+suru,to do,する,毎日勉強を{{する}}。
+iku,to go,行く,明日公園に{{行く}}。
+kuru,to come,来る,友達が家に{{来る}}。
+miru,to see / to look,見る,映画を{{見る}}のが好きです。
+kiku,to hear / to listen / to ask,聞く,先生の説明を{{聞く}}。
+iu,to say,言う,私は彼に{{言う}}。
+omou,to think,思う,これはいい考えだと{{思う}}。
+wakaru,to understand,わかる,日本語の意味が{{わかる}}。
+shiru,to know,知る,その話を{{知る}}。
+naru,to become,なる,春になると暖かく{{なる}}。
+tsukau,to use,使う,ペンを{{使う}}して書きます。
+taberu,to eat,食べる,朝ごはんを{{食べる}}。
+nomu,to drink,飲む,水を{{飲む}}。
+kaku,to write,書く,日記を{{書く}}。
+yomu,to read,読む,新聞を毎日{{読む}}。
+hanasu,to speak / to talk,話す,友達と日本語を{{話す}}。
+au,to meet,会う,来週友達に{{会う}}。
+kaeru,to return / to go home,帰る,仕事が終わって{{帰る}}。
+deru,to leave / to exit,出る,朝七時に家を{{出る}}。
+hairu,to enter,入る,教室に{{入る}}。
+mitsukeru,to find,見つける,失くした鍵を{{見つける}}。
+motsu,to hold / to have,持つ,荷物を{{持つ}}。
+okiru,to wake up / to happen,起きる,毎朝六時に{{起きる}}。
+neru,to sleep,寝る,夜十時に{{寝る}}。
+hashiru,to run,走る,公園で子どもが{{走る}}。
+aruku,to walk,歩く,駅から家まで{{歩く}}。
+oyogu,to swim,泳ぐ,夏にプールで{{泳ぐ}}。
+tobu,to fly / to jump,飛ぶ,鳥が空に{{飛ぶ}}。
+tsukuru,to make / to create,作る,母が夕食を{{作る}}。
+kowasu,to break,壊す,子どもがおもちゃを{{壊す}}。
+haku,to put on (shoes/pants),はく,靴を{{はく}}。
+kiru,to wear / to cut,着る,新しいシャツを{{着る}}。
+nugu,to take off (clothes),脱ぐ,暑いので、シャツを{{脱ぐ}}ことにしました。
+noseru,to put on / to load,乗せる,荷物を車に{{乗せる}}。
+oriru,to get off / to come down,降りる,駅で電車から{{降りる}}。
+nooru,to ride / to get on,乗る,自転車に{{乗る}}。
+toru,to take / to pick up,取る,机の上の本を{{取る}}。
+okuru,to send,送る,手紙を友達に{{送る}}。
+morau,to receive,もらう,兄からプレゼントを{{もらう}}。
+ageru,to give (to someone),あげる,母に花を{{あげる}}。
+kureru,to give (to me),くれる,先生が私に本を{{くれる}}。
+kasu,to lend,貸す,友達にお金を{{貸す}}。
+kariru,to borrow,借りる,図書館で本を{{借りる}}。
+kau,to buy,買う,スーパーで野菜を{{買う}}。
+uru,to sell,売る,古い服を店に{{売る}}。
+harau,to pay,払う,レストランでお金を{{払う}}。
+sagasu,to search / to look for,探す,鍵を{{探す}}。
+mitsukaru,to be found,見つかる,失くした携帯が{{見つかる}}。
+katsu,to win,勝つ,試合に{{勝つ}}ために毎日練習しています。
+makeru,to lose,負ける,彼は去年の試合で{{負ける}}ことになった。
+isogu,to hurry,急ぐ,電車に乗り遅れないように{{急ぐ}}必要があります。
+tomaru,to stop / to stay,止まる,赤信号で車が{{止まる}}。
+hajimeru,to begin,始める,授業は九時に{{始める}}予定です。
+owaru,to end / to finish,終わる,映画は十時に{{終わる}}でしょう。
+kangaeru,to think / to consider,考える,この問題について{{考える}}のは難しい。
+kimeru,to decide,決める,どの色を選ぶか今{{決める}}必要があります。
+erabu,to choose,選ぶ,メニューから好きな料理を{{選ぶ}}ことができます。
+narau,to learn / to take lessons,習う,私は毎週ピアノを{{習う}}。
+oshieru,to teach / to tell,教える,先生が私たちに新しい文法を{{教える}}。
+tasukeru,to help / to rescue,助ける,困っている人を{{助ける}}ことは大切です。
+tetsudau,to help / to assist,手伝う,母が料理の準備を{{手伝う}}。
+naosu,to fix / to correct,直す,壊れた時計を修理屋に{{直す}}。
+kesu,to erase / to turn off,消す,寝る前にライトを{{消す}}。
+tsukeru,to attach / to turn on,つける,朝エアコンを{{つける}}。
+hiraku,to open,開く,朝窓を{{開く}}と新鮮な空気が入ります。
+shimeru,to close,閉める,出かける前にドアを{{閉める}}。
+dasu,to take out / to send,出す,ゴミを毎週火曜日に{{出す}}。
+ireru,to put in,入れる,コーヒーカップにお湯を{{入れる}}。
+suteru,to throw away,捨てる,使わない物を{{捨てる}}ことにしました。
+katazukeru,to tidy up,片付ける,部屋を{{片付ける}}のに時間がかかります。
+arau,to wash,洗う,食事の後に食器を{{洗う}}。
+soji suru,to clean,掃除する,毎週土曜日に家全体を{{掃除する}}。
+ryori suru,to cook,料理する,夜食事の{{料理する}}のは楽しいです。
+benkyou suru,to study,勉強する,図書館で毎日{{勉強する}}。
+shigoto suru,to work,仕事する,彼は毎日朝から晩まで{{仕事する}}。
+undou suru,to exercise,運動する,健康のために毎朝{{運動する}}。
+ryokou suru,to travel,旅行する,来月家族と日本に{{旅行する}}予定です。
+sanpo suru,to take a walk,散歩する,天気が良い日は公園を{{散歩する}}。
+denwa suru,to make a phone call,電話する,明日彼に{{電話する}}つもりです。
+yobi suru,to invite,予備する,誕生日パーティーに友達を{{予備する}}。
+keikaku suru,to plan,計画する,来年の{{計画する}}を今から立てています。
+junbi suru,to prepare,準備する,試験のために{{準備する}}が必要です。
+setsumei suru,to explain,説明する,先生が難しい理論を{{説明する}}。
+soudan suru,to consult,相談する,進路について親に{{相談する}}しました。
+renshuu suru,to practice,練習する,上達するために毎日{{練習する}}。
+kakunin suru,to confirm,確認する,出発前に荷物を{{確認する}}。
+chuumon suru,to order,注文する,レストランで料理を{{注文する}}。
+yoyaku suru,to reserve,予約する,旅行前にホテルを{{予約する}}。
 # ── Nouns ────────────────────────────────────────────────────────────────────
-jikan,time,時間
-nen,year,年
-jinsei,life,人生
-otoko,man,男
-onna,woman,女
-hi,day,日
-mono,thing,もの
-bubun,part,部分
-basho,place,場所
-toki,time / moment,時
-houhou,way / method,方法
-hito,person,人
-te,hand,手
-sekai,world,世界
-kai,time (occurrence),回
-baai,case / situation,場合
-shigoto,work / job,仕事
-mondai,problem,問題
-kuni,country,国
-machi,town / city,町
-ie,house / home,家
-mizu,water,水
-guruupu,group,グループ
-kaisha,company,会社
-namae,name,名前
-kazu,number,数
-katachi,shape / form,形
-shisutemu,system,システム
-rei,example,例
-ten,point,点
-seifu,government,政府
-jouhou,information,情報
-rekishi,history,歴史
-kazoku,family,家族
-shakai,society,社会
-reberu,level,レベル
-shurui,type / kind,種類
-kankei,relationship,関係
-katei,process,過程
-saabisu,service,サービス
-seiji,politics,政治
-henka,change,変化
-kekka,result,結果
-okane,money,お金
-tsuki,month,月
-shuu,week,週
-yoru,night,夜
-asa,morning,朝
-gogo,afternoon,午後
-yuu,evening,夕
-fun,minute,分
-byou,second,秒
-seiki,century,世紀
-mirai,future,未来
-kako,past,過去
-genzai,present,現在
-hajimari,beginning,始まり
-owari,end,終わり
-chuushin,centre,中心
-kita,north,北
-minami,south,南
-higashi,east,東
-nishi,west,西
-michi,road / path,道
-tobira,door,扉
-mado,window,窓
-yuka,floor,床
-tenjou,ceiling,天井
-kabe,wall,壁
-heya,room,部屋
-daidokoro,kitchen,台所
-ofuro,bath / bathroom,お風呂
-niwa,garden,庭
-tatemono,building,建物
-apato,apartment,アパート
-hoteru,hotel,ホテル
-byouin,hospital,病院
-gakkou,school,学校
-daigaku,university,大学
-toshokan,library,図書館
-mise,shop / store,店
-ichiba,market,市場
-ginkou,bank,銀行
-otera,temple,お寺
-kouen,park,公園
-kaigan,beach,海岸
-yama,mountain,山
-kawa,river,川
-mizuumi,lake,湖
-umi,sea,海
-mori,forest,森
-nohara,field,野原
-sora,sky,空
-taiyou,sun,太陽
-hoshi,star,星
-kumo,cloud,雲
-ame,rain,雨
-yuki,snow,雪
-kaze,wind,風
-tsuchi,earth / soil,土
-ishi,stone,石
-ki,tree,木
-hana,flower,花
-shokubutsu,plant,植物
-kusa,grass,草
-doubutsu,animal,動物
-inu,dog,犬
-neko,cat,猫
-tori,bird,鳥
-sakana,fish,魚
-uma,horse,馬
-ushi,cow,牛
-karada,body,体
-atama,head,頭
-kao,face,顔
-me,eye,目
-kuchi,mouth,口
-mimi,ear,耳
-ha,tooth,歯
-shita,tongue,舌
-kubi,neck,首
-kata,shoulder,肩
-ude,arm,腕
-hiji,elbow,肘
-tekubi,wrist,手首
-yubi,finger,指
-ashi,leg / foot,足
-hiza,knee,膝
-shinzou,heart,心臓
-hai,lung,肺
-i,stomach,胃
-nou,brain,脳
-chi,blood,血
-hone,bone,骨
-kinniku,muscle,筋肉
-hada,skin,肌
-kami,hair,髪
-fuku,clothes,服
-shatsu,shirt,シャツ
-zubon,trousers,ズボン
-sukato,skirt,スカート
-doresu,dress,ドレス
-jaketto,jacket,ジャケット
-kooto,coat,コート
-kutsu,shoes,靴
-kutsushita,socks,靴下
-boushi,hat,帽子
-maafuraa,scarf,マフラー
-tebukuro,gloves,手袋
-pan,bread,パン
-gohan,cooked rice / meal,ご飯
-pasuta,pasta,パスタ
-niku,meat,肉
-toriniku,chicken,鶏肉
-tamago,egg,卵
-gyuunyuu,milk,牛乳
-chiiizu,cheese,チーズ
-bataa,butter,バター
-abura,oil,油
-shio,salt,塩
-satou,sugar,砂糖
-koohii,coffee,コーヒー
-ocha,tea,お茶
-wain,wine,ワイン
-biiru,beer,ビール
-juusu,juice,ジュース
-kudamono,fruit,果物
-ringo,apple,りんご
-orenji,orange,オレンジ
-budou,grapes,ぶどう
-banana,banana,バナナ
-ichigo,strawberry,いちご
-remon,lemon,レモン
-tomato,tomato,トマト
-retasu,lettuce,レタス
-ninjin,carrot,にんじん
-tamanegi,onion,たまねぎ
-ninniku,garlic,にんにく
-jagaimo,potato,じゃがいも
-hon,book,本
-peeji,page,ページ
-tegami,letter,手紙
-shinbun,newspaper,新聞
-zasshi,magazine,雑誌
-nyuusu,news,ニュース
-shitsumon,question,質問
-kotae,answer,答え
-kangae,idea,考え
-iken,opinion,意見
-kotoba,word,言葉
-bun,sentence,文
-gengo,language,言語
-bunka,culture,文化
-geijutsu,art,芸術
-ongaku,music,音楽
-uta,song,歌
-eiga,film / movie,映画
-gekijou,theatre,劇場
-supootsu,sport,スポーツ
-sakkaa,football / soccer,サッカー
-tenisu,tennis,テニス
-suiei,swimming,水泳
-resu,race,レース
-chiimu,team,チーム
-geemu,game,ゲーム
-shouri,victory,勝利
-haiboku,defeat,敗北
-shouhin,prize,賞品
-ryokou,journey / trip,旅行
-yasumi,holiday / rest,休み
-koutsuu,transport,交通
-kuruma,car,車
-basu,bus,バス
-densha,train,電車
-hikouki,airplane,飛行機
-fune,ship,船
-jitensha,bicycle,自転車
-otobai,motorcycle,オートバイ
-kippu,ticket,切符
-pasupooto,passport,パスポート
-suutsu,suitcase,スーツケース
-chizu,map,地図
-gijutsu,technology,技術
-pasokon,computer,パソコン
-denwa,phone,電話
-intaanetto,internet,インターネット
-gamen,screen,画面
-kiibodo,keyboard,キーボード
-kamera,camera,カメラ
-terebi,television,テレビ
-rajio,radio,ラジオ
-akari,light,明かり
-oto,sound,音
-iro,colour,色
-ao,blue,青
-midori,green,緑
-kiiro,yellow,黄色
-kuro,black,黒
-shiro,white,白
-haiiro,grey,灰色
-itami,pain,痛み
-byouki,illness,病気
-kusuri,medicine,薬
-isha,doctor,医者
-kangoshi,nurse,看護師
-kenkou,health,健康
-kokoro,mind / heart,心
-kimochi,feeling / emotion,気持ち
-kyoufu,fear,恐怖
-yorokobi,joy,喜び
-kanashimi,sadness,悲しみ
-ai,love,愛
-nikushimi,hate,憎しみ
-kibou,hope,希望
-shinjitsu,truth,真実
-uso,lie,嘘
-seigi,justice,正義
-houritsu,law,法律
-keisatsu,police,警察
-sensou,war,戦争
-heiwa,peace,平和
-jiko,accident,事故
-kiken,danger,危険
-anzen,safety,安全
-seikou,success,成功
-shippai,failure,失敗
-konnan,difficulty,困難
-kaiketsu,solution,解決
-kikai,opportunity,機会
-kenri,right,権利
-sekinin,responsibility,責任
-jiyu,freedom,自由
-byoudou,equality,平等
-komyuniti,community,コミュニティ
-kokumin,nation / people,国民
-chiiki,region,地域
-shuto,capital city,首都
-jinkou,population,人口
-keizai,economy,経済
-boueki,trade,貿易
-sangyou,industry,産業
-nougyou,agriculture,農業
-kankyou,environment,環境
-shizen,nature,自然
-enerugii,energy,エネルギー
-shigen,resource,資源
-osen,pollution,汚染
-kikou,climate,気候
-ondo,temperature,温度
+jikan,time,時間,この{{時間}}に何をしていましたか。
+nen,year,年,去年は二千二十{{年}}でした。
+jinsei,life,人生,{{人生}}は予想できないものです。
+otoko,man,男,その{{男}}は背が高いです。
+onna,woman,女,彼女は優しい{{女}}です。
+hi,day,日,明日は金曜{{日}}ですね。
+mono,thing,もの,机の上にいろいろな{{もの}}があります。
+bubun,part,部分,この{{部分}}が一番大事です。
+basho,place,場所,公園は遊ぶのに良い{{場所}}です。
+toki,time / moment,時,忙しい{{時]]に手伝ってくれました。
+houhou,way / method,方法,この{{方法}}は最も効率的で安全です。
+hito,person,人,その{{人}}は毎日ここで働いています。
+te,hand,手,{{手}}を上げて質問してください。
+sekai,world,世界,{{世界}}中の人々が平和を望んでいます。
+kai,time (occurrence),回,私は{{回}}数えて確認しました。
+baai,case / situation,場合,{{場合}}によっては異なる答えになります。
+shigoto,work / job,仕事,彼の{{仕事}}は毎日忙しいです。
+mondai,problem,問題,この{{問題}}を解く方法を知っていますか。
+kuni,country,国,日本は東アジアの{{国}}です。
+machi,town / city,町,この{{町}}は山の近くにあります。
+ie,house / home,家,私の{{家}}は川のそばにあります。
+mizu,water,水,毎日新鮮な{{水}}を飲みます。
+guruupu,group,グループ,私たちの{{グループ}}は五人です。
+kaisha,company,会社,彼は大きな{{会社}}で働いています。
+namae,name,名前,あなたの{{名前}}は何ですか。
+kazu,number,数,この{{数}}は十より大きいです。
+katachi,shape / form,形,円の{{形]]は非常に美しいです。
+shisutemu,system,システム,新しい{{システム}}は来週から始まります。
+rei,example,例,{{例]]えば、りんごは赤い果物です。
+ten,point,点,テストで九十{{点]]を取りました。
+seifu,government,政府,{{政府]]は新しい法律を作りました。
+jouhou,information,情報,正確な{{情報]]をください。
+rekishi,history,歴史,日本の{{歴史]]は非常に興味深いです。
+kazoku,family,家族,私の{{家族]]は五人です。
+shakai,society,社会,現代{{社会]]は複雑です。
+reberu,level,レベル,この{{レベル]]は初級です。
+shurui,type / kind,種類,様々な{{種類]]の野菜があります。
+kankei,relationship,関係,その{{関係]]は非常に重要です。
+katei,process,過程,学習の{{過程]]は時間がかかります。
+saabisu,service,サービス,このお店の{{サービス]]は良いです。
+seiji,politics,政治,{{政治]]についてもっと学びたいです。
+henka,change,変化,季節の{{変化]]は自然です。
+kekka,result,結果,その{{結果]]は予想と異なります。
+okane,money,お金,{{お金]]は生活に必要です。
+tsuki,month,月,この{{月]]は特に寒いです。
+shuu,week,週,毎{{週]]月曜日にレッスンがあります。
+yoru,night,夜,{{夜]]は星がきれいに見えます。
+asa,morning,朝,毎{{朝]]六時に起きます。
+gogo,afternoon,午後,{{午後]]に友達と遊びます。
+yuu,evening,夕,{{夕]]方に散歩をします。
+fun,minute,分,五{{分]]待ってください。
+byou,second,秒,三十{{秒]]でその問題を解きました。
+seiki,century,世紀,二十一{{世紀]]は現代です。
+mirai,future,未来,{{未来]]は明るいと思います。
+kako,past,過去,{{過去]]から多くを学びました。
+genzai,present,現在,{{現在]]私は学生です。
+hajimari,beginning,始まり,物語の{{始まり]]は非常に面白いです。
+owari,end,終わり,映画の{{終わり]]は感動的でした。
+chuushin,centre,中心,都市の{{中心]]に大きな公園があります。
+kita,north,北,{{北]]の方は山が多いです。
+minami,south,南,公園は駅の{{南}}にあります。
+higashi,east,東,太陽は毎朝{{東}}から昇ります。
+nishi,west,西,夕日は{{西}}の空に沈みます。
+michi,road / path,道,学校へ行く{{道}}は長いです。
+tobira,door,扉,部屋の{{扉}}を開けてください。
+mado,window,窓,{{窓}}から海が見えます。
+yuka,floor,床,{{床}}に荷物を置いてはいけません。
+tenjou,ceiling,天井,{{天井}}のライトが壊れています。
+kabe,wall,壁,{{壁}}に絵を掛けました。
+heya,room,部屋,{{部屋}}は広くて明るいです。
+daidokoro,kitchen,台所,{{台所}}で母が料理しています。
+ofuro,bath / bathroom,お風呂,{{お風呂}}に入りたいです。
+niwa,garden,庭,{{庭}}に花がたくさん咲いています。
+tatemono,building,建物,この{{建物}}は百年前に作られました。
+apato,apartment,アパート,私は{{アパート}}の三階に住んでいます。
+hoteru,hotel,ホテル,{{ホテル}}の部屋はとても快適でした。
+byouin,hospital,病院,妹は{{病院}}で医者に診てもらいました。
+gakkou,school,学校,毎日{{学校}}に歩いて行きます。
+daigaku,university,大学,兄は{{大学}}で物理を勉強しています。
+toshokan,library,図書館,{{図書館}}で本を三冊借りました。
+mise,shop / store,店,近くの{{店}}でパンを買いました。
+ichiba,market,市場,日曜日に{{市場}}へ野菜を買いに行きます。
+ginkou,bank,銀行,{{銀行}}でお金を引き出しました。
+otera,temple,お寺,京都の{{お寺}}は本当に美しいです。
+kouen,park,公園,{{公園}}で子供たちが遊んでいます。
+kaigan,beach,海岸,夏は{{海岸}}で泳ぐのが好きです。
+yama,mountain,山,{{山}}の頂上から景色が見えます。
+kawa,river,川,{{川}}で魚がたくさん泳いでいます。
+mizuumi,lake,湖,{{湖}}の水はとても冷たいです。
+umi,sea,海,{{海}}に行ってサーフィンをしたいです。
+mori,forest,森,{{森}}の中を散歩するのは気持ちいいです。
+nohara,field,野原,{{野原}}に咲く花は素晴らしい。
+sora,sky,空,{{空}}が青くて気持ちがいいです。
+taiyou,sun,太陽,{{太陽}}が照っていて暑いです。
+hoshi,star,星,夜空に{{星}}がたくさん輝いています。
+kumo,cloud,雲,{{雲}}が空を覆っています。
+ame,rain,雨,今日は{{雨}}が降るでしょう。
+yuki,snow,雪,冬に{{雪}}が積もりました。
+kaze,wind,風,{{風}}が強く吹いています。
+tsuchi,earth / soil,土,{{土}}を耕して野菜を植えました。
+ishi,stone,石,{{石}}を積み重ねて塀を作りました。
+ki,tree,木,このテーブルは{{木}}で作られています。
+hana,flower,花,春に{{花}}がいろいろ咲きます。
+shokubutsu,plant,植物,この{{植物}}は毎日水をやります。
+kusa,grass,草,{{草}}を刈る必要があります。
+doubutsu,animal,動物,{{動物}}園で色々な動物を見ました。
+inu,dog,犬,私の家の{{犬}}はとても賢いです。
+neko,cat,猫,{{猫}}は日中ずっと寝ています。
+tori,bird,鳥,朝の{{鳥}}の鳴き声で起きました。
+sakana,fish,魚,{{魚}}は水がきれいな川に住みます。
+uma,horse,馬,牧場に{{馬}}がたくさんいます。
+ushi,cow,牛,農家の{{牛}}は毎日働きます。
+karada,body,体,健康な{{体}}を保つことは大切です。
+atama,head,頭,彼の{{頭}}はとても良いです。
+kao,face,顔,彼女の{{顔}}はとても美しいです。
+me,eye,目,猫の{{目}}は暗い所で光ります。
+kuchi,mouth,口,{{口}}を大きく開けて歌います。
+mimi,ear,耳,犬の{{耳}}は長くて柔らかいです。
+ha,tooth,歯,毎日{{歯}}を磨くことが大切です。
+shita,tongue,舌,{{舌}}で食べ物の味を感じます。
+kubi,neck,首,彼の{{首}}にはネックレスがあります。
+kata,shoulder,肩,重い荷物で{{肩}}が痛いです。
+ude,arm,腕,彼は{{腕}}の力が強いです。
+hiji,elbow,肘,{{肘}}をテーブルに置いてはいけません。
+tekubi,wrist,手首,{{手首}}の時計がとても高いです。
+yubi,finger,指,{{指}}で画面をタッチします。
+ashi,leg / foot,足,毎日{{足}}で走って運動します。
+hiza,knee,膝,{{膝}}を曲げてしゃがみます。
+shinzou,heart,心臓,{{心臓}}は体の中で重要な器官です。
+hai,lung,肺,{{肺}}で空気を吸い込みます。
+i,stomach,胃,{{胃}}が痛いので病院に行きました。
+nou,brain,脳,人間の{{脳}}は非常に複雑です。
+chi,blood,血,{{血}}が体中を流れています。
+hone,bone,骨,{{骨}}は体を支える役割があります。
+kinniku,muscle,筋肉,運動することで{{筋肉}}が強くなります。
+hada,skin,肌,良い{{肌}}を保つため毎日ケアします。
+kami,hair,髪,彼女の{{髪}}はロングでとても綺麗です。
+fuku,clothes,服,今日着る{{服}}を選んでいます。
+shatsu,shirt,シャツ,白い{{シャツ}}が欲しいです。
+zubon,trousers,ズボン,新しい{{ズボン}}を買いました。
+sukato,skirt,スカート,赤い{{スカート}}はとても可愛いです。
+doresu,dress,ドレス,結婚式に{{ドレス}}を着ます。
+jaketto,jacket,ジャケット,冬に{{ジャケット}}を着て出かけます。
+kooto,coat,コート,暖かい{{コート}}を着ています。
+kutsu,shoes,靴,新しい{{靴}}を履いて歩きます。
+kutsushita,socks,靴下,{{靴下}}が片方なくなりました。
+boushi,hat,帽子,日差しから{{帽子}}をかぶります。
+maafuraa,scarf,マフラー,冬に{{マフラー}}を巻いて出かけます。
+tebukuro,gloves,手袋,寒い日は{{手袋}}をはめます。
+pan,bread,パン,毎朝{{パン}}を食べます。
+gohan,cooked rice / meal,ご飯,{{ご飯}}をいただきます。
+pasuta,pasta,パスタ,イタリアンレストランで{{パスタ}}を食べました。
+niku,meat,肉,夜ご飯に{{肉}}を焼きます。
+toriniku,chicken,鶏肉,{{鶏肉}}はヘルシーな食べ物です。
+tamago,egg,卵,朝食に{{卵}}を焼いて食べます。
+gyuunyuu,milk,牛乳,毎朝{{牛乳}}を飲みます。
+chiiizu,cheese,チーズ,{{チーズ}}をパンにのせて食べます。
+bataa,butter,バター,{{バター}}をパンに塗ります。
+abura,oil,油,料理に{{油}}を使って炒めます。
+shio,salt,塩,食べ物に{{塩}}をかけて食べます。
+satou,sugar,砂糖,コーヒーに{{砂糖}}を入れます。
+koohii,coffee,コーヒー,毎朝{{コーヒー}}を飲みます。
+ocha,tea,お茶,{{お茶}}は日本の文化です。
+wain,wine,ワイン,夜{{ワイン}}を一杯飲みました。
+biiru,beer,ビール,夏{{ビール}}がとても美味しいです。
+juusu,juice,ジュース,子供はオレンジ{{ジュース}}が好きです。
+kudamono,fruit,果物,毎日{{果物}}を食べています。
+ringo,apple,りんご,{{りんご}}は赤くて甘いです。
+orenji,orange,オレンジ,{{オレンジ}}はビタミンCが多いです。
+budou,grapes,ぶどう,{{ぶどう}}をたくさん買いました。
+banana,banana,バナナ,朝食で{{バナナ}}を食べます。
+ichigo,strawberry,いちご,{{いちご}}ケーキは美味しいです。
+remon,lemon,レモン,紅茶に{{レモン}}を絞りました。
+tomato,tomato,トマト,サラダに{{トマト}}を入れました。
+retasu,lettuce,レタス,{{レタス}}は新鮮で緑です。
+ninjin,carrot,にんじん,{{にんじん}}はオレンジ色ですね。
+tamanegi,onion,たまねぎ,{{たまねぎ}}は辛い野菜です。
+ninniku,garlic,にんにく,{{にんにく}}の香りは強いです。
+jagaimo,potato,じゃがいも,{{じゃがいも}}でポテトを作ります。
+hon,book,本,図書館で{{本}}を借りました。
+peeji,page,ページ,この{{ページ}}は読みにくいです。
+tegami,letter,手紙,友達に{{手紙}}を送りました。
+shinbun,newspaper,新聞,毎日{{新聞}}を読みます。
+zasshi,magazine,雑誌,{{雑誌}}に興味深い記事があります。
+nyuusu,news,ニュース,{{ニュース}}を見ました。
+shitsumon,question,質問,先生に{{質問}}があります。
+kotae,answer,答え,その{{答え}}は正しいです。
+kangae,idea,考え,いい{{考え}}をありがとう。
+iken,opinion,意見,彼の{{意見}}に賛成します。
+kotoba,word,言葉,この{{言葉}}の意味は何ですか。
+bun,sentence,文,これは長い{{文}}です。
+gengo,language,言語,{{言語}}を勉強するのは楽しいです。
+bunka,culture,文化,日本の{{文化}}は素晴らしいです。
+geijutsu,art,芸術,{{芸術}}は人生を豊かにします。
+ongaku,music,音楽,{{音楽}}を聞くのが好きです。
+uta,song,歌,新しい{{歌}}を歌っています。
+eiga,film / movie,映画,昨日{{映画}}を見ました。
+gekijou,theatre,劇場,{{劇場}}でオペラを観ました。
+supootsu,sport,スポーツ,{{スポーツ}}は健康に良いです。
+sakkaa,football / soccer,サッカー,子供は{{サッカー}}をしています。
+tenisu,tennis,テニス,{{テニス}}のコートは綺麗です。
+suiei,swimming,水泳,{{水泳}}は運動です。
+resu,race,レース,{{レース}}に出場しました。
+chiimu,team,チーム,私たちの{{チーム}}が勝ちました。
+geemu,game,ゲーム,{{ゲーム}}をしましょう。
+shouri,victory,勝利,最後の{{勝利}}は素晴らしかったです。
+haiboku,defeat,敗北,{{敗北}}から学ぶことが多いです。
+shouhin,prize,賞品,優勝者は{{賞品}}をもらいました。
+ryokou,journey / trip,旅行,来月{{旅行}}に行きます。
+yasumi,holiday / rest,休み,週末{{休み}}です。
+koutsuu,transport,交通,毎日{{交通}}機関を使って通勤しています。
+kuruma,car,車,新しい{{車}}を買いました。
+basu,bus,バス,朝{{バス}}で学校に行きます。
+densha,train,電車,{{電車}}は時間に正確です。
+hikouki,airplane,飛行機,{{飛行機}}で日本に来ました。
+fune,ship,船,大きい{{船}}が港にいます。
+jitensha,bicycle,自転車,毎日{{自転車}}で公園へ行きます。
+otobai,motorcycle,オートバイ,兄は{{オートバイ}}で仕事に行きます。
+kippu,ticket,切符,{{切符}}を買ってから乗ります。
+pasupooto,passport,パスポート,旅行に{{パスポート}}が必要です。
+suutsu,suitcase,スーツケース,{{スーツケース}}に荷物を入れました。
+chizu,map,地図,{{地図}}を見ながら歩きます。
+gijutsu,technology,技術,新しい{{技術}}が開発されました。
+pasokon,computer,パソコン,毎日{{パソコン}}で仕事をします。
+denwa,phone,電話,{{電話}}で友達に連絡しました。
+intaanetto,internet,インターネット,{{インターネット}}で情報を探します。
+gamen,screen,画面,{{画面}}に映像が表示されます。
+kiibodo,keyboard,キーボード,{{キーボード}}でメールを入力します。
+kamera,camera,カメラ,{{カメラ}}で写真を撮りました。
+terebi,television,テレビ,毎晩{{テレビ}}を見ています。
+rajio,radio,ラジオ,朝{{ラジオ}}を聞きます。
+akari,light,明かり,夜{{明かり}}をつけます。
+oto,sound,音,大きい{{音}}がします。
+iro,colour,色,好きな{{色}}は何ですか。
+ao,blue,青,空は{{青}}いです。
+midori,green,緑,草は{{緑}}色です。
+kiiro,yellow,黄色,バナナは{{黄色}}です。
+kuro,black,黒,{{黒}}いペンを使っています。
+shiro,white,白,雪は{{白}}いです。
+haiiro,grey,灰色,{{灰色}}の服を着ています。
+itami,pain,痛み,頭の{{痛み}}があります。
+byouki,illness,病気,{{病気}}になったので休みました。
+kusuri,medicine,薬,{{薬}}を飲んでください。
+isha,doctor,医者,{{医者}}に診てもらいました。
+kangoshi,nurse,看護師,{{看護師}}が親切です。
+kenkou,health,健康,{{健康}}が一番大事です。
+kokoro,mind / heart,心,{{心}}が痛いです。
+kimochi,feeling / emotion,気持ち,良い{{気持ち}}になりました。
+kyoufu,fear,恐怖,{{恐怖}}を感じています。
+yorokobi,joy,喜び,{{喜び}}を感じました。
+kanashimi,sadness,悲しみ,深い{{悲しみ}}があります。
+ai,love,愛,親の{{愛}}は大切です。
+nikushimi,hate,憎しみ,{{憎しみ}}は良くないです。
+kibou,hope,希望,未来に{{希望}}を持っています。
+shinjitsu,truth,真実,{{真実}}を話してください。
+uso,lie,嘘,{{嘘}}をついてはいけません。
+seigi,justice,正義,{{正義}}のために戦います。
+houritsu,law,法律,{{法律}}を守るべきです。
+keisatsu,police,警察,{{警察}}に連絡しました。
+sensou,war,戦争,{{戦争}}は終わりました。
+heiwa,peace,平和,世界に{{平和}}がくることを願っています。
+jiko,accident,事故,高速道路で{{事故}}が起きました。
+kiken,danger,危険,この橋は{{危険}}なので渡らないでください。
+anzen,safety,安全,子どもの{{安全}}が最も大切です。
+seikou,success,成功,努力すれば{{成功}}することができます。
+shippai,failure,失敗,最初の試験は{{失敗}}してしまいました。
+konnan,difficulty,困難,この問題は{{困難}}ですが解けます。
+kaiketsu,solution,解決,良い{{解決}}方法を見つけました。
+kikai,opportunity,機会,新しい{{機会}}を逃してはいけません。
+kenri,right,権利,すべての人は平等な{{権利}}があります。
+sekinin,responsibility,責任,私たちは環境を守る{{責任}}があります。
+jiyu,freedom,自由,表現の{{自由}}は とても大切です。
+byoudou,equality,平等,社会における{{平等}}は重要な課題です。
+komyuniti,community,コミュニティ,私たちの{{コミュニティ}}は とても親切です。
+kokumin,nation / people,国民,日本の{{国民}}は約一億人です。
+chiiki,region,地域,私の{{地域}}には公園がたくさんあります。
+shuto,capital city,首都,東京は日本の{{首都}}です。
+jinkou,population,人口,世界の{{人口}}は年々増加しています。
+keizai,economy,経済,国の{{経済}}成長は大切です。
+boueki,trade,貿易,日本は多くの国と{{貿易}}をしています。
+sangyou,industry,産業,自動車{{産業}}は日本の重要な産業です。
+nougyou,agriculture,農業,{{農業}}は食料生産に欠かせません。
+kankyou,environment,環境,{{環境}}保全は私たちの責任です。
+shizen,nature,自然,{{自然}}の美しさに感動しました。
+enerugii,energy,エネルギー,再生可能な{{エネルギー}}の利用が増えています。
+shigen,resource,資源,天然{{資源}}を大切に使う必要があります。
+osen,pollution,汚染,空気の{{汚染}}が問題になっています。
+kikou,climate,気候,この地域の{{気候}}は温暖です。
+ondo,temperature,温度,今日の{{温度}}は三十度です。
 # ── Adjectives ───────────────────────────────────────────────────────────────
-ii,good,いい
-warui,bad,悪い
-ooki,big,大きい
-chiisai,small,小さい
-atarashii,new,新しい
-furui,old,古い
-wakai,young,若い
-takai,tall / expensive,高い
-hikui,low / short,低い
-nagai,long,長い
-mijikai,short,短い
-hiroi,wide / spacious,広い
-semai,narrow / small (space),狭い
-futoi,fat / thick,太い
-hosoi,thin,細い
-tsuyoi,strong,強い
-yowai,weak,弱い
-hayai,fast,速い
-osoi,slow / late,遅い
-yasashii,easy / kind,優しい
-muzukashii,difficult,難しい
-daiji,important,大事
-hitsuyou,necessary,必要
-kanousei,possibility / potential,可能性
-hontou,true / real,本当
-yuufu,rich,裕福
-mazushii,poor,貧しい
-ureshii,happy,嬉しい
-kanashii,sad,悲しい
-okotte iru,angry,怒っている
-ochitsuite iru,calm,落ち着いている
-kinchousuru,nervous,緊張する
-tsumaranai,boring,つまらない
-omoshiroi,interesting,面白い
-utsukushii,beautiful,美しい
-minikui,ugly,醜い
-kirei,clean / pretty,きれい
-kitanai,dirty,汚い
-ippai,full,いっぱい
-kara,empty,空
-aite iru,open,開いている
-shimatte iru,closed,閉まっている
-jiyuu,free,自由
-isogashii,busy,忠しい
-chigau,different,違う
-onaji,same,同じ
-tokubetsu,special,特別
-futsuu,normal,普通
-hen,strange,変
-yoku aru,common,よくある
-mezurashii,rare,珍しい
-kinkyu,urgent,緊急
-gendai,modern,現代
-kodai,ancient,古代
-jinkouteki,artificial,人工的
-taishiteki,physical,体質的
-seishinteki,mental,精神的
-shakaitekina,social,社会的な
-seijitekina,political,政治的な
-keizaiteki,economic,経済的
-bunkashiki,cultural,文化式
-kokuminteki,national,国民的
-kokusaiteki,international,国際的
-chiikiteki,local,地域的
-koukyou,public,公共
-watashiteki,private,私的
-kojin,personal,個人
-senmonka,professional,専門家
-kashikoi,intelligent / clever,賢い
-makajime,serious,真剣
-okashii,funny,おかしい
-shinsetsu,kind / friendly,親切
-shoujiki,honest,正直
-kimanai,generous,気前ない
-yuukan,brave,勇敢
-nintai,patient,忍耐
-kassei,active,活性
+ii,good,いい,このレストランの食事は{{いい}}です。
+warui,bad,悪い,その行動は{{悪い}}習慣です。
+ooki,big,大きい,富士山は{{大きい}}山です。
+chiisai,small,小さい,生まれたばかりの赤ちゃんは{{小さい}}です。
+atarashii,new,新しい,{{新しい}}携帯電話を買いました。
+furui,old,古い,この建物は{{古い}}です。
+wakai,young,若い,彼は{{若い}}から頑張ります。
+takai,tall / expensive,高い,この山は{{高い}}です。
+hikui,low / short,低い,その建物の天井は{{低い}}です。
+nagai,long,長い,この川は{{長い}}です。
+mijikai,short,短い,冬の昼間は{{短い}}です。
+hiroi,wide / spacious,広い,このグラウンドは{{広い}}です。
+semai,narrow / small (space),狭い,私たちの教室は{{狭い}}です。
+futoi,fat / thick,太い,象の足は{{太い}}です。
+hosoi,thin,細い,糸は{{細い}}です。
+tsuyoi,strong,強い,このロープは{{強い}}です。
+yowai,weak,弱い,病気の時は体が{{弱い}}です。
+hayai,fast,速い,光は{{速い}}です。
+osoi,slow / late,遅い,電車が{{遅い}}ので遅刻しました。
+yasashii,easy / kind,優しい,先生は{{優しい}}人です。
+muzukashii,difficult,難しい,この数学の問題は{{難しい}}です。
+daiji,important,大事,健康は人生で{{大事}}な事です。
+hitsuyou,necessary,必要,大学に入るために{{必要}}な勉強があります。
+kanousei,possibility / potential,可能性,彼の{{可能性}}は無限にあると思います。
+hontou,true / real,本当,それは{{本当}}の話ですか？
+yuufu,rich,裕福,彼は{{裕福}}な家族から来ました。
+mazushii,poor,貧しい,昔は{{貧しい}}生活をしていました。
+ureshii,happy,嬉しい,合格して{{嬉しい}}気持ちです。
+kanashii,sad,悲しい,友達が引っ越して{{悲しい}}です。
+okotte iru,angry,怒っている,先生は学生に{{怒っている}}ようです。
+ochitsuite iru,calm,落ち着いている,試験の時に{{落ち着いている}}ことが大切です。
+kinchousuru,nervous,緊張する,大事な発表で{{緊張する}}でしょう。
+tsumaranai,boring,つまらない,その映画は{{つまらない}}から見ません。
+omoshiroi,interesting,面白い,このゲームは{{面白い}}と思います。
+utsukushii,beautiful,美しい,桜は{{美しい}}花ですね。
+minikui,ugly,醜い,その絵は{{醜い}}と言われました。
+kirei,clean / pretty,きれい,彼女の部屋は{{きれい}}です。
+kitanai,dirty,汚い,靴が{{汚い}}から洗います。
+ippai,full,いっぱい,コップが水で{{いっぱい}}です。
+kara,empty,空,袋が{{空}}になりました。
+aite iru,open,開いている,窓が{{開いている}}からエアコンをつけます。
+shimatte iru,closed,閉まっている,ドアが{{閉まっている}}ので入れません。
+jiyuu,free,自由,週末は{{自由}}に過ごしたいです。
+isogashii,busy,忠しい,今月は{{忙しい}}ので休めません。
+chigau,different,違う,私の意見は彼の意見と{{違う}}。
+onaji,same,同じ,私たちは{{同じ}}学校に通います。
+tokubetsu,special,特別,今日は{{特別]]な日ですから。
+futsuu,normal,普通,これは{{普通]]の事です。
+hen,strange,変,彼の行動は{{変]]だと思います。
+yoku aru,common,よくある,田中さんはここに{{よくある]]ようです。
+mezurashii,rare,珍しい,この花は{{珍しい]]から見てください。
+kinkyu,urgent,緊急,これは{{緊急]]な問題です。
+gendai,modern,現代,{{現代]]の技術は素晴らしいです。
+kodai,ancient,古代,{{古代]]のエジプト文明を勉強します。
+jinkouteki,artificial,人工的,この物は{{人工的]]に作られました。
+taishiteki,physical,体質的,{{体質的]]に弱いから気をつけます。
+seishinteki,mental,精神的,{{精神的]]に強くなりたいです。
+shakaitekina,social,社会的な,{{社会的な]]問題について考えます。
+seijitekina,political,政治的な,{{政治的な]]活動に参加したいです。
+keizaiteki,economic,経済的,{{経済的]]に困っている家庭があります。
+bunkashiki,cultural,文化式,{{文化式]]な違いを理解しましょう。
+kokuminteki,national,国民的,{{国民的]]な行事を祝います。
+kokusaiteki,international,国際的,{{国際的]]な協力が必要です。
+chiikiteki,local,地域的,{{地域的]]な問題を解決します。
+koukyou,public,公共,{{公共]]の場所を大事にします。
+watashiteki,private,私的,{{私的]]な事柄について話します。
+kojin,personal,個人,{{個人]]の意見を尊重します。
+senmonka,professional,専門家,医者は{{専門家]]です。
+kashikoi,intelligent / clever,賢い,彼は{{賢い]]から好かれています。
+makajime,serious,真剣,彼は{{真剣]]に仕事をしています。
+okashii,funny,おかしい,その話は{{おかしい]]から笑いました。
+shinsetsu,kind / friendly,親切,田中さんは{{親切}}な人です。
+shoujiki,honest,正直,彼は{{正直}}に答えました。
+kimanai,generous,気前ない,その人は{{気前ない}}性格です。
+yuukan,brave,勇敢,消防士は{{勇敢}}に火に立ち向かった。
+nintai,patient,忍耐,成功には{{忍耐}}が必要です。
+kassei,active,活性,この会社は{{活性}}化しています。
 # ── Adverbs ──────────────────────────────────────────────────────────────────
-totemo,very,とても
-motto,more,もっと
-motto sukunaku,less,もっと少なく
-mo,also / too,も
-mou,already,もう
-mada,still / not yet,まだ
-kesshite,never,決して
-itsumo,always,いつも
-hotondo,almost,ほとんど
-dake,only,だけ
-juubun,enough,十分
-sugiru,too much,すぎる
-sukoshi,a little,少し
-takusan,a lot,たくさん
-jyouzu,well / skillfully,上手
-heta,badly,下手
-motto yoku,better,もっとよく
-hayaku,quickly,速く
-yukkuri,slowly,ゆっくり
-kantan ni,easily,簡単に
-tabun,probably,たぶん
-moshikashitara,perhaps,もしかしたら
-zettai ni,certainly,絶対に
-hontou ni,really,本当に
-kanzen ni,completely,完全に
-mattaku,absolutely / completely,全く
-tokuni,especially,特に
-omo ni,mainly,主に
-daitai,generally,大体
-yoku,often,よく
-metta ni,rarely,めったに
-sugu ni,immediately,すぐに
-saigo ni,finally,最後に
-koko,here,ここ
-asoko,there,あそこ
-chikaku,near,近く
-tooku,far,遠く
-naka ni,inside,中に
-soto ni,outside,外に
-ue ni,up / above,上に
-shita ni,down / below,下に
-mae ni,in front / before,前に
-ushiro ni,behind,後ろに
+totemo,very,とても,今日は{{とても}}寒いです。
+motto,more,もっと,{{もっと}}勉強する必要があります。
+motto sukunaku,less,もっと少なく,{{もっと少なく}}食べるべきです。
+mo,also / too,も,私{{も}}一緒に行きます。
+mou,already,もう,宿題は{{もう}}終わりました。
+mada,still / not yet,まだ,彼は{{まだ}}来ていません。
+kesshite,never,決して,私は{{決して}}嘘をつきません。
+itsumo,always,いつも,彼女は{{いつも}}笑顔です。
+hotondo,almost,ほとんど,学生は{{ほとんど}}全員来ました。
+dake,only,だけ,水{{だけ}}飲んでください。
+juubun,enough,十分,時間は{{十分}}あります。
+sugiru,too much,すぎる,塩が{{すぎる}}と味が悪い。
+sukoshi,a little,少し,{{少し}}手伝ってください。
+takusan,a lot,たくさん,公園に子供が{{たくさん}}います。
+jyouzu,well / skillfully,上手,田中さんは英語が{{上手}}です。
+heta,badly,下手,私は絵が{{下手}}です。
+motto yoku,better,もっとよく,{{もっとよく}}聞いてください。
+hayaku,quickly,速く,{{速く}}走ってください。
+yukkuri,slowly,ゆっくり,{{ゆっくり}}歩きましょう。
+kantan ni,easily,簡単に,この問題は{{簡単に}}解けます。
+tabun,probably,たぶん,{{たぶん}}明日雨が降ります。
+moshikashitara,perhaps,もしかしたら,{{もしかしたら}}彼は来るかもしれません。
+zettai ni,certainly,絶対に,私は{{絶対に}}成功します。
+hontou ni,really,本当に,これは{{本当に}}素晴らしいです。
+kanzen ni,completely,完全に,仕事は{{完全に}}終わりました。
+mattaku,absolutely / completely,全く,私は{{全く}}わかりません。
+tokuni,especially,特に,{{特に}}夏が好きです。
+omo ni,mainly,主に,田中さんは{{主に}}料理をします。
+daitai,generally,大体,{{大体}}毎日運動します。
+yoku,often,よく,彼は{{よく}}図書館に来ます。
+metta ni,rarely,めったに,私は{{めったに}}病気になりません。
+sugu ni,immediately,すぐに,{{すぐに}}帰ってください。
+saigo ni,finally,最後に,{{最後に}}お礼を言いました。
+koko,here,ここ,{{ここ}}に座ってください。
+asoko,there,あそこ,{{あそこ}}に公園があります。
+chikaku,near,近く,駅は家の{{近く}}です。
+tooku,far,遠く,山は{{遠く}}にあります。
+naka ni,inside,中に,箱の{{中に}}本があります。
+soto ni,outside,外に,{{外に}}出かけましょう。
+ue ni,up / above,上に,机の{{上に}}パソコンがあります。
+shita ni,down / below,下に,ベッドの{{下に}}荷物があります。
+mae ni,in front / before,前に,駅の{{前に}}待ちます。
+ushiro ni,behind,後ろに,木の{{後ろに}}家があります。
 # ── Particles and conjunctions ───────────────────────────────────────────────
-wa,topic marker,は
-ga,subject marker,が
-wo,object marker,を
-ni,at / in / to,に
-de,at / by / with,で
-to,and / with / quotation,と
-no,possessive,の
-ka,question marker,か
-ne,isn't it / right?,ね
-yo,assertion marker,よ
-made,until / to,まで
-demo,but / however,でも
-dakara,so / therefore,だから
-shikashi,but / however,しかし
-sosite,and then,そして
-mata,also / again,また
-moshi,if,もし
-node,because / so,ので
-keredo,but / however,けれど
+wa,topic marker,は,私{{は}}学生です。
+ga,subject marker,が,猫{{が}}ここにいます。
+wo,object marker,を,私は毎日、本{{を}}読みます。
+ni,at / in / to,に,明日、図書館{{に}}行きます。
+de,at / by / with,で,ペン{{で}}手紙を書きます。
+to,and / with / quotation,と,私{{と}}友達は一緒に遊びます。
+no,possessive,の,これは私{{の}}バッグです。
+ka,question marker,か,あなたは学生{{か}}。
+ne,isn't it / right?,ね,今日は天気がいい{{ね}}。
+yo,assertion marker,よ,明日、パーティーがあります{{よ}}。
+made,until / to,まで,月曜日{{まで}}仕事があります。
+demo,but / however,でも,雨が降ってい{{ます}}。
+dakara,so / therefore,だから,病気です{{だから}}、学校を休みます。
+shikashi,but / however,しかし,頑張りました{{しかし}}、試験に落ちました。
+sosite,and then,そして,朝食を食べました{{そして}}、学校へ行きました。
+mata,also / again,また,来週{{また}}ここで会いましょう。
+moshi,if,もし,{{もし}}時間があったら、映画を見ます。
+node,because / so,ので,雨が降っている{{ので}}、傘を持ちます。
+keredo,but / however,けれど,疲れています{{けれど}}、仕事を続けます。
 # ── Pronouns ─────────────────────────────────────────────────────────────────
-watashi,I / me,私
-anata,you,あなた
-kare,he / him,彼
-kanojo,she / her,彼女
-watashitachi,we / us,私たち
-anatatachi,you all,あなたたち
-karera,they / them,彼ら
-kore,this,これ
-sore,that,それ
-are,that (far),あれ
-nani ka,something,何か
-nanimo nai,nothing,何もない
-dareka,someone,誰か
-dare mo,nobody,誰も
-subete,everything,すべて
+watashi,I / me,私,{{私}}は毎日、勉強しています。
+anata,you,あなた,{{あなた}}はどこに住んでいますか。
+kare,he / him,彼,{{彼}}は大学の学生です。
+kanojo,she / her,彼女,{{彼女}}は音楽が好きです。
+watashitachi,we / us,私たち,{{私たち}}は一緒に旅行に行きます。
+anatatachi,you all,あなたたち,{{あなたたち}}は何をしていますか。
+karera,they / them,彼ら,{{彼ら}}は公園で遊んでいます。
+kore,this,これ,{{これ}}は私のペンです。
+sore,that,それ,{{それ}}は誰のですか。
+are,that (far),あれ,{{あれ}}は美しい建物ですね。
+nani ka,something,何か,飲み物{{に}}{{何か}}欲しいですか。
+nanimo nai,nothing,何もない,冷蔵庫に{{何もない}}です。
+dareka,someone,誰か,{{誰か}}が扉をノックしています。
+dare mo,nobody,誰も,この部屋に{{誰も}}いません。
+subete,everything,すべて,{{すべて]]の宿題を終わりました。
 # ── Numbers ──────────────────────────────────────────────────────────────────
-ichi,one,一
-san,three,三
-shi / yon,four,四
-go,five,五
-roku,six,六
-nana / shichi,seven,七
-hachi,eight,八
-ku / kyuu,nine,九
-juu,ten,十
-juuichi,eleven,十一
-juuni,twelve,十二
-nijuu,twenty,二十
-sanjuu,thirty,三十
-yonjuu,forty,四十
-gojuu,fifty,五十
-hyaku,one hundred,百
-sen,one thousand,千
-ichiman,ten thousand,一万
-hyakuman,one million,百万
+ichi,one,一,私は毎日{{一}}時間、勉強します。
+san,three,三,兄弟は{{三}}人います。
+shi / yon,four,四,私たちは{{四}}人の家族です。
+go,five,五,{{五}}分待ってください。
+roku,six,六,学校は{{六}}時に閉じます。
+nana / shichi,seven,七,今日は{{七}}月七日です。
+hachi,eight,八,明日は{{八}}時に起きます。
+ku / kyuu,nine,九,{{九}}時に学校の授業が始まります。
+juu,ten,十,テスト{{十]]点をもらいました。
+juuichi,eleven,十一,{{十一]]月は寒くなります。
+juuni,twelve,十二,一年は{{十二]]ヶ月です。
+nijuu,twenty,二十,彼は{{二十]]歳です。
+sanjuu,thirty,三十,父は{{三十]]代です。
+yonjuu,forty,四十,祖父は{{四十]]年働きました。
+gojuu,fifty,五十,この町は[[五十]]年前に作られました。
+hyaku,one hundred,百,この本は{{百]]ページあります。
+sen,one thousand,千,{{千]]円をください。
+ichiman,ten thousand,一万,この本は{{一万}}円です。
+hyakuman,one million,百万,彼の給料は{{百万}}円だ。
 # ── Question words ───────────────────────────────────────────────────────────
-nani,what,何
-dare,who,誰
-dore,which,どれ
-doko,where,どこ
-itsu,when,いつ
-dou,how,どう
-ikura,how much,いくら
-naze / doushite,why,なぜ
+nani,what,何,あなたは{{何}}が好きですか。
+dare,who,誰,{{誰}}がこのケーキを作りましたか。
+dore,which,どれ,この三つの中で{{どれ}}が一番好きですか。
+doko,where,どこ,あなたの学校は{{どこ}}にありますか。
+itsu,when,いつ,彼は{{いつ}}日本に来ましたか。
+dou,how,どう,この問題を{{どう}}解きますか。
+ikura,how much,いくら,そのコーヒーは{{いくら}}ですか。
+naze / doushite,why,なぜ,{{なぜ}}あなたはそこにいるのですか？
 # ── Days of the week ─────────────────────────────────────────────────────────
-getsuyoubi,Monday,月曜日
-kayoubi,Tuesday,火曜日
-suiyoubi,Wednesday,水曜日
-mokuyoubi,Thursday,木曜日
-kin'youbi,Friday,金曜日
-doyoubi,Saturday,土曜日
-nichiyoubi,Sunday,日曜日
+getsuyoubi,Monday,月曜日,会議は{{月曜日}}の九時です。
+kayoubi,Tuesday,火曜日,図書館は{{火曜日}}に閉まっています。
+suiyoubi,Wednesday,水曜日,{{水曜日}}に友達と映画を見ます。
+mokuyoubi,Thursday,木曜日,{{木曜日}}はヨガのクラスがあります。
+kin'youbi,Friday,金曜日,{{金曜日}}の夜は飲みに行きます。
+doyoubi,Saturday,土曜日,{{土曜日}}に買い物に行きましょう。
+nichiyoubi,Sunday,日曜日,{{日曜日}}は家族と一緒に過ごします。
 # ── Months ───────────────────────────────────────────────────────────────────
-ichigatsu,January,一月
-nigatsu,February,二月
-sangatsu,March,三月
-shigatsu,April,四月
-gogatsu,May,五月
-rokugatsu,June,六月
-shichigatsu,July,七月
-hachigatsu,August,八月
-kugatsu,September,九月
-juugatsu,October,十月
-juuichigatsu,November,十一月
-juunigatsu,December,十二月
+ichigatsu,January,一月,新年は{{一月}}から始まります。
+nigatsu,February,二月,{{二月}}はとても寒いです。
+sangatsu,March,三月,{{三月}}に桜が咲きます。
+shigatsu,April,四月,{{四月}}は新学期が始まります。
+gogatsu,May,五月,{{五月}}のゴールデンウィークは休みです。
+rokugatsu,June,六月,{{六月}}は雨がたくさん降ります。
+shichigatsu,July,七月,{{七月}}は夏祭りがあります。
+hachigatsu,August,八月,{{八月}}はとても暑いです。
+kugatsu,September,九月,{{九月}}から秋が始まります。
+juugatsu,October,十月,{{十月}}の紅葉は美しいです。
+juuichigatsu,November,十一月,{{十一月}}は感謝祭の季節です。
+juunigatsu,December,十二月,{{十二月}}はクリスマスの季節です。
 # ── Seasons ──────────────────────────────────────────────────────────────────
-haru,spring,春
-natsu,summer,夏
-aki,autumn / fall,秋
-fuyu,winter,冬
+haru,spring,春,{{春}}は花が咲く季節です。
+natsu,summer,夏,{{夏}}はビーチに行きたいです。
+aki,autumn / fall,秋,{{秋}}の紅葉はとても綺麗です。
+fuyu,winter,冬,{{冬}}はスキーをします。
 # ── Professions ──────────────────────────────────────────────────────────────
-bengoshi,lawyer,弁護士
-enjinia,engineer,エンジニア
-kenchikuka,architect,建築家
-ryourinin,chef / cook,料理人
-ongakuka,musician,音楽家
-geijutsuka,artist,芸術家
-sakka,writer,作家
-kiisha,journalist,記者
-kagakusha,scientist,科学者
-haisha,dentist,歯医者
-yakuzaishi,pharmacist,薬剤師
-shoubousha,firefighter,消防士
-pairotto,pilot,パイロット
-untenshu,driver,運転手
-seibi koushuu,mechanic,整備工
-denki koujishi,electrician,電気工事士
-daiku,carpenter,大工
-niwa shi,gardener,庭師
-ueitaa,waiter,ウエイター
-juugyouin,employee,従業員
-joushi,boss / superior,上司
-buchoo,department head,部長
-manejaa,manager,マネージャー
-hisho,secretary,秘書
-kaikeishi,accountant,会計士
-ekonomisuto,economist,エコノミスト
-shinriishi,psychologist,心理士
-shakaigakusha,sociologist,社会学者
-rekishika,historian,歴史家
+bengoshi,lawyer,弁護士,兄は大きな会社の{{弁護士}}です。
+enjinia,engineer,エンジニア,彼は自動車会社の{{エンジニア}}として働いています。
+kenchikuka,architect,建築家,父は有名な{{建築家}}です。
+ryourinin,chef / cook,料理人,このレストランの{{料理人}}はフランス出身です。
+ongakuka,musician,音楽家,姉は{{音楽家}}としてピアノを弾いています。
+geijutsuka,artist,芸術家,私の友達は{{芸術家}}として絵を描いています。
+sakka,writer,作家,その著名な{{作家}}は多くの賞を受けています。
+kiisha,journalist,記者,{{記者}}がその事件について取材しています。
+kagakusha,scientist,科学者,{{科学者}}たちは新しい薬を開発しています。
+haisha,dentist,歯医者,毎月{{歯医者}}に検査に行きます。
+yakuzaishi,pharmacist,薬剤師,薬局の{{薬剤師}}は親切です。
+shoubousha,firefighter,消防士,その{{消防士}}は火事で人命を救いました。
+pairotto,pilot,パイロット,{{パイロット}}は飛行機を操縦しています。
+untenshu,driver,運転手,タクシーの{{運転手}}は毎日長時間働きます。
+seibi koushuu,mechanic,整備工,{{整備工}}は車のエンジンを修理しています。
+denki koujishi,electrician,電気工事士,{{電気工事士}}が家の電気を直しました。
+daiku,carpenter,大工,{{大工}}が新しい家を建てています。
+niwa shi,gardener,庭師,その{{庭師}}は毎日花を育てています。
+ueitaa,waiter,ウエイター,{{ウエイター}}がテーブルに料理を持ってきた。
+juugyouin,employee,従業員,この会社の{{従業員}}は百人以上です。
+joushi,boss / superior,上司,{{上司}}に明日の会議について相談した。
+buchoo,department head,部長,{{部長}}が新しいプロジェクトを発表しました。
+manejaa,manager,マネージャー,野球チームの{{マネージャー}}は仕事が大変だ。
+hisho,secretary,秘書,社長の{{秘書}}は電話を受けています。
+kaikeishi,accountant,会計士,{{会計士}}が会社の決算を確認した。
+ekonomisuto,economist,エコノミスト,有名な{{エコノミスト}}がテレビで話した。
+shinriishi,psychologist,心理士,{{心理士}}は患者の話を聞きました。
+shakaigakusha,sociologist,社会学者,{{社会学者}}は社会問題を研究している。
+rekishika,historian,歴史家,日本の{{歴史家}}は古い文献を探しています。
 # ── More verbs ───────────────────────────────────────────────────────────────
-giron suru,to discuss / to argue,議論する
-hikaku suru,to compare,比較する
-bunseki suru,to analyse,分析する
-soshiki suru,to organize,組織する
-kanri suru,to control / to manage,管理する
-hakaru,to measure / to weigh,測る
-kaizen suru,to improve,改善する
-kaifu suru,to renovate,改修する
-shuurii suru,to repair,修理する
-setsuzoku suru,to connect,接続する
-daunroodo suru,to download,ダウンロードする
-appuroodo suru,to upload,アップロードする
-puroguramingu suru,to program,プログラミングする
-sekkei suru,to design,設計する
-hatsumei suru,to invent,発明する
-hakken suru,to discover,発見する
-choosa suru,to investigate,調査する
-benkyousuru,to study,勉強する
-kyousou suru,to compete,競争する
-tanoshimu,to enjoy,楽しむ
-kurushimu,to suffer,苦しむ
-sewa suru,to take care of,世話する
-kyouryoku suru,to cooperate,協力する
-koushou suru,to negotiate,交渉する
-yatouu,to hire,雇う
-yuushutsu suru,to export,輸出する
-yuunyuu suru,to import,輸入する
-touhyou suru,to vote,投票する
-oshokuji suru,to govern,統治する
-kazaru,to decorate,飾る
-ādovaisu suru,to advise,アドバイスする
-shounin suru,to approve,承認する
-moushikomu,to apply,申し込む
-tassei suru,to achieve,達成する
-mazeru,to mix,混ぜる
-yorokobu,to be glad / to rejoice,喜ぶ
-nayamu,to worry / to be troubled,悩む
-akogareru,to admire / to long for,憧れる
-utagau,to doubt,疑う
-shinjiru,to believe / to trust,信じる
-yadoru,to lodge / to stay,宿る
-hikkoshi suru,to move (house),引っ越しする
-sotsugyou suru,to graduate,卒業する
-nyuugaku suru,to enrol,入学する
-kekkon suru,to get married,結婚する
-rikon suru,to get divorced,離婚する
-tanjou suru,to be born,誕生する
+giron suru,to discuss / to argue,議論する,会議で新しい計画について{{議論する}}ことにした。
+hikaku suru,to compare,比較する,二つの製品を{{比較する}}必要があります。
+bunseki suru,to analyse,分析する,データを{{分析する}}ために時間がかかった。
+soshiki suru,to organize,組織する,イベントを{{組織する}}のは大変な仕事です。
+kanri suru,to control / to manage,管理する,この施設を{{管理する}}責任は私にあります。
+hakaru,to measure / to weigh,測る,身長を{{測る}}ために病院に行きました。
+kaizen suru,to improve,改善する,製造プロセスを{{改善する}}ことが目標です。
+kaifu suru,to renovate,改修する,古い建物を{{改修する}}計画が進んでいます。
+shuurii suru,to repair,修理する,壊れたパソコンを{{修理する}}ために店に持ってきた。
+setsuzoku suru,to connect,接続する,インターネットに{{接続する}}ことができません。
+daunroodo suru,to download,ダウンロードする,新しいソフトウェアを{{ダウンロードする}}しました。
+appuroodo suru,to upload,アップロードする,写真をクラウドに{{アップロードする}}つもりです。
+puroguramingu suru,to program,プログラミングする,コンピュータの{{プログラミングする}}は難しい。
+sekkei suru,to design,設計する,建築家が新しい建物を{{設計する}}。
+hatsumei suru,to invent,発明する,彼は革新的な機械を{{発明する}}ことができた。
+hakken suru,to discover,発見する,科学者が新しい元素を{{発見する}}した。
+choosa suru,to investigate,調査する,警察はその事件を{{調査する}}開始しました。
+benkyousuru,to study,勉強する,毎日図書館で{{勉強する}}のが好きです。
+kyousou suru,to compete,競争する,オリンピックで選手たちが{{競争する}}。
+tanoshimu,to enjoy,楽しむ,友達と一緒に映画を{{楽しむ}}予定です。
+kurushimu,to suffer,苦しむ,病気で{{苦しむ}}患者がたくさんいます。
+sewa suru,to take care of,世話する,高齢の親を{{世話する}}のは大事な役割です。
+kyouryoku suru,to cooperate,協力する,プロジェクトを成功させるために{{協力する}}。
+koushou suru,to negotiate,交渉する,二つの国が新しい条約を{{交渉する}}している。
+yatouu,to hire,雇う,新しい従業員を{{雇う}}ために採用試験を実施した。
+yuushutsu suru,to export,輸出する,日本の企業が車を海外に{{輸出する}}。
+yuunyuu suru,to import,輸入する,食料品を外国から{{輸入する}}ことが必要です。
+touhyou suru,to vote,投票する,選挙の日に{{投票する}}ために投票所に行った。
+oshokuji suru,to govern,統治する,大臣がその国を{{統治する}}責任があります。
+kazaru,to decorate,飾る,クリスマスツリーを花で{{飾る}}のは楽しい。
+ādovaisu suru,to advise,アドバイスする,専門家が良い{{アドバイスする}}をくれました。
+shounin suru,to approve,承認する,上司が新しい予算を{{承認する}}した。
+moushikomu,to apply,申し込む,大学に{{申し込む}}期限はあさってです。
+tassei suru,to achieve,達成する,長年の努力で目標を{{達成する}}ことができた。
+mazeru,to mix,混ぜる,色を{{混ぜる}}ことで新しい色ができます。
+yorokobu,to be glad / to rejoice,喜ぶ,試験に合格して皆が{{喜ぶ}}。
+nayamu,to worry / to be troubled,悩む,仕事が大変で毎日{{悩む}}のです。
+akogareru,to admire / to long for,憧れる,成功した人を{{憧れる}}気持ちがあります。
+utagau,to doubt,疑う,私は彼の言葉を{{疑う}}ことにした。
+shinjiru,to believe / to trust,信じる,私たちは先生を{{信じる}}べきだ。
+yadoru,to lodge / to stay,宿る,京都で{{宿る}}いい宿を探してます。
+hikkoshi suru,to move (house),引っ越しする,来月{{引っ越しする}}ので手伝ってください。
+sotsugyou suru,to graduate,卒業する,姉は去年大学を{{卒業する}}予定だ。
+nyuugaku suru,to enrol,入学する,彼は今年東京大学に{{入学する}}。
+kekkon suru,to get married,結婚する,兄は今年{{結婚する}}ことになった。
+rikon suru,to get divorced,離婚する,彼らは去年{{離婚する}}ことを決めた。
+tanjou suru,to be born,誕生する,赤ちゃんが{{誕生する}}のは来月です。
 # ── More nouns ───────────────────────────────────────────────────────────────
-minshushugi,democracy,民主主義,
-dokusai,dictatorship,独裁,
-senkyo,election,選挙
-seitou,political party,政党
-zeikin,tax,税金
-shakkin,debt,借金
-risoku,interest,利息
-toushi,investment,投資
-rieki,profit,利益
-sonshitsu,loss,損失
-yosan,budget,予算
-keiyaku,contract,契約
-gouii,agreement,合意
-ruuru,rule,ルール
-kisei,regulation,規制
-kikan,institution,機関
-soshiki,organization,組織
-kyoukai,association,協会
-kaigi,meeting,会議
-kokusai kaigi,conference,国際会議
-houkoku,report,報告
-toukei,statistics,統計
-kenkyuu,research,研究
-jikken,experiment,実験
-kenkyuujo,laboratory,研究所
-kurinikku,clinic,クリニック
-yakkyoku,pharmacy,薬局
-shohousen,prescription,処方箋
-shindan,diagnosis,診断
-shoujou,symptom,症状
-wakuchin,vaccine,ワクチン
-shujutsu,surgery / operation,手術
-ryouhou,therapy,療法
-shinrigaku,psychology,心理学
-sutoresu,stress,ストレス
-fuan,anxiety,不安
-uutsu,depression,うつ
-erika,area / zone,エリア
-chounaikai,neighbourhood,町内会
-kokkyou,border,国境
-ken,prefecture,県
-shi,city / municipality,市
-mura,village,村
-chika,basement,地下
-yaneura,attic,屋根裏
-terasu,terrace,テラス
-barukoni,balcony,バルコニー
-erebeetaa,lift / elevator,エレベーター
-kaidan,staircase,階段
-rouka,corridor,廊下
-ki (zairyou),wood (material),木
-kinzoku,metal,金属
-purasuchikku,plastic,プラスチック
-garasu,glass,ガラス
-nuno,fabric / cloth,布
-ooii,wool,ウール
-wata,cotton,綿
-kinu,silk,絹
-koosui,perfume,香水
-sekken,soap,石鹸
-shanpuu,shampoo,シャンプー
-haburashi,toothbrush,歯ブラシ
-hamigaki,toothpaste,歯磨き
-kamisori,razor,かみそり
-kagami,mirror,鏡
-taoru,towel,タオル
-moufu,blanket,毛布
-makura,pillow,枕
-mattoresu,mattress,マットレス
-kagu,furniture,家具
-sofaa,sofa,ソファ
-isu,chair,椅子
-teeburu,table,テーブル
-tsuukue,desk,机
-ranpu,lamp,ランプ
-kaaten,curtain,カーテン
-juutan,carpet / rug,じゅうたん
-tana,shelf,棚
-hikidashi,drawer,引き出し
-yoofuku dansu,wardrobe,洋服ダンス
-reizouko,fridge,冷蔵庫
-oobun,oven,オーブン
-denshi renji,microwave,電子レンジ
-shokki araikki,dishwasher,食器洗い機
-sentakuki,washing machine,洗濯機
-eakon,air conditioner,エアコン
-danbou,heating,暖房
-shuuryou suru,to complete / to finish,終了する
-shiken,exam / test,試験
-jugyou,class / lesson,授業
-sukejuuru,schedule,スケジュール
-shime kiri,deadline,締め切り
-purojekuto,project,プロジェクト
-mokuhyou,objective / goal,目標
-senryaku,strategy,戦略
-shikaku,qualification / certificate,資格
-mensetsu,interview,面接
-dooryou,colleague,同僚
-shounin,promotion (at work),昇進
-shuunyuu,income / revenue,収入
-kyuuryou,salary,給料
-roukou suru,to go on strike,労行する
-roudou kumiai,trade union,労働組合
-shitsugyou,unemployment,失業
-taishoku,retirement,退職
-nenkyu,paid leave,年休
-keizai seichou,economic growth,経済成長
-kiki,crisis,危機
-kaiketsu suru,to solve / to resolve,解決する
-jyouyaku,treaty,条約
-doumei,alliance,同盟
-kyouryoku,cooperation,協力
-eikyou,influence,影響
-kenryoku,power / authority,権力
-gimu,duty / obligation,義務
-tokken,privilege,特権
-chousen,challenge,挑戦
-shinpo,progress,進歩
-kakushin,innovation,革新
-hakken,discovery,発見
-hatsumei,invention,発明
-seichou,growth,成長
-taikou,decline,対抗
-dapyou,compromise,妥協
-funso,conflict,紛争
-risuku,risk,リスク
-chansu,chance / opportunity,チャンス
-riten,advantage,利点
-ketten,disadvantage / defect,欠点
-hinshitsu,quality,品質
-suijun,level / standard,水準
-seika,result / achievement,成果
-paafooomansu,performance,パフォーマンス
-kaizen,improvement,改善
-tenki,weather,天気
-kumori,cloudy,曇り
-hare,sunny,晴れ
-ame no hi,rainy day,雨の日
-arashi,storm,嵐
-mushiatsui,humid / sultry,蒸し暑い
-kanki,dry weather,乾期
-shitsu,moisture / humidity,湿
-chousei,adjustment,調整
-kyouka,strengthening,強化
-suishin,promotion / advancement,推進
-kakusan,spread / diffusion,拡散
-choutatsu,procurement,調達
-kanri,management / control,管理
-haifu,distribution,配布
-jouho,information,情報
-tsuushin,communication,通信
-henshin,reply / response,返信
-hookoku,report,報告
-bunseki,analysis,分析
-hyouka,evaluation,評価
-sakusei,creation / production,作成
-settei,setting / configuration,設定
-henkou,change / modification,変更
-sakujo,deletion,削除
-tsuika,addition,追加
-ninshiki,recognition,認識
-rikai,understanding / comprehension,理解
-hyoujun,standard,標準
-kikaku,planning / standard,企画
-kankyou mondai,environmental issue,環境問題
-ondanka,global warming,温暖化
-setsuden,power saving,節電
-saisei enerugii,renewable energy,再生エネルギー
-risaikuru,recycling,リサイクル
-haiki butsu,waste / garbage,廃棄物
-shizen saigai,natural disaster,自然災害
-jishin,earthquake,地震
-tsunami,tsunami,津波
-taifuu,typhoon,台風
-koozui,flood,洪水
-kanpatsu,drought,干ばつ
-settou,theft,窃盗
-sagi,fraud / scam,詐欺
-keiyaku ihan,breach of contract,契約違反
-ninmu,mission / duty,任務
-senmon,specialty / expertise,専門
-kinou,function / feature,機能
-seinou,performance / capability,性能
-youryou,capacity,容量
-sokudo,speed,速度
-seido,accuracy / precision,精度
-kouritsu,efficiency,効率
-kigyou,company / enterprise,企業
-kabushiki,stock / shares,株式
-tousan,bankruptcy,倒産
-gappei,merger,合併
-baishuu,acquisition,買収
-kyousou,competition,競争
-shijou,market,市場
-nedan,price,値段
-waribiki,discount,割引
-zeikan,customs,税関
-yunyu zei,import tax,輸入税
-yushutsu,export,輸出
-kyokyuu,supply,供給
-juyo,demand,需要
-seisan,production,生産
-syouhi,consumption,消費
-ryuutsu,distribution / circulation,流通
-hanbaiten,retail store,販売店
-soukou,warehouse,倉庫
-hacchuu,order / requisition,発注
-nouki,delivery date,納期
-ryou,quantity / amount,量
-seiryu,trend / mainstream,主流
-suki ru,skill,スキル
-kyaria,career,キャリア
-shoukaku,promotion (rank),昇格
-deta,data,データ
-kyori,distance,距離
-juuryou,weight,重量
-saizu,size,サイズ
-kiri,fog / mist,霧
-kaminari,thunder / lightning,雷
-arare,hail,霰
-koori,ice,氷
-yukidoke,snowmelt,雪解け
-tatsumaki,tornado,竜巻
-kazan,volcano,火山
-yamakata,landslide,山崩れ
-sansei u,acid rain,酸性雨
-haigasuoke,exhaust / emissions,排ガス
-nenshou,combustion / burning,燃焼
-nenryou,fuel,燃料
-sekiyu,petroleum / oil,石油
-sekitan,coal,石炭
-hagane,steel,鋼
-tetsu,iron,鉄
-kin,gold,金
-gin,silver,銀
-daiyamondo,diamond,ダイヤモンド
-houseki,gemstone,宝石
-ressun,lesson (e.g. music),レッスン
-kyoushitsu,classroom,教室
-shokudou,dining hall / canteen,食堂
-uketuke,reception desk,受付
-kaikei,cashier / accounting,会計
-keisanki,calculator,計算機
-purinta,printer,プリンター
-sukyanaa,scanner,スキャナー
-faakkusu,fax,ファックス
-denshibook,e-book,電子ブック
-tablet,tablet,タブレット
-sumaato foon,smartphone,スマートフォン
-charger,charger,チャージャー
-denchi,battery,電池
-ketsuatsu,blood pressure,血圧
-taion,body temperature,体温
-myaku,pulse,脈
-chuusha,injection / shot,注射
-zai,medicine / drug,剤
-netsu,fever,熱
-sekki,bloodwork,血気
-kokyuu,breathing / respiration,呼吸
-shoki,digestion,消化
-menyuu,menu,メニュー
-ryouri,cuisine / cooking,料理
-karaage,Japanese fried chicken,唐揚げ
-sushi,sushi,寿司
-ramen,ramen noodles,ラーメン
-soba,buckwheat noodles,そば
-udon,udon noodles,うどん
-onigiri,rice ball,おにぎり
-bento,boxed meal,弁当
-wagashi,Japanese sweets,和菓子
-sakura,cherry blossom,桜
-matsuri,festival,祭り
-yukata,summer kimono,浴衣
-kimono,traditional garment,着物
-jinja,Shinto shrine,神社
-torii,torii gate,鳥居
-futon,futon bed,布団
-zabuton,floor cushion,座布団
-tatami,tatami mat,畳
-engawa,veranda,縁側
-sudare,bamboo blind,すだれ
-shoji,paper sliding door,障子
-fusuma,opaque sliding door,ふすま
-tokonoma,alcove,床の間
-ikebana,flower arrangement,生け花
-bonsai,bonsai tree,盆栽
-origami,paper folding,折り紙
-shodo,calligraphy,書道
-judo,judo,柔道
-karate,karate,空手
-kendo,kendo (swordsmanship),剣道
-sumo,sumo wrestling,相撲
-akimbo,arms akimbo,あきんぼ
-omiyage,souvenir,お土産
-oshougatsu,New Year,お正月
-ohanami,cherry blossom viewing,お花見
-tanabata,Star Festival,七夕
-obon,Obon Festival,お盆
-setsubun,Bean Throwing Festival,節分
-shougatsu kazari,New Year decoration,正月飾り
-hamaya,good luck arrow,破魔矢
-ema,votive tablet,絵馬
-omikuji,fortune slip,おみくじ
-ofuda,amulet,お札
-noren,shop curtain,のれん
-furoshiki,wrapping cloth,風呂敷
-tabi,split-toe socks,足袋
-geta,wooden clogs,下駄
-zori,sandals,草履
-hakama,traditional skirt trousers,袴
-obi,kimono sash,帯
-sensu,folding fan,扇子
-uchiwa,flat fan,うちわ
-chochin,paper lantern,提灯
-taiko,drum,太鼓
-shamisen,three-string instrument,三味線
-koto,Japanese harp,琴
-oshigoto,profession / work,お仕事
-gaido,guide,ガイド
-honyaku,translation,翻訳
-kaigi shitsu,meeting room,会議室
-rokkaa,locker,ロッカー
-keitai denwa,mobile phone,携帯電話
-insatsu,printing,印刷
-kokkyo,national border,国境
-toshi,urban area,都市
-chihou,region / local area,地方
-shizen kai,nature world,自然界
-takai sora,high sky,高い空
-yoru hoshi,night star,夜の星
-midori no ki,green tree,緑の木
-aoi umi,blue sea,青い海
-shiroi yuki,white snow,白い雪
-akai hana,red flower,赤い花
-hiroi nohara,wide field,広い野原
-fukai mori,deep forest,深い森
-nagai kawa,long river,長い川
-takai yama,tall mountain,高い山
-ooki mizuumi,large lake,大きい湖
-atarashii gijutsu,new technology,新しい技術
-kankyou hogo,environmental protection,環境保護
+minshushugi,democracy,民主主義,日本は{{民主主義}}の国として知られています。
+dokusai,dictatorship,独裁,その国は長年{{独裁}}の支配を受けていた。
+senkyo,election,選挙,今年の{{選挙}}はとても重要だと思う。
+seitou,political party,政党,彼はある{{政党}}の一員になった。
+zeikin,tax,税金,{{税金}}を払うのは市民の義務です。
+shakkin,debt,借金,父は銀行に多くの{{借金}}がある。
+risoku,interest,利息,ローンの{{利息}}はかなり高いです。
+toushi,investment,投資,株への{{投資}}はリスクがある。
+rieki,profit,利益,この事業の{{利益}}は予想以上だった。
+sonshitsu,loss,損失,去年の{{損失}}は百万円だった。
+yosan,budget,予算,来年の{{予算}}はまだ決まっていない。
+keiyaku,contract,契約,新しい{{契約}}に署名する必要があります。
+gouii,agreement,合意,両者の{{合意}}に達することができた。
+ruuru,rule,ルール,スポーツの{{ルール}}を理解する必要があります。
+kisei,regulation,規制,政府は新しい{{規制}}を導入した。
+kikan,institution,機関,その{{機関}}は政府の一部です。
+soshiki,organization,組織,会社の{{組織}}は複雑に見えます。
+kyoukai,association,協会,その{{協会]]はボランティア団体です。
+kaigi,meeting,会議,明日の{{会議]]は三時に始まります。
+kokusai kaigi,conference,国際会議,来月{{国際会議]]が東京で開かれます。
+houkoku,report,報告,プロジェクトの{{報告]]を提出してください。
+toukei,statistics,統計,{{統計]]によると失業率が上がった。
+kenkyuu,research,研究,大学で{{研究]]をするのは楽しいです。
+jikken,experiment,実験,化学の{{実験]]は明日行われます。
+kenkyuujo,laboratory,研究所,新しい{{研究所]]が建設されました。
+kurinikku,clinic,クリニック,近くの{{クリニック]]で診てもらいました。
+yakkyoku,pharmacy,薬局,{{薬局]]で処方箋を出してください。
+shohousen,prescription,処方箋,医者から{{処方箋]]をもらいました。
+shindan,diagnosis,診断,医者は重い{{診断]]を下しました。
+shoujou,symptom,症状,患者の{{症状]]は改善しています。
+wakuchin,vaccine,ワクチン,{{ワクチン]]を接種することが大切です。
+shujutsu,surgery / operation,手術,{{手術]]は成功したと聞きました。
+ryouhou,therapy,療法,その{{療法]]は効果的だと思います。
+shinrigaku,psychology,心理学,{{心理学]]を勉強するのが好きです。
+sutoresu,stress,ストレス,仕事の{{ストレス]]で眠れません。
+fuan,anxiety,不安,試験について{{不安]]を感じています。
+uutsu,depression,うつ,彼は{{うつ]]で治療を受けています。
+erika,area / zone,エリア,その{{エリア]]は発展が進んでいます。
+chounaikai,neighbourhood,町内会,{{町内会]]の会合に参加しました。
+kokkyou,border,国境,{{国境]]を越えて旅をします。
+ken,prefecture,県,静岡{{県]]は日本の中部にあります。
+shi,city / municipality,市,東京{{市}}は日本で一番大きいです。
+mura,village,村,田舎の小さい{{村}}に引っ越しました。
+chika,basement,地下,{{地下}}駐車場に車を停めました。
+yaneura,attic,屋根裏,{{屋根裏}}には古い荷物がたくさんあります。
+terasu,terrace,テラス,朝、{{テラス}}でコーヒーを飲みます。
+barukoni,balcony,バルコニー,{{バルコニー}}から景色がきれいに見えます。
+erebeetaa,lift / elevator,エレベーター,{{エレベーター}}は十階まで上がります。
+kaidan,staircase,階段,{{階段}}を上ってください。
+rouka,corridor,廊下,{{廊下}}に誰もいません。
+ki (zairyou),wood (material),木,この机は{{木}}で作られています。
+kinzoku,metal,金属,{{金属}}の缶は冷たいです。
+purasuchikku,plastic,プラスチック,{{プラスチック}}のボトルは軽いですね。
+garasu,glass,ガラス,{{ガラス}}のコップに水を入れました。
+nuno,fabric / cloth,布,この{{布}}はとても柔らかいです。
+ooii,wool,ウール,{{ウール}}のセーターは温かいです。
+wata,cotton,綿,{{綿}}のシャツを着ています。
+kinu,silk,絹,{{絹}}のドレスはとても高いです。
+koosui,perfume,香水,朝、{{香水}}をつけます。
+sekken,soap,石鹸,{{石鹸}}で手を洗ってください。
+shanpuu,shampoo,シャンプー,毎日{{シャンプー}}を使います。
+haburashi,toothbrush,歯ブラシ,{{歯ブラシ}}は毎日交換します。
+hamigaki,toothpaste,歯磨き,朝と夜{{歯磨き}}をします。
+kamisori,razor,かみそり,{{かみそり}}で髭を剃ります。
+kagami,mirror,鏡,{{鏡}}を見て髪をセットします。
+taoru,towel,タオル,お風呂から{{タオル}}を取ってください。
+moufu,blanket,毛布,寒いから{{毛布}}をかけました。
+makura,pillow,枕,{{枕}}の上に頭を置きます。
+mattoresu,mattress,マットレス,このベッドの{{マットレス}}は新しいです。
+kagu,furniture,家具,部屋に新しい{{家具}}を買いました。
+sofaa,sofa,ソファ,{{ソファ}}に座ってテレビを見ます。
+isu,chair,椅子,{{椅子}}に座ってください。
+teeburu,table,テーブル,{{テーブル}}の上に本があります。
+tsuukue,desk,机,私の{{机}}にはパソコンがあります。
+ranpu,lamp,ランプ,暗いから{{ランプ}}をつけました。
+kaaten,curtain,カーテン,{{カーテン}}を閉めてください。
+juutan,carpet / rug,じゅうたん,床に赤い{{じゅうたん}}があります。
+tana,shelf,棚,{{棚}}に本を並べました。
+hikidashi,drawer,引き出し,机の{{引き出し}}にペンがあります。
+yoofuku dansu,wardrobe,洋服ダンス,{{洋服ダンス}}に衣類を入れます。
+reizouko,fridge,冷蔵庫,{{冷蔵庫}}に牛乳があります。
+oobun,oven,オーブン,{{オーブン}}でケーキを焼きます。
+denshi renji,microwave,電子レンジ,{{電子レンジ}}でご飯を温めます。
+shokki araikki,dishwasher,食器洗い機,{{食器洗い機}}は便利ですね。
+sentakuki,washing machine,洗濯機,{{洗濯機}}で洗濯をします。
+eakon,air conditioner,エアコン,夏、{{エアコン}}をつけます。
+danbou,heating,暖房,冬、{{暖房}}をつけました。
+shuuryou suru,to complete / to finish,終了する,授業が{{終了する}}時間です。
+shiken,exam / test,試験,来週{{試験}}があります。
+jugyou,class / lesson,授業,月曜日の{{授業}}は数学です。
+sukejuuru,schedule,スケジュール,{{スケジュール}}を確認してください。
+shime kiri,deadline,締め切り,このプロジェクトの{{締め切り}}は来月です。
+purojekuto,project,プロジェクト,新しい{{プロジェクト}}をチームで開始します。
+mokuhyou,objective / goal,目標,私たちの{{目標}}は売上を増やすことです。
+senryaku,strategy,戦略,成功するには良い{{戦略}}が必要です。
+shikaku,qualification / certificate,資格,この仕事に必要な{{資格}}は何ですか。
+mensetsu,interview,面接,明日の{{面接}}に向けて準備しています。
+dooryou,colleague,同僚,私の{{同僚}}はとても親切で優しいです。
+shounin,promotion (at work),昇進,彼は先月{{昇進}}して部長になりました。
+shuunyuu,income / revenue,収入,私たちの家族の{{収入}}は安定しています。
+kyuuryou,salary,給料,毎月{{給料}}が銀行に振り込まれます。
+roukou suru,to go on strike,労行する,労働者たちが条件改善のため{{労行する}}。
+roudou kumiai,trade union,労働組合,{{労働組合}}は従業員の権利を守ります。
+shitsugyou,unemployment,失業,{{失業}}率が最近上がっています。
+taishoku,retirement,退職,父は来年{{退職}}する予定です。
+nenkyu,paid leave,年休,今年はまだ{{年休}}を使っていません。
+keizai seichou,economic growth,経済成長,日本の{{経済成長}}は緩やかです。
+kiki,crisis,危機,この{{危機}}を乗り越えるには協力が必要です。
+kaiketsu suru,to solve / to resolve,解決する,この問題を早く{{解決する}}必要があります。
+jyouyaku,treaty,条約,両国が新しい{{条約]]に署名しました。
+doumei,alliance,同盟,二つの国が{{同盟]]を結びました。
+kyouryoku,cooperation,協力,プロジェクト成功のため{{協力]]しましょう。
+eikyou,influence,影響,天気は気分に大きな{{影響]]を与えます。
+kenryoku,power / authority,権力,首相は国の{{権力]]を持っています。
+gimu,duty / obligation,義務,学生の{{義務]]は勉強することです。
+tokken,privilege,特権,会長は特別な{{特権]]を持っています。
+chousen,challenge,挑戦,新しい{{挑戦]]に向けて頑張ります。
+shinpo,progress,進歩,技術の{{進歩]]は非常に速いです。
+kakushin,innovation,革新,この会社は{{革新]]的な製品を作ります。
+hakken,discovery,発見,科学者が新しい物質を{{発見]]しました。
+hatsumei,invention,発明,電話の{{発明]]は世界を変えました。
+seichou,growth,成長,子どもたちの{{成長]]は親の喜びです。
+taikou,decline,対抗,政府は不当な施策に{{対抗]]します。
+dapyou,compromise,妥協,両者が{{妥協]]して合意に達しました。
+funso,conflict,紛争,国際的な{{紛争]]が増えています。
+risuku,risk,リスク,投資には常に{{リスク]]があります。
+chansu,chance / opportunity,チャンス,これは人生の大切な{{チャンス]]です。
+riten,advantage,利点,このプランの{{利点]]は安くて安全です。
+ketten,disadvantage / defect,欠点,彼の{{欠点]]は少し短気なことです。
+hinshitsu,quality,品質,この製品の{{品質]]は非常に高いです。
+suijun,level / standard,水準,私たちのサービスの{{水準]]を上げます。
+seika,result / achievement,成果,一年間の仕事の{{成果]]は素晴らしい。
+paafooomansu,performance,パフォーマンス,彼の{{パフォーマンス]]は期待を超えました。
+kaizen,improvement,改善,毎月システムの{{改善]]を行っています。
+tenki,weather,天気,明日の{{天気]]はどうなるでしょうか。
+kumori,cloudy,曇り,今日は{{曇り]]なので傘を持ちましょう。
+hare,sunny,晴れ,週末は{{晴れ]]らしいので出かけます。
+ame no hi,rainy day,雨の日,{{雨の日]]はうちで本を読みます。
+arashi,storm,嵐,昨夜の{{嵐]]は窓を揺らしました。
+mushiatsui,humid / sultry,蒸し暑い,梅雨の季節は{{蒸し暑い]]日が多いです。
+kanki,dry weather,乾期,アフリカの{{乾期]]は非常に暑いです。
+shitsu,moisture / humidity,湿,この部屋の{{湿}}度が高すぎます。
+chousei,adjustment,調整,機械の{{調整}}が必要です。
+kyouka,strengthening,強化,チームの{{強化}}のため練習します。
+suishin,promotion / advancement,推進,プロジェクトを{{推進}}する計画です。
+kakusan,spread / diffusion,拡散,感染症の{{拡散}}を防ぐ必要があります。
+choutatsu,procurement,調達,材料の{{調達}}に時間がかかります。
+kanri,management / control,管理,在庫の{{管理}}はコンピュータで行います。
+haifu,distribution,配布,新しい資料を{{配布}}しました。
+jouho,information,情報,最新の{{情報}}をお知らせします。
+tsuushin,communication,通信,インターネット{{通信}}の速度は速い。
+henshin,reply / response,返信,メールへ{{返信}}してください。
+hookoku,report,報告,月末に結果の{{報告}}があります。
+bunseki,analysis,分析,データの{{分析}}を行いました。
+hyouka,evaluation,評価,従業員の{{評価}}は年一回です。
+sakusei,creation / production,作成,書類の{{作成}}に三時間かかった。
+settei,setting / configuration,設定,パソコンの{{設定}}を変更しました。
+henkou,change / modification,変更,予定の{{変更}}があります。
+sakujo,deletion,削除,ファイルの{{削除}}は取り消せません。
+tsuika,addition,追加,新しい機能を{{追加}}しました。
+ninshiki,recognition,認識,その問題の{{認識}}が不足していた。
+rikai,understanding / comprehension,理解,内容の{{理解}}が深まりました。
+hyoujun,standard,標準,{{標準}}化により品質が上がります。
+kikaku,planning / standard,企画,新製品の{{企画}}を立てています。
+kankyou mondai,environmental issue,環境問題,{{環境問題}}は世界全体の課題です。
+ondanka,global warming,温暖化,{{温暖化}}により気温が上昇しています。
+setsuden,power saving,節電,夏は{{節電}}を心掛けましょう。
+saisei enerugii,renewable energy,再生エネルギー,{{再生エネルギー}}の利用が増えています。
+risaikuru,recycling,リサイクル,プラスチックの{{リサイクル}}は重要です。
+haiki butsu,waste / garbage,廃棄物,{{廃棄物]]の処理方法を改善します。
+shizen saigai,natural disaster,自然災害,{{自然災害]]は予測困難です。
+jishin,earthquake,地震,昨日大きい{{地震]]がありました。
+tsunami,tsunami,津波,{{津波]]の警報が出ました。
+taifuu,typhoon,台風,{{台風]]シーズンに注意してください。
+koozui,flood,洪水,大雨により{{洪水]]が発生した。
+kanpatsu,drought,干ばつ,{{干ばつ]]により作物が枯れました。
+settou,theft,窃盗,{{窃盗]]事件が増加しています。
+sagi,fraud / scam,詐欺,詐欺師の{{詐欺]]に騙されました。
+keiyaku ihan,breach of contract,契約違反,{{契約違反]]により賠償金を払う。
+ninmu,mission / duty,任務,新しい{{任務]]を任されました。
+senmon,specialty / expertise,専門,彼は医学が{{専門]]です。
+kinou,function / feature,機能,このアプリの{{機能]]は便利です。
+seinou,performance / capability,性能,新型車の{{性能]]は優れています。
+youryou,capacity,容量,ハードドライブの{{容量]]は十分ですか。
+sokudo,speed,速度,インターネットの{{速度]]は遅いです。
+seido,accuracy / precision,精度,測定の{{精度]]を高めてください。
+kouritsu,efficiency,効率,仕事の{{効率]]を改善したい。
+kigyou,company / enterprise,企業,大きい{{企業]]で働いています。
+kabushiki,stock / shares,株式,この会社の{{株式]]を購入しました。
+tousan,bankruptcy,倒産,会社が{{倒産]]してしまいました。
+gappei,merger,合併,二つの会社が{{合併]]します。
+baishuu,acquisition,買収,その会社は競合他社の{{買収}}を計画している。
+kyousou,competition,競争,グローバル市場での{{競争}}は非常に激しい。
+shijou,market,市場,アジアの{{市場}}は急速に成長している。
+nedan,price,値段,この製品の{{値段}}は昨年より上がった。
+waribiki,discount,割引,今月は全商品に{{割引}}が適用される。
+zeikan,customs,税関,荷物は{{税関}}で検査されました。
+yunyu zei,import tax,輸入税,輸入商品には{{輸入税}}がかかります。
+yushutsu,export,輸出,日本は自動車を多く{{輸出}}している。
+kyokyuu,supply,供給,商品の{{供給}}が需要に追いついていない。
+juyo,demand,需要,冬は暖房用燃料の{{需要}}が増加する。
+seisan,production,生産,この工場の{{生産}}能力は月五万個だ。
+syouhi,consumption,消費,消費者の{{消費}}パターンが変わってきた。
+ryuutsu,distribution / circulation,流通,効率的な{{流通}}システムが重要である。
+hanbaiten,retail store,販売店,近くの{{販売店}}で新商品が売られている。
+soukou,warehouse,倉庫,大量の商品が{{倉庫}}に保管されている。
+hacchuu,order / requisition,発注,明日、新しい部品を{{発注}}する予定だ。
+nouki,delivery date,納期,この注文の{{納期}}は三週間です。
+ryou,quantity / amount,量,購入する{{量}}をお知らせください。
+seiryu,trend / mainstream,主流,オンライン販売は現在の{{主流}}である。
+suki ru,skill,スキル,プログラミングは重要な{{スキル}}です。
+kyaria,career,キャリア,彼女の{{キャリア}}は順調に進んでいる。
+shoukaku,promotion (rank),昇格,彼は今年{{昇格}}して部長になった。
+deta,data,データ,分析には正確な{{データ}}が必要だ。
+kyori,distance,距離,東京から大阪までの{{距離}}は約四百キロだ。
+juuryou,weight,重量,この荷物の{{重量}}は五十キロである。
+saizu,size,サイズ,このシャツの{{サイズ}}はメディアムです。
+kiri,fog / mist,霧,朝、山は{{霧}}に覆われていた。
+kaminari,thunder / lightning,雷,昨晩の{{雷}}は非常に激しかった。
+arare,hail,霰,冬の山では{{霰}}が降ることがある。
+koori,ice,氷,池の表面は{{氷}}で覆われている。
+yukidoke,snowmelt,雪解け,春の{{雪解け}}により川の水位が上がる。
+tatsumaki,tornado,竜巻,{{竜巻}}が村を襲い大きな被害が出た。
+kazan,volcano,火山,日本には多くの{{火山}}がある。
+yamakata,landslide,山崩れ,{{山崩れ}}により道路が通行できなくなった。
+sansei u,acid rain,酸性雨,{{酸性雨}}は環境に悪い影響を与える。
+haigasuoke,exhaust / emissions,排ガス,自動車の{{排ガス}}は空気を汚染する。
+nenshou,combustion / burning,燃焼,{{燃焼}}プロセスは熱とエネルギーを発生させる。
+nenryou,fuel,燃料,この機械は{{燃料}}として石油を使う。
+sekiyu,petroleum / oil,石油,{{石油}}の価格は世界経済に影響する。
+sekitan,coal,石炭,{{石炭}}は昔よく使われていた。
+hagane,steel,鋼,この橋は強い{{鋼}}で作られている。
+tetsu,iron,鉄,{{鉄}}はとても丈夫な金属です。
+kin,gold,金,{{金}}は非常に貴重な金属である。
+gin,silver,銀,{{銀}}は{{金}}の次に貴重だ。
+daiyamondo,diamond,ダイヤモンド,婚約指輪に{{ダイヤモンド}}が使われている。
+houseki,gemstone,宝石,王妃は首に{{宝石}}をつけていた。
+ressun,lesson (e.g. music),レッスン,週に二回ピアノの{{レッスン}}を受けている。
+kyoushitsu,classroom,教室,学生は{{教室}}で授業を受けている。
+shokudou,dining hall / canteen,食堂,昼食は{{食堂}}で食べることができます。
+uketuke,reception desk,受付,来客は入口の{{受付}}で対応されます。
+kaikei,cashier / accounting,会計,レストランの{{会計}}は五千円です。
+keisanki,calculator,計算機,数学の授業で{{計算機}}を使いました。
+purinta,printer,プリンター,書類を{{プリンター}}で印刷してください。
+sukyanaa,scanner,スキャナー,{{スキャナー}}で写真をデジタル化します。
+faakkusu,fax,ファックス,会社に{{ファックス}}を送りました。
+denshibook,e-book,電子ブック,{{電子ブック}}はタブレットで読めます。
+tablet,tablet,タブレット,私の{{タブレット}}は新しいです。
+sumaato foon,smartphone,スマートフォン,毎日{{スマートフォン}}で連絡します。
+charger,charger,チャージャー,{{チャージャー}}がないから充電できません。
+denchi,battery,電池,懐中電灯に{{電池}}を入れました。
+ketsuatsu,blood pressure,血圧,医者が{{血圧}}を測りました。
+taion,body temperature,体温,朝{{体温}}を測ります。
+myaku,pulse,脈,看護師が{{脈}}を確認しました。
+chuusha,injection / shot,注射,医者が{{注射}}をしてくれました。
+zai,medicine / drug,剤,風邪の{{剤}}を飲みました。
+netsu,fever,熱,子どもが{{熱}}があります。
+sekki,bloodwork,血気,病院で{{血気}}検査をしました。
+kokyuu,breathing / respiration,呼吸,深く{{呼吸}}することが大切です。
+shoki,digestion,消化,食べ物の{{消化}}に時間がかかります。
+menyuu,menu,メニュー,レストランの{{メニュー}}を見てください。
+ryouri,cuisine / cooking,料理,母の{{料理}}はとてもおいしいです。
+karaage,Japanese fried chicken,唐揚げ,{{唐揚げ}}はビールに合います。
+sushi,sushi,寿司,今夜{{寿司}}を食べましょう。
+ramen,ramen noodles,ラーメン,駅前の{{ラーメン}}店は有名です。
+soba,buckwheat noodles,そば,冬は温かい{{そば}}が好きです。
+udon,udon noodles,うどん,讃岐の{{うどん}}はもちもちしています。
+onigiri,rice ball,おにぎり,お弁当に{{おにぎり}}を入れました。
+bento,boxed meal,弁当,学校に{{弁当}}を持って行きます。
+wagashi,Japanese sweets,和菓子,茶会で{{和菓子}}をいただきました。
+sakura,cherry blossom,桜,春に{{桜}}がきれいに咲きます。
+matsuri,festival,祭り,夏{{祭り}}に行きました。
+yukata,summer kimono,浴衣,夏祭りで{{浴衣}}を着ました。
+kimono,traditional garment,着物,成人式に{{着物}}を着ます。
+jinja,Shinto shrine,神社,毎年{{神社}}にお参りします。
+torii,torii gate,鳥居,{{鳥居}}は神社の入口です。
+futon,futon bed,布団,毎朝{{布団}}をたたみます。
+zabuton,floor cushion,座布団,座敷に{{座布団}}を敷きました。
+tatami,tatami mat,畳,部屋の床は{{畳}}でできています。
+engawa,veranda,縁側,{{縁側}}から庭が見えます。
+sudare,bamboo blind,すだれ,夏に{{すだれ}}を窓に付けます。
+shoji,paper sliding door,障子,{{障子}}は白くて光を通します。
+fusuma,opaque sliding door,ふすま,{{ふすま}}を開けると別の部屋があります。
+tokonoma,alcove,床の間,{{床の間}}に掛け軸が飾ってあります。
+ikebana,flower arrangement,生け花,{{生け花}}の教室に通っています。
+bonsai,bonsai tree,盆栽,祖父は{{盆栽}}を育てています。
+origami,paper folding,折り紙,子どもは{{折り紙}}で鶴を折りました。
+shodo,calligraphy,書道,{{書道}}の授業は大好きです。
+judo,judo,柔道,兄は{{柔道}}の大会で優勝しました。
+karate,karate,空手,息子は{{空手}}を練習しています。
+kendo,kendo (swordsmanship),剣道,妹は{{剣道}}部に入りました。
+sumo,sumo wrestling,相撲,兄は毎週{{相撲}}を見るのが好きです。
+akimbo,arms akimbo,あきんぼ,彼女は{{あきんぼ}}で立って怒っています。
+omiyage,souvenir,お土産,京都から美味しい{{お土産}}を買いました。
+oshougatsu,New Year,お正月,{{お正月}}に家族と一緒に過ごします。
+ohanami,cherry blossom viewing,お花見,春に{{お花見}}に公園へ行きます。
+tanabata,Star Festival,七夕,{{七夕}}の夜に織姫と彦星が会います。
+obon,Obon Festival,お盆,{{お盆}}は家族が集まる大切な時期です。
+setsubun,Bean Throwing Festival,節分,{{節分}}に豆を撒いて鬼を退治します。
+shougatsu kazari,New Year decoration,正月飾り,玄関に{{正月飾り}}を飾りました。
+hamaya,good luck arrow,破魔矢,神社で{{破魔矢}}を買って帰りました。
+ema,votive tablet,絵馬,神様に願いを書いた{{絵馬}}を奉納しました。
+omikuji,fortune slip,おみくじ,おみくじを引いて{{おみくじ}}の結果を見ました。
+ofuda,amulet,お札,家に{{お札]]を貼って守ってもらいます。
+noren,shop curtain,のれん,昔の店の入口には{{のれん]]がありました。
+furoshiki,wrapping cloth,風呂敷,ギフトを{{風呂敷]]に包んで持ちます。
+tabi,split-toe socks,足袋,着物を着るときに{{足袋]]を履きます。
+geta,wooden clogs,下駄,夏祭りで{{下駄]]を履いて歩きました。
+zori,sandals,草履,浴衣に{{草履]]を合わせて着ます。
+hakama,traditional skirt trousers,袴,弓道をするときに{{袴]]を着用します。
+obi,kimono sash,帯,帯は着物の腰に{{帯]]を結びます。
+sensu,folding fan,扇子,夏に{{扇子]]で涼しくします。
+uchiwa,flat fan,うちわ,夏祭りで{{うちわ]]をもらいました。
+chochin,paper lantern,提灯,夜祭りで{{提灯]]が明かりをともします。
+taiko,drum,太鼓,祭りで大きな{{太鼓]]を叩きます。
+shamisen,three-string instrument,三味線,伝統音楽で{{三味線]]を弾きます。
+koto,Japanese harp,琴,日本の{{琴]]の音は美しいです。
+oshigoto,profession / work,お仕事,父の{{お仕事]]は会社員です。
+gaido,guide,ガイド,旅行の{{ガイド]]は親切でした。
+honyaku,translation,翻訳,この本の{{翻訳]]は正確です。
+kaigi shitsu,meeting room,会議室,{{会議室]]で重要な会議がありました。
+rokkaa,locker,ロッカー,駅に{{ロッカー]]があります。
+keitai denwa,mobile phone,携帯電話,{{携帯電話]]を持ち歩きます。
+insatsu,printing,印刷,{{印刷]]の品質はとても良いです。
+kokkyo,national border,国境,川が二つの国の{{国境]]です。
+toshi,urban area,都市,大きな{{都市]]には多くの人がいます。
+chihou,region / local area,地方,田舎の{{地方]]は静かです。
+shizen kai,nature world,自然界,{{自然界]]の美しさに驚きました。
+takai sora,high sky,高い空,{{高い空]]を見上げてみました。
+yoru hoshi,night star,夜の星,{{夜の星]]はとても綺麗です。
+midori no ki,green tree,緑の木,公園に{{緑の木]]がたくさんあります。
+aoi umi,blue sea,青い海,{{青い海]]で泳ぐのは楽しいです。
+shiroi yuki,white snow,白い雪,冬に{{白い雪]]が降ります。
+akai hana,red flower,赤い花,庭に{{赤い花]]が咲いています。
+hiroi nohara,wide field,広い野原,{{広い野原]]でピクニックしました。
+fukai mori,deep forest,深い森,{{深い森]]に入ると暗いです。
+nagai kawa,long river,長い川,{{長い川]]が町を流れます。
+takai yama,tall mountain,高い山,{{高い山]]に登りました。
+ooki mizuumi,large lake,大きい湖,{{大きい湖]]は美しい景色です。
+atarashii gijutsu,new technology,新しい技術,{{新しい技術]]は便利です。
+kankyou hogo,environmental protection,環境保護,{{環境保護]]はとても重要です。

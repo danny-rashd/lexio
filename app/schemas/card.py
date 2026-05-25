@@ -17,6 +17,7 @@ class CardCreate(BaseModel):
     word: str
     meaning: str
     native: str | None = None
+    sentence: str | None = None
     source_log_id: int | None = None
 
 
@@ -24,6 +25,7 @@ class CardUpdate(BaseModel):
     word: str
     meaning: str
     native: str = ''
+    sentence: str = ''
 
 
 class CardResponse(BaseModel):
@@ -32,6 +34,7 @@ class CardResponse(BaseModel):
     word: str
     meaning: str
     native: str | None
+    sentence: str | None
     idempotency_key: str
     is_active: bool
     created_at: datetime

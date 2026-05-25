@@ -1,1016 +1,1016 @@
-word,meaning,native
+word,meaning,native,sentence
 # ── Verbs ────────────────────────────────────────────────────────────────────
-være,to be,
-ha,to have,
-gjøre,to do / to make,
-si,to say,
-gå,to go,
-komme,to come,
-se,to see,
-høre,to hear,
-tenke,to think,
-vite,to know (fact),
-kjenne,to know (person),
-ville,to want / will,
-kunne,to be able to / can,
-skulle,to shall / should,
-måtte,to must / to have to,
-gi,to give,
-ta,to take,
-finne,to find,
-la,to let / to leave,
-bli,to become / to stay,
-holde,to hold / to keep,
-hete,to be called,
-ligge,to lie / to be located,
-stå,to stand,
-vise,to show,
-kalle,to call,
-følge,to follow,
-spørre,to ask,
-hjelpe,to help,
-kjøpe,to buy,
-arbeide,to work,
-lese,to read,
-skrive,to write,
-lære,to learn,
-bo,to live / to reside,
-spise,to eat,
-drikke,to drink,
-sove,to sleep,
-løpe,to run,
-gå (til fots),to walk,
-spille,to play,
-åpne,to open,
-lukke,to close,
-trenge,to need,
-prøve,to try,
-bruke,to use,
-endre,to change,
-begynne,to begin,
-slutte,to end / to stop,
-vente,to wait,
-bære,to carry / to wear,
-reise,to travel,
-besøke,to visit,
-svømme,to swim,
-fly,to fly,
-kjøre,to drive,
-lage mat,to cook,
-rydde,to tidy / to clean,
-vaske,to wash,
-betale,to pay,
-vinne,to win,
-tape,to lose,
-forstå,to understand,
-forklare,to explain,
-svare,to answer,
-motta,to receive,
-sende,to send,
-glemme,to forget,
-huske,to remember,
-drømme,to dream,
-tro,to believe,
-stole på,to trust,
-elske,to love,
-hate,to hate,
-smile,to smile,
-le,to laugh,
-gråte,to cry,
-rope,to shout,
-synge,to sing,
-danse,to dance,
-bygge,to build,
-bryte,to break,
-røre,to touch,
-føle,to feel,
-bestemme,to decide,
-velge,to choose,
-tillate,to allow,
-nekte,to refuse,
-akseptere,to accept,
-tilby,to offer,
-produsere,to produce,
-utvikle,to develop,
-forbedre,to improve,
-løse,to solve,
-unngå,to avoid,
-nå,to reach,
-øke,to increase,
-redusere,to reduce,
-presentere,to present / to introduce,
-representere,to represent,
-tilhøre,to belong,
-eksistere,to exist,
-oppstå,to arise / to emerge,
+være,to be,,Jeg {{er}} læreren din i norskklassen.
+ha,to have,,Han {{har}} en stor hund hjemme.
+gjøre,to do / to make,,Vi {{gjør}} lekser hver kveld etter skolen.
+si,to say,,Hun {{sier}} alltid det hun tenker høyt.
+gå,to go,,De {{går}} til butikken for å kjøpe mat.
+komme,to come,,{{Kommer}} du til festen på lørdag kveld?
+se,to see,,Jeg {{ser}} fuglene som flyr over treet.
+høre,to hear,,Vi {{hører}} musikken fra naboen hver dag.
+tenke,to think,,Han {{tenker}} på hva han skal gjøre i dag.
+vite,to know (fact),,Jeg {{vet}} ikke hvor hun bor nå.
+kjenne,to know (person),,Jeg {{kjenner}} ham fra barneskolen min.
+ville,to want / will,,De {{vil}} gjerne besøke Norge neste sommer.
+kunne,to be able to / can,,Du {{kan}} lese denne boken på norsk.
+skulle,to shall / should,,Vi {{skal}} møtes på kafeen klokken tre.
+måtte,to must / to have to,,Han {{må}} arbeide hver dag for å tjene penger.
+gi,to give,,Hun {{gir}} meg en bok for juleavslutningen.
+ta,to take,,Kan du {{ta}} denne pakken med deg hjem?
+finne,to find,,Jeg {{finner}} nøklene mine under sofaen.
+la,to let / to leave,,Mor {{lar}} oss spille ute en time.
+bli,to become / to stay,,Snøen {{blir}} hvit og vakker på vinteren.
+holde,to hold / to keep,,Han {{holder}} ballen i hånden sin hele tiden.
+hete,to be called,,Gutten {{heter}} Olav og er fra Bergen.
+ligge,to lie / to be located,,Boken {{ligger}} på bordet ditt nå.
+stå,to stand,,Læreren {{står}} foran tavlen og skriver oppgaver.
+vise,to show,,Han {{viser}} meg hvordan man løser ligningen.
+kalle,to call,,De {{kaller}} meg Alex fordi det er mitt navn.
+følge,to follow,,Jeg {{følger}} deg til butikken om du vil.
+spørre,to ask,,Han {{spør}} alltid hvor han skal gå.
+hjelpe,to help,,Kan du {{hjelpe}} meg med matematikkleksene i dag?
+kjøpe,to buy,,Vi {{kjøper}} brød og melk på matbutikken.
+arbeide,to work,,Faren min {{arbeider}} som ingeniør ved siden.
+lese,to read,,Hun {{leser}} en spennende bok før hun sover.
+skrive,to write,,Jeg {{skriver}} et brev til min besteforelder.
+lære,to learn,,Vi {{lærer}} nye norske ord hver dag i klassen.
+bo,to live / to reside,,Min familie {{bor}} i en liten hus i byen.
+spise,to eat,,Vi {{spiser}} frokost sammen klokken åtte om morgenen.
+drikke,to drink,,Han {{drikker}} kaffe når han arbeider på kontoret.
+sove,to sleep,,Kattene {{sover}} hele dagen på sofaen vår.
+løpe,to run,,Barna {{løper}} rundt på lekeplassen hver dag.
+gå (til fots),to walk,,Jeg {{går}} til skolen hver morgen på foten.
+spille,to play,,Vi {{spiller}} fotball etter skolen på fredagen.
+åpne,to open,,Kan du {{åpne}} vinduet fordi det er varmt?
+lukke,to close,,Hun {{lukker}} døren når hun forlater huset.
+trenge,to need,,Jeg {{trenger}} ny skko til fotballturnering neste måned.
+prøve,to try,,{{Prøv}} å løse oppgaven selv før du spør.
+bruke,to use,,Vi {{bruker}} blyant og papir i norskklassen hver dag.
+endre,to change,,Han {{endrer}} meningen sin når han får nye informasjoner.
+begynne,to begin,,Skolen {{begynner}} klokken åtte og tretti om morgenen.
+slutte,to end / to stop,,Arbeidsdagen {{slutter}} klokken fem på ettermiddagen her.
+vente,to wait,,Vi {{venter}} på bussen ved bussholdeplassen hver dag.
+bære,to carry / to wear,,Hun {{bærer}} en tung sekk på ryggen sin.
+reise,to travel,,Vi {{reiser}} til Italia neste sommer for ferie.
+besøke,to visit,,Jeg {{besøker}} bestemor min hver helg når jeg kan.
+svømme,to swim,,Barna {{svømmer}} i bassenget på varme sommerdager.
+fly,to fly,,Fuglen {{flyr}} høyt over fjellene hver morgen.
+kjøre,to drive,,Han {{kjører}} bil til arbeid hver eneste dag.
+lage mat,to cook,,Mor {{lager mat}} til hele familien på kvelden.
+rydde,to tidy / to clean,,Vi {{rydder}} stua før gjestene kommer til besøk.
+vaske,to wash,,Hun {{vasker}} klærne sine mandag ettermiddag hver uke.
+betale,to pay,,Du må {{betale}} regningen før fristen går ut.
+vinne,to win,,Laget vårt {{vant}} kampen med tre poeng onsdag.
+tape,to lose,,De {{tapte}} fotballkampen dessverre i siste minutt.
+forstå,to understand,,Jeg {{forstår}} ikke helt hva du mener her.
+forklare,to explain,,Læreren {{forklarer}} matematikken veldig tydelig for alle.
+svare,to answer,,Han {{svarte}} raskt på alle spørsmålene i testen.
+motta,to receive,,Vi {{mottar}} brev fra besteforeldrene våre regelmessig.
+sende,to send,,Jeg {{sender}} en email til kollegaene mine nå.
+glemme,to forget,,Jeg {{glemte}} nykkelen hjemme igjen dessverre.
+huske,to remember,,Kan du {{huske}} hva jeg sa i går kveld?
+drømme,to dream,,Jeg {{drømmer}} om å reise rundt omkring verden.
+tro,to believe,,Jeg {{tror}} at alt vil bli bra til slutt.
+stole på,to trust,,Du kan {{stole på}} meg med alle dine hemmeligheter.
+elske,to love,,Hun {{elsker}} sin familie mer enn noe annet.
+hate,to hate,,Han {{hater}} å stå opp tidlig på morgenen.
+smile,to smile,,Hun {{smilte}} vennlig til alle på festen igjen.
+le,to laugh,,Barna {{ler}} høyt når de ser fuglene ute.
+gråte,to cry,,Babyen {{gråter}} når hun er sulten eller trøtt.
+rope,to shout,,Han {{roper}} laut etter ungene på lekeplassen.
+synge,to sing,,Vi {{synger}} sammen rundt bålet hver kveld på turen.
+danse,to dance,,De {{danser}} til musikken på diskotek fredag natt.
+bygge,to build,,Vi {{bygger}} et lite hus på hytta vår neste år.
+bryte,to break,,Varen {{brøt}} dessverre under transporten hit.
+røre,to touch,,Du må ikke {{røre}} det varme kokekarret nå.
+føle,to feel,,Jeg {{føler}} meg veldig sliten etter arbeidsdagen.
+bestemme,to decide,,Vi {{bestemte}} oss for å dra på tur sammen.
+velge,to choose,,Du kan {{velge}} mellom fisk eller kjøtt til middag.
+tillate,to allow,,Foreldrene {{tillater}} ikke at han spiller hele dagen.
+nekte,to refuse,,Han {{nektet}} å spise grønnsakene sine til middag.
+akseptere,to accept,,Jeg {{aksepterer}} invitasjonen din til festen neste uke.
+tilby,to offer,,Butikken {{tilbyr}} stor rabatt på alle varene nå.
+produsere,to produce,,Fabrikken {{produserer}} tusenvis av produkter hver dag.
+utvikle,to develop,,Selskapet {{utvikler}} nye og innovative løsninger for marked.
+forbedre,to improve,,Vi arbeider for å {{forbedre}} kvaliteten på tjenestene.
+løse,to solve,,Han {{løste}} matteoppgaven veldig raskt uten problemer.
+unngå,to avoid,,Du bør {{unngå}} å kjøre når du er sliten.
+nå,to reach,,Vi {{nådde}} toppen av fjellene etter langsom stigning.
+øke,to increase,,Prisene {{øker}} kraftig på matvarene i dagligvarebutikken.
+redusere,to reduce,,Vi må {{redusere}} energiforbruket hjemme for klima.
+presentere,to present / to introduce,,Han {{presenterer}} sitt nye prosjekt for ledelsen i dag.
+representere,to represent,,Hun {{representerer}} sitt land i den internasjonale konferansen.
+tilhøre,to belong,,Denne boka {{tilhører}} biblioteket i byen.
+eksistere,to exist,,Det {{eksisterer}} mange teorier om universet.
+oppstå,to arise / to emerge,,Problemet {{oppstod}} da systemet krasjet i går.
 # ── Nouns ────────────────────────────────────────────────────────────────────
-tid,time,
-år,year,
-liv,life,
-mann,man,
-kvinne,woman,
-dag,day,
-ting,thing,
-del,part,
-sted,place,
-øyeblikk,moment,
-måte,way / manner,
-person,person,
-hånd,hand,
-verden,world,
-gang,time (occurrence),
-tilfelle,case,
-arbeid,work / job,
-problem,problem,
-land,country,
-by,city,
-hus,house / home,
-vann,water,
-gruppe,group,
-bedrift,company,
-navn,name,
-tall,number,
-form,form / shape,
-system,system,
-eksempel,example,
-punkt,point,
-regjering,government,
-informasjon,information,
-historie,history / story,
-familie,family,
-samfunn,society,
-nivå,level,
-type,type,
-forhold,relationship,
-prosess,process,
-tjeneste,service,
-politikk,politics / policy,
-endring,change,
-resultat,result,
-penger,money,
-time,hour,
-måned,month,
-uke,week,
-natt,night,
-morgen,morning,
-ettermiddag,afternoon,
-kveld,evening,
-minutt,minute,
-sekund,second,
-århundre,century,
-fremtid,future,
-fortid,past,
-nåtid,present,
-begynnelse,beginning,
-slutt,end,
-sentrum,centre,
-nord,north,
-sør,south,
-øst,east,
-vest,west,
-gate,street,
-vei,road / path,
-dør,door,
-vindu,window,
-gulv,floor,
-tak,ceiling / roof,
-vegg,wall,
-rom,room,
-kjøkken,kitchen,
-bad,bathroom,
-hage,garden,
-bygning,building,
-leilighet,apartment,
-hotell,hotel,
-sykehus,hospital,
-skole,school,
-universitet,university,
-bibliotek,library,
-butikk,shop,
-marked,market,
-bank,bank,
-kirke,church,
-park,park,
-strand,beach,
-fjell,mountain,
-elv,river,
-innsjø,lake,
-hav,sea / ocean,
-skog,forest,
-bygd,countryside,
-himmel,sky,
-sol,sun,
-måne,moon,
-stjerne,star,
-sky,cloud,
-regn,rain,
-snø,snow,
-vind,wind,
-ild,fire,
-jord,earth / ground,
-stein,stone,
-tre,tree,
-blomst,flower,
-plante,plant,
-gress,grass,
-dyr,animal,
-hund,dog,
-katt,cat,
-fugl,bird,
-fisk,fish,
-hest,horse,
-ku,cow,
-kropp,body,
-hode,head,
-ansikt,face,
-øye,eye,
-nese,nose,
-munn,mouth,
-øre,ear,
-tann,tooth,
-tunge,tongue,
-hals,neck / throat,
-skulder,shoulder,
-arm,arm,
-albue,elbow,
-håndledd,wrist,
-finger,finger,
-ben,leg,
-kne,knee,
-fot,foot,
-hjerte,heart,
-lunge,lung,
-mage,stomach,
-hjerne,brain,
-blod,blood,
-bein,bone,
-muskel,muscle,
-hud,skin,
-hår,hair,
-klær,clothes,
-skjorte,shirt,
-bukse,trousers,
-skjørt,skirt,
-kjole,dress,
-jakke,jacket,
-frakk,coat,
-sko,shoe,
-sokk,sock,
-hatt,hat,
-skjerf,scarf,
-hanske,glove,
-brød,bread,
-ris,rice,
-pasta,pasta,
-kjøtt,meat,
-kylling,chicken,
-egg,egg,
-melk,milk,
-ost,cheese,
-smør,butter,
-olje,oil,
-salt,salt,
-sukker,sugar,
-kaffe,coffee,
-te,tea,
-vin,wine,
-øl,beer,
-juice,juice,
-frukt,fruit,
-eple,apple,
-appelsin,orange,
-drue,grape,
-banan,banana,
-jordbær,strawberry,
-sitron,lemon,
-tomat,tomato,
-salat,salad / lettuce,
-gulrot,carrot,
-løk,onion,
-hvitløk,garlic,
-potet,potato,
-bok,book,
-side,page,
-brev,letter,
-avis,newspaper,
-blad,magazine,
-nyhet,news,
-spørsmål,question,
-svar,answer,
-idé,idea,
-mening,opinion,
-ord,word,
-setning,sentence,
-språk,language,
-kultur,culture,
-kunst,art,
-musikk,music,
-sang,song,
-film,film / movie,
-teater,theatre,
-sport,sport,
-fotball,football / soccer,
-tennis,tennis,
-svømming,swimming,
-løp,race,
-lag,team,
-spill,game,
-seier,victory,
-tap,defeat,
-premie,prize,
-ferie,holiday,
-transport,transport,
-bil,car,
-buss,bus,
-tog,train,
-båt,boat / ship,
-sykkel,bicycle,
-motorsykkel,motorcycle,
-billett,ticket,
-pass,passport,
-koffert,suitcase,
-kart,map,
-teknologi,technology,
-datamaskin,computer,
-telefon,phone,
-internett,internet,
-skjerm,screen,
-tastatur,keyboard,
-kamera,camera,
-fjernsyn,television,
-radio,radio,
-lys,light,
-lyd,sound,
-farge,colour,
-rød,red,
-blå,blue,
-grønn,green,
-gul,yellow,
-svart,black,
-hvit,white,
-grå,grey,
-smerte,pain,
-sykdom,illness,
-medisin,medicine,
-lege,doctor,
-sykepleier,nurse,
-helse,health,
-sinn,mind,
-følelse,feeling / emotion,
-frykt,fear,
-glede,joy,
-sorg,sadness,
-kjærlighet,love,
-hat,hate,
-håp,hope,
-sannhet,truth,
-løgn,lie,
-rettferdighet,justice,
-lov,law,
-politi,police,
-krig,war,
-fred,peace,
-ulykke,accident,
-fare,danger,
-sikkerhet,safety / security,
-suksess,success,
-fiasko,failure,
-vanskelighet,difficulty,
-løsning,solution,
-mulighet,opportunity,
-rett,right,
-ansvar,responsibility,
-frihet,freedom,
-likhet,equality,
-nasjon,nation,
-region,region,
-hovedstad,capital city,
-befolkning,population,
-økonomi,economy,
-handel,trade,
-industri,industry,
-landbruk,agriculture,
-miljø,environment,
-natur,nature,
-energi,energy,
-ressurs,resource,
-forurensning,pollution,
-klima,climate,
-temperatur,temperature,
+tid,time,,Vi har ikke mye {{tid}} til å snakke nå.
+år,year,,Hun har bodd i Norge i tolv {{år}}.
+liv,life,,Han lever et godt og lykkeligt {{liv}} her.
+mann,man,,Den {{mannen}} arbeider som ingeniør på bedriften.
+kvinne,woman,,{{Kvinnen}} fra Sverige er veldig dyktig på sitt arbeid.
+dag,day,,Hver {{dag}} går jeg en lang tur i parken.
+ting,thing,,Det finnes mange rare {{ting}} i dette huset.
+del,part,,Hånden er en viktig {{del}} av kroppen vår.
+sted,place,,Parken er et vakkert {{sted}} å besøke på sommeren.
+øyeblikk,moment,,I det {{øyeblikket}} forsto jeg hele historien hans.
+måte,way / manner,,Han gjør arbeidet på en svært effektiv {{måte}} alltid.
+person,person,,{{Personen}} som ringer er en god venn av meg.
+hånd,hand,,Hun løftet {{hånden}} for å si hallo til meg.
+verden,world,,Verden er et stort og komplisert {{sted}} å leve.
+gang,time (occurrence),,Jeg har vært i Oslo flere {{ganger}} før nå.
+tilfelle,case,,I dette {{tilfellet}} må vi kontakte politiet omgående.
+arbeid,work / job,,Hans {{arbeid}} er veldig viktig for bedriften hans.
+problem,problem,,Det største {{problemet}} er mangel på penger og ressurser.
+land,country,,Norge er et vakkert {{land}} med høye fjell og fjorder.
+by,city,,[[Byen]] Oslo har cirka en million innbyggere i dag.
+hus,house / home,,Vårt {{hus}} ligger på en stille gate med trær.
+vann,water,,Vi drikker friskt og kaldt {{vann}} hver dag her.
+gruppe,group,,{{Gruppen}} av studenter besøkte museet i går ettermiddag.
+bedrift,company,,{{Bedriften}} han jobber på lager elektronikk og komponenter.
+navn,name,,Hennes {{navn}} er Maria og hun kommer fra Sverige.
+tall,number,,{{Tallet}} på mennesker vokser hver dag i verden.
+form,form / shape,,Sirkelen har en perfekt rund {{form}} uten kanter.
+system,system,,Det nye {{systemet}} skal forbedre effektiviteten på jobben.
+eksempel,example,,{{Eksemplet}} som læreren ga var veldig tydelig og god.
+punkt,point,,Et viktig {{punkt}} i møtet var budsjettdiskusjonen fra regjering.
+regjering,government,,{{Regjeringen}} vedtok nye lover for hele landet i dag.
+informasjon,information,,Vi trenger mer {{informasjon}} før vi kan ta en beslutning.
+historie,history / story,,Hans {{historie}} om eventyr var interessant og underholdende hele kvelden.
+familie,family,,Min {{familie}} bor i en liten by på Østlandet.
+samfunn,society,,{{Samfunnet}} vår må jobbe sammen for å løse problemer.
+nivå,level,,Eksamen har et høyt {{nivå}} av vanskelighet for studentene.
+type,type,,Denne {{typen}} kaffebønner kommer fra Brasil i Sør-Amerika.
+forhold,relationship,,Forholdet mellom arbeid og familie er meget viktig for ham.
+prosess,process,,{{Prosessen}} tar omtrent tre måneder fra start til slutt.
+tjeneste,service,,Vi tilbyr en god {{tjeneste}} til alle våre kunder her.
+politikk,politics / policy,,{{Politikken}} må fokusere på miljøet og klimaendringer fremover.
+endring,change,,En stor {{endring}} skjedde da systemet ble oppgradert igjen.
+resultat,result,,{{Resultatet}} av testen var bedre enn forventet denne gangen.
+penger,money,,Han tjener god {{penger}} på jobben sin som ingeniør her.
+time,hour,,Møtet varer i to {{timer}} og starter klokken åtte.
+måned,month,,Juni er en vakker {{måned}} med mye sollys og varme.
+uke,week,,Neste {{uke}} skal jeg besøke min fetter i Stockholm Sverige.
+natt,night,,Jeg sover godt om {{natten}} når det er stille.
+morgen,morning,,Jeg drikker kaffe hver {{morgen}} før arbeid.
+ettermiddag,afternoon,,Vi møtes på kaffe om {{ettermiddagen}} klokka tre.
+kveld,evening,,Vi ser på film sammen hver {{kveld}} hjemme.
+minutt,minute,,"Vennten bare et {{minutt}}, jeg kommer snart."
+sekund,second,,Hun varte bare et {{sekund}} før hun løp.
+århundre,century,,Det var stort {{århundre}} siden gamle romerne levde.
+fremtid,future,,Jeg er optimistisk om min {{fremtid}} og drømmer.
+fortid,past,,Vi bør lære fra vår {{fortid}} for å forbedre.
+nåtid,present,,I {{nåtiden}} må vi fokusere på miljøet.
+begynnelse,beginning,,Ved {{begynnelsen}} av kurset var jeg veldig nervøs.
+slutt,end,,Ved {{slutten}} av året feirer vi sammen alle.
+sentrum,centre,,Jeg jobber i {{sentrum}} av Oslo hver dag.
+nord,north,,Nordlyset er vakrest i {{nord}} av Norge.
+sør,south,,Det er varmere i {{sør}} av landet.
+øst,east,,Solen går opp i {{øst}} hver morgen.
+vest,west,,Solen går ned i {{vest}} hver kveld.
+gate,street,,Vi bor på en rolig {{gate}} med mange trær.
+vei,road / path,,Kryss {{veien}} forsiktig når du går rundt.
+dør,door,,Hun åpnet {{døren}} og så katten hans sitte.
+vindu,window,,Jeg åpner {{vinduet}} for å få frisk luft.
+gulv,floor,,{{Gulvet}} i stuen er laget av tre og glans.
+tak,ceiling / roof,,{{Taket}} på huset var rødt og gammelt.
+vegg,wall,,Vi maler {{veggen}} i stuen hvit og fin.
+rom,room,,Det største {{rommet}} i huset er stuen vår.
+kjøkken,kitchen,,Hun lager mat i {{kjøkkenet}} hver dag.
+bad,bathroom,,Jeg dusjer i {{badet}} om morgenen før arbeid.
+hage,garden,,Vi dyrker grønnsaker i {{hagen}} om sommeren.
+bygning,building,,Den gamle {{bygningen}} ble oppført for hundre år siden.
+leilighet,apartment,,Vi leier en fin {{leilighet}} nær sentrum av byen.
+hotell,hotel,,Vi bodde på et luksus {{hotell}} under ferien.
+sykehus,hospital,,Min far jobber på {{sykehuset}} som lege.
+skole,school,,Mitt barn går på en god {{skole}} nær huset.
+universitet,university,,Hun studerer medisin på {{universitetet}} i Oslo.
+bibliotek,library,,Jeg låner bøker på {{biblioteket}} hver uke.
+butikk,shop,,Vi handler mat på {{butikken}} nær hjemmet.
+marked,market,,Det er fint {{marked}} med frukt på lørdag.
+bank,bank,,Jeg må besøke {{banken}} for å ta ut penger.
+kirke,church,,Vi giftet oss i en vakker {{kirke}} for år siden.
+park,park,,Vi går tur i {{parken}} på fine dager.
+strand,beach,,{{Stranden}} er vakker med hvit sand og bølger.
+fjell,mountain,,Vi klatret opp på det høye {{fjellet}} sist sommer.
+elv,river,,{{Elven}} renner gjennom dalen veldig raskt og kraftig.
+innsjø,lake,,Vi svømte i den kalde {{innsjøen}} i juni måned.
+hav,sea / ocean,,{{Havet}} er dypt og fullt av interessant liv.
+skog,forest,,Vi gikk tur i {{skogen}} og så mange dyr.
+bygd,countryside,,Han vokste opp i en liten {{bygd}} på landet.
+himmel,sky,,{{Himmelen}} var blå og klar hele dagen i dag.
+sol,sun,,{{Solen}} skinner varmt og gir oss vitamin D.
+måne,moon,,{{Månen}} var stor og gul kvelden før jul.
+stjerne,star,,Om natten kan jeg se mange {{stjerner}} på himlen.
+sky,cloud,,En stor {{sky}} dekket solen i dag.
+regn,rain,,Det faller {{regn}} og jeg må ta paraply.
+snø,snow,,{{Snøen}} ligger hvit og fin på bakken.
+vind,wind,,{{Vinden}} blåser veldig sterkt i dag.
+ild,fire,,Vi tent {{ild}} i peisen for varme.
+jord,earth / ground,,{{Jorden}} er rund og vakker planet.
+stein,stone,,Han kastet en {{stein}} ut i vannet.
+tre,tree,,Det store {{treet}} gir skygge om sommeren.
+blomst,flower,,{{Blomsten}} er rød og veldig vakker.
+plante,plant,,Jeg vanner {{planten}} min hver dag.
+gress,grass,,{{Gresset}} er grønt og fint på våren.
+dyr,animal,,Mange {{dyr}} lever i skogen nær meg.
+hund,dog,,Min {{hund}} elsker å løpe i parken.
+katt,cat,,{{Katten}} sover på sofaen hele dagen.
+fugl,bird,,En blå {{fugl}} sang på greinen.
+fisk,fish,,{{Fisken}} svømmer raskt i akvariet mitt.
+hest,horse,,{{Hesten}} er stor og veldig sterk.
+ku,cow,,{{Kuen}} gir melk som vi drikker.
+kropp,body,,Min {{kropp}} trenger trening og mosjon.
+hode,head,,Jeg har vondt i {{hodet}} i dag.
+ansikt,face,,{{Ansiktet}} mitt er rødt etter solen.
+øye,eye,,Jeg har blått {{øye}} fra fotballen.
+nese,nose,,{{Nesen}} min er kald om vinteren.
+munn,mouth,,Åpne {{munnen}} og si åhhh til legen.
+øre,ear,,Jeg hørte det med {{øret}} mitt.
+tann,tooth,,Jeg børster {{tannene}} mine morgen og kveld.
+tunge,tongue,,{{Tungen}} min er rød og varm.
+hals,neck / throat,,Jeg har vondt i {{halsen}} og hosten.
+skulder,shoulder,,{{Skulderen}} min gjorde veldig vondt etter treningen.
+arm,arm,,Jeg løftet {{armen}} over hodet mitt.
+albue,elbow,,Jeg slo {{albuen}} på bordet nå.
+håndledd,wrist,,Klokken min sitter på {{håndleddet}} mitt.
+finger,finger,,Jeg har ti {{fingre}} på hendene mine.
+ben,leg,,{{Benet}} mitt er sliten etter løping.
+kne,knee,,{{Kneet}} mitt gjør vondt når jeg hopper.
+fot,foot,,Jeg har smerte i {{foten}} min.
+hjerte,heart,,{{Hjertet}} mitt slår fort når jeg løper.
+lunge,lung,,{{Lungene}} mine trenger frisk luft hver dag.
+mage,stomach,,{{Magen}} min er full etter maten.
+hjerne,brain,,{{Hjernen}} min må fokusere nå.
+blod,blood,,{{Blodet}} mitt flyter gjennom kroppen min.
+bein,bone,,{{Beinene}} mine er sterke og fine.
+muskel,muscle,,Jeg bygger {{muskel}} ved å trene hver dag.
+hud,skin,,{{Huden}} min er sensitiv for solen.
+hår,hair,,{{Håret}} mitt er langt og brunt.
+klær,clothes,,Mine {{klær}} henger i skapet hjemme.
+skjorte,shirt,,Jeg har på en blå {{skjorte}} i dag.
+bukse,trousers,,{{Buksene}} mine er nye og fine.
+skjørt,skirt,,Hun har på et rødt {{skjørt}} til festen.
+kjole,dress,,Hun {{kjolen}} var blå og veldig fin.
+jakke,jacket,,Jeg trenger en ny {{jakke}} til vinteren.
+frakk,coat,,Han tok på seg {{frakken}} før han gikk ut.
+sko,shoe,,Hvor er {{skoene}} mine som jeg kjøpte i dag?
+sokk,sock,,Jeg fant en {{sokk}} under senga i går.
+hatt,hat,,{{Hatten}} din ligger på stolen i stuen.
+skjerf,scarf,,Kan du hente {{skjerfet}} mitt fra garderober?
+hanske,glove,,Jeg mistet en {{hanske}} på vei til jobben.
+brød,bread,,Vi kjøpte fersk {{brød}} fra bakeren denne morgenen.
+ris,rice,,{{Risen}} koker i ti minutter til den er klar.
+pasta,pasta,,Hun lager italiensk {{pasta}} hver fredag kveld.
+kjøtt,meat,,{{Kjøttet}} må tilberedes langsomt over lav varme.
+kylling,chicken,,Vi grillet {{kyllingen}} med sitronsmør og urter.
+egg,egg,,Jeg spiste tre {{egg}} til frokost denne morgenen.
+melk,milk,,Kan du kjøpe en flaske {{melk}} på butikken?
+ost,cheese,,{{Osten}} var норвегian og veldig god i dag.
+smør,butter,,Hun spredte {{smøret}} på brødet med en kniv.
+olje,oil,,Vi bruker {{oljen}} til å steike kjøttet.
+salt,salt,,Husk å tilsette {{salt}} i kokevannet for pasta.
+sukker,sugar,,Hun rørte {{sukkeret}} inn i kaffen sin.
+kaffe,coffee,,Jeg drikker to kopper {{kaffe}} hver morgen alltid.
+te,tea,,{{Teen}} var varm og smakte godt.
+vin,wine,,De åpnet en flaske {{vin}} til middagen.
+øl,beer,,Han bestilte et glass {{øl}} på restauranten.
+juice,juice,,Barna drikker fersk {{juice}} til frokost hver dag.
+frukt,fruit,,Vi kjøpte mye {{frukt}} på markedet i dag.
+eple,apple,,{{Eplet}} var rødt og søtt og saftig.
+appelsin,orange,,Jeg presset {{appelsinen}} for å lage frisk juice.
+drue,grape,,{{Druene}} var kjølige og perfekte som snacks.
+banan,banana,,Han åpnet {{bananen}} og spiste den raskt.
+jordbær,strawberry,,{{Jordbærene}} var røde og modne og deilige.
+sitron,lemon,,Jeg klemte {{sitronen}} over fisken før servering.
+tomat,tomato,,{{Tomaten}} er rød og søt og sukkerfull.
+salat,salad / lettuce,,Vi spiser grønn {{salat}} hver dag for helsa.
+gulrot,carrot,,{{Gulroten}} er orange og inneholder mye vitamin.
+løk,onion,,Hun hakket {{løken}} til et deilig og godt.
+hvitløk,garlic,,{{Hvitløken}} gir sterk smak til alle rettene.
+potet,potato,,Vi kokte {{poteten}} i saltet vann til den var klar.
+bok,book,,Jeg leser en interessant {{bok}} på sengen.
+side,page,,Denne {{siden}} handler om vakre bergene i Norge.
+brev,letter,,Hun skrev et langt {{brev}} til venninnen sin.
+avis,newspaper,,Han leser {{avisen}} med kaffe hver morgen.
+blad,magazine,,{{Bladet}} mitt handler om reiser og eventyr.
+nyhet,news,,Vi hørte en viktig {{nyhet}} på nyhetsradioene.
+spørsmål,question,,Han stilte et godt {{spørsmål}} til læreren.
+svar,answer,,Hun gav et riktig {{svar}} på matematikkprøven.
+idé,idea,,Det var en brillant {{idé}} som løste problemet.
+mening,opinion,,Min {{mening}} er at det er en god film.
+ord,word,,Han skrev ned hvert {{ord}} fra foredraget.
+setning,sentence,,{{Setningen}} var lang og veldig komplisert å forstå.
+språk,language,,Hun {{språk}}er flere språk flytende og lærer stadig nye.
+kultur,culture,,Norsk {{kultur}} er veldig viktig for oss og våre barn.
+kunst,art,,Hun elsker {{kunst}} og besøker museer hver uke.
+musikk,music,,{{Musikk}} gjør meg glad og fredelig på lange dager.
+sang,song,,Hennes favoritt {{sang}} har hun hørt tusen ganger.
+film,film / movie,,Vi så en spennende {{film}} på kino forrige lørdag.
+teater,theatre,,{{Teateret}} i byen viser mange ulike produksjoner hele året.
+sport,sport,,Min datter trives godt med {{sport}} og trener tre ganger daglig.
+fotball,football / soccer,,Alle ungdommene spiller {{fotball}} på vår lokale idrettsplass.
+tennis,tennis,,Han spiller {{tennis}} hver tirsdag kveld med vennene sine.
+svømming,swimming,,{{Svømming}} er det beste treningen for hele kroppen din.
+løp,race,,Jeg deltok i et {{løp}} i parken i dag tidlig.
+lag,team,,Vårt {{lag}} vant kampen med tre mål til en.
+spill,game,,Vi spilte et morsomt {{spill}} til langt utpå kvelden.
+seier,victory,,{{Seieren}} var velfortjent etter all hard innsats og treninger.
+tap,defeat,,"Det var trist med {{tapet}}, men vi lærte mye."
+premie,prize,,Han vant en stor {{premie}} for sitt fantastiske kunstnerverk.
+ferie,holiday,,Vi drar til Spania for {{ferie}} neste sommer sammen.
+transport,transport,,Offentlig {{transport}} er billig og praktisk i storbyene.
+bil,car,,Min nye {{bil}} er rød og veldig kjapp.
+buss,bus,,Jeg tar {{bussen}} til jobben hver dag klokken seks.
+tog,train,,{{Toget}} til Bergen tok fire timer fra Oslo i dag.
+båt,boat / ship,,Vi leiet en {{båt}} og fiskot hele dagen ved fjorden.
+sykkel,bicycle,,Han kjører {{sykkel}} til skolen hver dag hele året.
+motorsykkel,motorcycle,,Faren hans har en stor {{motorsykkel}} han elsker.
+billett,ticket,,Jeg kjøpte en {{billett}} til konserten på nettet.
+pass,passport,,Du trenger {{passet}} ditt for å reise til utlandet.
+koffert,suitcase,,Hun pakket {{kofferten}} full av klær og bøker.
+kart,map,,Vi brukte {{kartet}} for å finne veien til hytten.
+teknologi,technology,,Moderne {{teknologi}} gjør livet vårt enklere hver dag.
+datamaskin,computer,,Min nye {{datamaskin}} er veldig rask og kraftig.
+telefon,phone,,Jeg mister {{telefonen}} min minst en gang per dag.
+internett,internet,,{{Internett}} er nødvendig for alt arbeidet mitt nå.
+skjerm,screen,,{{Skjermen}} på datamaskinen min er veldig stor.
+tastatur,keyboard,,Jeg skrev raskt på {{tastaturet}} mitt hele formiddagen.
+kamera,camera,,Hun tok vakre bilder med sitt professionelle {{kamera}}.
+fjernsyn,television,,Vi så nyheter på {{fjernsynet}} før middag i dag.
+radio,radio,,Jeg hører {{radioen}} mens jeg kjører bilen til jobben.
+lys,light,,{{Lyset}} i stuen var for sterkt for mine øyne.
+lyd,sound,,{{Lyden}} fra musikken var veldig høy på konserten.
+farge,colour,,Hennes favoritt {{farge}} er rosa og hun elsker det.
+rød,red,,Han har en {{rød}} bil som er veldig fin.
+blå,blue,,Himlen er {{blå}} og det er vakkert vær i dag.
+grønn,green,,Trærne er {{grønn}} nå fordi det er våren.
+gul,yellow,,Solen er {{gul}} og varmer hele landsdelen vår.
+svart,black,,Han hadde en {{svart}} frakk på seg hele vinteren.
+hvit,white,,Snøen er {{hvit}} og dekker hele fjellene nå.
+grå,grey,,Været var {{grått}} og regnet falt hele dagen.
+smerte,pain,,Han hadde {{smerte}} i kneet etter fotballkampen sin.
+sykdom,illness,,Hun hadde {{sykdommen}} i to uker før hun frisknet.
+medisin,medicine,,{{Medisin}} fra apoteket hjalp meg med hosten min.
+lege,doctor,,{{Legen}} undersøkte meg grundig på legekontoret.
+sykepleier,nurse,,{{Sykepleieren}} var veldig snill og omsorgsful.
+helse,health,,God {{helse}} er viktigere enn penger.
+sinn,mind,,Hun har et skarpt {{sinn}} og løser problemer fort.
+følelse,feeling / emotion,,Han skjulte sine {{følelser}} for resten av verden.
+frykt,fear,,{{Frykt}} for flyvning er vanlig hos mange mennesker.
+glede,joy,,Barna sprang av {{glede}} når de så snøen.
+sorg,sadness,,{{Sorgen}} over tapet var veldig stor og dypt.
+kjærlighet,love,,{{Kjærlighet}} mellom foreldre og barn er særlig sterk.
+hat,hate,,{{Hat}} fører aldri til noe godt eller konstruktivt.
+håp,hope,,{{Håp}} om bedre tider holder mange mennesker oppmuntret.
+sannhet,truth,,{{Sannheten}} kommer alltid frem før eller siden.
+løgn,lie,,Hans {{løgn}} ble oppdaget av alle på festen.
+rettferdighet,justice,,Vi må kjempe for {{rettferdighet}} og likhet.
+lov,law,,Alle må følge {{loven}} som er satt av staten.
+politi,police,,{{Politiet}} arresterte mannen som hadde stjålet bilen.
+krig,war,,{{Krigen}} varte i mange år og gjorde stor skade.
+fred,peace,,Vi håper på {{fred}} og samarbeid mellom alle nasjoner.
+ulykke,accident,,{{Ulykken}} skjedde på veien klokken halv åtte.
+fare,danger,,Det er stor {{fare}} i trafikken når det regner.
+sikkerhet,safety / security,,{{Sikkerhet}} er prioritet nummer en på arbeidsplassen.
+suksess,success,,Hans {{suksess}} som forretningsmann var inspirerende for mange.
+fiasko,failure,,Prosjektet endte i {{fiasko}} på grunn av dårlig planlegging.
+vanskelighet,difficulty,,Hun møtte {{vanskeligheter}} men ga seg ikke opp.
+løsning,solution,,Vi fant en god {{løsning}} på problemet snart.
+mulighet,opportunity,,Det gir stor {{mulighet}} for å realisere drømmene.
+rett,right,,Alle mennesker har {{retten}} til utdanning og arbeid.
+ansvar,responsibility,,Det er ditt {{ansvar}} å passe på lillebror.
+frihet,freedom,,{{Friheten}} til å velge er veldig viktig for alle.
+likhet,equality,,Vi tror på {{likhet}} mellom alle mennesker uavhengig bakgrunn.
+nasjon,nation,,Norge er en flott {{nasjon}} med sterke verdier.
+region,region,,Denne {{regionen}} er kjent for sine naturlige ressurser.
+hovedstad,capital city,,Oslo er {{hovedstaden}} til Norge og viktigst by.
+befolkning,population,,{{Befolkningen}} i byen øker hvert år veldig mye.
+økonomi,economy,,{{Økonomien}} til landet forbedres når handelene vokser.
+handel,trade,,{{Handelen}} mellom land er viktig for verden.
+industri,industry,,{{Industrien}} i området produserer stål og metaller.
+landbruk,agriculture,,{{Landbruket}} er viktig for å produsere mat.
+miljø,environment,,Vi må beskytte {{miljøet}} for kommende generasjoner.
+natur,nature,,{{Naturen}} i Norge er fantastisk og veldig vakker.
+energi,energy,,Vi trenger fornybar {{energi}} for en bærekraftig fremtid.
+ressurs,resource,,Olje er en viktig {{ressurs}} for det norske samfunnet.
+forurensning,pollution,,{{Forurensningen}} i luften skader både mennesker og dyr.
+klima,climate,,{{Klimaet}} er viktig for alle former for liv.
+temperatur,temperature,,{{Temperaturen}} stiger hvert år på grunn av varmeeffekten.
 # ── Adjectives ───────────────────────────────────────────────────────────────
-god,good,
-dårlig,bad,
-stor,big / great,
-liten,small,
-ny,new,
-gammel,old,
-ung,young,
-høy,tall / high,
-lav,low / short,
-lang,long,
-kort,short,
-bred,wide,
-smal,narrow,
-tykk,fat / thick,
-tynn,thin,
-sterk,strong,
-svak,weak,
-rask,fast,
-langsom,slow,
-lett,easy,
-vanskelig,difficult,
-viktig,important,
-nødvendig,necessary,
-mulig,possible,
-umulig,impossible,
-sann,true,
-falsk,false,
-trygg,safe,
-farlig,dangerous,
-rik,rich,
-fattig,poor,
-lykkelig,happy,
-trist,sad,
-sint,angry,
-rolig,calm,
-nervøs,nervous,
-kjedelig,boring,
-interessant,interesting,
-vakker,beautiful,
-stygg,ugly,
-ren,clean,
-skitten,dirty,
-full,full,
-tom,empty,
-åpen,open,
-lukket,closed,
-fri,free,
-opptatt,busy,
-forskjellig,different,
-lik,same,
-lignende,similar,
-spesiell,special,
-normal,normal,
-merkelig,strange,
-vanlig,common,
-sjelden,rare,
-typisk,typical,
-moderne,modern,
-gammel / antikk,ancient / old,
-naturlig,natural,
-kunstig,artificial,
-fysisk,physical,
-mental,mental,
-sosial,social,
-politisk,political,
-økonomisk,economic,
-kulturell,cultural,
-nasjonal,national,
-internasjonal,international,
-lokal,local,
-offentlig,public,
-privat,private,
-personlig,personal,
-profesjonell,professional,
-intelligent,intelligent,
-seriøs,serious,
-morsom,funny,
-vennlig,friendly,
-ærlig,honest,
-sjenerøs,generous,
-modig,brave,
-tålmodig,patient,
-aktiv,active,
-positiv,positive,
-negativ,negative,
-komplett,complete,
-perfekt,perfect,
-korrekt,correct,
-nøyaktig,exact,
-total,total,
-hoved,main,
-offisiell,official,
-formell,formal,
+god,good,,Det var en {{god}} dag med mye sol.
+dårlig,bad,,Været var {{dårlig}} så vi ble hjemme hele dagen.
+stor,big / great,,Hun bodde i et {{stort}} hus ved sjøen.
+liten,small,,Babyen var {{liten}} og veide bare tre kilo.
+ny,new,,Hun kjøpte en {{ny}} jakke på salg i dag.
+gammel,old,,Vi besøkte en {{gammel}} kirke fra middelalderen.
+ung,young,,Min {{unge}} søster starter på skolen til høsten.
+høy,tall / high,,Denne {{høye}} bygningen er det talleste huset i byen.
+lav,low / short,,Stokken er for {{lav}} for at jeg skal nå.
+lang,long,,Vi tok en {{lang}} tur gjennom skogen i går.
+kort,short,,Møtet var {{kort}} og varte bare tjue minutter.
+bred,wide,,Den {{brede}} veien gjør det enkelt å kjøre her.
+smal,narrow,,Det er en {{smal}} gang mellom de to byggene.
+tykk,fat / thick,,Denne {{tykke}} boken har over fem hundre sider.
+tynn,thin,,Papiret er for {{tynt}} til å skrive på ordentlig.
+sterk,strong,,Han er {{sterk}} nok til å løfte tungt utstyr.
+svak,weak,,Jeg føler meg {{svak}} etter å være syk hele uken.
+rask,fast,,Løperen var {{rask}} og vant løpet med stor margin.
+langsom,slow,,Den {{langsomme}} bussen kommer alltid for sent til stasjonen.
+lett,easy,,Denne oppgaven er {{lett}} og tar bare fem minutter.
+vanskelig,difficult,,Matematikken er {{vanskelig}} og jeg trenger hjelp fra læreren.
+viktig,important,,Det er {{viktig}} å spise sunt og bevege seg daglig.
+nødvendig,necessary,,Paraplyen er {{nødvendig}} fordi det regner hele dagen i dag.
+mulig,possible,,Det er {{mulig}} å reise til fjellene hvis vi starter tidlig.
+umulig,impossible,,Det er {{umulig}} å flyve uten å bruke et fly.
+sann,true,,Alt han sa var {{sant}} og jeg stolte på ham fullt og helt.
+falsk,false,,Den {{falske}} stolen knakk da jeg satte meg på den.
+trygg,safe,,Jeg føler meg {{trygg}} når jeg er sammen med venner mine.
+farlig,dangerous,,Det er {{farlig}} å kjøre for fort på isete veier.
+rik,rich,,Den {{rike}} mannen kjøpte seg et stort hus ved sjøen.
+fattig,poor,,Den {{fattige}} familien fikk hjelp fra det lokale velforeninger.
+lykkelig,happy,,Hun var {{lykkelig}} da hun fikk sommerjobben hun ønsket seg.
+trist,sad,,Han var {{trist}} fordi hans beste venn flyttet til utlandet.
+sint,angry,,Faren ble {{sint}} da sønnen kom hjem for sent.
+rolig,calm,,Det er {{rolig}} å sitte og lese en god bok.
+nervøs,nervous,,Jeg var {{nervøs}} før eksamen men klarte meg veldig bra.
+kjedelig,boring,,Filmen var så {{kjedelig}} at jeg sovnet på sofaen.
+interessant,interesting,,Det var en {{interessant}} dokumentar om dyrelivet i Afrika.
+vakker,beautiful,,Hun hadde på seg en {{vakker}} kjole til festen.
+stygg,ugly,,Kakoen var {{stygg}} men smakte veldig godt uansett.
+ren,clean,,Jeg liker at huset er {{rent}} og velorganisert alltid.
+skitten,dirty,,Drengen hadde {{skitne}} klær etter å leke i gjørma.
+full,full,,Bussen var {{full}} og jeg måtte stå hele veien til sentrum.
+tom,empty,,Glassene er {{tomme}} så jeg må fylle dem med vann.
+åpen,open,,Vinduet er {{åpent}} så det blåser kaldt luften inn.
+lukket,closed,,Butikken er {{lukket}} på søndager så vi kan ikke dra dit.
+fri,free,,Jeg er {{fri}} på fredagen og planlegger en fin tur.
+opptatt,busy,,Han er {{opptatt}} hele dagen med møter og viktige oppgaver.
+forskjellig,different,,Vi har {{forskjellige}} meninger om hvilken film vi skal se.
+lik,same,,Tvillingene ser så {{like}} ut at folk blander dem ofte.
+lignende,similar,,Disse to skoene har en {{lignende}} stil og farge.
+spesiell,special,,Hun har en {{spesiell}} gave for å forstå mennesker veldig godt.
+normal,normal,,Det er {{normalt}} å føle nervøsitet før en stor presentasjon.
+merkelig,strange,,Det var {{merkelig}} at han ikke svarte på telefonsamtalen.
+vanlig,common,,Det er {{vanlig}} å drikke kaffe om morgenen i Norge.
+sjelden,rare,,Snø er {{sjelden}} i juli og august nordover.
+typisk,typical,,Det er {{typisk}} norsk å elske friluftsliv og naturen.
+moderne,modern,,Hun bruker {{moderne}} teknologi i sitt daglige arbeid.
+gammel / antikk,ancient / old,,Det {{gamle}} huset på høyden var bygget for hundre år siden.
+naturlig,natural,,Det er {{naturlig}} at barn er nysjerrige og aktive.
+kunstig,artificial,,Den {{kunstige}} blomsten så ut som en ekte rose.
+fysisk,physical,,{{Fysisk}} trening er viktig for helsen vår hver dag.
+mental,mental,,{{Mental}} styrke hjelper oss gjennom vanskelige tider.
+sosial,social,,{{Sosial}} media endrer hvordan vi kommuniserer med hverandre.
+politisk,political,,{{Politisk}} debatt var intens under valgkampen i år.
+økonomisk,economic,,{{Økonomisk}} vekst er viktig for landets velstand.
+kulturell,cultural,,Festival var en wunderbar {{kulturell}} opplevelse for alle.
+nasjonal,national,,{{Nasjonal}} dag blir feiret sevendemai hver eneste år.
+internasjonal,international,,{{Internasjonal}} handel forbinder land over hele verden.
+lokal,local,,Vi kjøper frukt fra {{lokal}} bonde på torvet.
+offentlig,public,,{{Offentlig}} transport er rimelig og praktisk i Oslo.
+privat,private,,De har en {{privat}} båt ved hytta sin.
+personlig,personal,,Det er en {{personlig}} beslutning som bare du kan ta.
+profesjonell,professional,,Hun jobber som {{profesjonell}} fotograf for stort magasin.
+intelligent,intelligent,,Hunden hans er veldig {{intelligent}} og lærer raskt.
+seriøs,serious,,Han tok en {{seriøs}} tone når han snakket om dette.
+morsom,funny,,Filmen var så {{morsom}} at vi lo hele tiden.
+vennlig,friendly,,Naboen vår er alltid {{vennlig}} og hjelpsom mot oss.
+ærlig,honest,,Det er bedre å være {{ærlig}} enn å lyve alltid.
+sjenerøs,generous,,Han er {{sjenerøs}} og deler gjerne med andre mennesker.
+modig,brave,,Det var {{modig}} av henne å stå opp for rettighetene.
+tålmodig,patient,,En god lærer må være {{tålmodig}} med elevene sine.
+aktiv,active,,Hun er veldig {{aktiv}} og liker å trene daglig.
+positiv,positive,,En {{positiv}} holdning hjelper deg gjennom problemer.
+negativ,negative,,{{Negativ}} tanker kan påvirke din mentale helse alvorlig.
+komplett,complete,,Pakken var {{komplett}} med alt vi bestilte tidligere.
+perfekt,perfect,,Været var {{perfekt}} for piknik i parken idag.
+korrekt,correct,,Svaret ditt er {{korrekt}} og du fikk full poengsum.
+nøyaktig,exact,,Klokken viser {{nøyaktig}} tid hver eneste dag.
+total,total,,{{Total}} kostnad for prosjektet var høyere enn forventet.
+hoved,main,,{{Hoved}} temaet i møtet var budsjettplanlegging for år.
+offisiell,official,,{{Offisiell}} resultat blir kunngjort neste mandag formiddag.
+formell,formal,,Det er en {{formell}} gjest og han kledde seg pen.
 # ── Adverbs ──────────────────────────────────────────────────────────────────
-veldig,very,
-mer,more,
-mindre,less,
-også,also / too,
-allerede,already,
-fortsatt,still,
-aldri,never,
-alltid,always,
-nesten,almost,
-bare,only,
-nok,enough,
-for mye,too much,
-litt,a little,
-mye,a lot,
-bra,well,
-bedre,better,
-raskt,quickly,
-sakte,slowly,
-sannsynligvis,probably,
-kanskje,perhaps,
-sikkert,certainly,
-virkelig,really,
-helt,completely,
-absolutt,absolutely,
-spesielt,especially,
-hovedsakelig,mainly,
-generelt,generally,
-vanligvis,normally,
-ofte,often,
-umiddelbart,immediately,
-til slutt,finally,
-her,here,
-der,there,
-nær,near,
-langt,far,
-inne,inside,
-ute,outside,
-oppe,up / above,
-nede,down / below,
-foran,in front,
-bak,behind,
+veldig,very,,Kaffen er {{veldig}} varm så du må passe deg.
+mer,more,,Jeg trenger {{mer}} tid for å fullføre oppgaven.
+mindre,less,,Barnet ville ha {{mindre}} grønnsaker på tallerkenen sin.
+også,also / too,,"Jeg liker sjokolade, og du gjør det {{også}}."
+allerede,already,,Han har {{allerede}} lest hele boken på bare uker.
+fortsatt,still,,Hun {{fortsatt}} jobber på samme plass som før.
+aldri,never,,Jeg {{aldri}} spiser frokost når jeg er sent oppe.
+alltid,always,,Han er {{alltid}} snill og respektfull mot alle mennesker.
+nesten,almost,,Vi er {{nesten}} fremme og skal komme snart.
+bare,only,,Du kan {{bare}} ta det som du trenger nå.
+nok,enough,,Vi har {{nok}} mat og drikke til alle gjestene.
+for mye,too much,,Du drikker {{for mye}} kaffe hver dag.
+litt,a little,,Kan jeg få {{litt}} melk i kaffen min?
+mye,a lot,,Det er {{mye}} snø i fjellene nå.
+bra,well,,Hun snakker norsk veldig {{bra}} og flytende.
+bedre,better,,Dette kaffehuset er {{bedre}} enn det andre.
+raskt,quickly,,Toget kjører {{raskt}} gjennom landet hver dag.
+sakte,slowly,,Vi gikk {{sakte}} opp trappene sammen.
+sannsynligvis,probably,,Han kommer {{sannsynligvis}} til festen i morgen.
+kanskje,perhaps,,{{Kanskje}} skal vi gå på kino lørdag?
+sikkert,certainly,,Du kommer {{sikkert}} til å like maten.
+virkelig,really,,Det var {{virkelig}} en vakker dag i dag.
+helt,completely,,Jeg er {{helt}} enig med deg om det.
+absolutt,absolutely,,Det er {{absolutt}} ikke akseptabelt å være sen.
+spesielt,especially,,Jeg liker {{spesielt}} sjokolade og karamell.
+hovedsakelig,mainly,,Vi jobber {{hovedsakelig}} med digitale prosjekter her.
+generelt,generally,,{{Generelt}} er været bedre på sommeren.
+vanligvis,normally,,Hun {{vanligvis}} tar toget til jobb hver dag.
+ofte,often,,Vi spiser pizza {{ofte}} på fredagskveldene.
+umiddelbart,immediately,,Du må {{umiddelbart}} stoppe det farlige oppførselen.
+til slutt,finally,,{{Til slutt}} takket han alle for maten.
+her,here,,Kom {{her}} så skal jeg vise deg noe.
+der,there,,Skolen ligger {{der}} på andre siden av veien.
+nær,near,,Butikken ligger {{nær}} huset mitt.
+langt,far,,Oslo er {{langt}} fra hvor jeg bor.
+inne,inside,,Det er veldig varmt {{inne}} i huset nå.
+ute,outside,,Barnas leker {{ute}} i parken hver dag.
+oppe,up / above,,Katten sitter {{oppe}} på taket igjen.
+nede,down / below,,Bilen står {{nede}} i garasjen under huset.
+foran,in front,,Det er en stor park {{foran}} skolen.
+bak,behind,,Hundens hale henger {{bak}} når han løper.
 # ── Prepositions and conjunctions ────────────────────────────────────────────
-av,of / from,
-til,to / until,
-i,in / at,
-med,with,
-uten,without,
-for,for,
-gjennom,through,
-om,about / around,
-mellom,between,
-fra,from / since,
-under,during / under,
-før,before,
-etter,after,
-selv om,although,
-fordi,because,
-hvis,if,
-når,when,
-hvor,where,
-som,as / like / who,
-at,that,
-men,but,
-eller,or,
-og,and,
-hverken...eller,neither...nor,
-derfor,therefore,
+av,of / from,,Jeg drikker et glass {{av}} den beste mosen.
+til,to / until,,Vi skal dra {{til}} fjellene neste uke.
+i,in / at,,Jeg bor {{i}} en liten leilighet i byen.
+med,with,,Kan jeg komme {{med}} dere på turen?
+uten,without,,Jeg kan ikke leve {{uten}} min kaffe.
+for,for,,Denne gaven er {{for}} min beste venn.
+gjennom,through,,Vi kjørte {{gjennom}} tunnelen veldig raskt.
+om,about / around,,Hva tenker du {{om}} det nye filmens?
+mellom,between,,Hemmelighetene ligger {{mellom}} ham og meg.
+fra,from / since,,Jeg kommer {{fra}} en liten by i Norge.
+under,during / under,,{{Under}} middagen pratet vi om livet.
+før,before,,Du må komme hjem {{før}} klokken ni.
+etter,after,,Vi går til kino {{etter}} at vi spiser.
+selv om,although,,Jeg liker ham {{selv om}} han er sta.
+fordi,because,,Jeg er glad {{fordi}} solen skinner i dag.
+hvis,if,,"{{Hvis}} du vil, kan vi møtes senere."
+når,when,,"{{Når}} jeg var liten, bodde jeg i bygda."
+hvor,where,,{{Hvor}} er nøklene mine fra i dag?
+som,as / like / who,,Det lyder {{som}} en veldig god idé.
+at,that,,Jeg tror {{at}} han kommer til å være glad.
+men,but,,"Jeg vil gjerne komme, {{men}} jeg har ikke tid i dag."
+eller,or,,Vil du ha kaffe {{eller}} te til morgenen?
+og,and,,Hun liker å lese bøker {{og}} se på filmer.
+hverken...eller,neither...nor,,Han liker {{hverken}} sport {{eller}} musikk særlig godt.
+derfor,therefore,,"Det regner mye i dag, {{derfor}} blir vi hjemme nå."
 # ── Pronouns ─────────────────────────────────────────────────────────────────
-jeg,I,
-du,you (informal),
-han,he,
-hun,she,
-vi,we,
-dere,you all,
-de,they,
-meg,me,
-seg,himself / herself,
-min,my,
-din,your,
-hans,his,
-hennes,her,
-vår,our,
-denne,this,
-den,that,
-noe,something,
-ingenting,nothing,
-noen,someone,
-ingen,nobody,
-alt,everything,
+jeg,I,,{{Jeg}} jobber som lærer på en stor skole.
+du,you (informal),,{{Du}} skal huske å ta med paraply i morgen.
+han,he,,{{Han}} er min beste venn fra barneskolen.
+hun,she,,{{Hun}} bor i Oslo med sin familie nå.
+vi,we,,{{Vi}} skal reise til fjellene i påsken sammen.
+dere,you all,,Hva gjør {{dere}} i helgen hvis været blir fint?
+de,they,,{{De}} spiller fotball på stadion hver mandag kveld.
+meg,me,,Kan du hjelpe {{meg}} med denne vanskelige oppgaven?
+seg,himself / herself,,Hun vasker {{seg}} og kler på {{seg}} fort om morgenen.
+min,my,,{{Min}} søster studerer medisin ved universitetet i Bergen.
+din,your,,Er {{din}} leilighet nær stasjonen eller langt unna?
+hans,his,,{{Hans}} bil er rød og veldig fin.
+hennes,her,,{{Hennes}} hund er snill og liker alle mennesker.
+vår,our,,{{Vår}} hus ligger på en rolig gate i sentrum.
+denne,this,,{{Denne}} boka er veldig interessant og spennende å lese.
+den,that,,Jeg liker {{den}} filmen som vi så i går kveld.
+noe,something,,Har du {{noe}} drikke eller mat med deg nå?
+ingenting,nothing,,Det var {{ingenting}} interessant på menyen på restauranten.
+noen,someone,,{{Noen}} har ringt til deg flere ganger i dag.
+ingen,nobody,,{{Ingen}} var hjemme da jeg kom til huset deres.
+alt,everything,,{{Alt}} som skjer er bra for din personlig utvikling.
 # ── Numbers ──────────────────────────────────────────────────────────────────
-en,one,
-to,two,
-fire,four,
-fem,five,
-seks,six,
-syv,seven,
-åtte,eight,
-ni,nine,
-ti,ten,
-elleve,eleven,
-tolv,twelve,
-tjue,twenty,
-tretti,thirty,
-førti,forty,
-femti,fifty,
-hundre,one hundred,
-tusen,one thousand,
-million,one million,
-første,first,
-siste,last,
+en,one,,Jeg kjøpte {{en}} ny bok på bokhandelen i går.
+to,two,,Hun har {{to}} katter som hun elsker veldig mye.
+fire,four,,Det er {{fire}} personer i min familie totalt.
+fem,five,,Vi trenger {{fem}} billetter til konserten på fredag.
+seks,six,,Klassens fotballag har {{seks}} spillere som er meget dyktige.
+syv,seven,,{{Syv}} av studentene bestod eksamen med svært god karakter.
+åtte,eight,,Butikken åpner klokken åtte og stenger klokken {{åtte}} om kvelden.
+ni,nine,,Skolen har {{ni}} klasserom og en stor gymnastikhall.
+ti,ten,,Det kostet {{ti}} kroner per kilo på markedet.
+elleve,eleven,,Bussen går klokken {{elleve}} fra sentrum hver formiddag.
+tolv,twelve,,Det er {{tolv}} måneder i året og fire årstider.
+tjue,twenty,,Han jobbet i bedriften i {{tjue}} år før han pensjonerte seg.
+tretti,thirty,,Rommet er ca {{tretti}} kvadratmeter stort og lyst.
+førti,forty,,Temperaturen var {{førti}} grader Celsius i solen i dag.
+femti,fifty,,Han veier omtrent {{femti}} kilo og er i god form.
+hundre,one hundred,,Det var {{hundre}} mennesker på konserten i går kveld.
+tusen,one thousand,,I fjor var det {{tusen}} besøkende på festivalen.
+million,one million,,Befolkningen i landet er nesten {{million}} mennesker nå.
+første,first,,Min {{første}} dag på skolen var veldig spennende og nervøs.
+siste,last,,Vi skal møtes på {{siste}} dag av sommerferien.
 # ── Question words ───────────────────────────────────────────────────────────
-hva,what,
-hvem,who,
-hvilken,which,
-hvordan,how,
-hvor mye,how much,
-hvorfor,why,
+hva,what,,{{Hva}} liker du best å gjøre på fritiden din?
+hvem,who,,{{Hvem}} er den nye læreren som starter i morgen?
+hvilken,which,,{{Hvilken}} farge foretrekker du når du kjøper klær?
+hvordan,how,,{{Hvordan}} skal vi komme til konsertsalen på lørdag?
+hvor mye,how much,,{{Hvor mye}} koster denne boken i butikken?
+hvorfor,why,,{{Hvorfor}} er du ikke på skolen i dag?
 # ── Days of the week ─────────────────────────────────────────────────────────
-mandag,Monday,
-tirsdag,Tuesday,
-onsdag,Wednesday,
-torsdag,Thursday,
-fredag,Friday,
-lørdag,Saturday,
-søndag,Sunday,
+mandag,Monday,,Vi har møte {{mandag}} klokken ti om morgenen.
+tirsdag,Tuesday,,Hun jobber alltid {{tirsdag}} kveld på restauranten.
+onsdag,Wednesday,,Det er kanskje en film på {{onsdag}} kveld?
+torsdag,Thursday,,Han har trening {{torsdag}} etter skolen hver uke.
+fredag,Friday,,Vi går på kino {{fredag}} kveld med venner.
+lørdag,Saturday,,{{Lørdag}} morgen sover jeg lenger enn vanlig.
+søndag,Sunday,,Familien spiser middag sammen {{søndag}} klokken fem.
 # ── Months ───────────────────────────────────────────────────────────────────
-januar,January,
-februar,February,
-mars,March,
-april,April,
-mai,May,
-juni,June,
-juli,July,
-august,August,
-september,September,
-oktober,October,
-november,November,
-desember,December,
+januar,January,,Det er kaldt og snø i {{januar}} hver år.
+februar,February,,{{Februar}} er den korteste måneden på året.
+mars,March,,Vårens blomster begynner å vokse i {{mars}}.
+april,April,,{{April}} bringer mild vær og grønt gress.
+mai,May,,Vi plantar tomater i hagen i {{mai}}.
+juni,June,,{{Juni}} er en vakker sommermåned med lange dager.
+juli,July,,De fleste nordmenn tar ferie i {{juli}} måned.
+august,August,,Skolen begynner igjen i slutten av {{august}}.
+september,September,,{{September}} markeringsdag for slutten av sommeren her.
+oktober,October,,{{Oktober}} er når høstfargene blir veldig vakre.
+november,November,,Det regner mye og blir mørkt i {{november}}.
+desember,December,,Julen feires med glede i {{desember}} måned.
 # ── Seasons ──────────────────────────────────────────────────────────────────
-sommer,summer,
-høst,autumn / fall,
-vinter,winter,
+sommer,summer,,Om {{sommeren}} er været varmt og solrikt.
+høst,autumn / fall,,{{Høsten}} er vakker med røde og gule blader.
+vinter,winter,,{{Vinteren}} er kald og vi kan gå på ski.
 # ── Professions ──────────────────────────────────────────────────────────────
-lærer,teacher,
-advokat,lawyer,
-ingeniør,engineer,
-arkitekt,architect,
-kokk,chef / cook,
-musiker,musician,
-kunstner,artist,
-forfatter,writer,
-journalist,journalist,
-forsker,scientist,
-tannlege,dentist,
-apoteker,pharmacist,
-brannmann,firefighter,
-pilot,pilot,
-sjåfør,driver,
-mekaniker,mechanic,
-elektriker,electrician,
-tømmermann,carpenter,
-gartner,gardener,
-kelner,waiter,
-ansatt,employee,
-sjef,boss,
-direktør,director,
-leder,manager,
-sekretær,secretary,
-regnskapsfører,accountant,
-økonom,economist,
-psykolog,psychologist,
-sosiolog,sociologist,
-historiker,historian,
+lærer,teacher,,Min {{lærer}} er veldig smart og snill med oss.
+advokat,lawyer,,{{Advokaten}} hjalp ham med det juridiske problemet sitt.
+ingeniør,engineer,,{{Ingeniøren}} designer store broer og bygninger hver dag.
+arkitekt,architect,,{{Arkitekten}} tegnet en flott ny skole for byen.
+kokk,chef / cook,,{{Kokken}} lager deilig mat på det fine restauranten.
+musiker,musician,,{{Musikeren}} spiller piano meget godt i konsertene.
+kunstner,artist,,{{Kunstneren}} maler vakkert maleri på lerret sitt.
+forfatter,writer,,{{Forfatteren}} skrev en spennende bok som jeg liker.
+journalist,journalist,,{{Journalisten}} skriver om viktige nyheter hver dag på avisen.
+forsker,scientist,,{{Forskeren}} gjør eksperimenter på laboratoriet sin hele tiden.
+tannlege,dentist,,Jeg går til {{tannlegen}} for å sjekke tennene.
+apoteker,pharmacist,,{{Apotekeren}} gir meg medisin når jeg er syk.
+brannmann,firefighter,,{{Brannmannen}} reddet folk fra det brennende huset igjen.
+pilot,pilot,,{{Piloten}} flyr flyet til mange ulike land verden.
+sjåfør,driver,,{{Sjåføren}} kjørte bussen helt til slutten av linjen.
+mekaniker,mechanic,,{{Mekanikeren}} fikser min bil når den ikke virker.
+elektriker,electrician,,{{Elektrikeren}} installerte ny ledninger i hele huset sitt.
+tømmermann,carpenter,,{{Tømmermannen}} bygget et fint hus av tre og planker.
+gartner,gardener,,{{Gartneren}} plantet blomster og grønnsakene i store bed.
+kelner,waiter,,{{Kelneren}} tok bestillingen min på restauranten veldig fort.
+ansatt,employee,,Han er en {{ansatt}} på bedriften som jobber hardt.
+sjef,boss,,Min {{sjef}} er veldig streng men rettferdig alltid.
+direktør,director,,{{Direktøren}} tar alle de viktigste beslutningene i bedriften.
+leder,manager,,{{Lederen}} av klubben ordnet møte med alle medlemmene.
+sekretær,secretary,,{{Sekretæren}} planlegger møtene og svarer på alle telefoner.
+regnskapsfører,accountant,,{{Regnskapsfører}} teller alle pengesummene i bedriften hver dag.
+økonom,economist,,Min bror arbeider som {{økonom}} i en stor bank.
+psykolog,psychologist,,{{Psykologen}} hjalp meg med å forstå mine følelser.
+sosiolog,sociologist,,{{Sosiologen}} forsker på hvordan samfunnet fungerer.
+historiker,historian,,{{Historikeren}} skrev en spennende bok om middelalderen.
 # ── More verbs ───────────────────────────────────────────────────────────────
-diskutere,to discuss,
-sammenligne,to compare,
-analysere,to analyse,
-planlegge,to plan,
-organisere,to organize,
-kontrollere,to control,
-måle,to measure,
-renovere,to renovate,
-reparere,to repair,
-installere,to install,
-koble til,to connect,
-laste ned,to download,
-laste opp,to upload,
-programmere,to program,
-designe,to design,
-oppfinne,to invent,
-oppdage,to discover,
-etterforske,to investigate,
-studere,to study,
-øve,to practise,
-konkurrere,to compete,
-nyte,to enjoy,
-lide,to suffer,
-ta vare på,to take care of,
-redde,to save / to rescue,
-dele,to share,
-eldes,to age / to grow old,
-samarbeide,to cooperate,
-forhandle,to negotiate,
-ansette,to hire,
-eksportere,to export,
-importere,to import,
-stemme,to vote,
-styre,to govern,
-dekorere,to decorate,
-gi råd,to advise,
-godkjenne,to approve,
-søke,to apply,
-oppnå,to achieve,
-blande,to mix,
-forberede,to prepare,
-servere,to serve,
-låne,to borrow / to lend,
-søle,to spill,
-overvåke,to monitor,
-beskytte,to protect,
-oppmuntre,to encourage,
-forby,to forbid,
-bekrefte,to confirm,
-avlyse,to cancel,
-utsette,to postpone,
-gratulere,to congratulate,
-gifte seg,to get married,
-skille seg,to get divorced,
+diskutere,to discuss,,Vi {{diskuterte}} politikk i timesvis på møtet.
+sammenligne,to compare,,Det er vanskelig å {{sammenligne}} disse to produktene direkte.
+analysere,to analyse,,Legen skal {{analysere}} blodprøvene dine neste uke.
+planlegge,to plan,,Vi må {{planlegge}} ferieturen vår snart.
+organisere,to organize,,Hun {{organiserer}} alle møtene for bedriften sin.
+kontrollere,to control,,Politiet {{kontrollerer}} hastigheten på veien hver dag.
+måle,to measure,,Vi skal {{måle}} høyden på barnet hver måned.
+renovere,to renovate,,De {{renoverer}} det gamle huset for øyeblikket.
+reparere,to repair,,Snekkeren skal {{reparere}} døren på kjøkkenet i morgen.
+installere,to install,,Teknikeren {{installerer}} den nye varmepumpen i dag.
+koble til,to connect,,Du må {{koble til}} internett før du starter.
+laste ned,to download,,Jeg {{laster ned}} en ny app på telefonen min.
+laste opp,to upload,,Hun {{laster opp}} bildene til nettsiden sin nå.
+programmere,to program,,Han {{programmerer}} nettsteder for flere selskaper.
+designe,to design,,{{Designeren}} skapte en vakker logo for bedriften.
+oppfinne,to invent,,Edison {{oppfant}} lyspæren for veldig lenge siden.
+oppdage,to discover,,Forskerne {{oppdaget}} en ny art i jungelen.
+etterforske,to investigate,,Politiet {{etterforskede}} forbrytelsen grundig.
+studere,to study,,Hun {{studerer}} medisin ved universitetet i Oslo.
+øve,to practise,,Jeg {{øver}} på piano tre ganger hver uke.
+konkurrere,to compete,,Atleten {{konkurrerer}} i flere internasjonale stevner årlig.
+nyte,to enjoy,,Vi {{nøt}} en koselig kveld sammen med venner.
+lide,to suffer,,Han {{lider}} av hodepine når det regner.
+ta vare på,to take care of,,Vi må {{ta vare på}} planten når jeg reiser.
+redde,to save / to rescue,,Brannmennene {{reddet}} de hjelpeløse hundene fra brannen.
+dele,to share,,Barna {{deler}} godteriet sitt med hverandre.
+eldes,to age / to grow old,,Vin {{eldes}} bedre på kjøleren over mange år.
+samarbeide,to cooperate,,Vi {{samarbeider}} med andre bedrifter på dette prosjektet.
+forhandle,to negotiate,,De {{forhandler}} om prisen på huset nå.
+ansette,to hire,,Bedriften skal {{ansette}} ti nye arbeidere snart.
+eksportere,to export,,Norge {{eksporterer}} mye fisk til andre land.
+importere,to import,,Vi {{importerer}} frukten fra Spania og Italia.
+stemme,to vote,,Jeg {{stemte}} på det partiet i forrige valg.
+styre,to govern,,Statsministeren {{styrer}} landet med hjelp fra regjeringen.
+dekorere,to decorate,,Vi {{dekorerer}} stuen til jul hver november.
+gi råd,to advise,,Jeg {{ga råd}} til vennen min om karrieren.
+godkjenne,to approve,,Sjefen må {{godkjenne}} budsjettet før vi starter.
+søke,to apply,,Hun {{søker}} om en stilling som lærer.
+oppnå,to achieve,,Han {{oppnådde}} sitt drømmemål gjennom hardt arbeid.
+blande,to mix,,Du skal {{blande}} ingrediensene før du baker.
+forberede,to prepare,,Vi {{forbereder}} oss til eksamen neste uke.
+servere,to serve,,Kelneren {{serverte}} maten veldig raskt til oss.
+låne,to borrow / to lend,,Kan jeg {{låne}} pennen din i noen minutter?
+søle,to spill,,Barnet {{sølet}} melk på bordet igjen.
+overvåke,to monitor,,Kameraene {{overvåker}} området hele døgnet hver dag.
+beskytte,to protect,,Politiet {{beskytter}} borgerne fra kriminalitet og fare.
+oppmuntre,to encourage,,Læreren {{oppmuntrer}} elevene til å gjøre sitt beste.
+forby,to forbid,,Skolen {{forbyr}} mobbing blant alle elevene.
+bekrefte,to confirm,,Jeg må {{bekrefte}} avtalen før klokken tolv.
+avlyse,to cancel,,De {{avlyste}} konserten på grunn av dårlig vær.
+utsette,to postpone,,Vi {{utsetter}} møtet til neste uke dessverre.
+gratulere,to congratulate,,Vi {{gratulerer}} dere med det flotte resultatet.
+gifte seg,to get married,,Min søster skal {{gifte seg}} neste sommer.
+skille seg,to get divorced,,De bestemte seg for å {{skille seg}} i fjor.
 # ── More nouns ───────────────────────────────────────────────────────────────
-demokrati,democracy,
-diktatur,dictatorship,
-valg,election,
-parti,political party,
-skatt,tax,
-gjeld,debt,
-rente,interest,
-investering,investment,
-fortjeneste,profit,
-budsjett,budget,
-kontrakt,contract,
-avtale,agreement,
-regel,rule,
-regulering,regulation,
-institusjon,institution,
-organisasjon,organization,
-forening,association,
-møte,meeting,
-konferanse,conference,
-rapport,report,
-statistikk,statistics,
-forskning,research,
-eksperiment,experiment,
-laboratorium,laboratory,
-klinikk,clinic,
-apotek,pharmacy,
-resept,prescription,
-diagnose,diagnosis,
-symptom,symptom,
-vaksine,vaccine,
-operasjon,operation / surgery,
-terapi,therapy,
-psykologi,psychology,
-stress,stress,
-angst,anxiety,
-depresjon,depression,
-sone,zone / area,
-nabolag,neighbourhood,
-grense,border,
-territorium,territory,
-fylke,county / province,
-kommune,municipality,
-landsby,village,
-kjeller,basement,
-loft,attic,
-terrasse,terrace,
-balkong,balcony,
-heis,lift / elevator,
-trapp,staircase,
-metall,metal,
-plast,plastic,
-glass,glass,
-papir,paper,
-stoff,fabric,
-ull,wool,
-bomull,cotton,
-lær,leather,
-silke,silk,
-parfyme,perfume,
-såpe,soap,
-sjampo,shampoo,
-tannbørste,toothbrush,
-tannkrem,toothpaste,
-barberblad,razor,
-speil,mirror,
-håndkle,towel,
-teppe,blanket,
-pute,pillow,
-madrass,mattress,
-møbler,furniture,
-sofa,sofa,
-stol,chair,
-bord,table,
-skrivebord,desk,
-lampe,lamp,
-gardin,curtain,
-hylle,shelf,
-skuff,drawer,
-klesskap,wardrobe,
-kjøleskap,fridge,
-ovn,oven,
-mikrobølgeovn,microwave,
-oppvaskmaskin,dishwasher,
-vaskemaskin,washing machine,
-klimaanlegg,air conditioner,
-varmeovn,heating,
+demokrati,democracy,,{{Demokrati}} er en viktig styringsform i Norge.
+diktatur,dictatorship,,{{Diktatur}} undertrykker frihet og menneskelige rettigheter.
+valg,election,,Det blir {{valg}} til Stortinget neste år.
+parti,political party,,Han er medlem av det samme {{partiet}} som faren.
+skatt,tax,,Vi betaler {{skatt}} til staten hvert år.
+gjeld,debt,,Han har stor {{gjeld}} fra studietiden sin.
+rente,interest,,Banken betaler lav {{rente}} på sparekontoen min.
+investering,investment,,Det var en klok {{investering}} å kjøpe aksjer nå.
+fortjeneste,profit,,Bedriften gjorde stor {{fortjeneste}} i fjor.
+budsjett,budget,,Vi må planlegge {{budsjettet}} for neste år nøye.
+kontrakt,contract,,Han signerte en ny {{kontrakt}} med arbeidsgiveren sin.
+avtale,agreement,,Vi inngikk en {{avtale}} om møte mandag.
+regel,rule,,Hver {{regel}} må følges av alle elevene.
+regulering,regulation,,{{Regulering}} av markedet er viktig for økonomien.
+institusjon,institution,,Universitetet er en viktig {{institusjon}} i samfunnet.
+organisasjon,organization,,Hun arbeider for en humanitær {{organisasjon}} i Afrika.
+forening,association,,Jeg er medlem av en idrettslag {{forening}} lokalt.
+møte,meeting,,Vi har {{møte}} med ledelsen klokken to i dag.
+konferanse,conference,,Han presenterte funnene sine på {{konferansen}} i Oslo.
+rapport,report,,Jeg skal levere {{rapporten}} til sjefene mine i morgen.
+statistikk,statistics,,{{Statistikken}} viser at befolkningen vokser raskt.
+forskning,research,,Hans {{forskning}} fokuserer på klimaendringer og miljø.
+eksperiment,experiment,,Vi gjør et {{eksperiment}} med planter i timingen.
+laboratorium,laboratory,,De jobber daglig på {{laboratoriet}} med analyser.
+klinikk,clinic,,Min lege jobber på {{klinikken}} i sentrum.
+apotek,pharmacy,,Du kan kjøpe medisinene på {{apoteket}} nedenfor.
+resept,prescription,,Jeg trenger en {{resept}} fra legen for medisinene.
+diagnose,diagnosis,,Legen ga meg en {{diagnose}} etter undersøkelsen.
+symptom,symptom,,Fever og hoste er {{symptomer}} på influensa.
+vaksine,vaccine,,{{Vaksinen}} beskytter deg mot flere sykdommer.
+operasjon,operation / surgery,,Han skal gjennomgå en {{operasjon}} neste uke.
+terapi,therapy,,Hun får {{terapi}} for å håndtere stresset bedre.
+psykologi,psychology,,{{Psykologi}} er studien av menneskelig atferd og tanker.
+stress,stress,,Arbeidspresset gir meg mye {{stress}} hver dag.
+angst,anxiety,,Han sliter med {{angst}} for høyder og flyvning.
+depresjon,depression,,{{Depresjon}} er en alvorlig psykisk helsetilstand.
+sone,zone / area,,Parkens grønne {{sone}} er veldig vakker om våren.
+nabolag,neighbourhood,,Mitt {{nabolag}} har mange hyggelige mennesker og venner.
+grense,border,,{{Grensen}} mellom Sverige og Norge går gjennom fjellene.
+territorium,territory,,Dette [[territoriet]] tilhører fuglekongen og hans flokk.
+fylke,county / province,,Hordaland er et {{fylke}} på Vestlandet i Norge.
+kommune,municipality,,{{Kommunen}} vår har opparbeidet gode skolefasiliteter for barna.
+landsby,village,,Min besteforeldre bor i en liten {{landsby}} på Østlandet.
+kjeller,basement,,Vi lagrer gamle møbler i {{kjelleren}} under huset.
+loft,attic,,Katene liker å sove på {{loftet}} om sommeren.
+terrasse,terrace,,Vi spiser kaffe på {{terrassen}} hver morgen.
+balkong,balcony,,Hun henger vasketøy på {{balkongen}} sin.
+heis,lift / elevator,,{{Heisen}} i bygningen er ødelagt i dag.
+trapp,staircase,,Barnet går ned {{trappen}} veldig forsiktig.
+metall,metal,,Døren er laget av {{metall}} og ser flott ut.
+plast,plastic,,Disse plastikkglassene er laget av {{plast}}.
+glass,glass,,Vinduene er laget av klart {{glass}}.
+papir,paper,,Jeg trenger {{papir}} til å skrive brevet.
+stoff,fabric,,Sofaen er dekket med mykt {{stoff}}.
+ull,wool,,Genseren er lagd av fin {{ull}} fra Norge.
+bomull,cotton,,Skjorten er laget av hvit {{bomull}}.
+lær,leather,,Skoene mine er laget av brunt {{lær}}.
+silke,silk,,Skjerf av {{silke}} er veldig elegant og dyr.
+parfyme,perfume,,Hun bruker sin favoritt {{parfyme}} hver dag.
+såpe,soap,,Jeg vasker hendene med flytende {{såpe}}.
+sjampo,shampoo,,Hvilket {{sjampo}} bruker du til håret?
+tannbørste,toothbrush,,Jeg kjøper en ny {{tannbørste}} hver måned.
+tannkrem,toothpaste,,{{Tannkremen}} med fluor er best for tennene.
+barberblad,razor,,Han bruker skarpt {{barberblad}} når han barberer seg.
+speil,mirror,,Jeg ser meg i {{speilet}} før jeg går ut.
+håndkle,towel,,Det blå {{håndklet}} er vasket og rent.
+teppe,blanket,,Vi trenger et varmt {{teppe}} på vinteren.
+pute,pillow,,Hun sover med to {{puter}} under hodet.
+madrass,mattress,,Den nye {{madrassen}} er veldig komfortabel.
+møbler,furniture,,Vi kjøpte nye {{møbler}} til stuen i dag.
+sofa,sofa,,{{Sofaen}} i stuen er grå og stor.
+stol,chair,,Han sitter på en {{stol}} ved bordet.
+bord,table,,Maten står på {{bordet}} i kjøkkenet.
+skrivebord,desk,,Boken ligger på {{skrivabordet}} mitt.
+lampe,lamp,,{{Lampen}} på nattbordet lyser svakt om kvelden.
+gardin,curtain,,De røde {{gardinene}} blokkerer solen fra å komme inn.
+hylle,shelf,,Bøkene står på {{hyllen}} i stuen.
+skuff,drawer,,Sokker ligger i {{skuffen}} på kommoden.
+klesskap,wardrobe,,Alle klærne mine er i {{kleskapet}} mitt.
+kjøleskap,fridge,,Melk og ost er i {{kjøleskapet}} vårt.
+ovn,oven,,Jeg baker brød i {{ovnen}} to ganger i uken.
+mikrobølgeovn,microwave,,{{Mikrobølgeovnen}} varmer opp maten på fem minutter.
+oppvaskmaskin,dishwasher,,Jeg setter skitne tallerkener i {{oppvaskmaskinen}}.
+vaskemaskin,washing machine,,{{Vaskemaskinen}} kjører hver tirsdag og torsdag.
+klimaanlegg,air conditioner,,{{Klimaanlegget}} holder stuen kjølig på varme dager.
+varmeovn,heating,,{{Varmeovnen}} slår seg på når det blir kaldt.
 # ── More adjectives ──────────────────────────────────────────────────────────
-ansvarlig,responsible,
-dyktig,capable,
-tilgjengelig,available,
-bærekraftig,sustainable,
-effektiv,efficient,
-produktiv,productive,
-kreativ,creative,
-innovativ,innovative,
-digital,digital,
-virtuell,virtual,
-global,global,
-regional,regional,
-urban,urban,
-rural,rural,
-tradisjonell,traditional,
-demokratisk,democratic,
-religiøs,religious,
-historisk,historical,
-vitenskapelig,scientific,
-lovlig,legal,
-ulovlig,illegal,
-frivillig,voluntary,
-obligatorisk,mandatory,
-midlertidig,temporary,
-permanent,permanent,
-presserende,urgent,
-deilig,delicious,
-krydret,spicy,
-bitter,bitter,
-sur,sour,
-fersk,fresh,
-moden,ripe / mature,
-rå,raw,
-kokt,cooked,
-varm,hot / warm,
-kald,cold,
-lunken,lukewarm,
-fuktig,humid / damp,
-tørr,dry,
-overskyet,cloudy,
-solrik,sunny,
-regnfull,rainy,
-stormfull,stormy,
-vindfullt,windy,
-kvittering,receipt,
-faktura,invoice / bill,
-gjennomsnitt,average,
-prosentandel,percentage,
-mengde,quantity / amount,
-avstand,distance,
-hastighet,speed,
-vekt,weight,
-størrelse,size,
-volum,volume,
-pris,price,
-utgift,expense,
-inntekt,income / revenue,
-lønn,salary / wage,
-streik,strike,
-fagforening,trade union,
-arbeidsledighet,unemployment,
-pensjon,pension / retirement,
-permisjon,leave / holiday,
-opplæring,training / education,
-diplom,diploma / degree,
-karakter,grade / mark,
-eksamen,exam,
-kurs,course / class,
-leksjon,lesson,
-lekse,homework,
-øvelse,exercise,
-CV,CV / résumé,
-jobbintervju,job interview,
-kandidat,candidate,
-stilling,position / job,
-karriere,career,
-forfremmelse,promotion,
-kollega,colleague,
-frist,deadline,
-agenda,agenda,
-prosjekt,project,
-oppgave,task,
-mål,objective / goal,
-strategi,strategy,
-metode,method,
-teknikk,technique,
-kompetanse,skill / competence,
-erfaring,experience,
-sertifikat,certificate,
-visum,visa,
-ambassade,embassy,
-statsborgerskap,citizenship,
-nasjonalitet,nationality,
-innvandrer,immigrant,
-flyktning,refugee,
-donasjon,donation,
-veldedighet,charity,
-solidaritet,solidarity,
-urettferdighet,injustice,
-protest,protest,
-demonstrasjon,demonstration,
-revolusjon,revolution,
-traktat,treaty,
-allianse,alliance,
-samarbeid,cooperation,
-innflytelse,influence,
-makt,power,
-autoritet,authority,
-plikt,duty,
-privilegium,privilege,
-utfordring,challenge,
-fremgang,progress,
-innovasjon,innovation,
-oppdagelse,discovery,
-oppfinnelse,invention,
-vekst,growth,
-tilbakegang,decline,
-krise,crisis,
-kompromiss,compromise,
-konflikt,conflict,
-risiko,risk,
-sjanse,chance / opportunity,
-fordel,advantage,
-ulempe,disadvantage,
-kvalitet,quality,
-kvantitet,quantity,
-standard,standard,
-prestasjon,performance / achievement,
-forbedring,improvement,
-aksje,stock / shares,
-konkurs,bankruptcy,
-fusjon,merger,
-oppkjøp,acquisition,
-konkurranse,competition,
-rabatt,discount,
-toll,customs / toll,
-eksport,export,
-import,import,
-tilbud,supply / offer,
-etterspørsel,demand,
-produksjon,production,
-forbruk,consumption,
-distribusjon,distribution,
-detaljhandel,retail,
-lager,warehouse,
-bestilling,order,
-data,data,
-utfall,outcome / result,
-tåke,fog / mist,
-tordenvær,thunderstorm,
-lyn,lightning,
-torden,thunder,
-frost,frost,
-is,ice,
-flom,flood,
-tørke,drought,
-orkan,hurricane,
-jordskjelv,earthquake,
-vulkan,volcano,
-skred,avalanche / landslide,
-brann,fire / blaze,
-røyk,smoke,
-aske,ash,
-gass,gas,
-kull,coal,
-stål,steel,
-jern,iron,
-kobber,copper,
-gull,gold,
-sølv,silver,
-diamant,diamond,
-edelstein,gemstone,
-klasserom,classroom,
-kantine,canteen / dining hall,
-resepsjon,reception desk,
-kalkulator,calculator,
-skriver,printer,
-skanner,scanner,
-nettbrett,tablet,
-smarttelefon,smartphone,
-lader,charger,
-batteri,battery,
-tornado,tornado,
-stue,living room,
-soverom,bedroom,
-sement,cement,
-mur,brick wall,
-kam,comb,
-sminke,make-up,
-halskjede,necklace,
-ring,ring,
-nyre,kidney,
-lever,liver,
-blære,bladder,
-tarm,intestine,
-tommel,thumb,
-pekefinger,index finger,
-midtfinger,middle finger,
-ankel,ankle,
-panne,forehead,
-hake,chin,
-kinn,cheek,
-øyenbryn,eyebrow,
-vippe,eyelash,
-tommelfingernegl,thumbnail,
-fotnegl,toenail,
+ansvarlig,responsible,,Hun er {{ansvarlig}} for alle møtene våre.
+dyktig,capable,,Han er en {{dyktig}} snekker og reparerer alt.
+tilgjengelig,available,,Biblioteket er {{tilgjengelig}} fra åtte til åtte.
+bærekraftig,sustainable,,Vi kjøper {{bærekraftige}} produkter som er miljøvennlige.
+effektiv,efficient,,En {{effektiv}} metode sparer både tid og penger.
+produktiv,productive,,Hun har en {{produktiv}} arbeidsdag med mye fokus.
+kreativ,creative,,Hun er en {{kreativ}} designer som lager flotte logoer.
+innovativ,innovative,,Bedriften har en {{innovativ}} tilnærming til problemløsing.
+digital,digital,,Vi bruker {{digital}} verktøy for å kommunisere hver dag.
+virtuell,virtual,,Møtet vårt skjedde på en {{virtuell}} plattform i går.
+global,global,,Selskapet har {{globale}} kontorer i flere kontinenter.
+regional,regional,,Den {{regionale}} forsamlingen møtes hver måned i byen.
+urban,urban,,{{Urban}} områder har mer trafikk enn små landsbyer.
+rural,rural,,Farmene ligger i {{rural}} strøk langt fra byen.
+tradisjonell,traditional,,Vi spiser {{tradisjonell}} norsk mat til julaften.
+demokratisk,democratic,,Vårt styre tar {{demokratiske}} beslutninger sammen.
+religiøs,religious,,Han er en {{religiøs}} person som går til kirken.
+historisk,historical,,Det {{historiske}} slottet er en vakker seværdighet.
+vitenskapelig,scientific,,Hennes {{vitenskapelige}} forskning har gitt nye funn.
+lovlig,legal,,Det er {{lovlig}} å parkere bilen på denne siden.
+ulovlig,illegal,,Smugling av varer er {{ulovlig}} i alle land.
+frivillig,voluntary,,Han arbeider som {{frivillig}} i frivilligorganisasjonen.
+obligatorisk,mandatory,,Skolegangen er {{obligatorisk}} for alle barn i Norge.
+midlertidig,temporary,,Jobben hans er {{midlertidig}} og varer til sommeren.
+permanent,permanent,,Vi leter etter en {{permanent}} løsning på problemet.
+presserende,urgent,,Det er {{presserende}} å løse denne saken snart.
+deilig,delicious,,Kaken smakte {{deilig}} og alle ville ha mer.
+krydret,spicy,,Maten var veldig {{krydret}} og het på tunga.
+bitter,bitter,,Kaffen hadde en {{bitter}} smak som jeg ikke liker.
+sur,sour,,Sirkelen var {{sur}} fordi den lagret feil.
+fersk,fresh,,Vi kjøpte {{frisk}} brød fra bakeren denne morgenen.
+moden,ripe / mature,,Bananen er {{moden}} og klar til å spises nå.
+rå,raw,,Kjøttet var {{råt}} og trengte mer tilberedning.
+kokt,cooked,,Egget var {{kokt}} og herlig til frokost.
+varm,hot / warm,,Kaffen er veldig {{varm}} så vi må vente.
+kald,cold,,Vannet i havet er {{kaldt}} selv om det er sommer.
+lunken,lukewarm,,Badekaret hadde {{lunken}} temperatur som var behagelig.
+fuktig,humid / damp,,Været er {{fuktig}} og tung i dag.
+tørr,dry,,Skinnet mitt blir {{tørt}} om vinteren.
+overskyet,cloudy,,Dagen var {{overskyet}} så vi så ikke solen.
+solrik,sunny,,Juni var en {{solrik}} måned med mye fint vær.
+regnfull,rainy,,Oktober er en {{regnfull}} måned her på Vestlandet.
+stormfull,stormy,,Det var en {{stormfull}} natt med mye vind og regn.
+vindfullt,windy,,Været er {{vindfullt}} så du trenger en jakke.
+kvittering,receipt,,Jeg må ha {{kvitteringen}} for å returnere varen.
+faktura,invoice / bill,,{{Fakturaen}} fra leverandøren kom i dag.
+gjennomsnitt,average,,{{Gjennomsnittet}} av karakterene hans var veldig bra.
+prosentandel,percentage,,En høy {{prosentandel}} av elevene består eksamen.
+mengde,quantity / amount,,Vi trenger en større {{mengde}} mel for kaken.
+avstand,distance,,{{Avstanden}} mellom byene er om lag hundre kilometer.
+hastighet,speed,,Bilen kjørte med høy {{hastighet}} på motorveien.
+vekt,weight,,{{Vekten}} hans har økt med fem kilogram.
+størrelse,size,,Skjorten er for liten så jeg trenger større {{størrelse}}.
+volum,volume,,{{Volumet}} av vannet i bassenget er veldig stort.
+pris,price,,{{Prisen}} på husene har steget veldig mye.
+utgift,expense,,Den største {{utgiften}} vår er husleien hver måned.
+inntekt,income / revenue,,Hans {{inntekt}} økte betydelig etter at han fikk ny jobb.
+lønn,salary / wage,,Hun forhandlet om høyere {{lønn}} med sin arbeidsgiver.
+streik,strike,,Arbeiderne gikk i {{streik}} for bedre arbeidsforhold.
+fagforening,trade union,,Han meldte seg inn i {{fagforeningen}} for å få bedre beskyttelse.
+arbeidsledighet,unemployment,,{{Arbeidsledigheten}} har økt de siste månedene i landet.
+pensjon,pension / retirement,,Han planlegger å gå av med {{pensjon}} når han blir seksti år.
+permisjon,leave / holiday,,Hun tok tre ukers {{permisjon}} for å reise til Italia.
+opplæring,training / education,,Bedriften tilbyr gratis {{opplæring}} for alle nye ansatte.
+diplom,diploma / degree,,Han mottok sitt {{diplom}} etter å ha fullført studiene.
+karakter,grade / mark,,Hun fikk A som {{karakter}} i matematikk eksamen.
+eksamen,exam,,Studenten forberedte seg godt til {{eksamen}} i norsk språk.
+kurs,course / class,,Jeg tar et {{kurs}} i programmering neste høst.
+leksjon,lesson,,Læreren ga en interessant {{leksjon}} om norsk historie i dag.
+lekse,homework,,Elevene gjorde {{leksen}} sin før de gikk til fotball.
+øvelse,exercise,,Disse {{øvelsene}} vil hjelpe deg med å forbedre ferdighetene.
+CV,CV / résumé,,Han sendte inn sin {{CV}} til tre ulike bedrifter.
+jobbintervju,job interview,,Hennes {{jobbintervju}} gikk veldig bra og hun fikk stillingen.
+kandidat,candidate,,Hun var en sterk {{kandidat}} for direktørstillingen i selskapet.
+stilling,position / job,,Han søkte på {{stillingen}} som markedssjef i Oslo.
+karriere,career,,Hun har hatt en imponerende {{karriere}} innen teknologi.
+forfremmelse,promotion,,Han mottok {{forfremmelsen}} til sjefsposisjon etter fem år.
+kollega,colleague,,Min {{kollega}} og jeg jobber på samme prosjekt sammen.
+frist,deadline,,Vi må levere rapporten før {{fristen}} på fredag.
+agenda,agenda,,{{Agendaen}} for møtet inkluderte budsjett og personalsaker.
+prosjekt,project,,Teamet arbeider på et stort {{prosjekt}} for kunden.
+oppgave,task,,Hans {{oppgave}} var å lede gruppen til måloppnåelse.
+mål,objective / goal,,Vårt {{mål}} er å øke salget med tjue prosent.
+strategi,strategy,,Bedriftens {{strategi}} fokuserer på bærekraftig vekst og innovasjon.
+metode,method,,Vi bruker en proven {{metode}} for å løse problemet effektivt.
+teknikk,technique,,Hun mestrer avanserte {{teknikker}} innen sitt fagfelt.
+kompetanse,skill / competence,,Han har bred {{kompetanse}} innen finans og regnskap.
+erfaring,experience,,Hans {{erfaring}} fra ti år i industrien var verdifull.
+sertifikat,certificate,,Hun oppnådde sitt {{sertifikat}} i internasjonalt handelsrett.
+visum,visa,,Du trenger {{visum}} for å kunne reise til landet.
+ambassade,embassy,,Han besøkte {{ambassaden}} for å søke om arbeidsvisum.
+statsborgerskap,citizenship,,Hun søkte om norsk {{statsborgerskap}} etter å ha bodd her i fem år.
+nasjonalitet,nationality,,Hans {{nasjonalitet}} er svenske og han snakker både svensk og norsk.
+innvandrer,immigrant,,Mange {{innvandrere}} bidrar positivt til norsk samfunn og økonomi.
+flyktning,refugee,,Organisasjonen hjelper {{flyktninger}} med housing og integrasjon.
+donasjon,donation,,Han ga en stor {{donasjon}} til den humanitære organisasjonen.
+veldedighet,charity,,Hun engasjerer seg aktivt i {{veldedighet}} og frivillig arbeid.
+solidaritet,solidarity,,Folkene viste {{solidaritet}} ved å demonstrere for rettighetene.
+urettferdighet,injustice,,De kjempet mot {{urettferdigheten}} i systemet med stor determinasjon.
+protest,protest,,En stor {{protest}} fant sted utenfor parlamentsbygningen i dag.
+demonstrasjon,demonstration,,Det ble arrangert en {{demonstrasjon}} for klimaendringer i sentrum.
+revolusjon,revolution,,Den industrielle {{revolusjonen}} endret samfunnet fundamentalt for alltid.
+traktat,treaty,,De to landene signerte en {{traktat}} om fredelig samarbeid.
+allianse,alliance,,Landene dannet en {{allianse}} for å styrke deres politiske posisjon.
+samarbeid,cooperation,,Et nært {{samarbeid}} mellom bedriftene førte til innovative løsninger.
+innflytelse,influence,,Han hadde stor {{innflytelse}} på beslutningene som ble tatt.
+makt,power,,Presidenten har {{makt}} til å ta viktige beslutninger for landet.
+autoritet,authority,,Læreren har {{autoritet}} over elevene i klasserommet hver dag.
+plikt,duty,,Det er vår {{plikt}} å hjelpe mennesker som trenger det.
+privilegium,privilege,,Et {{privilegium}} for få er å reise verden rundt fritt.
+utfordring,challenge,,Å lære norsk er en stor {{utfordring}} for mange mennesker.
+fremgang,progress,,Bedriften har gjort {{fremgang}} innen teknologi de siste årene.
+innovasjon,innovation,,{{Innovasjon}} er nøkkelen til å skape nye produkter og tjenester.
+oppdagelse,discovery,,Vitenskapsmannen gjorde en viktig {{oppdagelse}} i laboratoriet sitt i dag.
+oppfinnelse,invention,,Lyspæren var en fantastisk {{oppfinnelse}} som endret verden for alltid.
+vekst,growth,,Økonomien viste {{vekst}} på fem prosent i løpet av året.
+tilbakegang,decline,,Markedet opplevde en {{tilbakegang}} på grunn av økonomisk krise.
+krise,crisis,,{{Krisen}} påvirket mange mennesker og bedrifter veldig hardt nasjonalt.
+kompromiss,compromise,,De to partiene ble enige om et {{kompromiss}} etter lange forhandlinger.
+konflikt,conflict,,{{Konflikten}} mellom landene førte til alvorlige konsekvenser for befolkningen.
+risiko,risk,,Det er alltid {{risiko}} når man investerer penger i aksjer.
+sjanse,chance / opportunity,,Han fikk en {{sjanse}} til å vise sitt talent for musikk.
+fordel,advantage,,En stor {{fordel}} ved offentlig transport er at det er billig.
+ulempe,disadvantage,,En {{ulempe}} ved å bo i byen er at det er veldig støy.
+kvalitet,quality,,Produktene fra denne fabrikken har høy {{kvalitet}} og holder lenge.
+kvantitet,quantity,,Vi trenger større {{kvantitet}} av ost til middagen i dag.
+standard,standard,,Denne skolen oppfyller alle nasjonale {{standard}} for utdanning og sikkerhet.
+prestasjon,performance / achievement,,Hans {{prestasjon}} i fotball imponerte treneren og hele publikummet enormt.
+forbedring,improvement,,Vi må gjøre {{forbedring}} av infrastrukturen i hele byen snart.
+aksje,stock / shares,,Han kjøpte {{aksjer}} i et teknologiselskap for å tjene penger.
+konkurs,bankruptcy,,Bedriften gikk {{konkurs}} etter å ha mistet alle sine viktige kunder.
+fusjon,merger,,Den nye {{fusjonen}} mellom de to selskapene skaper arbeidsplasser.
+oppkjøp,acquisition,,Et stort {{oppkjøp}} av det lille selskapet ble annonsert i dag.
+konkurranse,competition,,{{Konkurransen}} mellom forretningene gjør at prisene blir lavere for oss.
+rabatt,discount,,Butikken gir en {{rabatt}} på tredve prosent på alle klær nå.
+toll,customs / toll,,Du må betale {{toll}} når du reiser fra Norge til Sverige.
+eksport,export,,{{Eksporten}} av norsk fisk er veldig viktig for økonomien vår.
+import,import,,{{Importen}} av elektronikk fra Asia øker hvert år betydelig.
+tilbud,supply / offer,,Markedet har et stort {{tilbud}} av forskellige frukt og grønnsaker.
+etterspørsel,demand,,{{Etterspørselen}} etter elektriske biler stiger raskt blant forbrukerne i dag.
+produksjon,production,,{{Produksjonen}} av møbler har økt med tjue prosent denne måneden.
+forbruk,consumption,,{{Forbruket}} av energi er høyt under de kolde vintermånedene.
+distribusjon,distribution,,{{Distribusjonen}} av pakker til kundene skjer hver dag veldig effektivt.
+detaljhandel,retail,,{{Detaljhandelen}} i sentrum har blitt mindre populær de siste årene.
+lager,warehouse,,Vi oppbevarer alle varene våre i et stort {{lager}} utenfor byen.
+bestilling,order,,Han la inn en {{bestilling}} på en ny sofa fra den elektroniske butikken.
+data,data,,{{Dataene}} fra undersøkelsen viste interessante resultater om forbrukeres vaner.
+utfall,outcome / result,,Det endelige {{utfallet}} av kampen overrasket både trenere og supportere enormt.
+tåke,fog / mist,,{{Tåken}} gjorde det vanskelig å se veien klart denne morgenen.
+tordenvær,thunderstorm,,Et voldsomt {{tordenvær}} rammet byen i går kveld og skapte skader.
+lyn,lightning,,{{Lynet}} slo ned i treet og startet en liten brann der.
+torden,thunder,,{{Tordenen}} var så høy at det vækkete alle mennesker i huset.
+frost,frost,,{{Frosten}} på graset gjorde det hvitt og glatt denne morgenen tidlig.
+is,ice,,{{Isen}} på sjøen var tykk nok til at biler kunne kjøre.
+flom,flood,,{{Floamen}} fra elven gjorde stor skade på husene i dalen.
+tørke,drought,,{{Tørken}} gjorde at avlingen ble liten og prisene steg kraftig.
+orkan,hurricane,,{{Orkanen}} forårsaket store skader på kysten i går.
+jordskjelv,earthquake,,Et kraftig {{jordskjelv}} rystet hele regionen natt til mandag.
+vulkan,volcano,,Den aktive {{vulkanen}} satte aske høyt opp i luften.
+skred,avalanche / landslide,,Et stort {{skred}} blokkerte veien gjennom fjellpasset.
+brann,fire / blaze,,{{Brannen}} spredte seg raskt gjennom det gamle trehuset.
+røyk,smoke,,Tykk {{røyk}} steg opp fra fabrikkskorsteinen hele dagen.
+aske,ash,,Grå {{aske}} dekket hele gatene etter vulkanutbruddet.
+gass,gas,,Farlig {{gass}} lekket ut fra røret under jorden.
+kull,coal,,De brukte {{kull}} til å varme opp huset før.
+stål,steel,,Broen er bygget av sterkt og holdbart {{stål}}.
+jern,iron,,Gamle {{jern}} gjenstander ble funnet under utgravningen.
+kobber,copper,,{{Kobber}} ledningene må skiftes ut snart i huset.
+gull,gold,,Hun fant en smykke av rent {{gull}} i esken.
+sølv,silver,,Bestemor arvet en {{sølv}} servis fra sin mor.
+diamant,diamond,,En stor {{diamant}} var satt i forlovelsesringen hennes.
+edelstein,gemstone,,Halskjeden var prydet med vakre {{edelsteiner}} av ulik farge.
+klasserom,classroom,,Elevene satt stille i {{klasserommet}} og skrev prøven.
+kantine,canteen / dining hall,,Vi møtes på {{kantinen}} for å spise frokost sammen.
+resepsjon,reception desk,,Du må sjekke inn ved {{resepsjonen}} når du ankommer.
+kalkulator,calculator,,Jeg brukte {{kalkulatoren}} til å løse de vanskelige oppgavene.
+skriver,printer,,Den nye {{skriveren}} fungerer mye bedre enn den gamle.
+skanner,scanner,,Vi skannet alle dokumentene med {{scanneren}} på kontoret.
+nettbrett,tablet,,Han leser aviser på {{nettbrettet}} sitt hver morgen.
+smarttelefon,smartphone,,Alle elever har en {{smarttelefon}} i dag til daglig bruk.
+lader,charger,,Jeg trenger {{laderen}} min for å lade mobiltelefonen.
+batteri,battery,,{{Batteriet}} i lommelykten var helt tomt og dødt.
+tornado,tornado,,En voldsam {{tornado}} feide gjennom småbyen forrige uke.
+stue,living room,,Vi sitter sammen i {{stuen}} og ser på film kveld.
+soverom,bedroom,,Sengen står midt i {{soverommet}} hos oss hjemme.
+sement,cement,,De blandet {{sementen]] for å lage grunnmuren til huset.
+mur,brick wall,,En høy {{mur}} omgir hele hagen rundt det gamle slottet.
+kam,comb,,Hun brukte {{kammen}} sin til å gjøre håret pent.
+sminke,make-up,,Jenta la på {{sminken}} før hun gikk på festen.
+halskjede,necklace,,Mor fikk en vakker {{halskjede}} som gave til bursdagen.
+ring,ring,,Han kjøpte en gullring med diamant til forlovelsen sin.
+nyre,kidney,,Legen sjekket {{nyrene}} mine under den årlige undersøkelsen.
+lever,liver,,{{Leveren}} er et viktig organ for kroppens funksjon.
+blære,bladder,,Pasienten hadde problemer med {{blæren}} som krever behandling.
+tarm,intestine,,Magen og {{tarmen}} arbeider sammen for å fordøye maten.
+tommel,thumb,,Jeg skar meg på {{tommelen]] da jeg hakket løk.
+pekefinger,index finger,,Hun pekte med {{pekefingeren]] sin mot vinduet utenfor.
+midtfinger,middle finger,,Han holdt opp {{midtfingeren]] sin i en uhoflighet.
+ankel,ankle,,Hun spasererte og skadet {{ankelen]] sin på trappene.
+panne,forehead,,Han hadde stort {{panneflatt]] fordi håret var tynt oppe.
+hake,chin,,Mannen hadde en sterk og markant {{hake}} i ansiktet.
+kinn,cheek,,Barna hadde røde {{kinner}} etter å ha lekt ute.
+øyenbryn,eyebrow,,Hun bøyer {{øyenbrynet]] sitt når hun tenker konsentrert.
+vippe,eyelash,,Hun bruker {{vipper}} for å gjøre øynene sine større.
+tommelfingernegl,thumbnail,,{{Tommelfingernegl}} hennes var malt i en vakker rød farge.
+fotnegl,toenail,,{{Fotneglen]] hans ble svart og blå etter en fall.

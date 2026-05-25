@@ -270,6 +270,7 @@
 
       <div id="quiz-flashcard" class="hidden">
         <div id="flashcard-answer" class="flashcard-answer hidden"></div>
+        <p id="flashcard-sentence" class="example-sentence hidden"></p>
         <button id="btn-reveal" class="btn-primary w-full">
           <span class="kbd-badge" style="margin-right:.4rem">Space</span>Reveal
         </button>
@@ -292,6 +293,7 @@
         <span id="feedback-icon" class="feedback-icon"></span>
         <span id="feedback-msg"></span>
         <p id="feedback-correct" class="feedback-correct hidden"></p>
+        <p id="feedback-sentence" class="example-sentence hidden"></p>
         <button id="btn-next" class="btn-primary">Next &#8594;</button>
         <div id="countdown-bar" class="countdown-bar hidden"></div>
       </div>
@@ -754,6 +756,10 @@
     <div class="field-group">
       <label for="card-edit-native">Native script <span class="text-secondary">(optional)</span></label>
       <input id="card-edit-native" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    </div>
+    <div class="field-group">
+      <label for="card-edit-sentence">Example sentence <span class="text-secondary">(use {{word}} to mark the blank)</span></label>
+      <input id="card-edit-sentence" type="text" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="e.g. Il aime {{parler}} avec ses amis.">
     </div>
     <p id="card-edit-err" class="error hidden" style="margin-top:.5rem"></p>
     <div class="modal-actions" style="margin-top:1rem">

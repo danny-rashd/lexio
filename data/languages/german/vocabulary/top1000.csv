@@ -1,1016 +1,1016 @@
-word,meaning,native
+word,meaning,native,sentence
 # ── Verbs ────────────────────────────────────────────────────────────────────
-sein,to be,
-haben,to have,
-werden,to become / will (future),
-können,to be able to / can,
-müssen,to must / to have to,
-sagen,to say,
-machen,to do / to make,
-gehen,to go,
-wissen,to know (fact),
-sehen,to see,
-kommen,to come,
-wollen,to want,
-geben,to give,
-denken,to think,
-sprechen,to speak,
-finden,to find,
-lassen,to let / to leave,
-bleiben,to stay / to remain,
-mögen,to like,
-stehen,to stand,
-nehmen,to take,
-halten,to hold / to stop,
-heißen,to be called / to mean,
-liegen,to lie / to be located,
-scheinen,to seem / to shine,
-zeigen,to show,
-führen,to lead,
-rufen,to call / to shout,
-folgen,to follow,
-fragen,to ask,
-helfen,to help,
-kaufen,to buy,
-arbeiten,to work,
-lesen,to read,
-schreiben,to write,
-hören,to hear / to listen,
-lernen,to learn,
-wohnen,to live / to reside,
-essen,to eat,
-trinken,to drink,
-schlafen,to sleep,
-laufen,to run / to walk,
-spielen,to play,
-öffnen,to open,
-schließen,to close,
-brauchen,to need,
-möchten,to would like,
-versuchen,to try,
-benutzen,to use,
-ändern,to change,
-beginnen,to begin,
-enden,to end,
-fallen,to fall,
-steigen,to climb / to rise,
-treten,to step / to kick,
-fahren,to drive / to travel,
-fliegen,to fly,
-schwimmen,to swim,
-kochen,to cook,
-putzen,to clean,
-waschen,to wash,
-reisen,to travel,
-besuchen,to visit,
-warten,to wait,
-bezahlen,to pay,
-gewinnen,to win,
-verlieren,to lose,
-verstehen,to understand,
-erklären,to explain,
-antworten,to answer,
-empfangen,to receive,
-senden,to send,
-vergessen,to forget,
-erinnern,to remember,
-träumen,to dream,
-glauben,to believe,
-vertrauen,to trust,
-lieben,to love,
-hassen,to hate,
-lächeln,to smile,
-lachen,to laugh,
-weinen,to cry,
-schreien,to shout / to scream,
-singen,to sing,
-tanzen,to dance,
-bauen,to build,
-brechen,to break,
-berühren,to touch,
-fühlen,to feel,
-entscheiden,to decide,
-wählen,to choose / to vote,
-erlauben,to allow,
-verbieten,to forbid,
-anbieten,to offer,
-erhalten,to receive / to maintain,
-produzieren,to produce,
-entwickeln,to develop,
-verbessern,to improve,
-lösen,to solve,
-vermeiden,to avoid,
-erreichen,to reach / to achieve,
-erhöhen,to increase,
-reduzieren,to reduce,
-vorstellen,to introduce / to imagine,
-darstellen,to represent,
-gehören,to belong,
-bestehen,to exist / to pass (exam),
-entstehen,to emerge / to arise,
+sein,to be,,Das Wetter {{ist}} heute sehr schön und warm.
+haben,to have,,Ich {{habe}} einen neuen Hund bekommen letzte Woche.
+werden,to become / will (future),,Du {{wirst}} nächstes Jahr in die Universität gehen.
+können,to be able to / can,,Er {{kann}} sehr gut Englisch sprechen und verstehen.
+müssen,to must / to have to,,Wir {{müssen}} morgen früh aufstehen für die Arbeit.
+sagen,to say,,"Sie {{sagte}}, dass sie morgen nicht kommen kann."
+machen,to do / to make,,Was {{machst}} du heute Abend nach der Schule?
+gehen,to go,,Ich {{gehe}} jeden Tag zum Supermarkt einkaufen.
+wissen,to know (fact),,"Ich {{weiß}} nicht, wo mein Schlüssel ist."
+sehen,to see,,Wir {{sehen}} die Berge von unserem Fenster aus.
+kommen,to come,,Meine Freunde {{kommen}} heute um sieben Uhr zu Besuch.
+wollen,to want,,Die Kinder {{wollen}} ins Kino gehen am Wochenende.
+geben,to give,,Der Lehrer {{gibt}} uns viel Hausaufgaben auf Freitag.
+denken,to think,,"Ich {{denke}}, dass dieser Film sehr interessant ist."
+sprechen,to speak,,Meine Eltern {{sprechen}} drei verschiedene Sprachen zu Hause.
+finden,to find,,Ich {{finde}} meinen Pass nicht überall im Haus.
+lassen,to let / to leave,,Die Mutter {{lässt}} die Kinder draußen spielen heute.
+bleiben,to stay / to remain,,Wir {{bleiben}} drei Wochen in Italien im Sommer.
+mögen,to like,,Ich {{mag}} Pizza und Pasta sehr gerne.
+stehen,to stand,,Der Mann {{steht}} an der Bushaltestelle und wartet.
+nehmen,to take,,Ich {{nehme}} ein Glas Wasser zum Frühstück.
+halten,to hold / to stop,,Er {{hält}} den Ball fest in seiner Hand.
+heißen,to be called / to mean,,Mein bester Freund {{heißt}} Marco und ist sehr lustig.
+liegen,to lie / to be located,,Die Stadt {{liegt}} am Fluss in der Mitte.
+scheinen,to seem / to shine,,Die Sonne {{scheint}} heute sehr hell und warm.
+zeigen,to show,,Der Tourist {{zeigt}} uns die alten Kirchen in der Stadt.
+führen,to lead,,Die Straße {{führt}} direkt zum Rathaus im Zentrum.
+rufen,to call / to shout,,Der Trainer {{ruft}} die Spieler zum Training zusammen.
+folgen,to follow,,Die Hunde {{folgen}} ihrem Besitzer überall im Park.
+fragen,to ask,,Der Schüler {{fragt}} den Lehrer nach der Hausaufgabe.
+helfen,to help,,Mein Bruder {{hilft}} mir bei den Mathematik-Aufgaben.
+kaufen,to buy,,Meine Mutter {{kauft}} Gemüse und Obst am Markt.
+arbeiten,to work,,Mein Vater {{arbeitet}} in einem großen Büro in der Stadt.
+lesen,to read,,Die Mädchen {{lesen}} gerne Bücher vor dem Schlafengehen.
+schreiben,to write,,Der Schriftsteller {{schreibt}} einen neuen Roman über Liebe.
+hören,to hear / to listen,,Ich {{höre}} gerne klassische Musik von Beethoven.
+lernen,to learn,,Wir {{lernen}} Deutsch und Französisch in der Schule.
+wohnen,to live / to reside,,Meine Großmutter {{wohnt}} in einem kleinen Dorf auf dem Land.
+essen,to eat,,Wir {{essen}} zusammen um sieben Uhr zum Abendessen.
+trinken,to drink,,Die Sportler {{trinken}} viel Wasser nach dem Training.
+schlafen,to sleep,,Der Baby {{schläft}} sehr lange und ruhig jeden Tag.
+laufen,to run / to walk,,Die Kinder {{laufen}} schnell im Park herum und lachen.
+spielen,to play,,Die Jungen {{spielen}} Fußball auf dem Schulplatz.
+öffnen,to open,,Ich {{öffne}} die Tür und rufe laut Hallo.
+schließen,to close,,"Bitte {{schließe}} das Fenster, es ist zu kalt."
+brauchen,to need,,Ich {{brauche}} neue Schuhe für den Winter.
+möchten,to would like,,Wir {{möchten}} gerne nach Frankreich fahren nächstes Jahr.
+versuchen,to try,,"Der Schüler {{versucht}}, die schwere Aufgabe zu lösen."
+benutzen,to use,,Ich {{benutze}} den Computer jeden Tag für Arbeit.
+ändern,to change,,Das Wetter {{ändert}} sich ständig im Frühling.
+beginnen,to begin,,Der Film {{beginnt}} um acht Uhr heute Abend.
+enden,to end,,Die Schule {{endet}} um drei Uhr nachmittags.
+fallen,to fall,,Die Blätter {{fallen}} im Herbst von den Bäumen.
+steigen,to climb / to rise,,Die Temperatur {{steigt}} morgen auf dreißig Grad.
+treten,to step / to kick,,Bitte nicht auf die Blumen {{treten}} im Garten.
+fahren,to drive / to travel,,Wir {{fahren}} morgen mit dem Auto nach Berlin.
+fliegen,to fly,,Der Vogel {{fliegt}} hoch über das Haus.
+schwimmen,to swim,,Die Kinder {{schwimmen}} gerne im Sommer im See.
+kochen,to cook,,Meine Mutter {{kocht}} heute ein leckeres Abendessen.
+putzen,to clean,,Ich {{putze}} mein Zimmer jeden Samstag sehr gründlich.
+waschen,to wash,,Kannst du bitte die Wäsche {{waschen}} heute?
+reisen,to travel,,Wir {{reisen}} jedes Jahr in den Süden.
+besuchen,to visit,,Ich {{besuche}} meine Großmutter nächstes Wochenende.
+warten,to wait,,Wir {{warten}} auf den Bus vor der Schule.
+bezahlen,to pay,,Der Mann {{bezahlt}} die Rechnung mit Kreditkarte.
+gewinnen,to win,,Unsere Mannschaft {{gewinnt}} das Spiel heute Abend.
+verlieren,to lose,,Ich {{verliere}} meine Schlüssel fast jeden Tag.
+verstehen,to understand,,Ich {{verstehe}} diese Mathematik-Aufgabe nicht sehr gut.
+erklären,to explain,,Der Lehrer {{erklärt}} die schwierige Grammatik-Regel.
+antworten,to answer,,Die Schülerin {{antwortet}} richtig auf die Frage.
+empfangen,to receive,,Wir {{empfangen}} unsere Gäste herzlich im Wohnzimmer.
+senden,to send,,Die Telefongesellschaft {{sendet}} mir eine Rechnung monatlich.
+vergessen,to forget,,Ich {{vergesse}} immer meinen Regenschirm zu Hause.
+erinnern,to remember,,Das Lied {{erinnert}} mich an meine Kindheit.
+träumen,to dream,,Nachts {{träume}} ich oft von interessanten Abenteuern.
+glauben,to believe,,Ich {{glaube}} nicht an Märchen und Legenden.
+vertrauen,to trust,,Du kannst mir {{vertrauen}} in jeder Situation.
+lieben,to love,,Ich {{liebe}} meine Familie sehr über alles.
+hassen,to hate,,Er {{hasst}} früh morgens aufstehen absolut.
+lächeln,to smile,,Das Mädchen {{lächelt}} mich freundlich an.
+lachen,to laugh,,Wir {{lachen}} über den lustigen Film gemeinsam.
+weinen,to cry,,Das Baby {{weint}} die ganze Nacht lang.
+schreien,to shout / to scream,,Die Kinder {{schreien}} laut auf dem Spielplatz.
+singen,to sing,,Sie {{singt}} wunderbar in der Schultheater-Aufführung.
+tanzen,to dance,,Alle {{tanzen}} gerne auf der Hochzeitsfeier.
+bauen,to build,,Der Architekt {{baut}} ein modernes Gebäude dort.
+brechen,to break,,Das Glas {{bricht}} in tausend kleine Stücke.
+berühren,to touch,,Bitte {{berühre}} nicht die heißen Pfanne jetzt.
+fühlen,to feel,,Ich {{fühle}} mich heute sehr müde und schwach.
+entscheiden,to decide,,Wir {{entscheiden}} uns für den blauen Mantel.
+wählen,to choose / to vote,,Die Bürger {{wählen}} am nächsten Sonntag den Präsidenten.
+erlauben,to allow,,Meine Eltern {{erlauben}} mir nicht spät aufzubleiben.
+verbieten,to forbid,,Der Direktor {{verbietet}} das Rauchen auf dem Schulhof.
+anbieten,to offer,,Der Verkäufer {{bietet}} mir einen Rabatt an heute.
+erhalten,to receive / to maintain,,Ich {{erhalte}} monatlich eine Gehalt von meinem Arbeitgeber.
+produzieren,to produce,,Diese Fabrik {{produziert}} tausende Autos pro Jahr.
+entwickeln,to develop,,Die Wissenschaftler {{entwickeln}} neue Technologie für die Medizin.
+verbessern,to improve,,Ich {{verbessere}} mein Englisch durch tägliches Sprechen.
+lösen,to solve,,Der Detektiv {{löst}} das schwierige Rätsel schnell.
+vermeiden,to avoid,,Wir {{vermeiden}} die verkehrsreichsten Straßen am Mittag.
+erreichen,to reach / to achieve,,Wir {{erreichen}} unsere Ziele durch harte Arbeit.
+erhöhen,to increase,,Die Regierung will die Steuern {{erhöhen}}.
+reduzieren,to reduce,,Wir müssen die Kosten {{reduzieren}}.
+vorstellen,to introduce / to imagine,,Darf ich dir meinen Freund {{vorstellen}}?
+darstellen,to represent,,Diese Grafik {{stellt}} die Daten dar.
+gehören,to belong,,Dieses Buch {{gehört}} meiner Schwester.
+bestehen,to exist / to pass (exam),,Er {{besteht}} die Prüfung mit guten Noten.
+entstehen,to emerge / to arise,,Neue Ideen {{entstehen}} durch Diskussionen.
 # ── Nouns ────────────────────────────────────────────────────────────────────
-die Zeit,time,
-das Jahr,year,
-das Leben,life,
-der Mann,man,
-die Frau,woman,
-der Tag,day,
-die Sache,thing,
-der Teil,part,
-der Ort,place,
-der Moment,moment,
-die Art,way / kind,
-die Person,person,
-die Hand,hand,
-die Welt,world,
-das Mal,time (occurrence),
-der Fall,case,
-die Arbeit,work / job,
-das Problem,problem,
-das Land,country,
-die Stadt,city,
-das Haus,house,
-das Wasser,water,
-die Gruppe,group,
-das Unternehmen,company,
-der Name,name,
-die Zahl,number,
-die Form,form / shape,
-das System,system,
-das Beispiel,example,
-der Punkt,point,
-die Regierung,government,
-die Information,information,
-die Geschichte,history / story,
-die Familie,family,
-die Gesellschaft,society,
-das Niveau,level,
-die Beziehung,relationship,
-der Prozess,process,
-der Dienst,service,
-die Politik,politics / policy,
-die Änderung,change,
-das Ergebnis,result,
-das Geld,money,
-die Stunde,hour,
-der Monat,month,
-die Woche,week,
-die Nacht,night,
-der Morgen,morning,
-der Nachmittag,afternoon,
-der Abend,evening,
-die Minute,minute,
-die Sekunde,second,
-das Jahrhundert,century,
-die Zukunft,future,
-die Vergangenheit,past,
-die Gegenwart,present,
-der Anfang,beginning,
-das Ende,end,
-die Mitte,centre / middle,
-der Norden,north,
-der Süden,south,
-der Osten,east,
-der Westen,west,
-die Straße,street,
-der Weg,path / way,
-die Tür,door,
-das Fenster,window,
-der Boden,floor / ground,
-die Decke,ceiling,
-die Wand,wall,
-das Zimmer,room,
-die Küche,kitchen,
-das Badezimmer,bathroom,
-der Garten,garden,
-das Gebäude,building,
-die Wohnung,flat / apartment,
-das Hotel,hotel,
-das Krankenhaus,hospital,
-die Schule,school,
-die Universität,university,
-die Bibliothek,library,
-das Geschäft,shop / business,
-der Markt,market,
-die Bank,bank,
-die Kirche,church,
-der Park,park,
-der Strand,beach,
-der Berg,mountain,
-der Fluss,river,
-der See,lake,
-das Meer,sea,
-der Wald,forest,
-der Himmel,sky / heaven,
-die Sonne,sun,
-der Mond,moon,
-der Stern,star,
-die Wolke,cloud,
-der Regen,rain,
-der Schnee,snow,
-der Wind,wind,
-das Feuer,fire,
-die Erde,earth / ground,
-der Stein,stone,
-der Baum,tree,
-die Blume,flower,
-die Pflanze,plant,
-das Gras,grass,
-das Tier,animal,
-der Hund,dog,
-die Katze,cat,
-der Vogel,bird,
-der Fisch,fish,
-das Pferd,horse,
-die Kuh,cow,
-der Körper,body,
-der Kopf,head,
-das Gesicht,face,
-das Auge,eye,
-die Nase,nose,
-der Mund,mouth,
-das Ohr,ear,
-der Zahn,tooth,
-die Zunge,tongue,
-der Hals,neck / throat,
-die Schulter,shoulder,
-der Arm,arm,
-der Ellbogen,elbow,
-das Handgelenk,wrist,
-der Finger,finger,
-das Bein,leg,
-das Knie,knee,
-der Fuß,foot,
-das Herz,heart,
-die Lunge,lung,
-der Magen,stomach,
-das Gehirn,brain,
-das Blut,blood,
-der Knochen,bone,
-der Muskel,muscle,
-die Haut,skin,
-das Haar,hair,
-die Kleidung,clothes,
-das Hemd,shirt,
-die Hose,trousers,
-der Rock,skirt,
-das Kleid,dress,
-die Jacke,jacket,
-der Mantel,coat,
-der Schuh,shoe,
-die Socke,sock,
-der Hut,hat,
-der Schal,scarf,
-der Handschuh,glove,
-das Brot,bread,
-der Reis,rice,
-die Nudeln,pasta / noodles,
-das Fleisch,meat,
-das Hähnchen,chicken,
-das Ei,egg,
-die Milch,milk,
-der Käse,cheese,
-die Butter,butter,
-das Öl,oil,
-das Salz,salt,
-der Zucker,sugar,
-der Kaffee,coffee,
-der Tee,tea,
-der Wein,wine,
-das Bier,beer,
-der Saft,juice,
-das Obst,fruit,
-der Apfel,apple,
-die Orange,orange,
-die Traube,grape,
-die Banane,banana,
-die Erdbeere,strawberry,
-die Zitrone,lemon,
-die Tomate,tomato,
-der Salat,salad / lettuce,
-die Karotte,carrot,
-die Zwiebel,onion,
-der Knoblauch,garlic,
-die Kartoffel,potato,
-das Buch,book,
-die Seite,page,
-der Brief,letter,
-die Zeitung,newspaper,
-die Zeitschrift,magazine,
-die Nachricht,news / message,
-die Frage,question,
-die Antwort,answer,
-die Idee,idea,
-die Meinung,opinion,
-das Wort,word,
-der Satz,sentence,
-die Sprache,language,
-die Kultur,culture,
-die Kunst,art,
-die Musik,music,
-das Lied,song,
-der Film,film / movie,
-das Theater,theatre,
-der Sport,sport,
-der Fußball,football / soccer,
-das Tennis,tennis,
-das Schwimmen,swimming,
-das Rennen,race,
-das Team,team,
-das Spiel,game,
-der Sieg,victory,
-die Niederlage,defeat,
-der Preis,price / prize,
-die Reise,journey / trip,
-der Urlaub,holiday / vacation,
-der Transport,transport,
-das Auto,car,
-der Bus,bus,
-der Zug,train,
-das Flugzeug,airplane,
-das Schiff,ship,
-das Fahrrad,bicycle,
-das Motorrad,motorcycle,
-die Fahrkarte,ticket,
-der Pass,passport,
-der Koffer,suitcase,
-die Karte,map / card,
-die Technologie,technology,
-der Computer,computer,
-das Telefon,phone,
-das Internet,internet,
-der Bildschirm,screen,
-die Tastatur,keyboard,
-die Kamera,camera,
-der Fernseher,television,
-das Radio,radio,
-das Licht,light,
-der Ton,sound / tone,
-die Farbe,colour,
-das Rot,red,
-das Blau,blue,
-das Grün,green,
-das Gelb,yellow,
-das Schwarz,black,
-das Weiß,white,
-das Grau,grey,
-der Schmerz,pain,
-die Krankheit,illness,
-das Medikament,medicine,
-der Arzt,doctor,
-die Krankenschwester,nurse,
-die Gesundheit,health,
-der Geist,mind / spirit,
-die Emotion,emotion,
-die Angst,fear,
-die Freude,joy,
-die Trauer,sadness,
-die Liebe,love,
-der Hass,hate,
-die Hoffnung,hope,
-die Wahrheit,truth,
-die Lüge,lie,
-die Gerechtigkeit,justice,
-das Gesetz,law,
-die Polizei,police,
-der Krieg,war,
-der Frieden,peace,
-der Unfall,accident,
-die Gefahr,danger,
-die Sicherheit,safety / security,
-der Erfolg,success,
-das Scheitern,failure,
-die Schwierigkeit,difficulty,
-die Lösung,solution,
-die Möglichkeit,opportunity / possibility,
-das Recht,right / law,
-die Verantwortung,responsibility,
-die Freiheit,freedom,
-die Gleichheit,equality,
-die Gemeinschaft,community,
-die Nation,nation,
-die Region,region,
-die Hauptstadt,capital city,
-die Bevölkerung,population,
-die Wirtschaft,economy,
-der Handel,trade,
-die Industrie,industry,
-die Landwirtschaft,agriculture,
-die Umwelt,environment,
-die Natur,nature,
-die Energie,energy,
-die Ressource,resource,
-die Verschmutzung,pollution,
-das Klima,climate,
-die Temperatur,temperature,
+die Zeit,time,,{{Die Zeit}} vergeht sehr schnell im Urlaub.
+das Jahr,year,,Nächstes {{Jahr}} fahren wir nach Italien.
+das Leben,life,,{{Das Leben}} ist voller interessanter Überraschungen.
+der Mann,man,,Der {{Mann}} arbeitet in einer großen Firma.
+die Frau,woman,,Die {{Frau}} spricht drei Sprachen fließend.
+der Tag,day,,Heute ist ein schöner {{Tag}} geworden.
+die Sache,thing,,Diese {{Sache}} ist mir sehr wichtig.
+der Teil,part,,Der erste {{Teil}} des Films war spannend.
+der Ort,place,,Berlin ist ein wunderbar schöner {{Ort}}.
+der Moment,moment,,In diesem {{Moment}} wusste ich die Antwort.
+die Art,way / kind,,"Die {{Art,}} wie er spricht, ist lustig."
+die Person,person,,Diese {{Person}} kenne ich seit vielen Jahren.
+die Hand,hand,,Sie reichte mir freundlich die {{Hand}}.
+die Welt,world,,Die {{Welt}} wird immer kleiner und vernetzter.
+das Mal,time (occurrence),,Das nächste {{Mal}} rufe ich dich vorher an.
+der Fall,case,,In diesem {{Fall}} können wir nicht helfen.
+die Arbeit,work / job,,Meine {{Arbeit}} macht mir viel Spaß.
+das Problem,problem,,Wir haben ein großes {{Problem}} mit dem Auto.
+das Land,country,,Dieses {{Land}} hat eine faszinierende Kultur.
+die Stadt,city,,Die {{Stadt}} hat über zwei Millionen Einwohner.
+das Haus,house,,Unser {{Haus}} liegt in einem ruhigen Viertel.
+das Wasser,water,,Das {{Wasser}} im See ist heute sehr kalt.
+die Gruppe,group,,Unsere {{Gruppe}} besteht aus zehn Personen.
+das Unternehmen,company,,Das {{Unternehmen}} beschäftigt über tausend Mitarbeiter.
+der Name,name,,Sein {{Name}} ist mir leider entfallen.
+die Zahl,number,,Die {{Zahl}} der Besucher stieg kontinuierlich an.
+die Form,form / shape,,Die {{Form}} des Objekts ist sehr interessant.
+das System,system,,Dieses {{System}} funktioniert besser als das alte.
+das Beispiel,example,,Ein gutes {{Beispiel}} hilft oft beim Verstehen.
+der Punkt,point,,An diesem {{Punkt}} stimme ich dir zu.
+die Regierung,government,,Die {{Regierung}} plant neue Maßnahmen für Nachhaltigkeit.
+die Information,information,,Diese {{Information}} ist sehr wertvoll für mich.
+die Geschichte,history / story,,Die {{Geschichte}} Deutschlands ist sehr beweglich.
+die Familie,family,,Meine {{Familie}} lebt seit Generationen hier.
+die Gesellschaft,society,,Die {{Gesellschaft}} muss sich wandeln und anpassen.
+das Niveau,level,,Das {{Niveau}} der Diskussion war ziemlich hoch.
+die Beziehung,relationship,,Unsere {{Beziehung}} ist über die Jahre stärker geworden.
+der Prozess,process,,Der {{Prozess}} dauert leider noch mehrere Wochen.
+der Dienst,service,,Dieser {{Dienst}} ist kostenfrei für alle Kunden.
+die Politik,politics / policy,,Die {{Politik}} ist ein komplexes und wichtiges Thema.
+die Änderung,change,,Diese {{Änderung}} war längst überfällig geworden.
+das Ergebnis,result,,Das {{Ergebnis}} der Wahl war überraschend.
+das Geld,money,,Ich habe nicht genug {{Geld}} für diese Reise.
+die Stunde,hour,,Eine {{Stunde}} hat sechzig Minuten.
+der Monat,month,,Der {{Monat}} Januar hat einunddreißig Tage.
+die Woche,week,,Eine {{Woche}} hat sieben Tage.
+die Nacht,night,,In der {{Nacht}} schlafen wir normalerweise.
+der Morgen,morning,,Jeden {{Morgen}} trinke ich Kaffee.
+der Nachmittag,afternoon,,Am {{Nachmittag}} gehe ich ins Gymnasium.
+der Abend,evening,,Am {{Abend}} schaue ich fern.
+die Minute,minute,,"Warte eine {{Minute}}, ich bin gleich fertig."
+die Sekunde,second,,Das dauert nur eine {{Sekunde}}.
+das Jahrhundert,century,,Das neunzehnte {{Jahrhundert}} war sehr wichtig.
+die Zukunft,future,,Die {{Zukunft}} ist ungewiss und spannend.
+die Vergangenheit,past,,Wir können die {{Vergangenheit}} nicht ändern.
+die Gegenwart,present,,Wir leben in der {{Gegenwart}}.
+der Anfang,beginning,,Das ist nur der {{Anfang}} der Geschichte.
+das Ende,end,,Das {{Ende}} des Films war sehr emotional.
+die Mitte,centre / middle,,Das Sofa steht in der {{Mitte}} des Zimmers.
+der Norden,north,,Im {{Norden}} Deutschlands ist es kälter.
+der Süden,south,,Ich fahre in den {{Süden}} für Urlaub.
+der Osten,east,,Die Sonne geht im {{Osten}} auf.
+der Westen,west,,Die Sonne geht im {{Westen}} unter.
+die Straße,street,,Auf der {{Straße}} fahren viele Autos.
+der Weg,path / way,,Der {{Weg}} zum Bahnhof ist kurz.
+die Tür,door,,Bitte schließ die {{Tür}} hinter dir.
+das Fenster,window,,Das {{Fenster}} ist offen und hell.
+der Boden,floor / ground,,Der {{Boden}} ist sehr schmutzig heute.
+die Decke,ceiling,,Die {{Decke}} ist weiß gestrichen.
+die Wand,wall,,Das Bild hängt an der {{Wand}}.
+das Zimmer,room,,Mein {{Zimmer}} ist klein aber gemütlich.
+die Küche,kitchen,,Ich koche gerne in der {{Küche}}.
+das Badezimmer,bathroom,,Das {{Badezimmer}} hat eine neue Dusche.
+der Garten,garden,,Im {{Garten}} wachsen schöne Blumen.
+das Gebäude,building,,Das {{Gebäude}} ist sehr alt und imposant.
+die Wohnung,flat / apartment,,Ich lebe in einer {{Wohnung}} im Zentrum.
+das Hotel,hotel,,Das {{Hotel}} hat vier Sterne.
+das Krankenhaus,hospital,,Mein Großvater ist im {{Krankenhaus}}.
+die Schule,school,,Die {{Schule}} beginnt um acht Uhr.
+die Universität,university,,Er studiert an der {{Universität}} Mathematik.
+die Bibliothek,library,,Ich leihe Bücher in der {{Bibliothek}}.
+das Geschäft,shop / business,,Das {{Geschäft}} ist montags geschlossen.
+der Markt,market,,Auf dem {{Markt}} gibt es frisches Obst.
+die Bank,bank,,Ich gehe zur {{Bank}} um Geld abzuheben.
+die Kirche,church,,Die {{Kirche}} ist sehr alt und schön.
+der Park,park,,Im {{Park}} spielen viele Kinder.
+der Strand,beach,,Der {{Strand}} ist im Sommer voll.
+der Berg,mountain,,Wir wandern auf den {{Berg}} hinauf.
+der Fluss,river,,Der {{Fluss}} fließt durch die Stadt.
+der See,lake,,Im {{See}} kann man schwimmen gehen.
+das Meer,sea,,Das {{Meer}} ist sehr schön und groß.
+der Wald,forest,,Wir spazieren durch den {{Wald}}.
+der Himmel,sky / heaven,,Der {{Himmel}} ist heute blau und wolkenlos.
+die Sonne,sun,,Die {{Sonne}} scheint hell am Morgen.
+der Mond,moon,,Der {{Mond}} leuchtet in der Nacht.
+der Stern,star,,Ein {{Stern}} funkelt am Himmel.
+die Wolke,cloud,,Eine {{Wolke}} zieht über uns hinweg.
+der Regen,rain,,Der {{Regen}} fällt auf das Dach.
+der Schnee,snow,,Der {{Schnee}} bedeckt die Berge.
+der Wind,wind,,Der {{Wind}} weht durch die Bäume.
+das Feuer,fire,,Das {{Feuer}} wärmt uns im Winter.
+die Erde,earth / ground,,Die {{Erde}} dreht sich um die Sonne.
+der Stein,stone,,Ein {{Stein}} liegt auf dem Weg.
+der Baum,tree,,Der {{Baum}} hat grüne Blätter.
+die Blume,flower,,Die {{Blume}} riecht sehr schön.
+die Pflanze,plant,,Die {{Pflanze}} braucht Wasser und Licht.
+das Gras,grass,,Das {{Gras}} wächst im Garten.
+das Tier,animal,,Das {{Tier}} läuft durch den Wald.
+der Hund,dog,,Der {{Hund}} bellt laut.
+die Katze,cat,,Die {{Katze}} schläft auf dem Sofa.
+der Vogel,bird,,Der {{Vogel}} singt am Morgen.
+der Fisch,fish,,Der {{Fisch}} schwimmt im Wasser.
+das Pferd,horse,,Das {{Pferd}} galoppiert über die Wiese.
+die Kuh,cow,,Die {{Kuh}} gibt Milch.
+der Körper,body,,Der {{Körper}} braucht Bewegung und Ruhe.
+der Kopf,head,,Der {{Kopf}} tut mir weh.
+das Gesicht,face,,Das {{Gesicht}} ist rot von Sonne.
+das Auge,eye,,Das {{Auge}} sieht die Farben.
+die Nase,nose,,Die {{Nase}} riecht den Duft.
+der Mund,mouth,,Der {{Mund}} spricht Wörter.
+das Ohr,ear,,Das {{Ohr}} hört die Musik.
+der Zahn,tooth,,Der {{Zahn}} ist weiß und sauber.
+die Zunge,tongue,,Die {{Zunge}} schmeckt das Essen.
+der Hals,neck / throat,,Der {{Hals}} tut mir beim Schlucken weh.
+die Schulter,shoulder,,Die {{Schulter}} trägt die Last.
+der Arm,arm,,Der {{Arm}} ist lang und stark.
+der Ellbogen,elbow,,Der {{Ellbogen}} beugt sich.
+das Handgelenk,wrist,,Das {{Handgelenk}} ist dünn und beweglich.
+der Finger,finger,,Der {{Finger}} zeigt auf den Himmel.
+das Bein,leg,,Das {{Bein}} ist verletzt.
+das Knie,knee,,Das {{Knie}} beugt sich beim Gehen.
+der Fuß,foot,,Der {{Fuß}} tut mir weh.
+das Herz,heart,,Das {{Herz}} schlägt schnell.
+die Lunge,lung,,Die {{Lunge}} atmet frische Luft.
+der Magen,stomach,,Der {{Magen}} verdaut das Essen.
+das Gehirn,brain,,Das {{Gehirn}} denkt und lernt.
+das Blut,blood,,Das {{Blut}} fließt durch den Körper.
+der Knochen,bone,,Der {{Knochen}} ist hart und fest.
+der Muskel,muscle,,Der {{Muskel}} wird beim Sport stärker.
+die Haut,skin,,Die {{Haut}} schützt den Körper.
+das Haar,hair,,Das {{Haar}} ist braun und lang.
+die Kleidung,clothes,,Die {{Kleidung}} ist warm und bequem.
+das Hemd,shirt,,Mein {{Hemd}} ist weiß und sehr bequem.
+die Hose,trousers,,Die {{Hose}} passt mir perfekt und sieht gut aus.
+der Rock,skirt,,Sie trägt einen kurzen {{Rock}} zur Arbeit.
+das Kleid,dress,,Das rote {{Kleid}} ist sehr elegant und schön.
+die Jacke,jacket,,Ich brauche eine warme {{Jacke}} für den Winter.
+der Mantel,coat,,Der {{Mantel}} schützt dich vor dem kalten Wind.
+der Schuh,shoe,,Mein neuer {{Schuh}} ist sehr komfortabel zum Laufen.
+die Socke,sock,,Die blaue {{Socke}} passt nicht zu dieser anderen.
+der Hut,hat,,Er trägt einen schwarzen {{Hut}} zur Hochzeit.
+der Schal,scarf,,Der warme {{Schal}} hält deinen Hals sehr warm.
+der Handschuh,glove,,Ich verliere ständig einen {{Handschuh}} im Winter.
+das Brot,bread,,Das frische {{Brot}} schmeckt herrlich vom Bäcker.
+der Reis,rice,,Der {{Reis}} kocht etwa zwanzig Minuten lang.
+die Nudeln,pasta / noodles,,Die {{Nudeln}} sind ein beliebtes Mittagessen hier.
+das Fleisch,meat,,Das {{Fleisch}} muss im Ofen gare werden.
+das Hähnchen,chicken,,Das {{Hähnchen}} ist lecker mit Gemüse zubereitet.
+das Ei,egg,,Zum Frühstück esse ich gerne ein {{Ei}}.
+die Milch,milk,,Die frische {{Milch}} kommt täglich ins Haus.
+der Käse,cheese,,Der {{Käse}} schmeckt wunderbar auf dem Brot.
+die Butter,butter,,Die {{Butter}} muss aus dem Kühlschrank kommen.
+das Öl,oil,,Das {{Öl}} ist gut zum Kochen geeignet.
+das Salz,salt,,Ein bisschen {{Salz}} macht das Essen besser.
+der Zucker,sugar,,Der {{Zucker}} macht den Kaffee süßer schmecken.
+der Kaffee,coffee,,Der heiße {{Kaffee}} weckt mich morgens auf.
+der Tee,tea,,Eine Tasse {{Tee}} entspannt mich nach der Arbeit.
+der Wein,wine,,Der rote {{Wein}} passt gut zum Essen.
+das Bier,beer,,Das kalte {{Bier}} schmeckt besonders im Sommer.
+der Saft,juice,,Der frische {{Saft}} ist sehr gesund für Kinder.
+das Obst,fruit,,Das {{Obst}} sollte jeden Tag gegessen werden.
+der Apfel,apple,,Der rote {{Apfel}} liegt auf dem Tisch.
+die Orange,orange,,Die {{Orange}} enthält viel Vitamin C darin.
+die Traube,grape,,Eine {{Traube}} ist süß und sehr erfrischend.
+die Banane,banana,,Die gelbe {{Banane}} ist reif und lecker.
+die Erdbeere,strawberry,,Die rote {{Erdbeere}} schmeckt im Sommer herrlich.
+die Zitrone,lemon,,Die sauere {{Zitrone}} würzt den Tee perfekt.
+die Tomate,tomato,,Die reife {{Tomate}} ist sehr saftig und rot.
+der Salat,salad / lettuce,,Der grüne {{Salat}} ist gesund und frisch.
+die Karotte,carrot,,Die orange {{Karotte}} ist rohes Gemüse zum Naschen.
+die Zwiebel,onion,,Die {{Zwiebel}} macht deine Augen tränen schnell.
+der Knoblauch,garlic,,Der {{Knoblauch}} riecht stark aber schmeckt gut.
+die Kartoffel,potato,,Die gekochte {{Kartoffel}} ist ein klassisches Gemüse.
+das Buch,book,,Das interessante {{Buch}} lese ich gerade abends.
+die Seite,page,,Auf dieser {{Seite}} findest du die Antwort.
+der Brief,letter,,Der {{Brief}} kam heute morgen mit der Post.
+die Zeitung,newspaper,,Die {{Zeitung}} berichtet über aktuelle Nachrichten täglich.
+die Zeitschrift,magazine,,Die neue {{Zeitschrift}} ist sehr interessant zu lesen.
+die Nachricht,news / message,,Ich bekam eine {{Nachricht}} von meinem Freund heute.
+die Frage,question,,Die {{Frage}} war schwierig für alle Schüler.
+die Antwort,answer,,Die {{Antwort}} ist einfach und sehr logisch.
+die Idee,idea,,Die brillante {{Idee}} kam mir spontan in den Sinn.
+die Meinung,opinion,,Ich habe eine andere {{Meinung}} zu diesem Thema.
+das Wort,word,,Das {{Wort}} ist schwer auszusprechen für Anfänger.
+der Satz,sentence,,Dieser {{Satz}} enthält viele wichtige Informationen.
+die Sprache,language,,Sie spricht fünf verschiedene {{Sprachen}} fließend.
+die Kultur,culture,,Die {{Kultur}} dieses Landes ist sehr interessant.
+die Kunst,art,,{{Kunst}} ist ein wichtiger Teil unserer Gesellschaft.
+die Musik,music,,Ich liebe {{Musik}} und spiele Gitarre gerne.
+das Lied,song,,Dieses {{Lied}} ist sehr populär in Deutschland.
+der Film,film / movie,,Der neue {{Film}} war fantastisch und spannend.
+das Theater,theatre,,Das {{Theater}} in unserer Stadt ist sehr schön.
+der Sport,sport,,{{Sport}} ist gesund und macht viel Spaß.
+der Fußball,football / soccer,,Mein Bruder spielt jeden Tag {{Fußball}} mit Freunden.
+das Tennis,tennis,,Sie spielt {{Tennis}} seit zehn Jahren sehr gut.
+das Schwimmen,swimming,,{{Schwimmen}} ist eine ausgezeichnete Ausdauersportart.
+das Rennen,race,,Das {{Rennen}} war sehr aufregend und knapp.
+das Team,team,,Unser {{Team}} hat das Turnier gewonnen.
+das Spiel,game,,Das {{Spiel}} endete mit einem klaren Sieg.
+der Sieg,victory,,Der {{Sieg}} war hart umkämpft und verdient.
+die Niederlage,defeat,,Eine {{Niederlage}} ist manchmal wichtiger als ein Sieg.
+der Preis,price / prize,,Der {{Preis}} für dieses Produkt ist angemessen.
+die Reise,journey / trip,,Unsere {{Reise}} nach Frankreich war unvergesslich.
+der Urlaub,holiday / vacation,,Nächsten Monat nehme ich zwei Wochen {{Urlaub}}.
+der Transport,transport,,Der {{Transport}} der Waren dauerte drei Tage.
+das Auto,car,,Mein neues {{Auto}} ist rot und sehr schnell.
+der Bus,bus,,Der {{Bus}} fährt alle zwanzig Minuten durch die Stadt.
+der Zug,train,,Der {{Zug}} verspätet sich heute um eine Stunde.
+das Flugzeug,airplane,,Das {{Flugzeug}} startet um neun Uhr morgens.
+das Schiff,ship,,Das {{Schiff}} kreuzt durch den Atlantischen Ozean.
+das Fahrrad,bicycle,,Mein {{Fahrrad}} ist kaputt und muss repariert werden.
+das Motorrad,motorcycle,,Er fährt gerne mit seinem {{Motorrad}} schnell.
+die Fahrkarte,ticket,,Ich kaufe eine {{Fahrkarte}} für den nächsten Zug.
+der Pass,passport,,Mein {{Pass}} ist noch zwei Jahre gültig.
+der Koffer,suitcase,,Der {{Koffer}} ist zu schwer zum Tragen.
+die Karte,map / card,,Hast du eine {{Karte}} von dieser Region?
+die Technologie,technology,,Die {{Technologie}} entwickelt sich sehr schnell heutzutage.
+der Computer,computer,,Mein {{Computer}} läuft langsam und braucht Speicher.
+das Telefon,phone,,Mein {{Telefon}} hat keinen Akku mehr.
+das Internet,internet,,Das {{Internet}} ist heute überall verfügbar.
+der Bildschirm,screen,,Der {{Bildschirm}} ist zu dunkel eingestellt.
+die Tastatur,keyboard,,Die {{Tastatur}} hat einige kaputte Tasten.
+die Kamera,camera,,Die neue {{Kamera}} macht sehr scharfe Fotos.
+der Fernseher,television,,Der {{Fernseher}} läuft den ganzen Tag.
+das Radio,radio,,Ich höre morgens {{Radio}} beim Frühstück.
+das Licht,light,,Das {{Licht}} in diesem Zimmer ist zu hell.
+der Ton,sound / tone,,Der {{Ton}} des Liedes war unglaublich schön.
+die Farbe,colour,,Welche {{Farbe}} magst du am liebsten?
+das Rot,red,,{{Rot}} ist die Lieblingsfarbe meiner Mutter.
+das Blau,blue,,Der Himmel ist heute schön {{blau}} und klar.
+das Grün,green,,Das {{Grün}} der Bäume ist wunderschön.
+das Gelb,yellow,,Die {{gelbe}} Sonne scheint warm auf mich.
+das Schwarz,black,,Die {{Schwarz}} der Nacht war absolut undurchdringlich.
+das Weiß,white,,Das {{Weiß}} des Schnees glänzte in der Sonne.
+das Grau,grey,,Das {{Grau}} des Himmels deutete auf Regen hin.
+der Schmerz,pain,,Der {{Schmerz}} in seinem Rücken war unerträglich.
+die Krankheit,illness,,Die {{Krankheit}} verbreitete sich schnell in der Stadt.
+das Medikament,medicine,,Das {{Medikament}} half ihm bei der Genesung.
+der Arzt,doctor,,Der {{Arzt}} untersuchte den Patienten sorgfältig.
+die Krankenschwester,nurse,,Die {{Krankenschwester}} kümmerte sich um die Patienten.
+die Gesundheit,health,,Die {{Gesundheit}} ist das wichtigste Gut im Leben.
+der Geist,mind / spirit,,Der {{Geist}} war stärker als der Körper.
+die Emotion,emotion,,Die {{Emotion}} überwältigte sie völlig in diesem Moment.
+die Angst,fear,,Die {{Angst}} vor der Zukunft plagte ihn.
+die Freude,joy,,Die {{Freude}} strahlte aus seinen Augen heraus.
+die Trauer,sadness,,Die {{Trauer}} erfüllte sein Herz nach dem Verlust.
+die Liebe,love,,Die {{Liebe}} zwischen ihnen war unsterblich.
+der Hass,hate,,Der {{Hass}} vergiftete seine Gedanken täglich.
+die Hoffnung,hope,,Die {{Hoffnung}} half ihm durch schwere Zeiten.
+die Wahrheit,truth,,Die {{Wahrheit}} muss immer ans Licht kommen.
+die Lüge,lie,,Die {{Lüge}} wurde schnell entdeckt und bestraft.
+die Gerechtigkeit,justice,,Die {{Gerechtigkeit}} siegte am Ende des Prozesses.
+das Gesetz,law,,Das {{Gesetz}} schützt alle Bürger gleichermaßen.
+die Polizei,police,,Die {{Polizei}} kam schnell nach dem Notruf.
+der Krieg,war,,Der {{Krieg}} zerstörte viele Städte völlig.
+der Frieden,peace,,Der {{Frieden}} kehrte endlich in die Region zurück.
+der Unfall,accident,,Der {{Unfall}} ereignete sich auf der Autobahn.
+die Gefahr,danger,,Die {{Gefahr}} lauerte überall in dieser Gegend.
+die Sicherheit,safety / security,,Die {{Sicherheit}} der Familie war ihre Priorität.
+der Erfolg,success,,Der {{Erfolg}} kam nach jahrelanger harter Arbeit.
+das Scheitern,failure,,Das {{Scheitern}} war ein wichtiger Lernprozess für ihn.
+die Schwierigkeit,difficulty,,Die {{Schwierigkeit}} dieser Aufgabe war unterschätzt worden.
+die Lösung,solution,,Die {{Lösung}} war einfacher als gedacht.
+die Möglichkeit,opportunity / possibility,,Die {{Möglichkeit}} einer Karriere lockte ihn stark.
+das Recht,right / law,,Das {{Recht}} auf Bildung ist fundamental wichtig.
+die Verantwortung,responsibility,,Die {{Verantwortung}} lastete schwer auf seinen Schultern.
+die Freiheit,freedom,,Die {{Freiheit}} ist ein kostbares menschliches Gut.
+die Gleichheit,equality,,Die {{Gleichheit}} aller Menschen ist ein Ideal.
+die Gemeinschaft,community,,Die {{Gemeinschaft}} half sich gegenseitig in Not.
+die Nation,nation,,Die {{Nation}} feierte ihren Nationalfeiertag stolz.
+die Region,region,,Die {{Region}} war bekannt für ihre Weine.
+die Hauptstadt,capital city,,Die {{Hauptstadt}} ist das Herz des Landes.
+die Bevölkerung,population,,Die {{Bevölkerung}} wächst jedes Jahr rapide.
+die Wirtschaft,economy,,Die {{Wirtschaft}} brauchte dringende Reformen.
+der Handel,trade,,Der {{Handel}} florierte zwischen den beiden Ländern.
+die Industrie,industry,,Die {{Industrie}} schuf Arbeitsplätze für Tausende.
+die Landwirtschaft,agriculture,,Die {{Landwirtschaft}} war der Haupterwerb hier.
+die Umwelt,environment,,Die {{Umwelt}} muss besser geschützt werden.
+die Natur,nature,,Die {{Natur}} ist wunderbar und vielfältig.
+die Energie,energy,,Die {{Energie}} für das Projekt war vorhanden.
+die Ressource,resource,,Die {{Ressource}} des Landes sind begrenzt.
+die Verschmutzung,pollution,,Die {{Verschmutzung}} der Luft nimmt zu schnell.
+das Klima,climate,,{{Das Klima}} auf der Erde ändert sich immer schneller.
+die Temperatur,temperature,,Die {{Temperatur}} heute ist ungewöhnlich hoch für Oktober.
 # ── Adjectives ───────────────────────────────────────────────────────────────
-gut,good,
-schlecht,bad,
-groß,big / great,
-klein,small,
-neu,new,
-alt,old,
-jung,young,
-hoch,tall / high,
-niedrig,low,
-lang,long,
-kurz,short,
-breit,wide,
-schmal,narrow,
-dick,fat / thick,
-dünn,thin,
-stark,strong,
-schwach,weak,
-schnell,fast,
-langsam,slow,
-einfach,easy / simple,
-schwierig,difficult,
-wichtig,important,
-nötig,necessary,
-möglich,possible,
-unmöglich,impossible,
-wahr,true,
-falsch,false,
-sicher,safe / certain,
-gefährlich,dangerous,
-reich,rich,
-arm,poor,
-glücklich,happy,
-traurig,sad,
-wütend,angry,
-ruhig,calm,
-nervös,nervous,
-langweilig,boring,
-interessant,interesting,
-schön,beautiful,
-hässlich,ugly,
-sauber,clean,
-schmutzig,dirty,
-voll,full,
-leer,empty,
-offen,open,
-geschlossen,closed,
-frei,free,
-beschäftigt,busy,
-anders,different,
-gleich,same,
-ähnlich,similar,
-besonders,special,
-normal,normal,
-seltsam,strange,
-häufig,common / frequent,
-selten,rare,
-typisch,typical,
-modern,modern,
-natürlich,natural,
-künstlich,artificial,
-körperlich,physical,
-geistig,mental,
-sozial,social,
-politisch,political,
-wirtschaftlich,economic,
-kulturell,cultural,
-national,national,
-international,international,
-lokal,local,
-öffentlich,public,
-privat,private,
-persönlich,personal,
-professionell,professional,
-intelligent,intelligent,
-ernst,serious,
-lustig,funny,
-freundlich,friendly,
-ehrlich,honest,
-großzügig,generous,
-mutig,brave,
-geduldig,patient,
-aktiv,active,
-positiv,positive,
-negativ,negative,
-vollständig,complete,
-perfekt,perfect,
-richtig,correct,
-genau,exact,
-gesamt,total,
-haupt,main,
-offiziell,official,
-formell,formal,
+gut,good,,Das neue Restaurant hat {{gute}} Bewertungen bekommen.
+schlecht,bad,,Das Wetter ist heute {{schlecht}} und regnerisch.
+groß,big / great,,Berlin ist eine {{große}} und wichtige Stadt.
+klein,small,,Das {{kleine}} Kind spielt gerne im Park.
+neu,new,,Ich habe mir ein {{neues}} Auto gekauft.
+alt,old,,Mein {{alter}} Computer funktioniert nicht mehr gut.
+jung,young,,Meine {{junge}} Schwester geht noch in die Schule.
+hoch,tall / high,,Der {{hohe}} Berg hat viel Schnee im Winter.
+niedrig,low,,Das Haus hat sehr {{niedrige}} Decken überall.
+lang,long,,Wir hatten ein {{langes}} Gespräch über die Zukunft.
+kurz,short,,Der {{kurze}} Film war sehr lustig und informativ.
+breit,wide,,Die {{breite}} Straße führt direkt zum Zentrum.
+schmal,narrow,,Der {{schmale}} Pfad war schwer zu finden.
+dick,fat / thick,,Das {{dicke}} Buch kostet mehr als normal.
+dünn,thin,,Die {{dünne}} Scheibe Brot reicht für mich nicht.
+stark,strong,,Der {{starke}} Wind hat die Tür zugeweht.
+schwach,weak,,Die {{schwache}} Batterie muss ausgetauscht werden.
+schnell,fast,,Das {{schnelle}} Auto fährt über hundert Kilometer pro Stunde.
+langsam,slow,,Der {{langsame}} Zug kommt immer zu spät an.
+einfach,easy / simple,,Diese {{einfache}} Aufgabe kann jeder lösen mühelos.
+schwierig,difficult,,Die {{schwierige}} Prüfung hat viele Studenten nicht bestanden.
+wichtig,important,,Sport ist {{wichtig}} für unsere Gesundheit und Fitness.
+nötig,necessary,,Eine {{nötige}} Pause hilft uns weitermachen können.
+möglich,possible,,"Es ist {{möglich}}, morgen ins Kino zu gehen zusammen."
+unmöglich,impossible,,"Es ist {{unmöglich}}, ohne Schlaf lange zu arbeiten."
+wahr,true,,Diese {{wahre}} Geschichte hat mich sehr bewegt.
+falsch,false,,Deine {{falsche}} Antwort ist völlig nicht korrekt.
+sicher,safe / certain,,"Ich bin mir {{sicher}}, dass das funktionieren wird."
+gefährlich,dangerous,,Rauchen ist {{gefährlich}} für deine Gesundheit besonders.
+reich,rich,,Der {{reiche}} Mann besitzt mehrere Häuser weltweit.
+arm,poor,,Die {{arme}} Familie brauchte finanzielle Unterstützung dringend.
+glücklich,happy,,Ich bin sehr {{glücklich}} über meine neue Situation.
+traurig,sad,,Die {{traurige}} Geschichte machte alle Zuschauer zu Tränen.
+wütend,angry,,Mein Vater war {{wütend}} über das schlechte Zeugnis.
+ruhig,calm,,Bleib {{ruhig}} und atme tief durch jetzt.
+nervös,nervous,,Ich bin {{nervös}} vor meinem ersten Arbeitstag.
+langweilig,boring,,Der {{langweilige}} Film hat mir überhaupt nicht gefallen.
+interessant,interesting,,Das {{interessante}} Buch konnte ich nicht ablegen.
+schön,beautiful,,Das {{schöne}} Mädchen war sehr beliebt in der Schule.
+hässlich,ugly,,Das {{hässliche}} Gebäude zerstört das Stadtbild völlig.
+sauber,clean,,Das {{saubere}} Haus riecht nach Seife und Frische.
+schmutzig,dirty,,Deine {{schmutzigen}} Hände musst du waschen sofort.
+voll,full,,Der {{volle}} Bus konnte keine Passagiere mehr aufnehmen.
+leer,empty,,Das {{leere}} Glas füllte ich mit Wasser auf.
+offen,open,,Die {{offene}} Tür ließ kalte Luft hereinströmen.
+geschlossen,closed,,Der {{geschlossene}} Laden öffnet erst um zehn Uhr.
+frei,free,,Am Wochenende bin ich endlich {{frei}} und entspannt.
+beschäftigt,busy,,Mein Chef ist immer {{beschäftigt}} mit wichtigen Terminen.
+anders,different,,Diese Lösung ist {{anders}} als die vorherige Methode.
+gleich,same,,Beide Schüler haben {{gleich}} gute Noten bekommen.
+ähnlich,similar,,Die Zwillinge sehen sich {{ähnlich}} und haben denselben Charakter.
+besonders,special,,Diese {{besondere}} Gelegenheit kommt nicht oft vor.
+normal,normal,,"Es ist {{normal}}, dass Kinder viele Fragen stellen täglich."
+seltsam,strange,,Sein Verhalten wirkt heute {{seltsam}} und unerklärlich.
+häufig,common / frequent,,Wir besuchen {{häufig}} unsere Großeltern am Wochenende.
+selten,rare,,Schneefall ist in unserer Region {{selten}} und wertvoll.
+typisch,typical,,"Es ist {{typisch}} deutsch, immer pünktlich zu sein."
+modern,modern,,Das {{moderne}} Design des Hauses gefällt mir sehr gut.
+natürlich,natural,,{{Natürlich}} möchte jeder Mensch glücklich und gesund sein.
+künstlich,artificial,,Die {{künstliche}} Intelligenz entwickelt sich sehr schnell weiter.
+körperlich,physical,,{{Körperliche}} Übungen sind wichtig für die Gesundheit täglich.
+geistig,mental,,{{Geistige}} Fähigkeiten kann man durch Lesen verbessern.
+sozial,social,,{{Soziale}} Netzwerke verbinden Millionen von Menschen weltweit heute.
+politisch,political,,Die {{politische}} Situation in dem Land ist sehr angespannt.
+wirtschaftlich,economic,,Die {{wirtschaftliche}} Lage hat sich im letzten Jahr verbessert.
+kulturell,cultural,,Das {{kulturelle}} Erbe dieser Stadt ist sehr wertvoll.
+national,national,,Der {{nationale}} Stolz ist in diesem Land sehr großen.
+international,international,,Viele {{internationale}} Organisationen arbeiten für den Frieden.
+lokal,local,,Der {{lokale}} Markt verkauft nur frische Produkte hier.
+öffentlich,public,,Die {{öffentliche}} Bibliothek ist montags geschlossen leider.
+privat,private,,Das ist eine {{private}} Angelegenheit zwischen dir und mir.
+persönlich,personal,,Ich möchte dir {{persönlich}} meine Meinung sagen heute.
+professionell,professional,,Sie arbeitet sehr {{professionell}} und gewissenhaft in ihrem Beruf.
+intelligent,intelligent,,Der {{intelligente}} Student löst alle Aufgaben schnell.
+ernst,serious,,"Die Situation ist zu {{ernst}}, um darüber zu scherzen."
+lustig,funny,,Der Film war sehr {{lustig}} und unterhaltsam gestern.
+freundlich,friendly,,Alle Menschen in diesem Dorf sind sehr {{freundlich}} hier.
+ehrlich,honest,,"Es ist wichtig, immer {{ehrlich}} zu seinen Freunden zu sein."
+großzügig,generous,,Der reiche Mann ist sehr {{großzügig}} gegenüber Armen.
+mutig,brave,,Der {{mutige}} Feuerwehrmann rettete das Kind aus dem Feuer.
+geduldig,patient,,Die Lehrer sollten {{geduldig}} mit langsamen Schülern sein.
+aktiv,active,,Der {{aktive}} Junge spielt gerne Fußball nach der Schule.
+positiv,positive,,"Eine {{positive}} Einstellung hilft dir, Probleme zu lösen."
+negativ,negative,,Die {{negative}} Kritik hat ihn sehr verletzt und erschüttert.
+vollständig,complete,,Die Aufgabe ist {{vollständig}} fertig und korrekt gelöst.
+perfekt,perfect,,"Niemand ist {{perfekt}}, wir alle haben Fehler immer."
+richtig,correct,,Deine Antwort ist {{richtig}} und sehr gut begründet.
+genau,exact,,"Bitte sag mir {{genau}}, was du brauchst und möchtest."
+gesamt,total,,Die {{gesamte}} Klasse freut sich auf die Klassenfahrt.
+haupt,main,,Das {{Haupt}}problem ist der fehlende finanzielle Etat hier.
+offiziell,official,,Es ist noch nicht {{offiziell}} bestätigt worden leider.
+formell,formal,,Die {{formelle}} Kleidung ist für diese Veranstaltung erforderlich.
 # ── Adverbs ──────────────────────────────────────────────────────────────────
-sehr,very,
-mehr,more,
-weniger,less,
-auch,also / too,
-noch,still / yet,
-nie,never,
-immer,always,
-fast,almost,
-nur,only,
-genug,enough,
-zu viel,too much,
-wenig,a little,
-viel,a lot,
-besser,better,
-leicht,easily,
-wahrscheinlich,probably,
-vielleicht,perhaps / maybe,
-wirklich,really,
-völlig,totally,
-komplett,completely,
-absolut,absolutely,
-hauptsächlich,mainly,
-allgemein,generally,
-normalerweise,normally,
-oft,often,
-sofort,immediately,
-schließlich,finally,
-hier,here,
-dort,there,
-nah,near,
-weit,far,
-drinnen,inside,
-draußen,outside,
-oben,up / above,
-unten,down / below,
-vorne,in front,
-hinten,behind,
+sehr,very,,Das neue Restaurant ist {{sehr}} beliebt bei den Leuten.
+mehr,more,,Ich möchte {{mehr}} Zeit mit meiner Familie verbringen.
+weniger,less,,Wir sollten {{weniger}} Plastik im Haushalt verwenden täglich.
+auch,also / too,,Du {{auch}} möchtest sicher ein Stück Kuchen haben.
+noch,still / yet,,Das Baby schläft {{noch}} und darf nicht gestört werden.
+nie,never,,Ich habe {{nie}} so einen interessanten Film gesehen vorher.
+immer,always,,Ich trinke {{immer}} Kaffee zum Frühstück.
+fast,almost,,Das Projekt ist {{fast}} fertig und dauert noch zwei Tage.
+nur,only,,Ich habe {{nur}} drei Euro in meiner Tasche.
+genug,enough,,Wir haben {{genug}} Geld für den Urlaub gespart.
+zu viel,too much,,Du isst {{zu viel}} Zucker und das ist ungesund.
+wenig,a little,,Im Winter haben wir {{wenig}} Sonnenlicht in Deutschland.
+viel,a lot,,Sie liest {{viel}} und kauft jeden Monat neue Bücher.
+besser,better,,Dieses Restaurant ist {{besser}} als das alte Restaurant.
+leicht,easily,,Du kannst diese Aufgabe {{leicht}} in einer Stunde lösen.
+wahrscheinlich,probably,,Das Wetter ist {{wahrscheinlich}} morgen sonnig und warm.
+vielleicht,perhaps / maybe,,{{Vielleicht}} komme ich am Wochenende zu deiner Party.
+wirklich,really,,Dieser Film ist {{wirklich}} spannend und sehr interessant.
+völlig,totally,,Ich bin {{völlig}} erschöpft nach dem langen Marathon heute.
+komplett,completely,,Der Umzug ist {{komplett}} abgeschlossen und alles ist organisiert.
+absolut,absolutely,,Diese Entscheidung ist {{absolut}} notwendig für unsere Zukunft.
+hauptsächlich,mainly,,Das Buch behandelt {{hauptsächlich}} die Geschichte des alten Roms.
+allgemein,generally,,"{{Allgemein}} ist es wichtig, viel Wasser zu trinken."
+normalerweise,normally,,Ich stehe {{normalerweise}} um sieben Uhr morgens auf.
+oft,often,,Im Sommer gehen wir {{oft}} ins Kino oder ins Bad.
+sofort,immediately,,"Ruf mich {{sofort}} an, wenn du Probleme hast."
+schließlich,finally,,{{Schließlich}} bekam er seinen Universitätsabschluss nach fünf Jahren.
+hier,here,,Das ist mein Haus und {{hier}} lebe ich seit zwanzig Jahren.
+dort,there,,Meine Großeltern wohnen {{dort}} in der kleinen Stadt am Fluss.
+nah,near,,"Die Schule ist {{nah}} bei unserem Haus, nur fünf Minuten entfernt."
+weit,far,,Der Bahnhof ist {{weit}} weg und kostet viel Zeit.
+drinnen,inside,,{{Drinnen}} ist es warm und gemütlich an diesem kalten Tag.
+draußen,outside,,Die Kinder spielen {{draußen}} im Garten und haben viel Spaß.
+oben,up / above,,Das Schlafzimmer liegt {{oben}} im zweiten Stock des Hauses.
+unten,down / below,,Das Wohnzimmer ist {{unten}} im Erdgeschoss und sehr großzügig.
+vorne,in front,,Die Garage ist {{vorne}} beim Eingang und sehr bequem gelegen.
+hinten,behind,,Der Garten liegt {{hinten}} hinter dem Haus und ist sehr schön.
 # ── Prepositions and conjunctions ────────────────────────────────────────────
-von,of / from,
-zu,to / at,
-in,in,
-mit,with,
-ohne,without,
-für,for,
-durch,through / by,
-über,over / about,
-zwischen,between,
-bis,until / up to,
-seit,since / for,
-während,during,
-vor,before / in front of,
-nach,after / to,
-obwohl,although,
-weil,because,
-wenn,if / when,
-als,as / when,
-wo,where,
-wie,how / as,
-dass,that,
-aber,but,
-oder,or,
-und,and,
-weder...noch,neither...nor,
-also,so / therefore,
+von,of / from,,Dieses Buch ist {{von}} meinem Lieblingsautor geschrieben worden.
+zu,to / at,,Ich gehe {{zu}} meiner besten Freundin und wir trinken Tee.
+in,in,,Meine Katze sitzt {{in}} einem großen Korb und schläft.
+mit,with,,Ich fahre {{mit}} meinem Auto zur Arbeit jeden Morgen.
+ohne,without,,Ich kann {{ohne}} meine Brille nicht richtig sehen.
+für,for,,Ich kaufe ein Geschenk {{für}} meinen Bruder zum Geburtstag.
+durch,through / by,,Wir gehen {{durch}} den Park und genießen die Natur.
+über,over / about,,Wir sprechen {{über}} die neuen Pläne für das nächste Jahr.
+zwischen,between,,Die Schule liegt {{zwischen}} dem Supermarkt und der Apotheke.
+bis,until / up to,,Du musst hier {{bis}} freitag bleiben und dann kannst du gehen.
+seit,since / for,,Ich wohne {{seit}} zehn Jahren in dieser schönen Stadt.
+während,during,,{{Während}} des Urlaubs vergessen wir den Alltag und entspannen.
+vor,before / in front of,,Das Kino ist {{vor}} dem Bahnhof und sehr leicht erreichbar.
+nach,after / to,,{{Nach}} dem Essen spazieren wir durch die Stadt und bummeln.
+obwohl,although,,Ich mag diesen Film {{obwohl}} er ziemlich lang und langsam ist.
+weil,because,,Ich bleibe zu Hause {{weil}} ich heute sehr müde bin.
+wenn,if / when,,"{{Wenn}} es morgen regnet, gehen wir ins Kino zusammen."
+als,as / when,,"{{Als}} ich klein war, spielte ich gerne im Wald."
+wo,where,,"{{Wo}} ist meine neue Jacke, die ich gestern gekauft habe?"
+wie,how / as,,{{Wie}} geht es dir heute Morgen?
+dass,that,,Ich weiß {{dass}} du morgen kommst.
+aber,but,,"Ich möchte gehen, {{aber}} es regnet."
+oder,or,,Möchtest du Kaffee {{oder}} Tee trinken?
+und,and,,Ich kaufe Brot {{und}} Milch im Supermarkt.
+weder...noch,neither...nor,,Er isst {{weder}} Fisch {{noch}} Fleisch.
+also,so / therefore,,"Es regnet, {{also}} bleiben wir zu Hause."
 # ── Pronouns ─────────────────────────────────────────────────────────────────
-ich,I,
-du,you (informal),
-er,he,
-sie,she / they / you (formal),
-es,it,
-wir,we,
-ihr,you all,
-mich,me,
-sich,himself / herself,
-mein,my,
-dein,your (informal),
-unser,our,
-dieser,this,
-jener,that,
-etwas,something,
-nichts,nothing,
-jemand,someone,
-niemand,nobody,
-alles,everything,
+ich,I,,{{Ich}} habe heute viel zu tun.
+du,you (informal),,{{Du}} bist mein bester Freund.
+er,he,,{{Er}} arbeitet in einem großen Büro.
+sie,she / they / you (formal),,{{Sie}} liest jeden Tag ein Buch.
+es,it,,{{Es}} ist sehr kalt heute.
+wir,we,,{{Wir}} fahren morgen in den Urlaub.
+ihr,you all,,{{Ihr}} müsst heute die Hausaufgaben machen.
+mich,me,,Bitte rufen {{mich}} morgen an.
+sich,himself / herself,,Der Mann zieht {{sich}} schnell an.
+mein,my,,{{Mein}} Auto ist rot und neu.
+dein,your (informal),,Wo ist {{dein}} Schulrucksack heute?
+unser,our,,{{Unser}} Haus liegt in der Stadt.
+dieser,this,,{{Dieser}} Film ist sehr interessant.
+jener,that,,{{Jener}} Mann dort ist mein Nachbar.
+etwas,something,,Ich möchte {{etwas}} Wasser trinken bitte.
+nichts,nothing,,Ich habe {{nichts}} zum Essen gefunden.
+jemand,someone,,{{Jemand}} hat an der Tür geklopft.
+niemand,nobody,,{{Niemand}} wollte mir helfen gestern.
+alles,everything,,Ich habe {{alles}} für die Party vorbereitet.
 # ── Numbers ──────────────────────────────────────────────────────────────────
-eins,one,
-zwei,two,
-drei,three,
-vier,four,
-fünf,five,
-sechs,six,
-sieben,seven,
-acht,eight,
-neun,nine,
-zehn,ten,
-elf,eleven,
-zwölf,twelve,
-zwanzig,twenty,
-dreißig,thirty,
-vierzig,forty,
-fünfzig,fifty,
-hundert,one hundred,
-tausend,one thousand,
-Million,one million,
-erste,first,
-letzte,last,
+eins,one,,Ich habe nur {{eins}} Bruder gehabt.
+zwei,two,,Ich habe {{zwei}} Schwestern im Haus.
+drei,three,,Wir haben {{drei}} Katzen zu Hause.
+vier,four,,Ein Auto hat {{vier}} Reifen normal.
+fünf,five,,Die Hand hat {{fünf}} Finger insgesamt.
+sechs,six,,Ein Würfel hat {{sechs}} Seiten.
+sieben,seven,,Eine Woche hat {{sieben}} Tage.
+acht,eight,,Das Jahr hat {{acht}} Monate Winter.
+neun,nine,,Der März ist der {{neun}}te Monat.
+zehn,ten,,Ich bin {{zehn}} Jahre alt.
+elf,eleven,,Es ist {{elf}} Uhr am Morgen.
+zwölf,twelve,,Ein Jahr hat {{zwölf}} Monate insgesamt.
+zwanzig,twenty,,Ich verdiene {{zwanzig}} Euro pro Stunde.
+dreißig,thirty,,Mein Vater ist {{dreißig}} Jahre alt.
+vierzig,forty,,Im Jahr {{vierzig}} war Krieg.
+fünfzig,fifty,,Die Temperatur steigt auf {{fünfzig}} Grad.
+hundert,one hundred,,Ein Jahrhundert hat {{hundert}} Jahre.
+tausend,one thousand,,Diese Stadt hat {{tausend}} Einwohner.
+Million,one million,,Diese Stadt hat zwei {{Million}} Einwohner.
+erste,first,,Der {{erste}} Tag der Woche ist Montag.
+letzte,last,,Der {{letzte}} Tag des Jahres ist heute.
 # ── Question words ───────────────────────────────────────────────────────────
-was,what,
-wer,who,
-welcher,which,
-wann,when,
-wie viel,how much,
-warum,why,
+was,what,,{{Was}} möchtest du zum Frühstück essen?
+wer,who,,{{Wer}} ist dein bester Freund?
+welcher,which,,{{Welcher}} Film magst du am liebsten?
+wann,when,,{{Wann}} kommt dein Freund zu Besuch nach Hause?
+wie viel,how much,,{{Wie viel}} Zucker brauchst du für den Kuchen?
+warum,why,,{{Warum}} magst du diese Musik so gerne?
 # ── Days of the week ─────────────────────────────────────────────────────────
-Montag,Monday,
-Dienstag,Tuesday,
-Mittwoch,Wednesday,
-Donnerstag,Thursday,
-Freitag,Friday,
-Samstag,Saturday,
-Sonntag,Sunday,
+Montag,Monday,,Nächsten {{Montag}} haben wir einen wichtigen Termin im Büro.
+Dienstag,Tuesday,,Am {{Dienstag}} gehe ich immer zum Fitnessstudio trainieren.
+Mittwoch,Wednesday,,Der {{Mittwoch}} ist mein Lieblingswochentag zum Einkaufen gehen.
+Donnerstag,Thursday,,{{Donnerstag}} abends treffe ich meine Freunde im Restaurant.
+Freitag,Friday,,Am {{Freitag}} beginnt endlich das langersehnte Wochenende für uns.
+Samstag,Saturday,,{{Samstag}} morgens schlafe ich lange und bin nicht gehetzt.
+Sonntag,Sunday,,Am {{Sonntag}} besuche ich meine Großeltern zum gemeinsamen Mittagessen.
 # ── Months ───────────────────────────────────────────────────────────────────
-Januar,January,
-Februar,February,
-März,March,
-April,April,
-Mai,May,
-Juni,June,
-Juli,July,
-August,August,
-September,September,
-Oktober,October,
-November,November,
-Dezember,December,
+Januar,January,,Im {{Januar}} ist es sehr kalt und oft schneereich.
+Februar,February,,Der {{Februar}} hat in Deutschland durchschnittlich weniger Tage als andere.
+März,March,,Im {{März}} beginnt der Frühling und die Natur erwacht.
+April,April,,Der {{April}} bringt Regen und wechselhaftes Wetter mit sich.
+Mai,May,,Im {{Mai}} blühen überall wunderbare Blumen in den Gärten.
+Juni,June,,Der {{Juni}} ist ideal für Urlaub und Sommerfeste.
+Juli,July,,Im {{Juli}} ist es meistens sehr warm und sonnig.
+August,August,,Der {{August}} ist perfekt für Ausflüge ans Meer oder Meer.
+September,September,,Im {{September}} beginnt die Schule wieder nach den Sommerferien.
+Oktober,October,,Der {{Oktober}} bringt bunte Blätter und kühlere Temperaturen mit.
+November,November,,Im {{November}} werden die Tage merklich kürzer und dunkler.
+Dezember,December,,Der {{Dezember}} ist der Monat der Weihnachtszeit und Festlichkeiten.
 # ── Seasons ──────────────────────────────────────────────────────────────────
-der Frühling,spring,
-der Sommer,summer,
-der Herbst,autumn / fall,
-der Winter,winter,
+der Frühling,spring,,Im {{Frühling}} erwachen die Natur und alle Blumen wieder.
+der Sommer,summer,,Der {{Sommer}} ist die schönste Jahreszeit zum Reisen.
+der Herbst,autumn / fall,,Im {{Herbst}} färben sich die Blätter wunderbar bunt.
+der Winter,winter,,Der {{Winter}} bringt Schnee und Kälte in unsere Region.
 # ── Professions ──────────────────────────────────────────────────────────────
-der Lehrer,teacher,
-der Anwalt,lawyer,
-der Ingenieur,engineer,
-der Architekt,architect,
-der Koch,chef / cook,
-der Musiker,musician,
-der Künstler,artist,
-der Schriftsteller,writer,
-der Journalist,journalist,
-der Wissenschaftler,scientist,
-der Zahnarzt,dentist,
-der Apotheker,pharmacist,
-der Feuerwehrmann,firefighter,
-der Pilot,pilot,
-der Fahrer,driver,
-der Mechaniker,mechanic,
-der Elektriker,electrician,
-der Zimmermann,carpenter,
-der Gärtner,gardener,
-der Kellner,waiter,
-der Angestellte,employee,
-der Chef,boss,
-der Direktor,director,
-der Manager,manager,
-der Sekretär,secretary,
-der Buchhalter,accountant,
-der Ökonom,economist,
-der Psychologe,psychologist,
-der Soziologe,sociologist,
-der Historiker,historian,
+der Lehrer,teacher,,Mein {{Lehrer}} erklärt die Mathematik sehr verständlich und geduldig.
+der Anwalt,lawyer,,Der {{Anwalt}} vertritt meine Rechte vor dem Gericht professionell.
+der Ingenieur,engineer,,Der {{Ingenieur}} entwirft neue Brücken und komplexe Bauwerke.
+der Architekt,architect,,Der {{Architekt}} plant das Design des neuen Hauses.
+der Koch,chef / cook,,Der {{Koch}} bereitet köstliche Gerichte in der Restaurantküche.
+der Musiker,musician,,Der {{Musiker}} spielt wunderschön Klavier auf der Bühne.
+der Künstler,artist,,Der {{Künstler}} malt beeindruckende Bilder mit verschiedenen Farben.
+der Schriftsteller,writer,,Der {{Schriftsteller}} schreibt fesselnde Romane und spannende Geschichten.
+der Journalist,journalist,,Der {{Journalist}} recherchiert und schreibt für die Zeitung.
+der Wissenschaftler,scientist,,Der {{Wissenschaftler}} führt wichtige Experimente im Labor durch.
+der Zahnarzt,dentist,,Der {{Zahnarzt}} kümmert sich um meine Zahngesundheit sehr gut.
+der Apotheker,pharmacist,,Der {{Apotheker}} verkauft Medikamente und berät die Patienten.
+der Feuerwehrmann,firefighter,,Der {{Feuerwehrmann}} löscht Brände und rettet Menschen in Gefahr.
+der Pilot,pilot,,Der {{Pilot}} steuert das Flugzeug sicher über die Wolken.
+der Fahrer,driver,,Der {{Fahrer}} bringt Passagiere sicher zu ihrem Ziel.
+der Mechaniker,mechanic,,Der {{Mechaniker}} repariert mein Auto sehr zuverlässig und schnell.
+der Elektriker,electrician,,Der {{Elektriker}} installiert die neuen elektrischen Leitungen im Haus.
+der Zimmermann,carpenter,,Der {{Zimmermann}} baut wunderbare Möbel aus hochwertigem Holz.
+der Gärtner,gardener,,Der {{Gärtner}} pflegt wunderschöne Blumen und Pflanzen täglich.
+der Kellner,waiter,,Der {{Kellner}} bedient die Gäste höflich und professionell.
+der Angestellte,employee,,Der {{Angestellte}} arbeitet fleißig im Büro an seinen Aufgaben.
+der Chef,boss,,Der {{Chef}} leitet das Unternehmen und trifft wichtige Entscheidungen.
+der Direktor,director,,Der {{Direktor}} verwaltet die Schule mit großer Verantwortung.
+der Manager,manager,,Der {{Manager}} koordiniert alle Projekte im Team effizient.
+der Sekretär,secretary,,{{Der Sekretär}} beantwortet Anrufe und verwaltet Termine.
+der Buchhalter,accountant,,{{Der Buchhalter}} prüft alle Rechnungen und Ausgaben.
+der Ökonom,economist,,{{Der Ökonom}} analysiert wirtschaftliche Trends und Märkte.
+der Psychologe,psychologist,,{{Der Psychologe}} hilft Menschen mit emotionalen Problemen.
+der Soziologe,sociologist,,{{Der Soziologe}} erforscht das Verhalten von Gesellschaften.
+der Historiker,historian,,{{Der Historiker}} untersucht vergangene Ereignisse und Kulturen.
 # ── More verbs ───────────────────────────────────────────────────────────────
-diskutieren,to discuss,
-vergleichen,to compare,
-analysieren,to analyse,
-planen,to plan,
-organisieren,to organize,
-kontrollieren,to control,
-messen,to measure,
-renovieren,to renovate,
-reparieren,to repair,
-installieren,to install,
-verbinden,to connect,
-herunterladen,to download,
-hochladen,to upload,
-programmieren,to program,
-entwerfen,to design,
-erfinden,to invent,
-entdecken,to discover,
-untersuchen,to investigate,
-studieren,to study,
-üben,to practise,
-konkurrieren,to compete,
-genießen,to enjoy,
-leiden,to suffer,
-pflegen,to take care of,
-retten,to save / to rescue,
-teilen,to share,
-altern,to age,
-kooperieren,to cooperate,
-verhandeln,to negotiate,
-einstellen,to hire,
-exportieren,to export,
-importieren,to import,
-regieren,to govern,
-dekorieren,to decorate,
-beraten,to advise,
-genehmigen,to approve,
-anwenden,to apply,
-mischen,to mix,
-vorbereiten,to prepare,
-servieren,to serve,
-leihen,to borrow / to lend,
-verschütten,to spill,
-überwachen,to monitor,
-schützen,to protect,
-ermutigen,to encourage,
-autorisieren,to authorize,
-erkennen,to recognize,
-identifizieren,to identify,
-bestätigen,to confirm,
-stornieren,to cancel,
-verschieben,to postpone,
-sich verabschieden,to say goodbye,
-beglückwünschen,to congratulate,
+diskutieren,to discuss,,Wir {{diskutieren}} über die neuen Projektideen im Team.
+vergleichen,to compare,,Sie {{vergleichen}} die Preise verschiedener Lieferanten sorgfältig.
+analysieren,to analyse,,Der Experte {{analysiert}} die Daten für den Bericht.
+planen,to plan,,Wir {{planen}} die Konferenz für nächsten Monat.
+organisieren,to organize,,Maria {{organisiert}} alle Meetings und Termine im Büro.
+kontrollieren,to control,,Der Manager {{kontrolliert}} die Qualität der Produkte täglich.
+messen,to measure,,Sie {{messen}} die genaue Größe des neuen Raumes.
+renovieren,to renovate,,Das Unternehmen {{renoviert}} das alte Bürogebäude komplett.
+reparieren,to repair,,Der Techniker {{repariert}} den defekten Computer schnell.
+installieren,to install,,Morgen {{installieren}} wir die neue Sicherheitssystem im Haus.
+verbinden,to connect,,Das Netzwerk {{verbindet}} alle Computer im Büro miteinander.
+herunterladen,to download,,Bitte {{laden}} Sie die Datei vom Server {{herunter}}.
+hochladen,to upload,,Ich {{lade}} die fertige Präsentation ins Portal {{hoch}}.
+programmieren,to program,,Der Entwickler {{programmiert}} die neue mobile Anwendung.
+entwerfen,to design,,Die Designerin {{entwirft}} innovative Konzepte für Produkte.
+erfinden,to invent,,Einstein {{erfand}} revolutionäre Theorien in der Physik.
+entdecken,to discover,,Forscher {{entdecken}} neue Arten im tropischen Regenwald.
+untersuchen,to investigate,,Der Arzt {{untersucht}} den Patienten gründlich in der Klinik.
+studieren,to study,,Sie {{studiert}} Medizin an der Universität München.
+üben,to practise,,Der Sportler {{übt}} täglich für die Olympischen Spiele.
+konkurrieren,to compete,,Diese beiden Unternehmen {{konkurrieren}} um denselben Markt.
+genießen,to enjoy,,Wir {{genießen}} das Mittagessen im neuen Restaurants.
+leiden,to suffer,,Viele Menschen {{leiden}} unter chronischen Schmerzstörungen.
+pflegen,to take care of,,Sie {{pflegt}} ihre betagte Mutter mit großer Liebe.
+retten,to save / to rescue,,Die Feuerwehr {{rettet}} die Katze aus dem Baum.
+teilen,to share,,Wir {{teilen}} die Ergebnisse mit allen Mitarbeitern.
+altern,to age,,Holz {{altert}} mit der Zeit und verfärbt sich.
+kooperieren,to cooperate,,Die beiden Länder {{kooperieren}} in Fragen der Sicherheit.
+verhandeln,to negotiate,,Die Diplomaten {{verhandeln}} über neue Handelsabkommen heute.
+einstellen,to hire,,Das Unternehmen {{stellt}} diesen Monat zehn neue Mitarbeiter {{ein}}.
+exportieren,to export,,Deutschland {{exportiert}} Autos in über hundert Länder.
+importieren,to import,,Viele Länder {{importieren}} Rohöl aus dem Nahen Osten.
+regieren,to govern,,Der Präsident {{regiert}} das Land seit fünf Jahren.
+dekorieren,to decorate,,Sie {{dekoriert}} das Klassenzimmer für das Schulfest festlich.
+beraten,to advise,,Der Anwalt {{berät}} seine Klient zu rechtlichen Fragen.
+genehmigen,to approve,,Der Chef {{genehmigt}} den Urlaubsantrag sofort und schriftlich.
+anwenden,to apply,,Wir {{wenden}} diese Methode bei allen Projekten {{an}}.
+mischen,to mix,,Der Barkeeper {{mischt}} einen leckeren Cocktail für uns.
+vorbereiten,to prepare,,Sie {{bereitet}} das Essen schon am Vorabend {{vor}}.
+servieren,to serve,,Der Kellner {{serviert}} das Abendessen mit großer Eleganz.
+leihen,to borrow / to lend,,Ich {{leihe}} dir mein Fahrrad für zwei Tage.
+verschütten,to spill,,"Oh nein, ich {{verschütte}} Kaffee auf meinem Hemd."
+überwachen,to monitor,,Kameras {{überwachen}} alle Eingänge des Gebäudes rund um Uhr.
+schützen,to protect,,Ein Regenschirm {{schützt}} uns vor starkem Regen gut.
+ermutigen,to encourage,,Der Trainer {{ermutigt}} die Spieler vor dem wichtigen Spiel.
+autorisieren,to authorize,,Der Chef {{autorisiert}} den neuen Mitarbeiter für diese Aufgabe.
+erkennen,to recognize,,Ich {{erkenne}} meinen alten Freund sofort in der Menge.
+identifizieren,to identify,,Die Polizei {{identifiziert}} den Täter anhand der Fingerabdrücke.
+bestätigen,to confirm,,Der Arzt {{bestätigt}} die Diagnose nach weiteren Untersuchungen.
+stornieren,to cancel,,Wir {{stornieren}} die Buchung aufgrund der Änderungen.
+verschieben,to postpone,,Das Unternehmen {{verschiebt}} die Konferenz um zwei Wochen.
+sich verabschieden,to say goodbye,,Sie {{verabschiedet}} sich von ihren Kollegen nach dem Projekt.
+beglückwünschen,to congratulate,,Wir {{beglückwünschen}} den Gewinner herzlich zum großen Erfolg.
 # ── More nouns ───────────────────────────────────────────────────────────────
-die Demokratie,democracy,
-die Diktatur,dictatorship,
-die Wahl,election,
-die Partei,political party,
-die Steuer,tax,
-die Schulden,debt,
-das Interesse,interest,
-die Investition,investment,
-der Gewinn,profit,
-der Verlust,loss,
-das Budget,budget,
-der Vertrag,contract,
-die Vereinbarung,agreement,
-die Regel,rule,
-die Vorschrift,regulation,
-die Institution,institution,
-die Organisation,organization,
-der Verein,association / club,
-die Besprechung,meeting,
-die Konferenz,conference,
-der Bericht,report,
-die Statistik,statistic,
-die Forschung,research,
-das Experiment,experiment,
-das Labor,laboratory,
-die Klinik,clinic,
-die Apotheke,pharmacy,
-das Rezept,recipe / prescription,
-die Diagnose,diagnosis,
-das Symptom,symptom,
-der Impfstoff,vaccine,
-die Operation,operation / surgery,
-die Therapie,therapy,
-die Psychologie,psychology,
-der Stress,stress,
-die Depression,depression,
-die Zone,zone,
-das Viertel,neighbourhood / quarter,
-die Grenze,border,
-das Gebiet,territory / area,
-die Provinz,province,
-die Gemeinde,municipality,
-das Dorf,village,
-der Keller,basement,
-der Dachboden,attic,
-die Terrasse,terrace,
-der Balkon,balcony,
-der Aufzug,lift / elevator,
-die Treppe,staircase,
-der Flur,corridor / hallway,
-das Holz,wood,
-das Metall,metal,
-der Kunststoff,plastic,
-das Glas,glass,
-das Papier,paper,
-der Stoff,fabric,
-die Wolle,wool,
-die Baumwolle,cotton,
-das Leder,leather,
-die Seide,silk,
-das Parfüm,perfume,
-die Seife,soap,
-das Shampoo,shampoo,
-die Zahnbürste,toothbrush,
-die Zahnpasta,toothpaste,
-der Rasierapparat,razor,
-der Spiegel,mirror,
-das Handtuch,towel,
-das Kissen,pillow,
-die Matratze,mattress,
-das Möbel,furniture,
-das Sofa,sofa,
-der Sessel,armchair,
-der Tisch,table,
-der Stuhl,chair,
-der Schreibtisch,desk,
-die Lampe,lamp,
-der Vorhang,curtain,
-der Teppich,carpet / rug,
-das Regal,shelf,
-die Schublade,drawer,
-der Kleiderschrank,wardrobe,
-der Kühlschrank,fridge,
-der Ofen,oven,
-die Mikrowelle,microwave,
-die Spülmaschine,dishwasher,
-die Waschmaschine,washing machine,
-die Klimaanlage,air conditioner,
-die Heizung,heating,
+die Demokratie,democracy,,In {{der Demokratie}} haben alle Bürger das Wahlrecht.
+die Diktatur,dictatorship,,Unter {{einer Diktatur}} gibt es keine Meinungsfreiheit.
+die Wahl,election,,{{Die Wahl}} findet alle vier Jahre statt.
+die Partei,political party,,Er tritt {{der Partei}} nach langer Überlegung bei.
+die Steuer,tax,,Jeder Bürger muss {{die Steuer}} pünktlich bezahlen.
+die Schulden,debt,,Das Land hat {{große Schulden}} von Millionen Euro.
+das Interesse,interest,,Mein {{Interesse}} an Kunst wächst jeden Tag.
+die Investition,investment,,{{Die Investition}} in Bildung bringt langfristige Vorteile.
+der Gewinn,profit,,Das Unternehmen erzielte {{einen Gewinn}} von über eine Million.
+der Verlust,loss,,Der {{Verlust}} hat das Unternehmen schwer belastet.
+das Budget,budget,,Wir müssen {{das Budget}} für nächstes Jahr planen.
+der Vertrag,contract,,{{Der Vertrag}} wurde von beiden Seiten unterzeichnet.
+die Vereinbarung,agreement,,{{Die Vereinbarung}} ist bindend für alle Parteien.
+die Regel,rule,,Nach {{der Regel}} dürfen keine Ausnahmen gemacht werden.
+die Vorschrift,regulation,,{{Die Vorschrift}} muss von allen eingehalten werden.
+die Institution,institution,,{{Die Institution}} bietet vielen Menschen Bildung an.
+die Organisation,organization,,{{Die Organisation}} plant die nächste große Veranstaltung.
+der Verein,association / club,,Ich bin Mitglied {{eines Vereins}} für Sportbegeisterte.
+die Besprechung,meeting,,{{Die Besprechung}} beginnt um neun Uhr morgens.
+die Konferenz,conference,,{{Die Konferenz}} bringt Experten aus verschiedenen Ländern zusammen.
+der Bericht,report,,{{Der Bericht}} zeigt positive Ergebnisse für dieses Jahr.
+die Statistik,statistic,,{{Die Statistik}} belegt einen Anstieg der Arbeitslosigkeit.
+die Forschung,research,,{{Die Forschung}} hat neue medizinische Durchbrüche gebracht.
+das Experiment,experiment,,{{Das Experiment}} zeigt interessante Ergebnisse im Labor.
+das Labor,laboratory,,Wissenschaftler arbeiten im {{Labor}} an neuen Lösungen.
+die Klinik,clinic,,Der Patient geht zur {{Klinik}} für die Operation.
+die Apotheke,pharmacy,,Ich hole mein Medikament in {{der Apotheke}} ab.
+das Rezept,recipe / prescription,,Der Arzt schreibt mir {{ein Rezept}} auf.
+die Diagnose,diagnosis,,{{Die Diagnose}} war überraschend für den Patienten.
+das Symptom,symptom,,{{Das Symptom}} deutet auf eine Erkältung hin.
+der Impfstoff,vaccine,,{{Der Impfstoff}} schützt vor dieser schweren Krankheit.
+die Operation,operation / surgery,,{{Die Operation}} war erfolgreich und komplikationslos.
+die Therapie,therapy,,{{Die Therapie}} hilft dem Patienten bei der Heilung.
+die Psychologie,psychology,,{{Die Psychologie}} erforscht das menschliche Verhalten und Denken.
+der Stress,stress,,{{Der Stress}} bei der Arbeit belastet die Gesundheit.
+die Depression,depression,,{{Die Depression}} erfordert professionelle medizinische Behandlung.
+die Zone,zone,,{{Die Zone}} ist für Fußgänger reserviert.
+das Viertel,neighbourhood / quarter,,Ich wohne in einem alten {{Viertel}} der Stadt.
+die Grenze,border,,{{Die Grenze}} zwischen den beiden Ländern ist gesichert.
+das Gebiet,territory / area,,{{Das Gebiet}} ist sehr dünn besiedelt und waldreich.
+die Provinz,province,,In {{der Provinz}} lebt man ruhiger als in der Stadt.
+die Gemeinde,municipality,,Die {{Gemeinde}} hat neue Schulen gebaut.
+das Dorf,village,,Im {{Dorf}} kennen sich alle Menschen.
+der Keller,basement,,Wir lagern Wein im {{Keller}} unseres Hauses.
+der Dachboden,attic,,Alte Kisten stehen auf dem {{Dachboden}}.
+die Terrasse,terrace,,Wir frühstücken gerne auf der {{Terrasse}}.
+der Balkon,balcony,,Von unserem {{Balkon}} sehen wir die Stadt.
+der Aufzug,lift / elevator,,Der {{Aufzug}} fährt bis zum zehnten Stock.
+die Treppe,staircase,,Die {{Treppe}} führt direkt in den Garten.
+der Flur,corridor / hallway,,Im {{Flur}} hängen viele Gemälde an der Wand.
+das Holz,wood,,Der Tisch ist aus edlem {{Holz}} gefertigt.
+das Metall,metal,,Das Geländer besteht aus robustem {{Metall}}.
+der Kunststoff,plastic,,Diese Fenster sind aus modernem {{Kunststoff}} hergestellt.
+das Glas,glass,,Die Vase ist aus durchsichtigem {{Glas}} gemacht.
+das Papier,paper,,Ich schreibe die Liste auf {{Papier}}.
+der Stoff,fabric,,Der {{Stoff}} dieser Couch ist sehr weich.
+die Wolle,wool,,Mein Pullover ist aus reiner {{Wolle}}.
+die Baumwolle,cotton,,Das Hemd besteht aus {{Baumwolle}}.
+das Leder,leather,,Die Schuhe sind aus hochwertigem {{Leder}}.
+die Seide,silk,,Das Kleid ist aus glänzender {{Seide}}.
+das Parfüm,perfume,,Mein Lieblings{{Parfüm}} kostet fünfzig Euro.
+die Seife,soap,,Die {{Seife}} riecht nach Rosen und Lavendel.
+das Shampoo,shampoo,,Ich kaufe {{Shampoo}} für trockenes Haar.
+die Zahnbürste,toothbrush,,Meine {{Zahnbürste}} ist blau und elektrisch.
+die Zahnpasta,toothpaste,,Die {{Zahnpasta}} für weiße Zähne wirkt sehr gut.
+der Rasierapparat,razor,,Mein {{Rasierapparat}} ist sehr präzise und praktisch.
+der Spiegel,mirror,,Ich schaue in den {{Spiegel}} im Badezimmer.
+das Handtuch,towel,,Das {{Handtuch}} ist nach dem Duschen nass.
+das Kissen,pillow,,Mein {{Kissen}} ist sehr bequem und weich.
+die Matratze,mattress,,Die neue {{Matratze}} ist sehr komfortabel.
+das Möbel,furniture,,Dieses {{Möbel}} passt perfekt in unser Wohnzimmer.
+das Sofa,sofa,,Wir sitzen gemütlich auf dem {{Sofa}}.
+der Sessel,armchair,,Der {{Sessel}} in der Ecke ist sehr gemütlich.
+der Tisch,table,,Der {{Tisch}} ist aus dunklem Eichenholz.
+der Stuhl,chair,,Mein {{Stuhl}} bei der Arbeit ist ergonomisch.
+der Schreibtisch,desk,,Auf meinem {{Schreibtisch}} steht ein Computer.
+die Lampe,lamp,,Die {{Lampe}} spendet warmes Licht im Zimmer.
+der Vorhang,curtain,,Der {{Vorhang}} schützt vor neugierigen Blicken draußen.
+der Teppich,carpet / rug,,Der {{Teppich}} im Wohnzimmer ist rot und groß.
+das Regal,shelf,,Meine Bücher stehen in dem {{Regal}}.
+die Schublade,drawer,,In dieser {{Schublade}} bewahrte ich Dokumente auf.
+der Kleiderschrank,wardrobe,,Meine Kleidung hängt im {{Kleiderschrank}} neben dem Bett.
+der Kühlschrank,fridge,,Der {{Kühlschrank}} ist immer voller Lebensmittel.
+der Ofen,oven,,Im {{Ofen}} backe ich gerne Brot und Kuchen.
+die Mikrowelle,microwave,,Die {{Mikrowelle}} wärmt das Essen schnell auf.
+die Spülmaschine,dishwasher,,Die {{Spülmaschine}} wäscht das Geschirr automatisch.
+die Waschmaschine,washing machine,,Die {{Waschmaschine}} wäscht unsere Kleidung gründlich.
+die Klimaanlage,air conditioner,,Die {{Klimaanlage}} kühlt das Büro angenehm herunter.
+die Heizung,heating,,Die {{Heizung}} wärmt das Haus im Winter.
 # ── More adjectives ──────────────────────────────────────────────────────────
-verantwortlich,responsible,
-fähig,capable,
-verfügbar,available,
-zugänglich,accessible,
-nachhaltig,sustainable,
-effizient,efficient,
-produktiv,productive,
-kreativ,creative,
-innovativ,innovative,
-digital,digital,
-virtuell,virtual,
-global,global,
-regional,regional,
-städtisch,urban,
-ländlich,rural,
-traditionell,traditional,
-zeitgenössisch,contemporary,
-demokratisch,democratic,
-religiös,religious,
-historisch,historical,
-wissenschaftlich,scientific,
-legal,legal,
-illegal,illegal,
-freiwillig,voluntary,
-obligatorisch,mandatory,
-vorübergehend,temporary,
-dauerhaft,permanent,
-dringend,urgent,
-lecker,delicious,
-scharf,spicy,
-süß,sweet,
-bitter,bitter,
-salzig,salty,
-sauer,sour,
-frisch,fresh,
-reif,ripe / mature,
-roh,raw,
-gekocht,cooked,
-heiß,hot,
-kalt,cold,
-lauwarm,lukewarm,
-feucht,humid / damp,
-trocken,dry,
-bewölkt,cloudy,
-sonnig,sunny,
-regnerisch,rainy,
-stürmisch,stormy,
-windig,windy,
-der Beleg,receipt,
-die Rechnung,invoice / bill,
-der Durchschnitt,average,
-der Prozentsatz,percentage,
-die Menge,quantity / amount,
-die Entfernung,distance,
-die Geschwindigkeit,speed,
-das Gewicht,weight,
-die Größe,size,
-das Volumen,volume,
-die Rate,rate,
-der Profit,profit,
-die Ausgabe,expense,
-das Einkommen,income / revenue,
-das Gehalt,salary,
-der Streik,strike,
-die Gewerkschaft,trade union,
-die Arbeitslosigkeit,unemployment,
-die Rente,pension / retirement,
-die Ausbildung,training / education,
-das Diplom,diploma / degree,
-die Note,grade / mark,
-die Prüfung,exam,
-der Kurs,course / class,
-die Lektion,lesson,
-die Hausaufgabe,homework,
-die Übung,exercise,
-der Lebenslauf,CV / résumé,
-das Vorstellungsgespräch,job interview,
-der Kandidat,candidate,
-die Stelle,position / job,
-die Karriere,career,
-die Beförderung,promotion,
-der Kollege,colleague,
-die Frist,deadline,
-der Terminkalender,diary / agenda,
-das Projekt,project,
-die Aufgabe,task,
-das Ziel,objective / goal,
-die Strategie,strategy,
-die Methode,method,
-die Technik,technique,
-die Kompetenz,skill / competence,
-die Erfahrung,experience,
-das Zertifikat,certificate,
-der Führerschein,driving licence,
-der Reisepass,passport,
-das Visum,visa,
-der Zoll,customs,
-die Botschaft,embassy,
-die Staatsbürgerschaft,citizenship,
-die Nationalität,nationality,
-der Einwanderer,immigrant,
-der Flüchtling,refugee,
-der Freiwillige,volunteer,
-die Spende,donation,
-die Wohltätigkeit,charity,
-die Solidarität,solidarity,
-die Ungerechtigkeit,injustice,
-der Protest,protest,
-die Demonstration,demonstration,
-die Revolution,revolution,
-das Abkommen,agreement / deal,
-das Bündnis,alliance,
-die Zusammenarbeit,cooperation,
-der Einfluss,influence,
-die Macht,power,
-die Autorität,authority,
-die Pflicht,duty,
-das Privileg,privilege,
-die Gelegenheit,opportunity,
-die Herausforderung,challenge,
-der Fortschritt,progress,
-die Innovation,innovation,
-die Entdeckung,discovery,
-die Erfindung,invention,
-der Durchbruch,breakthrough,
-das Wachstum,growth,
-die Entwicklung,development,
-der Rückgang,decline,
-die Krise,crisis,
-der Kompromiss,compromise,
-der Konflikt,conflict,
-das Risiko,risk,
-die Chance,chance / opportunity,
-der Vorteil,advantage,
-der Nachteil,disadvantage,
-die Qualität,quality,
-die Quantität,quantity,
-der Standard,standard,
-die Leistung,performance / achievement,
-die Verbesserung,improvement,
-das Wetter,weather,
-der Nebel,fog / mist,
-das Gewitter,thunderstorm,
-der Blitz,lightning,
-der Donner,thunder,
-der Frost,frost,
-das Eis,ice,
-die Flut,flood,
-die Dürre,drought,
-der Hurrikan,hurricane,
-das Erdbeben,earthquake,
-der Vulkan,volcano,
-die Lawine,avalanche,
-der Erdrutsch,landslide,
-die Überschwemmung,flood / inundation,
-der Brand,fire / blaze,
-der Rauch,smoke,
-die Asche,ash,
-das Gas,gas,
-die Kohle,coal,
-der Stahl,steel,
-das Eisen,iron,
-das Kupfer,copper,
-das Gold,gold,
-das Silber,silver,
-der Diamant,diamond,
-der Edelstein,gemstone,
-die Erfüllung,fulfilment,
-das Datum,date / data point,
-die Tendenz,trend,
-der Tornado,tornado,
-das Wohnzimmer,living room,
-das Schlafzimmer,bedroom,
-das Dach,roof,
-der Beton,concrete,
-der Kamm,comb,
-das Make-up,make-up,
-der Lippenstift,lipstick,
-die Halskette,necklace,
-der Ring,ring,
-der Ohrring,earring,
-die Uhr,watch,
-die Sonnenbrille,sunglasses,
-der Gürtel,belt,
-das Portemonnaie,purse / wallet,
-der Rucksack,backpack,
-die Niere,kidney,
-die Leber,liver,
-die Achsel,armpit,
-der Knöchel,ankle,
-der Daumen,thumb,
-der Zeigefinger,index finger,
-die Ferse,heel,
-die Stirn,forehead,
-das Kinn,chin,
-die Wange,cheek,
-die Augenbraue,eyebrow,
-die Wimper,eyelash,
-das Gehör,hearing / auditory,
-der Geruch,smell (sense),
-die Milz,spleen,
-der Blinddarm,appendix,
+verantwortlich,responsible,,Ich bin {{verantwortlich}} für das Projekt.
+fähig,capable,,"Sie ist sehr {{fähig}}, diese Aufgabe zu erfüllen."
+verfügbar,available,,Das Buch ist in der Bibliothek {{verfügbar}}.
+zugänglich,accessible,,Die Webseite ist für alle {{zugänglich}}.
+nachhaltig,sustainable,,Wir kaufen {{nachhaltig}} produzierte Kleidung.
+effizient,efficient,,Diese Methode ist sehr {{effizient}} und spart Zeit.
+produktiv,productive,,Sie war heute {{produktiv}} und hat viel geschafft.
+kreativ,creative,,Der Künstler hat eine {{kreative}} Lösung gefunden.
+innovativ,innovative,,Das Unternehmen entwickelt {{innovative}} Technologien.
+digital,digital,,Wir arbeiten mit {{digitalen}} Werkzeugen zusammen.
+virtuell,virtual,,Das Meeting findet {{virtuell}} über Zoom statt.
+global,global,,Die Firma hat {{globale}} Geschäftspartner weltweit.
+regional,regional,,Der {{regionale}} Markt ist sehr wichtig für uns.
+städtisch,urban,,Das {{städtische}} Leben ist manchmal sehr stressig.
+ländlich,rural,,Sie lebt gerne in {{ländlicher}} Umgebung und Ruhe.
+traditionell,traditional,,In der Familie gibt es {{traditionelle}} Weihnachtsbräuche.
+zeitgenössisch,contemporary,,Die {{zeitgenössische}} Kunst ist sehr interessant und provokativ.
+demokratisch,democratic,,Wir treffen {{demokratische}} Entscheidungen in unserer Gruppe.
+religiös,religious,,Er hat {{religiöse}} Überzeugungen und praktiziert seinen Glauben.
+historisch,historical,,Das {{historische}} Schloss ist über fünfhundert Jahre alt.
+wissenschaftlich,scientific,,Die {{wissenschaftliche}} Studie zeigt interessante neue Erkenntnisse.
+legal,legal,,Das ist eine {{legale}} Geschäftstätigkeit ohne Probleme.
+illegal,illegal,,Das Parken hier ist {{illegal}} und kostet Geld.
+freiwillig,voluntary,,Die {{freiwillige}} Arbeit ist wichtig für die Gesellschaft.
+obligatorisch,mandatory,,Der Schulbesuch ist {{obligatorisch}} für alle Kinder.
+vorübergehend,temporary,,Diese {{vorübergehende}} Lösung hilft uns für eine Weile.
+dauerhaft,permanent,,Wir suchen eine {{dauerhafte}} Anstellung im Unternehmen.
+dringend,urgent,,"Es ist {{dringend}} notwendig, sofort zu handeln."
+lecker,delicious,,Das Essen war sehr {{lecker}} und schmeckte hervorragend.
+scharf,spicy,,Die {{scharfe}} Sauce brennt mir auf der Zunge.
+süß,sweet,,Kinder mögen {{süße}} Schokolade und Bonbons gerne.
+bitter,bitter,,Dieser Kaffee schmeckt sehr {{bitter}} ohne Zucker.
+salzig,salty,,Die Chips sind zu {{salzig}} für meinen Geschmack.
+sauer,sour,,Die {{sauren}} Gurken passen gut zum Fleisch.
+frisch,fresh,,Das {{frische}} Gemüse kam heute vom Markt.
+reif,ripe / mature,,Die {{reifen}} Bananen sind gelb und weich.
+roh,raw,,{{Rohes}} Fleisch muss lange gekocht werden.
+gekocht,cooked,,Das {{gekochte}} Gemüse war sehr zart und weich.
+heiß,hot,,Der {{heiße}} Tee wärmt mich an kalten Tagen.
+kalt,cold,,Das {{kalte}} Wasser erfrischt mich nach dem Sport.
+lauwarm,lukewarm,,Das {{lauwarme}} Bad ist sehr angenehm und entspannend.
+feucht,humid / damp,,Das {{feuchte}} Klima macht mir manchmal Probleme.
+trocken,dry,,Der {{trockene}} Sommer war sehr heiß dieses Jahr.
+bewölkt,cloudy,,Heute ist das Wetter {{bewölkt}} und windig.
+sonnig,sunny,,Das {{sonnige}} Wetter macht alle Menschen glücklich.
+regnerisch,rainy,,Das {{regnerische}} Wochenende verbringe ich zu Hause.
+stürmisch,stormy,,Die {{stürmische}} Nacht beschädigte viele Bäume.
+windig,windy,,Das {{windige}} Wetter ist nicht ideal zum Segeln.
+der Beleg,receipt,,Bitte gib mir den {{Beleg}} für die Rechnung.
+die Rechnung,invoice / bill,,Die {{Rechnung}} für das Restaurant war sehr hoch.
+der Durchschnitt,average,,Der {{Durchschnitt}} der Testergebnisse liegt bei achtzig Prozent.
+der Prozentsatz,percentage,,Der {{Prozentsatz}} der Arbeitslosigkeit ist gestiegen.
+die Menge,quantity / amount,,Die {{Menge}} an Zucker in diesem Kuchen ist zu groß.
+die Entfernung,distance,,Die {{Entfernung}} zwischen Berlin und München beträgt etwa 600 Kilometer.
+die Geschwindigkeit,speed,,Der Zug fährt mit einer {{Geschwindigkeit}} von 200 Stundenkilometern.
+das Gewicht,weight,,Das {{Gewicht}} dieses Koffers ist viel zu schwer zum Tragen.
+die Größe,size,,Die {{Größe}} des neuen Hauses gefällt mir sehr gut.
+das Volumen,volume,,Das {{Volumen}} des Wassertanks reicht für eine ganze Woche.
+die Rate,rate,,Die {{Rate}} für den Kredit ist monatlich zu zahlen.
+der Profit,profit,,Der {{Profit}} des Unternehmens ist dieses Jahr gestiegen.
+die Ausgabe,expense,,Die {{Ausgabe}} für Lebensmittel ist in meinem Budget eingeplant.
+das Einkommen,income / revenue,,Das {{Einkommen}} meiner Familie reicht für ein gutes Leben.
+das Gehalt,salary,,Mein {{Gehalt}} wird am Ende des Monats überwiesen.
+der Streik,strike,,Der {{Streik}} der Arbeiter dauerte zwei Wochen lang.
+die Gewerkschaft,trade union,,Die {{Gewerkschaft}} verhandelt über bessere Arbeitsbedingungen.
+die Arbeitslosigkeit,unemployment,,Die {{Arbeitslosigkeit}} in dieser Region ist leider sehr hoch.
+die Rente,pension / retirement,,Nach 40 Jahren Arbeit bekomme ich eine {{Rente}}.
+die Ausbildung,training / education,,Die {{Ausbildung}} zum Handwerker dauert normalerweise drei Jahre.
+das Diplom,diploma / degree,,Ich habe mein {{Diplom}} an der Universität erhalten.
+die Note,grade / mark,,Die {{Note}} in Mathematik war besser als erwartet.
+die Prüfung,exam,,Die {{Prüfung}} in Deutsch findet nächste Woche statt.
+der Kurs,course / class,,Ich belege einen {{Kurs}} in Programmierung an der Volkshochschule.
+die Lektion,lesson,,Die {{Lektion}} von heute war besonders interessant und hilfreich.
+die Hausaufgabe,homework,,Meine {{Hausaufgabe}} muss ich bis morgen fertig machen.
+die Übung,exercise,,"Diese {{Übung}} hilft mir, mein Englisch zu verbessern."
+der Lebenslauf,CV / résumé,,Mein {{Lebenslauf}} zeigt meine bisherige berufliche Erfahrung.
+das Vorstellungsgespräch,job interview,,Das {{Vorstellungsgespräch}} für die neue Stelle ist morgen um zehn Uhr.
+der Kandidat,candidate,,Der {{Kandidat}} hat alle erforderlichen Qualifikationen mitgebracht.
+die Stelle,position / job,,Ich habe eine {{Stelle}} als Grafikdesigner bekommen.
+die Karriere,career,,Meine {{Karriere}} als Ingenieur war sehr erfolgreich und erfüllend.
+die Beförderung,promotion,,Die {{Beförderung}} zum Manager war ein großer Traum von mir.
+der Kollege,colleague,,Mein {{Kollege}} hilft mir gerne bei schwierigen Aufgaben.
+die Frist,deadline,,Die {{Frist}} für die Abgabe des Projekts ist übermorgen.
+der Terminkalender,diary / agenda,,Ich trage alle Termine in meinen {{Terminkalender}} ein.
+das Projekt,project,,Unser {{Projekt}} wird in drei Monaten fertig sein.
+die Aufgabe,task,,Diese {{Aufgabe}} erfordert viel Konzentration und Geduld.
+das Ziel,objective / goal,,"Mein {{Ziel}} ist es, fließend Deutsch sprechen zu können."
+die Strategie,strategy,,Die {{Strategie}} des Unternehmens fokussiert auf Nachhaltigkeit.
+die Methode,method,,Die {{Methode}} zum Sprachen lernen ist sehr effektiv.
+die Technik,technique,,Die neue {{Technik}} spart Zeit und Kosten bei der Produktion.
+die Kompetenz,skill / competence,,Seine {{Kompetenz}} in Informatik ist im ganzen Betrieb bekannt.
+die Erfahrung,experience,,Meine {{Erfahrung}} als Lehrer hilft mir im neuen Job.
+das Zertifikat,certificate,,Das {{Zertifikat}} bestätigt meine erfolgte Schulung in Sicherheit.
+der Führerschein,driving licence,,Ich habe meinen {{Führerschein}} vor zwei Jahren gemacht.
+der Reisepass,passport,,Mein {{Reisepass}} ist noch drei Jahre lang gültig.
+das Visum,visa,,Ich brauche ein {{Visum}} für die Reise nach Russland.
+der Zoll,customs,,Der {{Zoll}} kontrollierte mein Gepäck sehr genau.
+die Botschaft,embassy,,"Ich muss in die {{Botschaft}} gehen, um ein Visum zu beantragen."
+die Staatsbürgerschaft,citizenship,,Ich habe die deutsche {{Staatsbürgerschaft}} vor fünf Jahren erhalten.
+die Nationalität,nationality,,Meine {{Nationalität}} ist auf meinem Reisepass eingetragen.
+der Einwanderer,immigrant,,Der {{Einwanderer}} lernte schnell die deutsche Sprache und Kultur.
+der Flüchtling,refugee,,Der {{Flüchtling}} erhielt Hilfe von mehreren Hilfsorganisationen.
+der Freiwillige,volunteer,,Der {{Freiwillige}} half beim Aufräumen des Parks.
+die Spende,donation,,Eine großzügige {{Spende}} half der Tierschutzorganisation sehr.
+die Wohltätigkeit,charity,,{{Wohltätigkeit}} ist ein wichtiger Teil unserer Gesellschaft.
+die Solidarität,solidarity,,Die {{Solidarität}} der Nachbarn war in der Krise beeindruckend.
+die Ungerechtigkeit,injustice,,{{Ungerechtigkeit}} in der Welt muss bekämpft werden.
+der Protest,protest,,Tausende Menschen nahmen am {{Protest}} gegen die Regierung teil.
+die Demonstration,demonstration,,Die {{Demonstration}} fand gestern auf dem Marktplatz statt.
+die Revolution,revolution,,Die französische {{Revolution}} veränderte Europa grundlegend.
+das Abkommen,agreement / deal,,Die beiden Länder unterzeichneten ein neues {{Abkommen}}.
+das Bündnis,alliance,,Das {{Bündnis}} zwischen den Parteien war sehr stabil.
+die Zusammenarbeit,cooperation,,Durch {{Zusammenarbeit}} erreichen wir gemeinsam unsere Ziele.
+der Einfluss,influence,,Der {{Einfluss}} der Medien auf Jugendliche ist groß.
+die Macht,power,,Absolute {{Macht}} verdirbt Menschen absolut.
+die Autorität,authority,,Seine {{Autorität}} wurde von allen respektiert und anerkannt.
+die Pflicht,duty,,"Es ist unsere {{Pflicht}}, für andere zu sorgen."
+das Privileg,privilege,,Ein gutes Zuhause ist ein großes {{Privileg}}.
+die Gelegenheit,opportunity,,Diese {{Gelegenheit}} kommt vielleicht nie wieder vor.
+die Herausforderung,challenge,,Die {{Herausforderung}} des Klimawandels ist enorm.
+der Fortschritt,progress,,Der {{Fortschritt}} in der Medizin ist bemerkenswert.
+die Innovation,innovation,,{{Innovation}} treibt die Wirtschaft und Gesellschaft voran.
+die Entdeckung,discovery,,Die {{Entdeckung}} neuer Energiequellen ist dringend notwendig.
+die Erfindung,invention,,Die {{Erfindung}} des Internets revolutionierte die Kommunikation.
+der Durchbruch,breakthrough,,Der wissenschaftliche {{Durchbruch}} kam unerwartet und überraschend.
+das Wachstum,growth,,Das {{Wachstum}} der Wirtschaft verlangsamte sich dieses Jahr.
+die Entwicklung,development,,Die {{Entwicklung}} eines Kindes ist komplex und faszinierend.
+der Rückgang,decline,,Der {{Rückgang}} der Vogelpopulation ist besorgniserregend.
+die Krise,crisis,,Während der {{Krise}} halfen Menschen einander spontan.
+der Kompromiss,compromise,,Ein {{Kompromiss}} war die einzige praktikable Lösung.
+der Konflikt,conflict,,Der {{Konflikt}} zwischen den beiden Gruppen eskalierte schnell.
+das Risiko,risk,,Das {{Risiko}} dieser Operation ist relativ gering.
+die Chance,chance / opportunity,,Diese {{Chance}} sollten Sie unbedingt nutzen.
+der Vorteil,advantage,,Der {{Vorteil}} dieses Plans ist seine Kosteneffizienz.
+der Nachteil,disadvantage,,Ein {{Nachteil}} ist der fehlende technische Support.
+die Qualität,quality,,Die {{Qualität}} dieses Produkts ist ausgezeichnet und hochwertig.
+die Quantität,quantity,,Die {{Quantität}} reichte nicht für alle Gäste.
+der Standard,standard,,Dieser {{Standard}} ist in der Branche anerkannt.
+die Leistung,performance / achievement,,Die {{Leistung}} der Athlet:innen war überraschend gut.
+die Verbesserung,improvement,,Eine {{Verbesserung}} des Systems ist dringend erforderlich.
+das Wetter,weather,,Das {{Wetter}} morgen wird sonnig und warm sein.
+der Nebel,fog / mist,,Der {{Nebel}} machte die Autofahrt gefährlich und schwierig.
+das Gewitter,thunderstorm,,Das {{Gewitter}} zog schnell über die Stadt hinweg.
+der Blitz,lightning,,Der {{Blitz}} zündete einen Waldbrand an.
+der Donner,thunder,,"Der {{Donner}} war so laut, dass es alle erschreckte."
+der Frost,frost,,Der {{Frost}} beschädigte die Ernte in dieser Nacht.
+das Eis,ice,,Das {{Eis}} auf dem See war zu dünn zum Schlittschuhlaufen.
+die Flut,flood,,Die {{Flut}} überflutete mehrere Dörfer in der Region.
+die Dürre,drought,,Die {{Dürre}} verursachte massive Ernteausfälle dieses Jahr.
+der Hurrikan,hurricane,,Der {{Hurrikan}} richtete katastrophale Schäden an der Küste an.
+das Erdbeben,earthquake,,Das {{Erdbeben}} der Stärke acht zerstörte die Stadt.
+der Vulkan,volcano,,Der {{Vulkan}} brach nach hundert Jahren wieder aus.
+die Lawine,avalanche,,Eine große {{Lawine}} verschüttete mehrere Skifahrer in den Bergen.
+der Erdrutsch,landslide,,Der {{Erdrutsch}} zerstörte viele Häuser in dem Bergdorf.
+die Überschwemmung,flood / inundation,,Die {{Überschwemmung}} zwang tausende Menschen zur Evakuierung.
+der Brand,fire / blaze,,Der {{Brand}} in dem Lagerhaus dauerte über zehn Stunden.
+der Rauch,smoke,,Dicker {{Rauch}} stieg aus dem brennenden Gebäude auf.
+die Asche,ash,,Die {{Asche}} des Feuers bedeckte die ganze Straße.
+das Gas,gas,,Das {{Gas}} wurde aus dem Kamin ins Haus gepumpt.
+die Kohle,coal,,Die {{Kohle}} wurde im Bergwerk tief unter der Erde gefördert.
+der Stahl,steel,,Der {{Stahl}} für die Brücke kam aus der Fabrik.
+das Eisen,iron,,Das {{Eisen}} wurde zu modernen Werkzeugen verarbeitet.
+das Kupfer,copper,,Das {{Kupfer}} hat eine schöne rötliche Farbe und ist leitfähig.
+das Gold,gold,,Das {{Gold}} war wertvoll und wurde sorgfältig aufbewahrt.
+das Silber,silver,,Das {{Silber}} glänzte wunderschön im Sonnenlicht des Zimmers.
+der Diamant,diamond,,Der {{Diamant}} in ihrem Ring kostete eine halbe Million Euro.
+der Edelstein,gemstone,,Der rare {{Edelstein}} wurde in der Krone des Königs verwendet.
+die Erfüllung,fulfilment,,Die {{Erfüllung}} meines Traums kam endlich nach vielen Jahren.
+das Datum,date / data point,,Das {{Datum}} dieser Ereignisse ist im Geschichtsbuch vermerkt.
+die Tendenz,trend,,"Die {{Tendenz}} zeigt, dass mehr Menschen vegetarisch leben."
+der Tornado,tornado,,Der {{Tornado}} verwüstete die ganze Stadt in wenigen Minuten.
+das Wohnzimmer,living room,,Das {{Wohnzimmer}} ist der größte Raum in unserem Haus.
+das Schlafzimmer,bedroom,,Das {{Schlafzimmer}} ist klein aber sehr gemütlich eingerichtet.
+das Dach,roof,,Das {{Dach}} des Hauses wurde nach dem Sturm repariert.
+der Beton,concrete,,Der {{Beton}} wurde für die neue Terrasse verwendet.
+der Kamm,comb,,Der {{Kamm}} liegt auf dem Badezimmertisch neben der Zahnbürste.
+das Make-up,make-up,,"Das {{Make-up}} hilft ihr, ein gepflegtes Aussehen zu haben."
+der Lippenstift,lipstick,,Der {{Lippenstift}} in der roten Farbe steht ihr wirklich gut.
+die Halskette,necklace,,Die {{Halskette}} mit Perlen war ein Geschenk von ihrer Großmutter.
+der Ring,ring,,Der {{Ring}} an ihrem Finger glänzte wunderbar.
+der Ohrring,earring,,Der {{Ohrring}} fiel ihr aus dem Ohr und verloren.
+die Uhr,watch,,Die {{Uhr}} an meinem Handgelenk ist fünf Minuten schnell.
+die Sonnenbrille,sunglasses,,Die {{Sonnenbrille}} schützt ihre Augen vor den UV-Strahlen.
+der Gürtel,belt,,Der {{Gürtel}} hielt seine Hose perfekt an Ort und Stelle.
+das Portemonnaie,purse / wallet,,Das {{Portemonnaie}} ist aus echtem Leder und sehr hochwertig.
+der Rucksack,backpack,,Der {{Rucksack}} war schwer und voller Schulbücher.
+die Niere,kidney,,Die {{Niere}} ist ein wichtiges Organ für die Ausscheidung.
+die Leber,liver,,Die {{Leber}} filtert Giftstoffe aus unserem Blut heraus.
+die Achsel,armpit,,Die {{Achsel}} schwitzt sehr bei großer körperlicher Anstrengung.
+der Knöchel,ankle,,Der {{Knöchel}} war nach dem Sturz geschwollen und blau.
+der Daumen,thumb,,Der {{Daumen}} ist der stärkste Finger der Hand.
+der Zeigefinger,index finger,,"Der {{Zeigefinger}} wird verwendet, um auf Dinge zu zeigen."
+die Ferse,heel,,Die {{Ferse}} schmerzt nach dem langen Spaziergang.
+die Stirn,forehead,,Die {{Stirn}} ist der obere Teil des Gesichts.
+das Kinn,chin,,Das {{Kinn}} ist der untere Teil des menschlichen Gesichts.
+die Wange,cheek,,"Die {{Wange}} wurde rot, als sie verlegen wurde."
+die Augenbraue,eyebrow,,Die {{Augenbraue}} ist braun und buschig wie bei ihr.
+die Wimper,eyelash,,Die {{Wimper}} schützt das Auge vor Schmutz und Staub.
+das Gehör,hearing / auditory,,Das {{Gehör}} wird mit zunehmendem Alter immer schlechter.
+der Geruch,smell (sense),,Der {{Geruch}} des frischen Brotes kam aus der Bäckerei.
+die Milz,spleen,,"Die {{Milz}} ist ein kleines, aber wichtiges Organ."
+der Blinddarm,appendix,,Der {{Blinddarm}} muss manchmal chirurgisch entfernt werden.

@@ -522,6 +522,12 @@ button:disabled { opacity: .4; cursor: default; }
 .feedback.correct .feedback-icon { color: var(--success); }
 .feedback.wrong   .feedback-icon { color: var(--danger); }
 .feedback-correct { font-size: .875rem; color: var(--text-secondary); }
+.example-sentence    { font-size: .875rem; color: var(--text-secondary); font-style: italic; margin: .1rem 0 0; }
+.browse-row-expandable { cursor: pointer; }
+.browse-row-expandable:hover { background: var(--bg-hover, color-mix(in srgb, var(--accent) 6%, transparent)); }
+.browse-expand-hint  { font-size: .7rem; color: var(--text-secondary); user-select: none; }
+.browse-sentence-row { background: var(--bg-card); }
+.browse-sentence-cell { font-size: .85rem; color: var(--text-secondary); font-style: italic; padding: .35rem 1rem .55rem 1.25rem !important; border-top: none !important; }
 .feedback #btn-next { align-self: flex-end; margin-top: .25rem; }
 .countdown-bar { height: 3px; border-radius: 99px; width: 100%; margin-top: .5rem; }
 .feedback.correct .countdown-bar { background: var(--success); }

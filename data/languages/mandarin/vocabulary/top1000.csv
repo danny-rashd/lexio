@@ -1,1040 +1,1040 @@
-word,meaning,native
+word,meaning,native,sentence
 # ── Verbs ────────────────────────────────────────────────────────────────────
-是,to be,shì
-有,to have,yǒu
-做,to do / to make,zuò
-说,to say / to speak,shuō
-去,to go,qù
-来,to come,lái
-看,to see / to look,kàn
-听,to listen / to hear,tīng
-想,to think / to want,xiǎng
-知道,to know,zhīdào
-能,to be able to / can,néng
-要,to want / to need,yào
-给,to give,gěi
-问,to ask,wèn
-回答,to answer,huí dá
-喜欢,to like,xǐhuān
-爱,to love,ài
-吃,to eat,chī
-喝,to drink,hē
-睡觉,to sleep,shuì jiào
-走,to walk,zǒu
-跑,to run,pǎo
-开,to open / to drive,kāi
-关,to close,guān
-买,to buy,mǎi
-卖,to sell,mài
-付钱,to pay,fù qián
-找,to look for / to find,zhǎo
-写,to write,xiě
-读,to read,dú
-学习,to study / to learn,xuéxí
-工作,to work,gōngzuò
-帮助,to help,bāngzhù
-用,to use,yòng
-换,to change,huàn
-开始,to begin / to start,kāishǐ
-结束,to end / to finish,jiéshù
-等,to wait,děng
-旅行,to travel,lǚxíng
-参观,to visit,cānguān
-游泳,to swim,yóuyǒng
-飞,to fly,fēi
-开车,to drive,kāichē
-坐,to sit,zuò
-站,to stand,zhàn
-决定,to decide,juédìng
-选择,to choose,xuǎnzé
-记得,to remember,jìde
-忘记,to forget,wàngjì
-相信,to believe / to trust,xiāngxìn
-同意,to agree,tóngyi
-拒绝,to refuse,jùjué
-接受,to accept / to receive,jiēshòu
-发送,to send,fāsòng
-理解,to understand / to solve,lǐjiě
-减少,to reduce,jiǎnshǎo
-增加,to increase,zēngjiā
-改变,to change,gǎibiàn
-保证,to guarantee,bǎozhèng
-建议,to suggest,jiànyì
-检查,to check,jiǎnchá
-准备,to prepare,zhǔnbèi
-发展,to develop,fāzhǎn
-教,to teach,jiào
-搬,to move (objects),bān
-推,to push,tuī
-拉,to pull,lā
-扔,to throw,rēng
-拿,to hold / to take,ná
-放,to put / to place,fàng
-收,to collect / to receive,shōu
-打,to hit / to play (sports),dǎ
-踢,to kick,tī
-跳,to jump,tiào
-唱歌,to sing,chàng gē
-跳舞,to dance,tiào wǔ
-做饭,to cook,zuò fàn
-打扫,to clean / to sweep,dǎsǎo
-洗,to wash,xǐ
-睡,to sleep,shuì
-休息,to rest,xiūxi
-修,to repair,xiū
-订,to book / to order,dìng
-借,to borrow / to lend,jiè
-还,to return (something),huán
-逃,to escape / to flee,táo
-救,to save / to rescue,jiù
-保护,to protect,bǎohù
-鼓励,to encourage,gǔlì
-禁止,to forbid,jìnzhǐ
-允许,to allow,yǔnxǔ
-确认,to confirm,quèrèn
-取消,to cancel,qǔxiāo
-推迟,to postpone,tuīchí
-毕业,to graduate,bìyè
-入学,to enrol,rùxué
-结婚,to get married,jiéhūn
-离婚,to get divorced,líhūn
+是,to be,shì,他{{是}}我最好的朋友。
+有,to have,yǒu,我{{有}}一只可爱的猫。
+做,to do / to make,zuò,她每天{{做}}很多工作。
+说,to say / to speak,shuō,他{{说}}话很有趣。
+去,to go,qù,我们明天{{去}}公园。
+来,to come,lái,请你{{来}}我家玩。
+看,to see / to look,kàn,我喜欢{{看}}电影。
+听,to listen / to hear,tīng,我正在{{听}}音乐。
+想,to think / to want,xiǎng,我{{想}}吃冰淇淋。
+知道,to know,zhīdào,你{{知道}}答案吗？
+能,to be able to / can,néng,我{{能}}帮助你。
+要,to want / to need,yào,你{{要}}什么？
+给,to give,gěi,请{{给}}我一杯水。
+问,to ask,wèn,我{{问}}他一个问题。
+回答,to answer,huí dá,他{{回答}}了我的问题。
+喜欢,to like,xǐhuān,我{{喜欢}}吃中国菜。
+爱,to love,ài,我{{爱}}我的家人。
+吃,to eat,chī,我们一起{{吃}}午餐。
+喝,to drink,hē,他{{喝}}了一杯咖啡。
+睡觉,to sleep,shuì jiào,我晚上十点{{睡觉}}。
+走,to walk,zǒu,我们{{走}}到车站。
+跑,to run,pǎo,孩子们在{{跑}}步。
+开,to open / to drive,kāi,"请{{开}}门,我来了。"
+关,to close,guān,请{{关}}上窗户。
+买,to buy,mǎi,我{{买}}了一本书。
+卖,to sell,mài,他{{卖}}新鲜蔬菜。
+付钱,to pay,fù qián,我{{付钱}}买了票。
+找,to look for / to find,zhǎo,我在{{找}}我的钥匙。
+写,to write,xiě,她{{写}}了一封信。
+读,to read,dú,我喜欢{{读}}小说。
+学习,to study / to learn,xuéxí,我们每天{{学习}}。
+工作,to work,gōngzuò,他在公司{{工作}}。
+帮助,to help,bāngzhù,我{{帮助}}她做功课。
+用,to use,yòng,你{{用}}筷子吃饭。
+换,to change,huàn,我想{{换}}一个房间。
+开始,to begin / to start,kāishǐ,课程{{开始}}了。
+结束,to end / to finish,jiéshù,电影{{结束}}了。
+等,to wait,děng,请{{等}}我一分钟。
+旅行,to travel,lǚxíng,我喜欢{{旅行}}。
+参观,to visit,cānguān,我们{{参观}}了博物馆。
+游泳,to swim,yóuyǒng,我们去{{游泳}}。
+飞,to fly,fēi,飞机{{飞}}向天空。
+开车,to drive,kāichē,他{{开车}}去上班。
+坐,to sit,zuò,请{{坐}}下来。
+站,to stand,zhàn,她{{站}}在窗边。
+决定,to decide,juédìng,我{{决定}}去旅行。
+选择,to choose,xuǎnzé,你{{选择}}哪一个？
+记得,to remember,jìde,我{{记得}}这件事。
+忘记,to forget,wàngjì,他{{忘记}}了密码。
+相信,to believe / to trust,xiāngxìn,我{{相信}}你。
+同意,to agree,tóngyi,我{{同意}}你的意见。
+拒绝,to refuse,jùjué,他{{拒绝}}了我的请求。
+接受,to accept / to receive,jiēshòu,我{{接受}}这份工作。
+发送,to send,fāsòng,请{{发送}}邮件给我。
+理解,to understand / to solve,lǐjiě,我{{理解}}你的感受。
+减少,to reduce,jiǎnshǎo,我们需要{{减少}}成本。
+增加,to increase,zēngjiā,销售{{增加}}了很多。
+改变,to change,gǎibiàn,他{{改变}}了主意。
+保证,to guarantee,bǎozhèng,我{{保证}}准时到达。
+建议,to suggest,jiànyì,我{{建议}}你休息一下。
+检查,to check,jiǎnchá,医生{{检查}}了我的身体。
+准备,to prepare,zhǔnbèi,我{{准备}}明天的考试。
+发展,to develop,fāzhǎn,公司快速{{发展}}中。
+教,to teach,jiào,他{{教}}我学习数学。
+搬,to move (objects),bān,我们{{搬}}到新房子。
+推,to push,tuī,请{{推}}开这扇门。
+拉,to pull,lā,他{{拉}}着我的手。
+扔,to throw,rēng,我{{扔}}掉垃圾。
+拿,to hold / to take,ná,请{{拿}}一杯水给我。
+放,to put / to place,fàng,我{{放}}书在桌子上。
+收,to collect / to receive,shōu,妈妈{{收}}到了一封信。
+打,to hit / to play (sports),dǎ,孩子们{{打}}篮球。
+踢,to kick,tī,他{{踢}}足球很厉害。
+跳,to jump,tiào,小女孩{{跳}}得很高。
+唱歌,to sing,chàng gē,她喜欢{{唱歌}}。
+跳舞,to dance,tiào wǔ,我们一起{{跳舞}}。
+做饭,to cook,zuò fàn,妈妈在{{做饭}}。
+打扫,to clean / to sweep,dǎsǎo,我{{打扫}}房间。
+洗,to wash,xǐ,请{{洗}}你的手。
+睡,to sleep,shuì,我晚上九点{{睡}}觉。
+休息,to rest,xiūxi,你需要{{休息}}一下。
+修,to repair,xiū,他{{修}}了自行车。
+订,to book / to order,dìng,我{{订}}了一间酒店。
+借,to borrow / to lend,jiè,你能{{借}}我钱吗？
+还,to return (something),huán,我明天{{还}}书给你。
+逃,to escape / to flee,táo,小鸟{{逃}}走了。
+救,to save / to rescue,jiù,他{{救}}了溺水的人。
+保护,to protect,bǎohù,我们{{保护}}环境。
+鼓励,to encourage,gǔlì,老师{{鼓励}}我们。
+禁止,to forbid,jìnzhǐ,这里{{禁止}}吸烟。
+允许,to allow,yǔnxǔ,我{{允许}}你去玩。
+确认,to confirm,quèrèn,请{{确认}}你的邮箱。
+取消,to cancel,qǔxiāo,会议被{{取消}}了。
+推迟,to postpone,tuīchí,演出{{推迟}}了一周。
+毕业,to graduate,bìyè,他今年{{毕业}}。
+入学,to enrol,rùxué,孩子{{入学}}了。
+结婚,to get married,jiéhūn,他们今年{{结婚}}。
+离婚,to get divorced,líhūn,他们决定{{离婚}}。
 # ── Nouns — People & Society ─────────────────────────────────────────────────
-人,person / people,rén
-男人,man,nánrén
-女人,woman,nǚrén
-孩子,child,háizi
-男孩,boy,nánhái
-女孩,girl,nǚhái
-老人,elderly person,lǎorén
-朋友,friend,péngyou
-邻居,neighbour,línjū
-同事,colleague,tóngshì
-老师,teacher,lǎoshī
-学生,student,xuésheng
-医生,doctor,yīshēng
-护士,nurse,hùshi
-警察,police,jǐngchá
-士兵,soldier,shìbīng
-工人,worker,gōngrén
-农民,farmer,nóngmín
-商人,merchant / businessman,shāngrén
-官员,official,guānyuán
+人,person / people,rén,这里有很多{{人}}。
+男人,man,nánrén,那个{{男人}}很高。
+女人,woman,nǚrén,那个{{女人}}很聪明。
+孩子,child,háizi,这个{{孩子}}很可爱。
+男孩,boy,nánhái,{{男孩}}在公园里玩。
+女孩,girl,nǚhái,小{{女孩}}穿着红色裙子。
+老人,elderly person,lǎorén,{{老人}}每天散步。
+朋友,friend,péngyou,他是我的好{{朋友}}。
+邻居,neighbour,línjū,我的{{邻居}}很友善。
+同事,colleague,tóngshì,我和{{同事}}一起工作。
+老师,teacher,lǎoshī,{{老师}}教我数学。
+学生,student,xuésheng,{{学生}}在认真听课。
+医生,doctor,yīshēng,{{医生}}给我检查身体。
+护士,nurse,hùshi,{{护士}}很关心病人。
+警察,police,jǐngchá,{{警察}}维护社区安全。
+士兵,soldier,shìbīng,{{士兵}}保卫国家。
+工人,worker,gōngrén,{{工人}}在建设大楼。
+农民,farmer,nóngmín,{{农民}}种植水稻。
+商人,merchant / businessman,shāngrén,这个{{商人}}很成功。
+官员,official,guānyuán,{{官员}}参加会议。
 # ── Nouns — Family ────────────────────────────────────────────────────────────
-家庭,family,jiātíng
-父母,parents,fùmǔ
-父亲,father,fùqīn
-母亲,mother,mǔqīn
-儿子,son,érzi
-女儿,daughter,nǚ'ér
-哥哥,older brother,gēge
-弟弟,younger brother,dìdi
-姐姐,older sister,jiějie
-妹妹,younger sister,mèimei
-丈夫,husband,zhàngfu
-妻子,wife,qīzi
-祖父,paternal grandfather,zǔfù
-祖母,paternal grandmother,zǔmǔ
-外公,maternal grandfather,wàigōng
-外婆,maternal grandmother,wàipó
-叔叔,uncle,shūshu
-阿姨,aunt,āyí
-表哥,older male cousin,biǎogē
-表妹,younger female cousin,biǎomèi
+家庭,family,jiātíng,我的{{家庭}}很和睦。
+父母,parents,fùmǔ,{{父母}}很爱我。
+父亲,father,fùqīn,我的{{父亲}}是医生。
+母亲,mother,mǔqīn,{{母亲}}为我做饭。
+儿子,son,érzi,他有一个{{儿子}}。
+女儿,daughter,nǚ'ér,她的{{女儿}}很聪慧。
+哥哥,older brother,gēge,我的{{哥哥}}在大学。
+弟弟,younger brother,dìdi,{{弟弟}}喜欢踢足球。
+姐姐,older sister,jiějie,{{姐姐}}帮我做功课。
+妹妹,younger sister,mèimei,{{妹妹}}在睡觉。
+丈夫,husband,zhàngfu,她的{{丈夫}}很温柔。
+妻子,wife,qīzi,他的{{妻子}}是律师。
+祖父,paternal grandfather,zǔfù,{{祖父}}给我讲故事。
+祖母,paternal grandmother,zǔmǔ,{{祖母}}做的饭很好吃。
+外公,maternal grandfather,wàigōng,{{外公}}在楼下散步。
+外婆,maternal grandmother,wàipó,{{外婆}}陪我玩。
+叔叔,uncle,shūshu,{{叔叔}}明天来我家。
+阿姨,aunt,āyí,{{阿姨}}教我唱歌。
+表哥,older male cousin,biǎogē,{{表哥}}是个工程师。
+表妹,younger female cousin,biǎomèi,{{表妹}}和我在一个班。
 # ── Nouns — Time ─────────────────────────────────────────────────────────────
-时间,time,shíjiān
-年,year,nián
-月,month,yuè
-周,week,zhōu
-天,day,tiān
-小时,hour,xiǎoshí
-分钟,minute,fēnzhōng
-秒,second,miǎo
-早上,morning,zǎoshang
-下午,afternoon,xiàwǔ
-晚上,evening / night,wǎnshang
-今天,today,jīntiān
-明天,tomorrow,míngtiān
-昨天,yesterday,zuótiān
-现在,now / present,xiànzài
-过去,past,guòqù
-未来,future,wèilái
-以前,before / in the past,yǐqián
-以后,after / in the future,yǐhòu
-世纪,century,shìjì
-星期一,Monday,xīngqī yī
-星期二,Tuesday,xīngqī èr
-星期三,Wednesday,xīngqī sān
-星期四,Thursday,xīngqī sì
-星期五,Friday,xīngqī wǔ
-星期六,Saturday,xīngqī liù
-星期天,Sunday,xīngqī tiān
-一月,January,yī yuè
-二月,February,èr yuè
-三月,March,sān yuè
-四月,April,sì yuè
-五月,May,wǔ yuè
-六月,June,liù yuè
-七月,July,qī yuè
-八月,August,bā yuè
-九月,September,jiǔ yuè
-十月,October,shí yuè
-十一月,November,shíyī yuè
-十二月,December,shí'èr yuè
-春天,spring,chūntiān
-夏天,summer,xiàtiān
-秋天,autumn / fall,qiūtiān
-冬天,winter,dōngtiān
+时间,time,shíjiān,{{时间}}过得很快。
+年,year,nián,去{{年}}我去了北京。
+月,month,yuè,三{{月}}天气很暖和。
+周,week,zhōu,下一{{周}}我很忙。
+天,day,tiān,今{{天}}是晴{{天}}。
+小时,hour,xiǎoshí,我睡了八{{小时}}。
+分钟,minute,fēnzhōng,等我十{{分钟}}。
+秒,second,miǎo,还有三{{秒}}就开始。
+早上,morning,zǎoshang,{{早上}}我去跑步。
+下午,afternoon,xiàwǔ,{{下午}}我有课。
+晚上,evening / night,wǎnshang,{{晚上}}我看电视。
+今天,today,jīntiān,{{今天}}天气很好。
+明天,tomorrow,míngtiān,{{明天}}天气会很好。
+昨天,yesterday,zuótiān,{{昨天}}我去了公园。
+现在,now / present,xiànzài,{{现在}}几点了？
+过去,past,guòqù,{{过去}}的事情已经过去。
+未来,future,wèilái,我对{{未来}}充满希望。
+以前,before / in the past,yǐqián,{{以前}}我住在北京。
+以后,after / in the future,yǐhòu,{{以后}}我要更努力。
+世纪,century,shìjì,二十一{{世纪}}是信息时代。
+星期一,Monday,xīngqī yī,{{星期一}}我要上班。
+星期二,Tuesday,xīngqī èr,{{星期二}}有英语课。
+星期三,Wednesday,xīngqī sān,{{星期三}}我去看医生。
+星期四,Thursday,xīngqī sì,{{星期四}}下午开会。
+星期五,Friday,xīngqī wǔ,{{星期五}}晚上去聚餐。
+星期六,Saturday,xīngqī liù,{{星期六}}我休息。
+星期天,Sunday,xīngqī tiān,{{星期天}}全家一起出游。
+一月,January,yī yuè,{{一月}}是新的开始。
+二月,February,èr yuè,{{二月}}是春节月份。
+三月,March,sān yuè,{{三月}}天气转暖。
+四月,April,sì yuè,{{四月}}花开了。
+五月,May,wǔ yuè,{{五月}}劳动节放假。
+六月,June,liù yuè,{{六月}}天气很热。
+七月,July,qī yuè,{{七月}}放暑假了。
+八月,August,bā yuè,{{八月}}仍然很炎热。
+九月,September,jiǔ yuè,{{九月}}新学期开始。
+十月,October,shí yuè,{{十月}}是秋天。
+十一月,November,shíyī yuè,{{十一月}}天气变冷。
+十二月,December,shí'èr yuè,{{十二月}}准备过年。
+春天,spring,chūntiān,{{春天}}是最美的季节。
+夏天,summer,xiàtiān,{{夏天}}我喜欢游泳。
+秋天,autumn / fall,qiūtiān,{{秋天}}枫叶红了。
+冬天,winter,dōngtiān,{{冬天}}经常下雪。
 # ── Nouns — Place & Direction ────────────────────────────────────────────────
-地方,place,dìfang
-国家,country,guójiā
-城市,city,chéngshì
-首都,capital city,shǒudū
-省,province,shěng
-镇,town,zhèn
-村庄,village,cūnzhuāng
-家,home / house,jiā
-学校,school,xuéxiào
-大学,university,dàxué
-医院,hospital,yīyuàn
-银行,bank,yínháng
-商店,shop,shāngdiàn
-市场,market,shìchǎng
-公园,park,gōngyuán
-图书馆,library,túshūguǎn
-酒店,hotel,jiǔdiàn
-餐厅,restaurant,cāntīng
-机场,airport,jīchǎng
-火车站,train station,huǒchē zhàn
-北方,north,běifāng
-南方,south,nánfāng
-东方,east,dōngfāng
-西方,west,xīfāng
-上面,above / on top,shàngmiàn
-下面,below / underneath,xiàmiàn
-前面,in front,qiánmiàn
-后面,behind / at the back,hòumiàn
-里面,inside,lǐmiàn
-外面,outside,wàimiàn
-左边,left side,zuǒbiān
-右边,right side,yòubiān
-中间,middle / between,zhōngjiān
-旁边,beside / next to,pángbiān
-附近,nearby,fùjìn
+地方,place,dìfang,这是个很美的{{地方}}。
+国家,country,guójiā,中国是我的{{国家}}。
+城市,city,chéngshì,上海是个大{{城市}}。
+首都,capital city,shǒudū,北京是中国的{{首都}}。
+省,province,shěng,广东{{省}}很发达。
+镇,town,zhèn,我住在一个小{{镇}}。
+村庄,village,cūnzhuāng,这个{{村庄}}很安静。
+家,home / house,jiā,我{{家}}有四口人。
+学校,school,xuéxiào,我在这所{{学校}}读书。
+大学,university,dàxué,我考上了重点{{大学}}。
+医院,hospital,yīyuàn,他在{{医院}}工作。
+银行,bank,yínháng,我去{{银行}}取钱。
+商店,shop,shāngdiàn,{{商店}}里有很多商品。
+市场,market,shìchǎng,我们去{{市场}}买菜。
+公园,park,gōngyuán,周末我去{{公园}}散步。
+图书馆,library,túshūguǎn,{{图书馆}}有很多书。
+酒店,hotel,jiǔdiàn,我们在五星{{酒店}}住宿。
+餐厅,restaurant,cāntīng,这家{{餐厅}}很有名。
+机场,airport,jīchǎng,我在{{机场}}接朋友。
+火车站,train station,huǒchē zhàn,我每天都去{{火车站}}上班。
+北方,north,běifāng,{{北方}}的冬天很冷。
+南方,south,nánfāng,{{南方}}的天气很温暖。
+东方,east,dōngfāng,{{东方}}升起了红日。
+西方,west,xīfāng,{{西方}}文化很有趣。
+上面,above / on top,shàngmiàn,桌子{{上面}}放着书。
+下面,below / underneath,xiàmiàn,椅子{{下面}}有地毯。
+前面,in front,qiánmiàn,学校{{前面}}有公园。
+后面,behind / at the back,hòumiàn,房子{{后面}}是花园。
+里面,inside,lǐmiàn,盒子{{里面}}有糖果。
+外面,outside,wàimiàn,{{外面}}下雨了。
+左边,left side,zuǒbiān,我坐在你的{{左边}}。
+右边,right side,yòubiān,商店在街的{{右边}}。
+中间,middle / between,zhōngjiān,他站在我们{{中间}}。
+旁边,beside / next to,pángbiān,树{{旁边}}有一条河。
+附近,nearby,fùjìn,医院在这里{{附近}}。
 # ── Nouns — Nature & Environment ────────────────────────────────────────────
-自然,nature,dàzìrán
-天空,sky,tiānkōng
-太阳,sun,tàiyáng
-月亮,moon,yuèliàng
-星星,star,xīngxīng
-云,cloud,yún
-雨,rain,yǔ
-雪,snow,xuě
-风,wind,fēng
-雷,thunder,léi
-闪电,lightning,shǎndiàn
-雾,fog / mist,wù
-冰,ice,bīng
-火,fire,huǒ
-土地,earth / land,tǔdì
-石头,stone,shítou
-山,mountain,shān
-河,river,hé
-湖,lake,hú
-海,sea,hǎi
-森林,forest,sēnlín
-田野,field,tiányě
-树,tree,shù
-花,flower,huā
-草,grass,cǎo
-植物,plant,zhíwù
-动物,animal,dòngwù
-狗,dog,gǒu
-猫,cat,māo
-鸟,bird,niǎo
-鱼,fish,yú
-马,horse,mǎ
-牛,cow,niú
-猪,pig,zhū
-羊,sheep,yáng
-鸡,chicken (animal),jī
-兔子,rabbit,tùzi
-蛇,snake,shé
-老虎,tiger,lǎohǔ
-狮子,lion,shīzi
-大象,elephant,dàxiàng
+自然,nature,dàzìrán,我喜欢{{自然}}的美景。
+天空,sky,tiānkōng,{{天空}}很蓝很美。
+太阳,sun,tàiyáng,{{太阳}}很暖和。
+月亮,moon,yuèliàng,晚上{{月亮}}很亮。
+星星,star,xīngxīng,夜晚有许多{{星星}}。
+云,cloud,yún,天上的{{云}}很白。
+雨,rain,yǔ,今天下{{雨}}了。
+雪,snow,xuě,冬天下{{雪}}很漂亮。
+风,wind,fēng,{{风}}很大。
+雷,thunder,léi,听到{{雷}}声了吗？
+闪电,lightning,shǎndiàn,{{闪电}}照亮了夜空。
+雾,fog / mist,wù,早上有很多{{雾}}。
+冰,ice,bīng,冬天{{冰}}很厚。
+火,fire,huǒ,小心{{火}}会烧伤。
+土地,earth / land,tǔdì,农民在{{土地}}上工作。
+石头,stone,shítou,地上有一块{{石头}}。
+山,mountain,shān,这座{{山}}很高。
+河,river,hé,{{河}}里有很多鱼。
+湖,lake,hú,我们去{{湖}}边散步。
+海,sea,hǎi,我喜欢去{{海}}边。
+森林,forest,sēnlín,{{森林}}里很安静。
+田野,field,tiányě,{{田野}}里长满庄稼。
+树,tree,shù,这棵{{树}}很大。
+花,flower,huā,她喜欢种{{花}}。
+草,grass,cǎo,草地上长满{{草}}。
+植物,plant,zhíwù,{{植物}}需要水。
+动物,animal,dòngwù,{{动物}}园里很有趣。
+狗,dog,gǒu,我的{{狗}}很聪明。
+猫,cat,māo,{{猫}}喜欢吃鱼。
+鸟,bird,niǎo,{{鸟}}在天空飞。
+鱼,fish,yú,我抓到了一条{{鱼}}。
+马,horse,mǎ,{{马}}跑得很快。
+牛,cow,niú,农场有很多{{牛}}。
+猪,pig,zhū,{{猪}}在泥里打滚。
+羊,sheep,yáng,农场里有一只白色的{{羊}}。
+鸡,chicken (animal),jī,每天早上{{鸡}}都会打鸣。
+兔子,rabbit,tùzi,小女孩养了一只可爱的{{兔子}}。
+蛇,snake,shé,公园里出现了一条{{蛇}}。
+老虎,tiger,lǎohǔ,动物园的{{老虎}}很凶猛。
+狮子,lion,shīzi,非洲的{{狮子}}是森林之王。
+大象,elephant,dàxiàng,{{大象}}的鼻子很长很有力。
 # ── Nouns — Body ─────────────────────────────────────────────────────────────
-身体,body,shēntǐ
-头,head,tóu
-脸,face,liǎn
-眼睛,eye,yǎnjīng
-鼻子,nose,bízi
-嘴巴,mouth,zuǐba
-耳朵,ear,ěrduo
-牙齿,tooth,yáchǐ
-舌头,tongue,shétou
-脖子,neck,bózi
-肩膀,shoulder,jiānbǎng
-胳臂,arm,gēbei
-手,hand,shǒu
-手指,finger,shǒuzhǐ
-腿,leg,tuǐ
-脚,foot,jiǎo
-膝盖,knee,xīgài
-心脏,heart,xīnzàng
-肺,lung,fèi
-胃,stomach,wèi
-脑,brain,nǎo
-血,blood,xuè
-骨头,bone,gǔtou
-肌肉,muscle,jīròu
-皮肤,skin,pífū
-头发,hair,tóufa
+身体,body,shēntǐ,运动对{{身体}}很有好处。
+头,head,tóu,我的{{头}}有点疼。
+脸,face,liǎn,她的{{脸}}红红的很害羞。
+眼睛,eye,yǎnjīng,他的{{眼睛}}很明亮。
+鼻子,nose,bízi,冬天我的{{鼻子}}很容易流鼻涕。
+嘴巴,mouth,zuǐba,别用{{嘴巴}}说脏话。
+耳朵,ear,ěrduo,我的{{耳朵}}听力很好。
+牙齿,tooth,yáchǐ,刷{{牙齿}}可以保持口腔卫生。
+舌头,tongue,shétou,{{舌头}}可以尝出食物的味道。
+脖子,neck,bózi,他{{脖子}}上戴了条项链。
+肩膀,shoulder,jiānbǎng,她靠在他的{{肩膀}}上。
+胳臂,arm,gēbei,我的{{胳臂}}被晒黑了。
+手,hand,shǒu,请举起你的{{手}}。
+手指,finger,shǒuzhǐ,他用{{手指}}指向远方。
+腿,leg,tuǐ,跑步时我的{{腿}}很酸痛。
+脚,foot,jiǎo,我的{{脚}}踩到了水。
+膝盖,knee,xīgài,他跪下时{{膝盖}}受伤了。
+心脏,heart,xīnzàng,医生检查了他的{{心脏}}。
+肺,lung,fèi,吸烟对{{肺}}的伤害很大。
+胃,stomach,wèi,他的{{胃}}不太好。
+脑,brain,nǎo,要用{{脑}}仔细思考问题。
+血,blood,xuè,献{{血}}可以救助其他人。
+骨头,bone,gǔtou,狗喜欢啃{{骨头}}。
+肌肉,muscle,jīròu,健身可以增长{{肌肉}}。
+皮肤,skin,pífū,她的{{皮肤}}光滑细腻。
+头发,hair,tóufa,她的{{头发}}很长很黑。
 # ── Nouns — Food & Drink ─────────────────────────────────────────────────────
-食物,food,shíwù
-饭,cooked rice / meal,fàn
-面包,bread,miànbāo
-面条,noodles,miàntiáo
-饺子,dumplings,jiǎozi
-包子,steamed buns,bāozi
-馒头,steamed bread,mántou
-米饭,steamed rice,mǐfàn
-粥,porridge / congee,zhōu
-豆腐,tofu,dòufu
-蔬菜,vegetables,shūcài
-水果,fruit,shuíguǒ
-肉,meat,ròu
-鸡肉,chicken (meat),jī ròu
-猪肉,pork,zhūròu
-牛肉,beef,niúròu
-鱼肉,fish (food),yúròu
-鸡蛋,egg,jīdàn
-牛奶,milk,niúnǎi
-奶酪,cheese,nǎilào
-黄油,butter,huángyóu
-油,oil,yóu
-盐,salt,yán
-糖,sugar,táng
-酱油,soy sauce,jiàngyóu
-醋,vinegar,cù
-咖啡,coffee,kāfēi
-茶,tea,chá
-啤酒,beer,píjiǔ
-葡萄酒,wine,pútaojiǔ
-果汁,juice,guǒzhī
-水,water,shuǐ
-苹果,apple,píngguǒ
-香蕉,banana,xiāngjiāo
-橘子,orange,júzi
-草莓,strawberry,cǎoméi
-西瓜,watermelon,xīguā
-葡萄,grapes,pútao
-柠檬,lemon,níngméng
-桃子,peach,táozi
-梨,pear,lí
-西红柿,tomato,xīhóngshì
-黄瓜,cucumber,huángguā
-生菜,lettuce,shēngcài
-胡萝卜,carrot,húluóbo
-土豆,potato,tǔdòu
-洋葱,onion,yángcōng
-大蒜,garlic,dàsuàn
-辣椒,chilli pepper,làjiāo
-蘑菇,mushroom,mógu
+食物,food,shíwù,我们需要营养的{{食物}}。
+饭,cooked rice / meal,fàn,每天我都要吃三顿{{饭}}。
+面包,bread,miànbāo,早餐我吃了一片{{面包}}。
+面条,noodles,miàntiáo,我喜欢吃{{面条}}。
+饺子,dumplings,jiǎozi,春节我们一起包{{饺子}}。
+包子,steamed buns,bāozi,早上买了几个肉{{包子}}。
+馒头,steamed bread,mántou,{{馒头}}是北方的主食。
+米饭,steamed rice,mǐfàn,一碗热{{米饭}}很香。
+粥,porridge / congee,zhōu,生病时喝{{粥}}很舒服。
+豆腐,tofu,dòufu,{{豆腐}}含有很多蛋白质。
+蔬菜,vegetables,shūcài,吃{{蔬菜}}对身体很好。
+水果,fruit,shuíguǒ,她每天吃{{水果}}。
+肉,meat,ròu,这道菜的{{肉}}很嫩。
+鸡肉,chicken (meat),jī ròu,{{鸡肉}}的营养很丰富。
+猪肉,pork,zhūròu,我喜欢吃{{猪肉}}。
+牛肉,beef,niúròu,这个汉堡的{{牛肉}}很厚。
+鱼肉,fish (food),yúròu,{{鱼肉}}含有丰富的蛋白质。
+鸡蛋,egg,jīdàn,早餐我吃了两个{{鸡蛋}}。
+牛奶,milk,niúnǎi,孩子每天喝{{牛奶}}。
+奶酪,cheese,nǎilào,这个{{奶酪}}很好吃。
+黄油,butter,huángyóu,面包涂上{{黄油}}更香。
+油,oil,yóu,炒菜需要用{{油}}。
+盐,salt,yán,汤里放了太多{{盐}}。
+糖,sugar,táng,咖啡里加{{糖}}很甜。
+酱油,soy sauce,jiàngyóu,炒饭需要{{酱油}}。
+醋,vinegar,cù,我喜欢吃酸{{醋}}。
+咖啡,coffee,kāfēi,早上喝{{咖啡}}清醒。
+茶,tea,chá,下午我喝绿{{茶}}。
+啤酒,beer,píjiǔ,朋友带来了{{啤酒}}。
+葡萄酒,wine,pútaojiǔ,晚宴喝{{葡萄酒}}。
+果汁,juice,guǒzhī,孩子喜欢喝{{果汁}}。
+水,water,shuǐ,每天要喝八杯{{水}}。
+苹果,apple,píngguǒ,我买了红{{苹果}}。
+香蕉,banana,xiāngjiāo,{{香蕉}}含有钾元素。
+橘子,orange,júzi,冬天吃{{橘子}}很酸。
+草莓,strawberry,cǎoméi,{{草莓}}又红又甜。
+西瓜,watermelon,xīguā,夏天吃{{西瓜}}很凉爽。
+葡萄,grapes,pútao,这串{{葡萄}}很新鲜。
+柠檬,lemon,níngméng,{{柠檬}}水很酸。
+桃子,peach,táozi,农场的{{桃子}}很好吃。
+梨,pear,lí,{{梨}}能清热润肺。
+西红柿,tomato,xīhóngshì,{{西红柿}}炒蛋很美味。
+黄瓜,cucumber,huángguā,沙拉里有{{黄瓜}}。
+生菜,lettuce,shēngcài,{{生菜}}很新鲜脆。
+胡萝卜,carrot,húluóbo,{{胡萝卜}}含维生素A。
+土豆,potato,tǔdòu,晚餐吃了{{土豆}}。
+洋葱,onion,yángcōng,炒菜时加{{洋葱}}。
+大蒜,garlic,dàsuàn,{{大蒜}}能杀菌。
+辣椒,chilli pepper,làjiāo,这道菜放了{{辣椒}}。
+蘑菇,mushroom,mógu,汤里加了{{蘑菇}}。
 # ── Nouns — Clothing ─────────────────────────────────────────────────────────
-衣服,clothes,yīfu
-衬衫,shirt,chènshān
-裤子,trousers,kùzi
-裙子,skirt,qúnzi
-外套,jacket / coat,wàitào
-鞋子,shoes,xiézi
-袜子,socks,wàzi
-帽子,hat,màozi
-围巾,scarf,wéijīn
-手套,gloves,shǒutào
+衣服,clothes,yīfu,我买了新{{衣服}}。
+衬衫,shirt,chènshān,他穿着白{{衬衫}}。
+裤子,trousers,kùzi,这条{{裤子}}很舒适。
+裙子,skirt,qúnzi,妹妹的{{裙子}}很漂亮。
+外套,jacket / coat,wàitào,冬天要穿{{外套}}。
+鞋子,shoes,xiézi,我的{{鞋子}}磨损了。
+袜子,socks,wàzi,抽屉里有{{袜子}}。
+帽子,hat,màozi,{{帽子}}保护头部。
+围巾,scarf,wéijīn,围上{{围巾}}很温暖。
+手套,gloves,shǒutào,冬天戴{{手套}}保暖。
 # ── Nouns — Home & Objects ───────────────────────────────────────────────────
-桌子,table,zhuōzi
-椅子,chair,yǐzi
-沙发,sofa,shāfā
-床,bed,chuáng
-书桌,desk,shūzhuō
-窗户,window,chuānghu
-门,door,mén
-地板,floor,dìbǎn
-墙,wall,qiáng
-天花板,ceiling,tiānhuābǎn
-灯,lamp / light,dēng
-镜子,mirror,jìngzi
-冰箱,fridge,bīngxiāng
-洗衣机,washing machine,xǐyījī
-电视,television,diànshì
-电脑,computer,diànnǎo
-手机,mobile phone,shǒujī
-钥匙,key,yàoshi
-包,bag,bāo
-书包,school bag / backpack,shūbāo
-钱包,wallet,qiánbāo
-雨伞,umbrella,yǔsǎn
-眼镜,glasses,yǎnjìng
-手表,watch,shǒubiǎo
-纸,paper,zhǐ
-笔,pen,bǐ
-书,book,shū
+桌子,table,zhuōzi,书在{{桌子}}上。
+椅子,chair,yǐzi,请坐{{椅子}}上。
+沙发,sofa,shāfā,我在{{沙发}}上看电视。
+床,bed,chuáng,晚上睡{{床}}上。
+书桌,desk,shūzhuō,我在{{书桌}}上读书。
+窗户,window,chuānghu,{{窗户}}外阳光很好。
+门,door,mén,请关上{{门}}。
+地板,floor,dìbǎn,我在{{地板}}上铺了地毯。
+墙,wall,qiáng,这面{{墙}}需要重新粉刷。
+天花板,ceiling,tiānhuābǎn,{{天花板}}上有一盏灯。
+灯,lamp / light,dēng,请打开{{灯}}，太暗了。
+镜子,mirror,jìngzi,她在{{镜子}}前整理头发。
+冰箱,fridge,bīngxiāng,{{冰箱}}里有新鲜的水果。
+洗衣机,washing machine,xǐyījī,{{洗衣机}}今天坏了需要修。
+电视,television,diànshì,我们在看{{电视}}上的新闻。
+电脑,computer,diànnǎo,我的{{电脑}}需要升级系统。
+手机,mobile phone,shǒujī,我的{{手机}}电池快没了。
+钥匙,key,yàoshi,你看到我的{{钥匙}}了吗？
+包,bag,bāo,这个{{包}}很适合旅行。
+书包,school bag / backpack,shūbāo,孩子的{{书包}}里装满了书。
+钱包,wallet,qiánbāo,我的{{钱包}}丢在公交车上。
+雨伞,umbrella,yǔsǎn,下雨了，别忘了带{{雨伞}}。
+眼镜,glasses,yǎnjìng,我的{{眼镜}}度数又加深了。
+手表,watch,shǒubiǎo,这块{{手表}}是爸爸送的。
+纸,paper,zhǐ,请给我一张{{纸}}写字。
+笔,pen,bǐ,我找不到我的红色{{笔}}。
+书,book,shū,这本{{书}}很有意思，推荐。
 # ── Nouns — Transport & Travel ───────────────────────────────────────────────
-交通,transport,jiāotōng
-汽车,car,qìchē
-公车,bus,gōngchē
-火车,train,huǒchē
-飞机,airplane,fēijī
-船,ship / boat,chuán
-自行车,bicycle,zìxíngchē
-摩托车,motorcycle,mótuōchē
-地铁,subway / metro,dìtiě
-出租车,taxi,chūzūchē
-车票,ticket,chēpiào
-护照,passport,hùzhào
-行李,luggage / suitcase,xínglǐ
-地图,map,dìtú
-路,road / path,lù
-街道,street,jiēdào
-桥,bridge,qiáo
+交通,transport,jiāotōng,这里的{{交通}}很便利。
+汽车,car,qìchē,停车场里有很多{{汽车}}。
+公车,bus,gōngchē,我每天坐{{公车}}上班。
+火车,train,huǒchē,{{火车}}下午三点出发。
+飞机,airplane,fēijī,{{飞机}}在云层中飞行。
+船,ship / boat,chuán,我们坐{{船}}去看风景。
+自行车,bicycle,zìxíngchē,我用{{自行车}}锻炼身体。
+摩托车,motorcycle,mótuōchē,他骑着{{摩托车}}很快。
+地铁,subway / metro,dìtiě,坐{{地铁}}比开车更快。
+出租车,taxi,chūzūchē,{{出租车}}司机很热情。
+车票,ticket,chēpiào,请检查你的{{车票}}。
+护照,passport,hùzhào,出国需要带{{护照}}。
+行李,luggage / suitcase,xínglǐ,{{行李}}已经收拾好了。
+地图,map,dìtú,{{地图}}上标注了景点。
+路,road / path,lù,这条{{路}}连接两个城市。
+街道,street,jiēdào,{{街道}}上人来人往。
+桥,bridge,qiáo,我们在{{桥}}上散步。
 # ── Nouns — Health & Medicine ────────────────────────────────────────────────
-健康,health,jiànkāng
-疾病,illness,jíbìng
-药物,medicine,yàowù
-手术,surgery / operation,shǒushù
-注射,injection / shot,zhùshè
-疫苗,vaccine,yìmiáo
-诊断,diagnosis,zhěnduàn
-症状,symptom,zhèngzhuàng
-发烧,fever,fāshāo
-咳嗽,cough,késòu
-头痛,headache,tóutòng
-感冒,cold (illness),gǎnmào
-过敏,allergy,guòmǐn
+健康,health,jiànkāng,运动对{{健康}}很重要。
+疾病,illness,jíbìng,{{疾病}}需要及时治疗。
+药物,medicine,yàowù,医生给我开了{{药物}}。
+手术,surgery / operation,shǒushù,他需要进行{{手术}}。
+注射,injection / shot,zhùshè,护士给我进行了{{注射}}。
+疫苗,vaccine,yìmiáo,今天去打{{疫苗}}。
+诊断,diagnosis,zhěnduàn,医生做了仔细的{{诊断}}。
+症状,symptom,zhèngzhuàng,他的{{症状}}逐渐改善。
+发烧,fever,fāshāo,孩子{{发烧}}了需要吃药。
+咳嗽,cough,késòu,他的{{咳嗽}}越来越严重。
+头痛,headache,tóutòng,我有点{{头痛}}，休息下。
+感冒,cold (illness),gǎnmào,最近流行的{{感冒}}很厉害。
+过敏,allergy,guòmǐn,我对花粉{{过敏}}。
 # ── Nouns — Education ────────────────────────────────────────────────────────
-教育,education,jiàoyù
-知识,knowledge,zhīshi
-科学,science,kēxué
-数学,mathematics,shùxué
-语文,Chinese language,yǔwén
-历史,history,lìshǐ
-地理,geography,dìlǐ
-音乐,music,yīnyuè
-体育,physical education,tǐyù
-艺术,art,yìshù
-考试,exam,kǎoshì
-作业,homework,zuòyè
-课堂,classroom,kètáng
-校长,principal / headmaster,xiàozhǎng
+教育,education,jiàoyù,好的{{教育}}能改变一个人的人生。
+知识,knowledge,zhīshi,{{知识}}就是力量，要不断学习。
+科学,science,kēxué,{{科学}}研究需要严谨的态度。
+数学,mathematics,shùxué,我最喜欢上{{数学}}课了。
+语文,Chinese language,yǔwén,{{语文}}老师布置了很多作业。
+历史,history,lìshǐ,我们在学习中国{{历史}}。
+地理,geography,dìlǐ,{{地理}}课上我们学了各个国家。
+音乐,music,yīnyuè,她喜欢在下午听{{音乐}}放松。
+体育,physical education,tǐyù,今天的{{体育}}课非常有趣。
+艺术,art,yìshù,{{艺术}}展览吸引了很多游客。
+考试,exam,kǎoshì,下周我们有一场重要{{考试}}。
+作业,homework,zuòyè,老师给我们留了很多{{作业}}。
+课堂,classroom,kètáng,在{{课堂}}上要认真听讲。
+校长,principal / headmaster,xiàozhǎng,{{校长}}在开学典礼上讲话。
 # ── Nouns — Work & Economy ───────────────────────────────────────────────────
-公司,company,gōngsī
-老板,boss,lǎobǎn
-员工,employee,yuángōng
-薪水,salary,xīnshuǐ
-钱,money,qián
-价格,price,jiàgé
-折扣,discount,zhékòu
-税,tax,shuì
-贸易,trade,màoyì
-竞争,competition,jìngzhēng
-投资,investment,tóuzī
-利润,profit,lìrùn
-损失,loss,sǔnshī
-预算,budget,yùsuàn
-合同,contract,hétong
+公司,company,gōngsī,我在一家大{{公司}}工作。
+老板,boss,lǎobǎn,{{老板}}对员工很严格。
+员工,employee,yuángōng,这家公司有一百名{{员工}}。
+薪水,salary,xīnshuǐ,我每个月的{{薪水}}不错。
+钱,money,qián,我没有足够的{{钱}}买房。
+价格,price,jiàgé,这件衣服的{{价格}}太贵了。
+折扣,discount,zhékòu,今天商店有很大的{{折扣}}。
+税,tax,shuì,我们要按时缴纳所得{{税}}。
+贸易,trade,màoyì,两国之间有频繁的{{贸易}}。
+竞争,competition,jìngzhēng,市场上的{{竞争}}越来越激烈。
+投资,investment,tóuzī,他决定{{投资}}一个新项目。
+利润,profit,lìrùn,公司今年的{{利润}}很高。
+损失,loss,sǔnshī,这次事故造成了巨大{{损失}}。
+预算,budget,yùsuàn,公司的{{预算}}需要仔细规划。
+合同,contract,hétong,双方签署了一份{{合同}}。
 # ── Nouns — Technology ───────────────────────────────────────────────────────
-技术,technology / technique,jìshù
-网络,network / internet,wǎngluò
-软件,software,ruǎnjiàn
-应用,application / app,yìngyòng
-数据,data,shùjù
-信息,information,xìnxī
-密码,password,mìmǎ
-屏幕,screen,píngmù
-键盘,keyboard,jiànpán
-鼠标,mouse (computer),shǔbiāo
-打印机,printer,dǎyìnjī
-平板电脑,tablet,píng bǎn diànnǎo
-充电器,charger,chōngdiànqì
-电池,battery,diànchí
-相机,camera,xiàngjī
+技术,technology / technique,jìshù,现代{{技术}}发展很快。
+网络,network / internet,wǎngluò,我每天都在使用{{网络}}。
+软件,software,ruǎnjiàn,这个{{软件}}很容易使用。
+应用,application / app,yìngyòng,这个{{应用}}在手机上很流行。
+数据,data,shùjù,我们需要分析这些{{数据}}。
+信息,information,xìnxī,请告诉我你的联系{{信息}}。
+密码,password,mìmǎ,不要告诉别人你的{{密码}}。
+屏幕,screen,píngmù,{{屏幕}}上显示了新闻。
+键盘,keyboard,jiànpán,这个{{键盘}}很舒适好用。
+鼠标,mouse (computer),shǔbiāo,我的{{鼠标}}坏了要修理。
+打印机,printer,dǎyìnjī,{{打印机}}在办公室里。
+平板电脑,tablet,píng bǎn diànnǎo,我买了一个新{{平板电脑}}。
+充电器,charger,chōngdiànqì,{{充电器}}在哪里呢？
+电池,battery,diànchí,这个玩具需要两节{{电池}}。
+相机,camera,xiàngjī,我用{{相机}}拍了很多照片。
 # ── Nouns — Arts & Culture ───────────────────────────────────────────────────
-文化,culture,wénhuà
-语言,language,yǔyán
-文学,literature,wénxué
-诗歌,poetry,shīgē
-小说,novel,xiǎoshuō
-故事,story,gùshi
-电影,film / movie,diànyǐng
-歌曲,song,gēqǔ
-舞蹈,dance,wǔdǎo
-绘画,painting,huìhuà
-雕塑,sculpture,diāosù
-建筑,architecture,jiànzhú
-博物馆,museum,bówùguǎn
-剧场,theatre,jùchǎng
-节日,festival / holiday,jiérì
-传统,tradition,chuántǒng
-习俗,custom / habit,xísú
+文化,culture,wénhuà,中国{{文化}}源远流长。
+语言,language,yǔyán,学习一门新{{语言}}很困难。
+文学,literature,wénxué,我喜欢阅读中国{{文学}}作品。
+诗歌,poetry,shīgē,这首{{诗歌}}很优美动人。
+小说,novel,xiǎoshuō,我最近在看一部有趣{{小说}}。
+故事,story,gùshi,奶奶给我讲了一个{{故事}}。
+电影,film / movie,diànyǐng,我昨天看了一部很好看的{{电影}}。
+歌曲,song,gēqǔ,这首{{歌曲}}非常动听。
+舞蹈,dance,wǔdǎo,她的{{舞蹈}}技艺很高超。
+绘画,painting,huìhuà,他喜欢在周末练习{{绘画}}。
+雕塑,sculpture,diāosù,博物馆里有许多古代{{雕塑}}。
+建筑,architecture,jiànzhú,这座{{建筑}}设计得很独特。
+博物馆,museum,bówùguǎn,我们去{{博物馆}}参观了历史展览。
+剧场,theatre,jùchǎng,今晚在{{剧场}}有一场演出。
+节日,festival / holiday,jiérì,春节是中国最重要的{{节日}}。
+传统,tradition,chuántǒng,尊重{{传统}}文化很重要。
+习俗,custom / habit,xísú,每个国家都有不同的{{习俗}}。
 # ── Nouns — Emotions & Mind ──────────────────────────────────────────────────
-心,heart / mind,xīn
-感情,feelings / emotion,gǎnqíng
-快乐,happiness / joy,kuàilè
-悲伤,sadness,bēishāng
-愤怒,anger,fènnù
-恐惧,fear,kǒngjù
-惊讶,surprise,jīngyà
-希望,hope,xīwàng
-梦想,dream,mèngxiǎng
-信心,confidence,xìnxīn
-勇气,courage,yǒngqì
-耐心,patience,nàixīn
+心,heart / mind,xīn,他用{{心}}去对待每件事。
+感情,feelings / emotion,gǎnqíng,他们之间的{{感情}}很深厚。
+快乐,happiness / joy,kuàilè,孩子们玩得很{{快乐}}。
+悲伤,sadness,bēishāng,听到这个消息他感到{{悲伤}}。
+愤怒,anger,fènnù,他因为被欺骗而{{愤怒}}。
+恐惧,fear,kǒngjù,黑暗中他感到{{恐惧}}。
+惊讶,surprise,jīngyà,我对这个结果感到{{惊讶}}。
+希望,hope,xīwàng,我{{希望}}能早日实现梦想。
+梦想,dream,mèngxiǎng,成为医生是我的{{梦想}}。
+信心,confidence,xìnxīn,他对自己充满了{{信心}}。
+勇气,courage,yǒngqì,需要很大的{{勇气}}去冒险。
+耐心,patience,nàixīn,教学需要很多的{{耐心}}。
 # ── Nouns — Society & Politics ───────────────────────────────────────────────
-社会,society,shèhuì
-政府,government,zhèngfǔ
-政治,politics,zhèngzhì
-民主,democracy,mínzhǔ
-法律,law,fǎlǜ
-权利,right,quánlì
-责任,responsibility,zérèn
-自由,freedom,zìyóu
-平等,equality,píngděng
-和平,peace,hépíng
-战争,war,zhànzhēng
-选举,election,xuǎnjǔ
-政党,political party,zhèngdǎng
-军队,army,jūnduì
-边界,border,biānjiè
+社会,society,shèhuì,{{社会}}需要更多的关爱。
+政府,government,zhèngfǔ,{{政府}}制定了新的政策。
+政治,politics,zhèngzhì,我对{{政治}}话题不太感兴趣。
+民主,democracy,mínzhǔ,{{民主}}制度很重要。
+法律,law,fǎlǜ,我们应该遵守{{法律}}。
+权利,right,quánlì,每个人都有{{权利}}发表意见。
+责任,responsibility,zérèn,作为学生有学习的{{责任}}。
+自由,freedom,zìyóu,每个人都应该有{{自由}}。
+平等,equality,píngděng,{{平等}}是社会的基础。
+和平,peace,hépíng,世界需要{{和平}}与稳定。
+战争,war,zhànzhēng,{{战争}}给人类带来痛苦。
+选举,election,xuǎnjǔ,下个月要进行{{选举}}。
+政党,political party,zhèngdǎng,有许多个不同的{{政党}}。
+军队,army,jūnduì,{{军队}}保卫国家的安全。
+边界,border,biānjiè,两国的{{边界}}已划定。
 # ── Nouns — Environment ──────────────────────────────────────────────────────
-环境,environment,huánjìng
-气候,climate,qìhòu
-温度,temperature,wēndù
-污染,pollution,wūrǎn
-能源,energy,néngyuán
-资源,resource,zīyuán
-垃圾,garbage / rubbish,lājī
-回收,recycling,huíshōu
-全球变暖,global warming,quánqiú biànnuǎn
-洪水,flood,hóngshuǐ
-地震,earthquake,dìzhèn
-台风,typhoon,táifēng
-干旱,drought,gānhàn
+环境,environment,huánjìng,保护{{环境}}是我们的责任。
+气候,climate,qìhòu,这里的{{气候}}很温暖。
+温度,temperature,wēndù,今天的{{温度}}达到三十度。
+污染,pollution,wūrǎn,空气{{污染}}日益严重。
+能源,energy,néngyuán,太阳能是清洁{{能源}}。
+资源,resource,zīyuán,我们要合理利用{{资源}}。
+垃圾,garbage / rubbish,lājī,请不要乱扔{{垃圾}}。
+回收,recycling,huíshōu,塑料可以{{回收}}利用。
+全球变暖,global warming,quánqiú biànnuǎn,{{全球变暖}}威胁人类未来。
+洪水,flood,hóngshuǐ,{{洪水}}淹没了许多村庄。
+地震,earthquake,dìzhèn,昨晚发生了{{地震}}。
+台风,typhoon,táifēng,{{台风}}即将登陆该地区。
+干旱,drought,gānhàn,今年{{干旱}}导致庄稼减产。
 # ── Adjectives ───────────────────────────────────────────────────────────────
-好,good,hǎo
-坏,bad,huài
-大,big,dà
-小,small,xiǎo
-新,new,xīn
-旧,old,jiù
-年轻,young,niánqīng
-高,tall / high,gāo
-矮,short / low,ǎi
-长,long,cháng
-短,short,duǎn
-宽,wide,kuān
-窄,narrow,zhǎi
-胖,fat,pàng
-瘦,thin,shòu
-强,strong,qiáng
-弱,weak,ruò
-快,fast,kuài
-慢,slow,màn
-容易,easy,róngyì
-难,difficult,nán
-重要,important,zhòng yào
-必要,necessary,bì yào
-可能,possible,kě néng
-真,true / real,zhēn
-假,false,jiǎ
-安全,safe,ānquán
-危险,dangerous,wēixiǎn
-有钱,rich,yǒuqián
-穷,poor,qióng
-高兴,happy,gāoxìng
-难过,sad,nánguò
-生气,angry,shēngqì
-冷静,calm,lěngjìng
-紧张,nervous,jǐnzhāng
-无聊,boring,wúliào
-有趣,interesting,yǒuqù
-漂亮,beautiful,piàoliang
-丑,ugly,chǒu
-干净,clean,gānjìng
-脏,dirty,zāng
-满,full,mǎn
-空,empty,kōng
-忙,busy,máng
-不同,different,bùtóng
-一样,same,yīyàng
-特殊,special,tèshū
-普通,normal / ordinary,pǔtōng
-奇怪,strange,qíguài
-常见,common,chángjian
-稀有,rare,xīyǒu
-现代,modern,xiàndài
-古代,ancient,gǔdài
-人造,artificial,rénzào
-负责,responsible,fùzé
-聪明,intelligent / clever,cōngmíng
-认真,serious / earnest,rènzhēn
-友好,friendly,yǒuhǎo
-诚实,honest,chéngshí
-大方,generous,dàfāng
-勇敢,brave,yǒnggǎn
-积极,positive / active,jīpō
-消极,negative / passive,xiāojí
-完整,complete,wánzhěng
-完美,perfect,wánměi
-正确,correct,zhèngquè
-精确,exact,jīngquè
-官方,official,guānfāng
-正式,formal,zhèngshì
-国际,international,guójì
-公共,public,gōnggòng
-私人,private,sīrén
-可口,delicious,kěkǒu
-辣,spicy,là
-甜,sweet,tián
-苦,bitter,kǔ
-咸,salty,xián
-酸,sour,suān
-新鲜,fresh,xīnxiān
-热,hot,rè
-冷,cold,lěng
-温暖,warm,wēnnuǎn
-潮湿,humid / damp,cháoshī
-干燥,dry,gānzào
+好,good,hǎo,这部电影很{{好}}看。
+坏,bad,huài,他的态度很{{坏}}。
+大,big,dà,这间房子很{{大}}。
+小,small,xiǎo,我的女儿还很{{小}}。
+新,new,xīn,他买了一辆{{新}}车。
+旧,old,jiù,这是一本{{旧}}书。
+年轻,young,niánqīng,她看起来很{{年轻}}。
+高,tall / high,gāo,那座山很{{高}}。
+矮,short / low,ǎi,他个子比较{{矮}}。
+长,long,cháng,她的头发很{{长}}。
+短,short,duǎn,这条路很{{短}}。
+宽,wide,kuān,这条街道很{{宽}}。
+窄,narrow,zhǎi,这条小路很{{窄}}。
+胖,fat,pàng,他最近变{{胖}}了。
+瘦,thin,shòu,她太{{瘦}}了。
+强,strong,qiáng,他的身体很{{强}}。
+弱,weak,ruò,我的腿比较{{弱}}。
+快,fast,kuài,他跑得很{{快}}。
+慢,slow,màn,你走得太{{慢}}了。
+容易,easy,róngyì,这个任务很{{容易}}。
+难,difficult,nán,这个题目很{{难}}。
+重要,important,zhòng yào,安全很{{重要}}。
+必要,necessary,bì yào,这种做法很{{必要}}。
+可能,possible,kě néng,他{{可能}}会来。
+真,true / real,zhēn,这个故事是{{真}}的吗？
+假,false,jiǎ,这是{{假}}钱。
+安全,safe,ānquán,这里很{{安全}}。
+危险,dangerous,wēixiǎn,这条路很{{危险}}。
+有钱,rich,yǒuqián,他的家人很{{有钱}}。
+穷,poor,qióng,他家很{{穷}}。
+高兴,happy,gāoxìng,我很{{高兴}}见到你。
+难过,sad,nánguò,她听了很{{难过}}。
+生气,angry,shēngqì,他在{{生气}}。
+冷静,calm,lěngjìng,请保持{{冷静}}。
+紧张,nervous,jǐnzhāng,我很{{紧张}}。
+无聊,boring,wúliào,这部片子很{{无聊}}。
+有趣,interesting,yǒuqù,这个故事很{{有趣}}。
+漂亮,beautiful,piàoliang,她很{{漂亮}}。
+丑,ugly,chǒu,这个设计很{{丑}}。
+干净,clean,gānjìng,房间很{{干净}}。
+脏,dirty,zāng,你的手很{{脏}}。
+满,full,mǎn,这个杯子{{满}}了。
+空,empty,kōng,这个盒子是{{空}}的。
+忙,busy,máng,我很{{忙}}。
+不同,different,bùtóng,他们的意见{{不同}}。
+一样,same,yīyàng,两个人一样高{{一样}}。
+特殊,special,tèshū,这是一个{{特殊}}情况。
+普通,normal / ordinary,pǔtōng,这是{{普通}}的日子。
+奇怪,strange,qíguài,这个声音很{{奇怪}}。
+常见,common,chángjian,感冒是{{常见}}的疾病。
+稀有,rare,xīyǒu,钻石是{{稀有}}的宝石。
+现代,modern,xiàndài,我喜欢{{现代}}建筑风格。
+古代,ancient,gǔdài,他研究{{古代}}中国历史。
+人造,artificial,rénzào,这是{{人造}}革做的包。
+负责,responsible,fùzé,他{{负责}}这个项目的工作。
+聪明,intelligent / clever,cōngmíng,这个孩子很{{聪明}}。
+认真,serious / earnest,rènzhēn,她对工作很{{认真}}。
+友好,friendly,yǒuhǎo,他的态度很{{友好}}。
+诚实,honest,chéngshí,做人要{{诚实}}守信。
+大方,generous,dàfāng,她很{{大方}}，经常帮助别人。
+勇敢,brave,yǒnggǎn,消防员很{{勇敢}}。
+积极,positive / active,jīpō,我们应该{{积极}}向上。
+消极,negative / passive,xiāojí,不要有{{消极}}的想法。
+完整,complete,wánzhěng,这个故事很{{完整}}。
+完美,perfect,wánměi,这个计划很{{完美}}。
+正确,correct,zhèngquè,你的答案是{{正确}}的。
+精确,exact,jīngquè,仪器测量很{{精确}}。
+官方,official,guānfāng,这是{{官方}}发布的消息。
+正式,formal,zhèngshì,明天是{{正式}}的会议。
+国际,international,guójì,这是{{国际}}品牌。
+公共,public,gōnggòng,图书馆是{{公共}}场所。
+私人,private,sīrén,这是我的{{私人}}物品。
+可口,delicious,kěkǒu,这道菜很{{可口}}。
+辣,spicy,là,这个菜很{{辣}}。
+甜,sweet,tián,蜂蜜很{{甜}}。
+苦,bitter,kǔ,中药很{{苦}}。
+咸,salty,xián,这个菜太{{咸}}了。
+酸,sour,suān,柠檬很{{酸}}。
+新鲜,fresh,xīnxiān,今天的蔬菜很{{新鲜}}。
+热,hot,rè,天气很{{热}}。
+冷,cold,lěng,冬天很{{冷}}。
+温暖,warm,wēnnuǎn,春天很{{温暖}}。
+潮湿,humid / damp,cháoshī,浴室很{{潮湿}}。
+干燥,dry,gānzào,沙漠很{{干燥}}。
 # ── Adverbs ──────────────────────────────────────────────────────────────────
-很,very,hěn
-更,more,gèng
-也,also / too,yě
-已经,already,yǐjīng
-从来没,never,cónglái méi
-总是,always,zǒng shì
-差不多,almost,chàbuduō
-只,only,zhǐ
-足够,enough,zúgòu
-太,too much,tài
-一点,a little,yīdiǎn
-很多,a lot,hěn duō
-也许,perhaps,yěxǔ
-肯定,certainly,kěndìng
-真的,really,zhēn de
-完全,completely,wánquán
-绝对,absolutely,juéduì
-特别,especially,tèbié
-这里,here,zhèlǐ
-那里,there,nàlǐ
-远,far,yuǎn
-马上,immediately,mǎshàng
-最后,finally / last,zuìhòu
+很,very,hěn,这个苹果{{很}}好吃。
+更,more,gèng,今天{{更}}热了。
+也,also / too,yě,我{{也}}想去。
+已经,already,yǐjīng,我{{已经}}吃过了。
+从来没,never,cónglái méi,我{{从来没}}去过。
+总是,always,zǒng shì,他{{总是}}迟到。
+差不多,almost,chàbuduō,两个东西{{差不多}}。
+只,only,zhǐ,我{{只}}有一个。
+足够,enough,zúgòu,钱{{足够}}了。
+太,too much,tài,这个包{{太}}贵了。
+一点,a little,yīdiǎn,请再加{{一点}}盐。
+很多,a lot,hěn duō,这里有{{很多}}人。
+也许,perhaps,yěxǔ,{{也许}}明天会下雨。
+肯定,certainly,kěndìng,这{{肯定}}是真的。
+真的,really,zhēn de,这是{{真的}}吗？
+完全,completely,wánquán,这个计划{{完全}}改变了我的人生。
+绝对,absolutely,juéduì,我{{绝对}}不会忘记你的帮助。
+特别,especially,tèbié,我{{特别}}喜欢吃你做的饭。
+这里,here,zhèlǐ,{{这里}}的天气非常舒服。
+那里,there,nàlǐ,{{那里}}有一个很大的公园。
+远,far,yuǎn,你的家离我家很{{远}}。
+马上,immediately,mǎshàng,我{{马上}}就来帮你的忙。
+最后,finally / last,zuìhòu,{{最后}}我们决定去看电影。
 # ── Measure words ────────────────────────────────────────────────────────────
-个,general measure word,gè
-本,measure for books,běn
-块,measure for pieces / chunks,kuài
-件,measure for items of clothing,jiàn
-双,pair,shuāng
-杯,cup of,bēi
-瓶,bottle of,píng
-碗,bowl of,wǎn
-盘,plate of,pán
-张,measure for flat objects,zhāng
-条,measure for long thin objects,tiáo
-把,measure for objects with handles,bǎ
-支,measure for stick-like objects,zhī
-台,measure for machines,tái
+个,general measure word,gè,我买了三{{个}}苹果。
+本,measure for books,běn,这{{本}}书很有意思。
+块,measure for pieces / chunks,kuài,给我来一{{块}}巧克力。
+件,measure for items of clothing,jiàn,我需要买一{{件}}新衣服。
+双,pair,shuāng,我想买一{{双}}新鞋子。
+杯,cup of,bēi,请给我倒一{{杯}}水。
+瓶,bottle of,píng,冰箱里有一{{瓶}}牛奶。
+碗,bowl of,wǎn,妈妈盛了一{{碗}}汤给我。
+盘,plate of,pán,桌子上有一{{盘}}水果。
+张,measure for flat objects,zhāng,墙上贴了一{{张}}海报。
+条,measure for long thin objects,tiáo,我买了一{{条}}新领带。
+把,measure for objects with handles,bǎ,请递给我那{{把}}椅子。
+支,measure for stick-like objects,zhī,我用了一{{支}}铅笔写字。
+台,measure for machines,tái,办公室有一{{台}}新电脑。
 # ── Pronouns ─────────────────────────────────────────────────────────────────
-我,I / me,wǒ
-你,you,nǐ
-他,he / him,tā
-她,she / her,tā
-它,it,tā
-我们,we / us,wǒmen
-你们,you all,nǐmen
-他们,they / them,tāmen
-这,this,zhè
-那,that,nà
-什么,something / what,shénme
-没什么,nothing,méi shénme
-某人,someone,mǒurén
-没人,nobody,méi rén
-所有,everything / all,suǒyǒu
+我,I / me,wǒ,{{我}}今天很高兴。
+你,you,nǐ,{{你}}什么时候有空？
+他,he / him,tā,{{他}}是我的好朋友。
+她,she / her,tā,{{她}}喜欢唱歌跳舞。
+它,it,tā,{{它}}是一只可爱的猫。
+我们,we / us,wǒmen,{{我们}}决定明天去旅游。
+你们,you all,nǐmen,{{你们}}什么时候来？
+他们,they / them,tāmen,{{他们}}都是我的同学。
+这,this,zhè,{{这}}件事很重要。
+那,that,nà,{{那}}是什么东西？
+什么,something / what,shénme,你在做{{什么}}呢？
+没什么,nothing,méi shénme,发生了什么事？{{没什么}}。
+某人,someone,mǒurén,{{某人}}给我留了一条信息。
+没人,nobody,méi rén,教室里{{没人}}，都放学了。
+所有,everything / all,suǒyǒu,{{所有}}学生都来参加了活动。
 # ── Numbers ──────────────────────────────────────────────────────────────────
-一,one,yī
-二,two,èr
-三,three,sān
-四,four,sì
-五,five,wǔ
-六,six,liù
-七,seven,qī
-八,eight,bā
-九,nine,jiǔ
-十,ten,shí
-十一,eleven,shíyī
-十二,twelve,shí'èr
-二十,twenty,èrshí
-三十,thirty,sānshí
-四十,forty,sìshí
-五十,fifty,wǔshí
-一百,one hundred,yībǎi
-一千,one thousand,yīqiān
-一万,ten thousand,yīwàn
-一百万,one million,yībǎiwàn
-第一,first,dì yī
+一,one,yī,我有{{一}}个梦想。
+二,two,èr,我{{二}}十岁了。
+三,three,sān,我们有{{三}}个小时的课。
+四,four,sì,{{四}}季的天气各不相同。
+五,five,wǔ,我每周运动{{五}}次。
+六,six,liù,他在{{六}}月份出生。
+七,seven,qī,这本书有{{七}}章。
+八,eight,bā,我{{八}}点钟起床。
+九,nine,jiǔ,我有{{九}}本书。
+十,ten,shí,这个东西要{{十}}块钱。
+十一,eleven,shíyī,假期有{{十一}}天长。
+十二,twelve,shí'èr,一年有{{十二}}个月。
+二十,twenty,èrshí,她今年{{二十}}岁。
+三十,thirty,sānshí,她今年{{三十}}岁了。
+四十,forty,sìshí,他的父亲{{四十}}多岁。
+五十,fifty,wǔshí,奶奶已经{{五十}}多岁。
+一百,one hundred,yībǎi,这本书有{{一百}}页。
+一千,one thousand,yīqiān,他存了{{一千}}块钱。
+一万,ten thousand,yīwàn,这辆车花了{{一万}}元。
+一百万,one million,yībǎiwàn,他赚了{{一百万}}。
+第一,first,dì yī,我是班级{{第一}}名。
 # ── Question words ───────────────────────────────────────────────────────────
-谁,who,shuí
-哪个,which,nǎ gè
-哪里,where,nǎlǐ
-什么时候,when,shénme shíhòu
-怎么,how,zěnme
-多少,how much / how many,duōshǎo
-为什么,why,wèishéme
+谁,who,shuí,{{谁}}想去公园玩？
+哪个,which,nǎ gè,你喜欢{{哪个}}颜色？
+哪里,where,nǎlǐ,你来自{{哪里}}？
+什么时候,when,shénme shíhòu,{{什么时候}}见面比较好？
+怎么,how,zěnme,这个题{{怎么}}做？
+多少,how much / how many,duōshǎo,苹果{{多少}}钱一斤？
+为什么,why,wèishéme,{{为什么}}你不来了？
 # ── More verbs ────────────────────────────────────────────────────────────────
-分享,to share,fēnxiǎng
-合作,to cooperate,hézuò
-谈判,to negotiate,tánpàn
-雇用,to hire,gùyòng
-出口,to export,chūkǒu
-进口,to import,jìnkǒu
-投票,to vote,tóupiào
-治理,to govern,zhìlǐ
-装饰,to decorate,zhuāngshì
-批准,to approve,pīzhǔn
-申请,to apply,shēnqǐng
-实现,to achieve,shíxiàn
-混合,to mix,hùnhé
-庆祝,to celebrate,qìngzhù
-抱怨,to complain,bàoyuàn
-原谅,to forgive,yuánliàng
-尝试,to attempt,chángshì
-分析,to analyse,fēnxī
-比较,to compare,bǐjiào
-讨论,to discuss,tǎolùn
-计划,to plan,jìhuà
-组织,to organize,zǔzhī
-控制,to control,kòngzhì
-量,to measure,liàng
-改善,to improve,gǎishàn
-装修,to renovate,zhuāngxiū
-维修,to repair,wéixiū
-连接,to connect,liánjie
-下载,to download,xiàzài
-上传,to upload,shàngchuán
-编程,to program,biānchéng
-设计,to design,shèjì
-发明,to invent,fāmíng
-发现,to discover,fāxiàn
-调查,to investigate,diàochá
-研究,to research,yánjiū
-享受,to enjoy,xiǎngshòu
-痛苦,to suffer,tòngkǔ
-照顾,to take care of,zhàogù
-营救,to rescue / to save,yíngjì
-变老,to age / to grow old,biànlǎo
+分享,to share,fēnxiǎng,我喜欢{{分享}}好东西。
+合作,to cooperate,hézuò,我们应该{{合作}}完成。
+谈判,to negotiate,tánpàn,两国正在{{谈判}}。
+雇用,to hire,gùyòng,公司{{雇用}}了十人。
+出口,to export,chūkǒu,中国{{出口}}很多商品。
+进口,to import,jìnkǒu,我们{{进口}}了石油。
+投票,to vote,tóupiào,大家{{投票}}选择领导。
+治理,to govern,zhìlǐ,政府要{{治理}}污染。
+装饰,to decorate,zhuāngshì,她{{装饰}}了新房间。
+批准,to approve,pīzhǔn,老板已{{批准}}了。
+申请,to apply,shēnqǐng,他{{申请}}了奖学金。
+实现,to achieve,shíxiàn,我要{{实现}}我的梦想。
+混合,to mix,hùnhé,请{{混合}}这两种颜色。
+庆祝,to celebrate,qìngzhù,我们{{庆祝}}新年。
+抱怨,to complain,bàoyuàn,不要{{抱怨}}太多。
+原谅,to forgive,yuánliàng,请{{原谅}}我的错误。
+尝试,to attempt,chángshì,你应该{{尝试}}一次。
+分析,to analyse,fēnxī,老师{{分析}}了这题。
+比较,to compare,bǐjiào,我们{{比较}}两个方案。
+讨论,to discuss,tǎolùn,他们在{{讨论}}问题。
+计划,to plan,jìhuà,我在{{计划}}假期。
+组织,to organize,zǔzhī,他{{组织}}了活动。
+控制,to control,kòngzhì,你要{{控制}}情绪。
+量,to measure,liàng,请{{量}}一下长度。
+改善,to improve,gǎishàn,要{{改善}}生活质量。
+装修,to renovate,zhuāngxiū,他们在{{装修}}房子。
+维修,to repair,wéixiū,我需要{{维修}}手机。
+连接,to connect,liánjie,请{{连接}}网络。
+下载,to download,xiàzài,我在{{下载}}文件。
+上传,to upload,shàngchuán,请{{上传}}照片。
+编程,to program,biānchéng,他在{{编程}}。
+设计,to design,shèjì,她{{设计}}了新衣服。
+发明,to invent,fāmíng,他{{发明}}了新东西。
+发现,to discover,fāxiàn,我{{发现}}了问题。
+调查,to investigate,diàochá,警察在{{调查}}案件。
+研究,to research,yánjiū,科学家{{研究}}新的医学方法。
+享受,to enjoy,xiǎngshòu,我{{享受}}和家人一起的时光。
+痛苦,to suffer,tòngkǔ,他经历了很多{{痛苦}}和困难。
+照顾,to take care of,zhàogù,母亲每天{{照顾}}年迈的父亲。
+营救,to rescue / to save,yíngjì,消防员{{营救}}了被困的小孩。
+变老,to age / to grow old,biànlǎo,时间流逝，我们都在{{变老}}。
 # ── More nouns — Society ──────────────────────────────────────────────────────
-民族,ethnicity / nationality,mínzú
-文明,civilization,wénmíng
-宗教,religion,zōngjiào
-哲学,philosophy,zhéxué
-经济,economy,jīngjì
-工业,industry,gōngyè
-农业,agriculture,nóngyè
-科技,science and technology,kējì
-医学,medicine (field),yīxué
-法学,law (study),fǎxué
-心理学,psychology,xīnlǐxué
-社会学,sociology,shèhuìxué
-人类学,anthropology,rénlèixué
-地质学,geology,dìzhìxué
-天文学,astronomy,tiānwénxué
-生物学,biology,shēngwùxué
-化学,chemistry,huàxué
-物理,physics,wùlǐ
-数字,digit / number,shùzì
-统计,statistics,tǒngjì
-通信,communication,tōngxìn
+民族,ethnicity / nationality,mínzú,中国有五十六个{{民族}}。
+文明,civilization,wénmíng,古埃及是一个伟大的{{文明}}。
+宗教,religion,zōngjiào,世界上有多种{{宗教}}信仰。
+哲学,philosophy,zhéxué,他喜欢研究古代{{哲学}}思想。
+经济,economy,jīngjì,国家的{{经济}}发展很迅速。
+工业,industry,gōngyè,{{工业}}革命改变了世界。
+农业,agriculture,nóngyè,{{农业}}是国家的重要产业。
+科技,science and technology,kējì,{{科技}}进步使生活更便利。
+医学,medicine (field),yīxué,她正在大学学习{{医学}}专业。
+法学,law (study),fǎxué,哥哥在学{{法学}}，想成为律师。
+心理学,psychology,xīnlǐxué,我对{{心理学}}很感兴趣。
+社会学,sociology,shèhuìxué,{{社会学}}研究人类社会现象。
+人类学,anthropology,rénlèixué,{{人类学}}家研究古代文明。
+地质学,geology,dìzhìxué,{{地质学}}帮助我们了解地球。
+天文学,astronomy,tiānwénxué,{{天文学}}研究宇宙和星星。
+生物学,biology,shēngwùxué,{{生物学}}课很有趣味。
+化学,chemistry,huàxué,高中{{化学}}课程很难。
+物理,physics,wùlǐ,他在{{物理}}考试中得了高分。
+数字,digit / number,shùzì,请告诉我那个{{数字}}是多少。
+统计,statistics,tǒngjì,根据最新{{统计}}，人口增加了。
+通信,communication,tōngxìn,现代{{通信}}技术发展很快。
 # ── More nouns — Home ─────────────────────────────────────────────────────────
-房间,room,fángjiān
-厨房,kitchen,chúfáng
-卫生间,bathroom,wèishēngjiān
-客厅,living room,kètīng
-卧室,bedroom,wòshì
-阳台,balcony,yángtái
-地下室,basement,dìxiàshì
-楼梯,staircase,lóutī
-电梯,lift / elevator,diàntī
-走廊,corridor,zǒuláng
-屋顶,roof,wūdǐng
-地基,foundation,dìjī
-暖气,heating,nuǎnqì
-空调,air conditioning,kōngtiáo
-烤箱,oven,kǎoxiāng
-微波炉,microwave,wēibōlú
-洗碗机,dishwasher,xǐwǎnjī
-书架,bookshelf,shūjià
-抽屉,drawer,chōuti
-衣柜,wardrobe,yīguì
-地毯,carpet / rug,dìtǎn
-窗帘,curtain,chuānglián
-毛巾,towel,máojīn
-被子,duvet / quilt,bèizi
-枕头,pillow,zhěntou
+房间,room,fángjiān,我的{{房间}}在楼上。
+厨房,kitchen,chúfáng,母亲在{{厨房}}准备晚餐。
+卫生间,bathroom,wèishēngjiān,{{卫生间}}的镜子很大。
+客厅,living room,kètīng,我们在{{客厅}}看电视。
+卧室,bedroom,wòshì,我的{{卧室}}很舒适温暖。
+阳台,balcony,yángtái,{{阳台}}上有很多花草。
+地下室,basement,dìxiàshì,地下室里放着旧{{地下室}}。
+楼梯,staircase,lóutī,我从{{楼梯}}上走下来。
+电梯,lift / elevator,diàntī,{{电梯}}坏了，我爬楼梯。
+走廊,corridor,zǒuláng,{{走廊}}的尽头是厕所。
+屋顶,roof,wūdǐng,{{屋顶}}被雪覆盖了。
+地基,foundation,dìjī,房子的{{地基}}很牢固。
+暖气,heating,nuǎnqì,冬天{{暖气}}让房间很温暖。
+空调,air conditioning,kōngtiáo,夏天我开{{空调}}降温。
+烤箱,oven,kǎoxiāng,我用{{烤箱}}烤蛋糕。
+微波炉,microwave,wēibōlú,{{微波炉}}可以快速加热食物。
+洗碗机,dishwasher,xǐwǎnjī,{{洗碗机}}能自动洗碗。
+书架,bookshelf,shūjià,{{书架}}上放着很多书。
+抽屉,drawer,chōuti,文具在{{抽屉}}里面。
+衣柜,wardrobe,yīguì,衣服都放在{{衣柜}}中。
+地毯,carpet / rug,dìtǎn,客厅的{{地毯}}很软。
+窗帘,curtain,chuānglián,{{窗帘}}挡住了强烈阳光。
+毛巾,towel,máojīn,浴室里有干净的{{毛巾}}。
+被子,duvet / quilt,bèizi,冬天我喜欢盖厚{{被子}}。
+枕头,pillow,zhěntou,我的{{枕头}}很舒服。
 # ── More nouns — Materials ────────────────────────────────────────────────────
-木材,wood (material),mùcái
-金属,metal,jīnshǔ
-塑料,plastic,sùliào
-玻璃,glass,bōlí
-布料,fabric / cloth,bùliào
-羊毛,wool,yángmáo
-棉,cotton,mián
-皮革,leather,pígé
-丝绸,silk,sīchóu
-钢,steel,gāng
-铁,iron,tiě
-铜,copper,tóng
-金,gold,jīn
-银,silver,yín
-钻石,diamond,zuànshí
-宝石,gemstone,bǎoshí
-砖,brick,zhuān
-水泥,cement,shuǐní
+木材,wood (material),mùcái,这张桌子用{{木材}}制成。
+金属,metal,jīnshǔ,{{金属}}可以导电。
+塑料,plastic,sùliào,塑料袋是{{塑料}}做的。
+玻璃,glass,bōlí,窗户用{{玻璃}}做的。
+布料,fabric / cloth,bùliào,这件衣服的{{布料}}很软。
+羊毛,wool,yángmáo,{{羊毛}}衣服很温暖。
+棉,cotton,mián,{{棉}}制品舒适透气。
+皮革,leather,pígé,这个包是{{皮革}}的。
+丝绸,silk,sīchóu,{{丝绸}}裙子很优雅。
+钢,steel,gāng,大桥用{{钢}}铁建造。
+铁,iron,tiě,这把刀是{{铁}}做的。
+铜,copper,tóng,铜币是用{{铜}}制成。
+金,gold,jīn,{{金}}项链很贵。
+银,silver,yín,{{银}}手镯闪闪发光。
+钻石,diamond,zuànshí,她的{{钻石}}戒指很漂亮。
+宝石,gemstone,bǎoshí,皇冠上镶着{{宝石}}。
+砖,brick,zhuān,房子用{{砖}}砌成。
+水泥,cement,shuǐní,地面用{{水泥}}铺的。
 # ── More nouns — Personal items ──────────────────────────────────────────────
-香水,perfume,xiāngshuǐ
-肥皂,soap,fèizào
-洗发水,shampoo,xǐfàshuǐ
-牙刷,toothbrush,yáshuā
-牙膏,toothpaste,yágāo
-刮刀,razor,guādāo
-梳子,comb,shūzi
-化妆品,cosmetics,huàzhuāngpǐn
-口红,lipstick,kǒuhóng
-背包,backpack,bèibāo
-戒指,ring,jièzhi
-项链,necklace,xiàngliàn
-耳环,earring,ěrhuán
+香水,perfume,xiāngshuǐ,她喷了{{香水}}。
+肥皂,soap,fèizào,用{{肥皂}}洗手。
+洗发水,shampoo,xǐfàshuǐ,我每天用{{洗发水}}。
+牙刷,toothbrush,yáshuā,用{{牙刷}}刷牙。
+牙膏,toothpaste,yágāo,{{牙膏}}可以美白牙齿。
+刮刀,razor,guādāo,他用{{刮刀}}刮胡子。
+梳子,comb,shūzi,用{{梳子}}梳头。
+化妆品,cosmetics,huàzhuāngpǐn,她买了很多{{化妆品}}。
+口红,lipstick,kǒuhóng,她涂了红色{{口红}}。
+背包,backpack,bèibāo,我背着{{背包}}去旅行。
+戒指,ring,jièzhi,她戴着{{戒指}}。
+项链,necklace,xiàngliàn,她的{{项链}}很漂亮。
+耳环,earring,ěrhuán,她戴着金色{{耳环}}。
 # ── More nouns — Transport ────────────────────────────────────────────────────
-高铁,high-speed rail,gāotiě
-轮船,ocean liner,lúnchuán
-直升机,helicopter,zhíshēngjī
-港口,port / harbour,gǎngkǒu
-码头,pier / wharf,mǎtóu
-高速公路,motorway / highway,gāosù gōnglù
-交叉口,intersection,jiāochākǒu
-红绿灯,traffic light,hónglǜdēng
-停车场,car park,tíngchē chǎng
-加油站,petrol station,jiāyóu zhàn
+高铁,high-speed rail,gāotiě,坐{{高铁}}很快。
+轮船,ocean liner,lúnchuán,我们乘坐{{轮船}}。
+直升机,helicopter,zhíshēngjī,{{直升机}}在空中飞行。
+港口,port / harbour,gǎngkǒu,船到了{{港口}}。
+码头,pier / wharf,mǎtóu,我们在{{码头}}等待。
+高速公路,motorway / highway,gāosù gōnglù,{{高速公路}}很宽敞。
+交叉口,intersection,jiāochākǒu,{{交叉口}}很繁忙。
+红绿灯,traffic light,hónglǜdēng,{{红绿灯}}亮了。
+停车场,car park,tíngchē chǎng,汽车停在{{停车场}}。
+加油站,petrol station,jiāyóu zhàn,我在{{加油站}}加油。
 # ── More nouns — Health ───────────────────────────────────────────────────────
-血压,blood pressure,xuèyā
-体温,body temperature,tǐwēn
-脉搏,pulse,màibó
-病毒,virus,bìngdú
-细菌,bacteria,xìjùn
-免疫,immunity,miǎnyì
-治疗,therapy / treatment,zhìliáo
-手术室,operating room,shǒushù shì
-急救,first aid,jíjiù
-救护车,ambulance,jiùhù chē
+血压,blood pressure,xuèyā,医生测量我的{{血压}}。
+体温,body temperature,tǐwēn,他的{{体温}}正常。
+脉搏,pulse,màibó,医生摸了他的{{脉搏}}。
+病毒,virus,bìngdú,电脑中了{{病毒}}需要清理。
+细菌,bacteria,xìjùn,{{细菌}}会导致感染。
+免疫,immunity,miǎnyì,{{免疫}}力很重要。
+治疗,therapy / treatment,zhìliáo,医生给他{{治疗}}。
+手术室,operating room,shǒushù shì,医生在{{手术室}}里进行了手术。
+急救,first aid,jíjiù,他接受了{{急救}}培训课程。
+救护车,ambulance,jiùhù chē,{{救护车}}迅速赶到了事故现场。
 # ── More nouns — Education ────────────────────────────────────────────────────
-课程,curriculum / course,kèchéng
-讲座,lecture,jiǎngzuò
-论文,thesis / paper,lùnwén
-奖学金,scholarship,jiǎngxuéjīn
-学费,tuition fee,xuéfèi
-校园,campus,xiàoyuán
-实验室,laboratory,shíyàn shì
-图书,books / literature,túshū
-笔记,notes,bǐjì
-词典,dictionary,cídiǎn
+课程,curriculum / course,kèchéng,这个{{课程}}很有趣又实用。
+讲座,lecture,jiǎngzuò,教授明天举办一场学术{{讲座}}。
+论文,thesis / paper,lùnwén,她的{{论文}}获得了优秀奖。
+奖学金,scholarship,jiǎngxuéjīn,他获得了一笔丰厚的{{奖学金}}。
+学费,tuition fee,xuéfèi,今年的{{学费}}比去年贵。
+校园,campus,xiàoyuán,{{校园}}里有许多绿色植物。
+实验室,laboratory,shíyàn shì,学生们在{{实验室}}做化学实验。
+图书,books / literature,túshū,图书馆有很多珍贵的{{图书}}。
+笔记,notes,bǐjì,我的{{笔记}}记录了课堂内容。
+词典,dictionary,cídiǎn,查{{词典}}可以学习新单词。
 # ── More nouns — Work ─────────────────────────────────────────────────────────
-职业,profession / career,zhíyè
-简历,CV / résumé,jiǎnlì
-面试,interview,miànshì
-协议,agreement,xiéyì
-会议,meeting,huìyì
-报告,report,bàogào
-项目,project,xiàngmù
-目标,objective / goal,mùbiāo
-截止日期,deadline,jiézhǐ rìqī
-薪资,remuneration,xīnzī
-奖金,bonus,jiǎngjīn
-福利,benefits / welfare,fúlì
-假期,holiday / leave,jiàqī
-办公室,office,bàngōngshì
-文件,document / file,wénjiàn
-合伙人,partner,héhuǒrén
-客户,client / customer,kèhù
-供应商,supplier,gōngyīng shāng
+职业,profession / career,zhíyè,他选择了教师这个{{职业}}。
+简历,CV / résumé,jiǎnlì,请准备一份详细的{{简历}}。
+面试,interview,miànshì,我明天参加重要的{{面试}}。
+协议,agreement,xiéyì,双方签署了商业{{协议}}。
+会议,meeting,huìyì,我们召开了一次紧急{{会议}}。
+报告,report,bàogào,经理提交了季度{{报告}}。
+项目,project,xiàngmù,这个{{项目}}需要三个月完成。
+目标,objective / goal,mùbiāo,我们的{{目标}}是提高销售额。
+截止日期,deadline,jiézhǐ rìqī,申请的{{截止日期}}是下周五。
+薪资,remuneration,xīnzī,我的{{薪资}}每月准时发放。
+奖金,bonus,jiǎngjīn,员工获得了年终{{奖金}}。
+福利,benefits / welfare,fúlì,公司提供良好的员工{{福利}}。
+假期,holiday / leave,jiàqī,我计划在{{假期}}去旅游。
+办公室,office,bàngōngshì,他在十楼的{{办公室}}里工作。
+文件,document / file,wénjiàn,请把这份{{文件}}保存好。
+合伙人,partner,héhuǒrén,他和朋友成为了商业{{合伙人}}。
+客户,client / customer,kèhù,我们需要满足每个{{客户}}的需求。
+供应商,supplier,gōngyīng shāng,公司与多个{{供应商}}合作。
 # ── More nouns — Finance ──────────────────────────────────────────────────────
-股票,stock / shares,gǔpiào
-债务,debt,zhàiwù
-贷款,loan,dàikuǎn
-利率,interest rate,lìlǜ
-通货膨胀,inflation,tōnghuò péngzhàng
-汇率,exchange rate,huìlǜ
-账户,account,zhànghù
-存款,deposit / savings,cúnkuǎn
-支出,expenditure,zhīchū
-收入,income / revenue,shōurù
-亏损,loss / deficit,kuīsǔn
-审计,audit,shěnjì
-发票,invoice,fāpiào
-收据,receipt,shōujù
+股票,stock / shares,gǔpiào,他投资了几支优质{{股票}}。
+债务,debt,zhàiwù,公司需要偿还大量{{债务}}。
+贷款,loan,dàikuǎn,他申请了一笔住房{{贷款}}。
+利率,interest rate,lìlǜ,银行的{{利率}}最近上升了。
+通货膨胀,inflation,tōnghuò péngzhàng,{{通货膨胀}}影响了物价上涨。
+汇率,exchange rate,huìlǜ,人民币{{汇率}}今天下跌了。
+账户,account,zhànghù,请检查您的银行{{账户}}。
+存款,deposit / savings,cúnkuǎn,他的{{存款}}放在银行里。
+支出,expenditure,zhīchū,每月的家庭{{支出}}很大。
+收入,income / revenue,shōurù,他的月{{收入}}相当不错。
+亏损,loss / deficit,kuīsǔn,去年公司遭受了严重{{亏损}}。
+审计,audit,shěnjì,财务部进行了年度{{审计}}。
+发票,invoice,fāpiào,请出具这笔交易的{{发票}}。
+收据,receipt,shōujù,购物时要保留好{{收据}}。
 # ── More nouns — Technology ───────────────────────────────────────────────────
-人工智能,artificial intelligence,réngōng zhìnéng
-大数据,big data,dà shùjù
-云计算,cloud computing,yún jìsuàn
-区块链,blockchain,qūkuài liàn
-机器人,robot,jīqìrén
-无人机,drone,wúrénjī
-虚拟现实,virtual reality,xūnǐ xiànshí
-增强现实,augmented reality,zēngqiáng xiànshí
-社交媒体,social media,shèjiāo méitǐ
-搜索引擎,search engine,sōusuǒ yǐnqíng
-网站,website,wǎngzhàn
-电子邮件,email,diànzǐ yóujiàn
-黑客,hacker,hēikè
-病毒 (电脑),computer virus,bìngdú
+人工智能,artificial intelligence,réngōng zhìnéng,{{人工智能}}正在改变世界。
+大数据,big data,dà shùjù,{{大数据}}分析帮助企业决策。
+云计算,cloud computing,yún jìsuàn,许多公司采用{{云计算}}技术。
+区块链,blockchain,qūkuài liàn,{{区块链}}技术很有发展潜力。
+机器人,robot,jīqìrén,工厂里使用了先进的{{机器人}}。
+无人机,drone,wúrénjī,他用{{无人机}}拍摄了城市风景。
+虚拟现实,virtual reality,xūnǐ xiànshí,我体验了新的{{虚拟现实}}游戏。
+增强现实,augmented reality,zēngqiáng xiànshí,这个应用使用{{增强现实}}技术。
+社交媒体,social media,shèjiāo méitǐ,年轻人喜欢在{{社交媒体}}上分享。
+搜索引擎,search engine,sōusuǒ yǐnqíng,我用{{搜索引擎}}找信息。
+网站,website,wǎngzhàn,这个{{网站}}很有用。
+电子邮件,email,diànzǐ yóujiàn,请发{{电子邮件}}给我。
+黑客,hacker,hēikè,{{黑客}}入侵了公司系统。
+病毒 (电脑),computer virus,bìngdú,我的电脑感染了{{病毒}}。
 # ── More nouns — Culture & Traditions ────────────────────────────────────────
-汉字,Chinese character,hànzì
-书法,calligraphy,shūfǎ
-国画,Chinese painting,guóhuà
-陶瓷,porcelain / ceramics,táocí
-功夫,kung fu / martial arts,gōngfū
-太极,tai chi,tàijí
-茶道,tea ceremony,chádào
-春节,Chinese New Year,chūnjié
-中秋节,Mid-Autumn Festival,zhōngqiū jié
-端午节,Dragon Boat Festival,duānwǔ jié
-七夕节,Qixi Festival,qīxī jié
-元宵节,Lantern Festival,yuánxiāo jié
-舞龙,dragon dance,wǔ lóng
-舞狮,lion dance,wǔ shī
-红包,red envelope (gift),hóngbāo
-对联,Spring Festival couplet,duìlián
-灯笼,lantern,dēnglóng
-鞭炮,firecracker,biānpào
+汉字,Chinese character,hànzì,学习{{汉字}}需要多练习。
+书法,calligraphy,shūfǎ,他的{{书法}}写得很漂亮。
+国画,Chinese painting,guóhuà,美术馆展出了古代{{国画}}。
+陶瓷,porcelain / ceramics,táocí,这个{{陶瓷}}花瓶很贵重。
+功夫,kung fu / martial arts,gōngfū,他练习中国{{功夫}}多年。
+太极,tai chi,tàijí,早上我们一起练{{太极}}。
+茶道,tea ceremony,chádào,她精通传统{{茶道}}礼仪。
+春节,Chinese New Year,chūnjié,全家人一起庆祝{{春节}}。
+中秋节,Mid-Autumn Festival,zhōngqiū jié,{{中秋节}}我们赏月吃饼。
+端午节,Dragon Boat Festival,duānwǔ jié,{{端午节}}人们划龙舟。
+七夕节,Qixi Festival,qīxī jié,{{七夕节}}是情人的节日。
+元宵节,Lantern Festival,yuánxiāo jié,{{元宵节}}时挂满彩灯。
+舞龙,dragon dance,wǔ lóng,春节期间人们{{舞龙}}庆祝。
+舞狮,lion dance,wǔ shī,街上有精彩的{{舞狮}}表演。
+红包,red envelope (gift),hóngbāo,过年时长辈给孩子{{红包}}。
+对联,Spring Festival couplet,duìlián,门上贴着新年{{对联}}。
+灯笼,lantern,dēnglóng,节日里挂满了红{{灯笼}}。
+鞭炮,firecracker,biānpào,放{{鞭炮}}声音很大。
 # ── More adjectives ───────────────────────────────────────────────────────────
-复杂,complex / complicated,fùzá
-简单,simple,jiǎndān
-直接,direct,zhíjiē
-间接,indirect,jiànjiē
-明显,obvious / clear,míngxiǎn
-隐藏,hidden,yǐncáng
-公平,fair,gōngpíng
-不公平,unfair,bù gōngpíng
-合理,reasonable,hélǐ
-不合理,unreasonable,bù hélǐ
-合法,legal,héfǎ
-非法,illegal,fēifǎ
-临时,temporary,línshí
-永久,permanent,yǒngjiǔ
-紧急,urgent,jǐnjí
-可持续,sustainable,kě chíxù
-有效,effective / valid,yǒuxiào
-无效,ineffective / invalid,wúxiào
-充分,sufficient,chōngfèn
-不足,insufficient,bùzú
-丰富,abundant / rich,fēngfù
-稀少,scarce / rare,xīshǎo
+复杂,complex / complicated,fùzá,这个问题很{{复杂}}。
+简单,simple,jiǎndān,解决办法很{{简单}}。
+直接,direct,zhíjiē,他{{直接}}告诉我真相。
+间接,indirect,jiànjiē,这是{{间接}}的表达方式。
+明显,obvious / clear,míngxiǎn,他{{明显}}不开心。
+隐藏,hidden,yǐncáng,{{隐藏}}的文件找不到。
+公平,fair,gōngpíng,规则很{{公平}}。
+不公平,unfair,bù gōngpíng,这个决定很{{不公平}}。
+合理,reasonable,hélǐ,他的想法很{{合理}}。
+不合理,unreasonable,bù hélǐ,这个要求{{不合理}}。
+合法,legal,héfǎ,这样做是{{合法}}的。
+非法,illegal,fēifǎ,{{非法}}买卖会被处罚。
+临时,temporary,línshí,这是一份{{临时}}工作。
+永久,permanent,yǒngjiǔ,我们需要{{永久}}的解决方案。
+紧急,urgent,jǐnjí,这件事很{{紧急}}。
+可持续,sustainable,kě chíxù,环保是{{可持续}}发展的关键。
+有效,effective / valid,yǒuxiào,这个方法很{{有效}}。
+无效,ineffective / invalid,wúxiào,这个治疗方法{{无效}}。
+充分,sufficient,chōngfèn,证据很{{充分}}。
+不足,insufficient,bùzú,时间{{不足}}完成任务。
+丰富,abundant / rich,fēngfù,这本书内容{{丰富}}。
+稀少,scarce / rare,xīshǎo,这种植物很{{稀少}}。
 # ── More adverbs ──────────────────────────────────────────────────────────────
-经常,often / frequently,jīngcháng
-偶尔,occasionally,ǒu'ěr
-从不,never,cóng bù
-有时,sometimes,yǒushí
-立刻,immediately,lìkè
-慢慢地,slowly,màn màn de
-仔细地,carefully,zǐxì de
-明显地,obviously,míngxiǎn de
-大概,probably / approximately,dàgài
-实际上,actually / in fact,shíjì shang
-总共,altogether / in total,zǒnggòng
-分别,separately / respectively,fēnbié
-互相,mutually / each other,hùxiāng
-直接地,directly,zhíjiē de
-间接地,indirectly,jiànjiē de
-飓风,hurricane,jùfēng
-龙卷风,tornado,lóng juǎn fēng
-火山,volcano,huǒshān
-雪崩,avalanche,xuě bēng
-泥石流,mudslide,ní shí liú
-野火,wildfire,yěhuǒ
-烟,smoke,yān
-灰尘,ash / dust,huīchén
-煤炭,coal,méitàn
-石油,petroleum / oil,shíyóu
-铝,aluminium,lǚ
-锌,zinc,xīn
-铅,lead (metal),qiān
-腰带,belt,yāodài
-太阳镜,sunglasses,tàiyáng jìng
-肝脏,liver,gānzàng
-肾脏,kidney,shènzàng
-膀胱,bladder,pángguāng
-食道,oesophagus,shídào
-肠子,intestine,chángzi
-拇指,thumb,mǔzhǐ
-食指,index finger,shízhǐ
-中指,middle finger,zhōngzhǐ
-无名指,ring finger,wúmíng zhǐ
-小指,little finger,xiǎozhǐ
-脚踝,ankle,jiǎohuái
-脚趾,toe,jiǎozhǐ
-额头,forehead,étóu
-下巴,chin,xiàba
-脸颊,cheek,liǎnjiá
-眉毛,eyebrow,méimao
-睫毛,eyelash,jiémáo
-腋下,armpit,yèxia
-手腕,wrist,shǒuwàn
-阳光,sunlight,yángguāng
-月光,moonlight,yuèguāng
-彩虹,rainbow,cǎihóng
-露水,dew,lùshuǐ
-潮水,tide,cháoshuǐ
-沙漠,desert,shāmò
-草原,grassland / steppe,cǎoyuán
-丛林,jungle,cónglín
-热带,tropics,rèdài
-极地,polar region,jídì
-海峡,strait / channel,hǎixiá
-半岛,peninsula,bàndǎo
-岛屿,island,dǎoyǔ
-海湾,bay / gulf,hǎiwān
-峡谷,canyon / gorge,xiágǔ
-平原,plain / flatland,píngyuán
-高原,plateau,gāoyuán
-盆地,basin,péndì
-三角洲,delta,sānjiǎozhōu
-瀑布,waterfall,pùbù
-温泉,hot spring,wēnquán
-洞穴,cave,dòngxué
-悬崖,cliff,xuányá
-沙丘,sand dune,shāqiū
-冰川,glacier,bīngchuān
-沼泽,swamp,zhǎozé
-珊瑚礁,coral reef,shānhú jiāo
-海藻,seaweed,hǎizǎo
-钢铁,steel and iron,gāngtiě
-混凝土,concrete,hùnníngtǔ
-橡胶,rubber,xiàngjiāo
-玉,jade,yù
-翡翠,emerald / jade,fěicuì
-琥珀,amber,hǔpò
-象牙,ivory,xiàngyá
-虎皮,tiger skin,hǔpí
-羽毛,feather,yǔmáo
-贝壳,shell,bèiké
-珍珠,pearl,zhēnzhū
-珊瑚,coral,shānhú
-琉璃,coloured glaze,liúlí
-烟花,fireworks,yānhuā
-爆竹,firecracker,bàozhú
-灯谜,lantern riddle,dēng mí
-烟花爆竹,fireworks and firecrackers,yānhuā bàozhú
-元宵,sweet rice ball,yuánxiāo
-汤圆,glutinous rice ball,tāngyuán
-月饼,mooncake,yuèbǐng
-粽子,rice dumpling (zongzi),zòngzi
-腊肉,cured meat,làròu
-火锅,hot pot,huǒguō
-烤鸭,roast duck,kǎoyā
+经常,often / frequently,jīngcháng,我{{经常}}去图书馆。
+偶尔,occasionally,ǒu'ěr,我{{偶尔}}会去公园散步。
+从不,never,cóng bù,她{{从不}}迟到工作。
+有时,sometimes,yǒushí,{{有时}}下午会下雨。
+立刻,immediately,lìkè,听到声音我{{立刻}}转身。
+慢慢地,slowly,màn màn de,他{{慢慢地}}走下楼梯。
+仔细地,carefully,zǐxì de,请{{仔细地}}阅读说明书。
+明显地,obviously,míngxiǎn de,她{{明显地}}不高兴了。
+大概,probably / approximately,dàgài,会议{{大概}}需要两小时。
+实际上,actually / in fact,shíjì shang,{{实际上}}我已经准备好了。
+总共,altogether / in total,zǒnggòng,今年{{总共}}赚了十万块。
+分别,separately / respectively,fēnbié,他们{{分别}}去了不同城市。
+互相,mutually / each other,hùxiāng,朋友们{{互相}}帮助彼此。
+直接地,directly,zhíjiē de,我{{直接地}}告诉了他真相。
+间接地,indirectly,jiànjiē de,她{{间接地}}表达了不满。
+飓风,hurricane,jùfēng,{{飓风}}摧毁了许多房屋。
+龙卷风,tornado,lóng juǎn fēng,{{龙卷风}}突然袭击小镇。
+火山,volcano,huǒshān,{{火山}}喷发了熔岩。
+雪崩,avalanche,xuě bēng,{{雪崩}}危险非常高。
+泥石流,mudslide,ní shí liú,山区发生了{{泥石流}}。
+野火,wildfire,yěhuǒ,{{野火}}蔓延到森林。
+烟,smoke,yān,房间里充满了{{烟}}。
+灰尘,ash / dust,huīchén,桌子上有很多{{灰尘}}。
+煤炭,coal,méitàn,工厂燃烧{{煤炭}}发电。
+石油,petroleum / oil,shíyóu,{{石油}}价格上升了。
+铝,aluminium,lǚ,罐子是用{{铝}}制成的。
+锌,zinc,xīn,镀{{锌}}钢更耐锈蚀。
+铅,lead (metal),qiān,{{铅}}是一种有毒金属。
+腰带,belt,yāodài,他系上了黑色{{腰带}}。
+太阳镜,sunglasses,tàiyáng jìng,戴{{太阳镜}}保护眼睛。
+肝脏,liver,gānzàng,医生检查了他的{{肝脏}}。
+肾脏,kidney,shènzàng,{{肾脏}}过滤血液中的废物。
+膀胱,bladder,pángguāng,{{膀胱}}储存尿液。
+食道,oesophagus,shídào,食物通过{{食道}}进入胃。
+肠子,intestine,chángzi,{{肠子}}吸收营养物质。
+拇指,thumb,mǔzhǐ,用{{拇指}}按下按钮。
+食指,index finger,shízhǐ,{{食指}}指向前方。
+中指,middle finger,zhōngzhǐ,{{中指}}是最长的手指。
+无名指,ring finger,wúmíng zhǐ,在{{无名指}}上戴戒指。
+小指,little finger,xiǎozhǐ,{{小指}}最小最短。
+脚踝,ankle,jiǎohuái,她扭伤了{{脚踝}}。
+脚趾,toe,jiǎozhǐ,{{脚趾}}在鞋子里。
+额头,forehead,étóu,汗水流过他的{{额头}}。
+下巴,chin,xiàba,他的{{下巴}}很尖锐。
+脸颊,cheek,liǎnjiá,婴儿的{{脸颊}}很圆润。
+眉毛,eyebrow,méimao,她的{{眉毛}}很浓密。
+睫毛,eyelash,jiémáo,长长的{{睫毛}}很漂亮。
+腋下,armpit,yèxia,{{腋下}}出了很多汗。
+手腕,wrist,shǒuwàn,我在{{手腕}}上戴手表。
+阳光,sunlight,yángguāng,{{阳光}}透过窗户照进来。
+月光,moonlight,yuèguāng,{{月光}}照亮了整个夜晚。
+彩虹,rainbow,cǎihóng,雨后天空出现了美丽的{{彩虹}}。
+露水,dew,lùshuǐ,清晨草叶上有晶莹的{{露水}}。
+潮水,tide,cháoshuǐ,{{潮水}}每天都会涨落。
+沙漠,desert,shāmò,骆驼在{{沙漠}}中行走。
+草原,grassland / steppe,cǎoyuán,马儿在广阔的{{草原}}上奔跑。
+丛林,jungle,cónglín,探险家穿过茂密的{{丛林}}。
+热带,tropics,rèdài,菠萝是{{热带}}水果。
+极地,polar region,jídì,企鹅生活在{{极地}}。
+海峡,strait / channel,hǎixiá,船只通过{{海峡}}。
+半岛,peninsula,bàndǎo,韩国是一个{{半岛}}国家。
+岛屿,island,dǎoyǔ,我们去了一个美丽的{{岛屿}}。
+海湾,bay / gulf,hǎiwān,船停泊在{{海湾}}里。
+峡谷,canyon / gorge,xiágǔ,{{峡谷}}风景非常壮观。
+平原,plain / flatland,píngyuán,农民在{{平原}}上种地。
+高原,plateau,gāoyuán,西藏{{高原}}空气稀薄。
+盆地,basin,péndì,四川{{盆地}}气候温暖。
+三角洲,delta,sānjiǎozhōu,长江{{三角洲}}很发达。
+瀑布,waterfall,pùbù,黄河{{瀑布}}声势浩大。
+温泉,hot spring,wēnquán,我们去泡{{温泉}}了。
+洞穴,cave,dòngxué,蝙蝠住在黑暗的{{洞穴}}。
+悬崖,cliff,xuányá,山顶有陡峭的{{悬崖}}。
+沙丘,sand dune,shāqiū,{{沙丘}}在沙漠中形成。
+冰川,glacier,bīngchuān,{{冰川}}正在融化。
+沼泽,swamp,zhǎozé,{{沼泽}}里有很多青蛙。
+珊瑚礁,coral reef,shānhú jiāo,潜水员探索了{{珊瑚礁}}。
+海藻,seaweed,hǎizǎo,海里有很多{{海藻}}。
+钢铁,steel and iron,gāngtiě,大桥用{{钢铁}}建造。
+混凝土,concrete,hùnníngtǔ,房子用{{混凝土}}浇筑。
+橡胶,rubber,xiàngjiāo,轮胎是用{{橡胶}}做的。
+玉,jade,yù,她戴着一块美丽的{{玉}}。
+翡翠,emerald / jade,fěicuì,这个手镯是{{翡翠}}的。
+琥珀,amber,hǔpò,{{琥珀}}是古代树脂化石。
+象牙,ivory,xiàngyá,{{象牙}}很珍贵。
+虎皮,tiger skin,hǔpí,地上铺着{{虎皮}}。
+羽毛,feather,yǔmáo,鸟的{{羽毛}}很漂亮。
+贝壳,shell,bèiké,海滩上有许多{{贝壳}}。
+珍珠,pearl,zhēnzhū,项链上镶着{{珍珠}}。
+珊瑚,coral,shānhú,{{珊瑚}}是海洋生物。
+琉璃,coloured glaze,liúlí,寺庙的瓦是{{琉璃}}的。
+烟花,fireworks,yānhuā,春节放{{烟花}}很漂亮。
+爆竹,firecracker,bàozhú,新年要放{{爆竹}}。
+灯谜,lantern riddle,dēng mí,我们一起猜{{灯谜}}。
+烟花爆竹,fireworks and firecrackers,yānhuā bàozhú,{{烟花爆竹}}照亮了夜空。
+元宵,sweet rice ball,yuánxiāo,元宵节吃{{元宵}}。
+汤圆,glutinous rice ball,tāngyuán,冬至我们吃{{汤圆}}。
+月饼,mooncake,yuèbǐng,中秋节吃{{月饼}}。
+粽子,rice dumpling (zongzi),zòngzi,端午节吃{{粽子}}。
+腊肉,cured meat,làròu,冬天腌制{{腊肉}}。
+火锅,hot pot,huǒguō,冬天吃{{火锅}}很暖和。
+烤鸭,roast duck,kǎoyā,北京{{烤鸭}}很有名。

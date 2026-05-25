@@ -55,7 +55,7 @@ class QuizSession(Base):
     answers: Mapped[list["QuizAnswer"]] = relationship("QuizAnswer", back_populates="session")
 
     __table_args__ = (
-        CheckConstraint("mode IN ('mcq','typing','flashcard')", name="ck_quiz_sessions_mode"),
+        CheckConstraint("mode IN ('mcq','typing','flashcard','cloze')", name="ck_quiz_sessions_mode"),
         CheckConstraint("scope IN ('test','big_test','review')", name="ck_quiz_sessions_scope"),
         CheckConstraint(
             "direction IN ('1_only','2_only','3_only','4_only','1_and_2','all_available','random')",

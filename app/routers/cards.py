@@ -93,8 +93,9 @@ def update_card(
         card.idempotency_key = new_key
         card.word = body.word
 
-    card.meaning = body.meaning
-    card.native = body.native.strip() or None
+    card.meaning  = body.meaning
+    card.native   = body.native.strip() or None
+    card.sentence = body.sentence.strip() or None
     db.commit()
     db.refresh(card)
     return card

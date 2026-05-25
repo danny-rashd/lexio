@@ -1,5 +1,6 @@
 import json
 import random
+import re
 from datetime import datetime, timezone
 
 from fastapi import APIRouter, Depends, HTTPException, status
@@ -27,7 +28,7 @@ from app.utils.hint import first_and_last, generate_letter_mask, next_reveal
 
 router = APIRouter(prefix="/api/quiz", tags=["quiz"])
 
-_VALID_MODES = {"mcq", "typing", "flashcard"}
+_VALID_MODES = {"mcq", "typing", "flashcard", "cloze"}
 _VALID_SCOPES = {"test", "big_test", "review"}
 _VALID_DIRECTIONS = {"1_only", "2_only", "3_only", "4_only", "1_and_2", "all_available", "random"}
 
@@ -48,6 +49,8 @@ def _next_card(db: Session, session: QuizSession, answered: set[int]) -> Card | 
         return None
 
     query = db.query(Card).filter(Card.is_active.is_(True))
+    if session.mode == "cloze":
+        query = query.filter(Card.sentence.isnot(None))
     if session.scope == "test":
         query = query.filter(Card.deck_id == session.deck_id)
     elif session.scope == "big_test" and session.language_filter:
@@ -92,6 +95,16 @@ def _build_question(db: Session, session: QuizSession, card: Card, user_id: int)
         else:
             q["question"] = card.native or card.word
 
+    elif session.mode == "cloze":
+        sentence = card.sentence or ""
+        q = {
+            "type": "cloze",
+            "card_id": card.id,
+            "question": re.sub(r'\{\{.+?\}\}', '___', sentence),
+            "correct_answer": card.word,
+            "native": card.native,
+        }
+
     else:
         q = build_typing_question(card, direction)
 
@@ -102,6 +115,10 @@ def _build_question(db: Session, session: QuizSession, card: Card, user_id: int)
         q["speak_text"] = card.word
     else:
         q["speak_text"] = card.native or card.word
+    # Include sentence for all modes so the frontend can show it on reveal/feedback.
+    # For cloze the sentence is already the question, so skip it to avoid duplication.
+    if session.mode != "cloze":
+        q["sentence"] = card.sentence
     return q
 
 
@@ -119,6 +136,11 @@ def _evaluate(
 
     if mode == "flashcard":
         is_correct = (user_answer or "").lower().strip() in ("hard", "good", "easy")
+        return is_correct, server_correct
+
+    if mode == "cloze":
+        server_correct = card.word
+        is_correct = check_answer(user_answer or "", server_correct)
         return is_correct, server_correct
 
     is_correct = check_answer(user_answer or "", server_correct)
@@ -166,6 +188,12 @@ def start_quiz(
                 cards = select_cards_for_test(db, body.deck_id, body.card_count)
         else:
             cards = select_cards_for_big_test(db, body.card_count, languages=body.languages or None, user_id=current_user.id)
+
+        if mode == "cloze":
+            cards = [c for c in cards if c.sentence]
+            if not cards:
+                raise HTTPException(status_code=400, detail="No cards with example sentences in this deck. Run the sentence generation script first.")
+
         if not cards:
             raise HTTPException(status_code=400, detail="No active cards available for this session")
 
