@@ -2,6 +2,7 @@
   "name": "Lexio",
   "short_name": "Lexio",
   "description": "Smart language flashcard app",
+  "id": "/",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
