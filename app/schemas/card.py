@@ -20,6 +20,12 @@ class CardCreate(BaseModel):
     source_log_id: int | None = None
 
 
+class CardUpdate(BaseModel):
+    word: str
+    meaning: str
+    native: str = ''
+
+
 class CardResponse(BaseModel):
     id: int
     deck_id: int

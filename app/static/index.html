@@ -740,6 +740,29 @@
   </div>
 </div>
 
+<div id="card-edit-modal-overlay" class="modal-overlay hidden" role="dialog" aria-modal="true">
+  <div class="modal-box card">
+    <p class="modal-message">Edit Card</p>
+    <div class="field-group" style="margin-top:.75rem">
+      <label for="card-edit-word">Word</label>
+      <input id="card-edit-word" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    </div>
+    <div class="field-group">
+      <label for="card-edit-meaning">Meaning</label>
+      <input id="card-edit-meaning" type="text" autocomplete="off" autocorrect="off">
+    </div>
+    <div class="field-group">
+      <label for="card-edit-native">Native script <span class="text-secondary">(optional)</span></label>
+      <input id="card-edit-native" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    </div>
+    <p id="card-edit-err" class="error hidden" style="margin-top:.5rem"></p>
+    <div class="modal-actions" style="margin-top:1rem">
+      <button id="card-edit-cancel" class="btn-ghost">Cancel</button>
+      <button id="card-edit-save" class="btn-primary">Save</button>
+    </div>
+  </div>
+</div>
+
 <div id="goal-modal-overlay" class="modal-overlay hidden" role="dialog" aria-modal="true">
   <div class="modal-box card">
     <p class="modal-message">Daily card goal</p>

@@ -1,7 +1,50 @@
 'use strict';
 
-self.addEventListener('install',  () => self.skipWaiting());
-self.addEventListener('activate', e  => e.waitUntil(clients.claim()));
+const CACHE = 'lexio-v1';
+const STATIC = [
+  '/',
+  '/app.js',
+  '/style.css',
+  '/manifest.json',
+  '/icons/icon-192.png',
+  '/icons/icon-512.png',
+  '/icons/icon-180.png',
+];
+
+self.addEventListener('install', e => {
+  e.waitUntil(
+    caches.open(CACHE)
+      .then(c => c.addAll(STATIC))
+      .then(() => self.skipWaiting())
+  );
+});
+
+self.addEventListener('activate', e => {
+  e.waitUntil(
+    caches.keys()
+      .then(keys => Promise.all(
+        keys.filter(k => k !== CACHE).map(k => caches.delete(k))
+      ))
+      .then(() => clients.claim())
+  );
+});
+
+self.addEventListener('fetch', e => {
+  const { request } = e;
+  const url = new URL(request.url);
+
+  if (request.method !== 'GET' || url.pathname.startsWith('/api/')) return;
+
+  e.respondWith(
+    caches.match(request).then(cached => {
+      const network = fetch(request).then(res => {
+        if (res.ok) caches.open(CACHE).then(c => c.put(request, res.clone()));
+        return res;
+      }).catch(() => cached);
+      return cached || network;
+    })
+  );
+});
 
 self.addEventListener('push', e => {
   const data    = e.data?.json() || {};

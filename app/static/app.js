@@ -1747,6 +1747,7 @@ function renderBrowseCards(cards) {
       <td>${c.native ? esc(c.native) : '<span style="color:var(--text-secondary)">—</span>'}</td>
       <td class="browse-actions">
         <button class="btn-ghost btn-sm btn-tts-row" data-speak="${esc(c.word)}" data-lang="${esc(App.browse.deck?.language || '')}" aria-label="Speak">🔊</button>
+        <button class="btn-ghost btn-sm" data-edit-id="${c.id}" data-edit-word="${esc(c.word)}" data-edit-meaning="${esc(c.meaning)}" data-edit-native="${esc(c.native || '')}">Edit</button>
         <button class="btn-danger btn-sm" data-delete-id="${c.id}">Delete</button>
       </td>
     </tr>`).join('');
@@ -1779,10 +1780,62 @@ document.getElementById('browse-tbody').addEventListener('click', async e => {
   const ttsBtn = e.target.closest('[data-speak]');
   if (ttsBtn) { speak(ttsBtn.dataset.speak, ttsBtn.dataset.lang); return; }
 
+  const editBtn = e.target.closest('[data-edit-id]');
+  if (editBtn) { openCardEdit(editBtn); return; }
+
   const btn = e.target.closest('[data-delete-id]');
   if (!btn || !await showConfirm('Delete this card?', 'Delete', true)) return;
   const res = await api('DELETE', `/api/cards/${btn.dataset.deleteId}`);
   if (res?.status === 204) await loadBrowsePage(App.browse.page);
+});
+
+// ── Card edit modal ───────────────────────────────────────────────────────────
+
+let _editingCardId = null;
+
+function openCardEdit(btn) {
+  _editingCardId = btn.dataset.editId;
+  document.getElementById('card-edit-word').value    = btn.dataset.editWord;
+  document.getElementById('card-edit-meaning').value = btn.dataset.editMeaning;
+  document.getElementById('card-edit-native').value  = btn.dataset.editNative;
+  document.getElementById('card-edit-err').classList.add('hidden');
+  document.getElementById('card-edit-modal-overlay').classList.remove('hidden');
+  document.getElementById('card-edit-word').focus();
+}
+
+function closeCardEdit() {
+  document.getElementById('card-edit-modal-overlay').classList.add('hidden');
+  _editingCardId = null;
+}
+
+document.getElementById('card-edit-cancel').addEventListener('click', closeCardEdit);
+
+document.getElementById('card-edit-save').addEventListener('click', async () => {
+  const word    = document.getElementById('card-edit-word').value.trim();
+  const meaning = document.getElementById('card-edit-meaning').value.trim();
+  const native  = document.getElementById('card-edit-native').value.trim();
+  const errEl   = document.getElementById('card-edit-err');
+
+  if (!word || !meaning) {
+    errEl.textContent = 'Word and meaning are required.';
+    errEl.classList.remove('hidden');
+    return;
+  }
+
+  const saveBtn = document.getElementById('card-edit-save');
+  setLoading(saveBtn, true);
+  const res = await api('PATCH', `/api/cards/${_editingCardId}`, { word, meaning, native });
+  setLoading(saveBtn, false);
+
+  if (!res?.ok) {
+    const data = await res?.json().catch(() => ({}));
+    errEl.textContent = friendlyError(data?.detail);
+    errEl.classList.remove('hidden');
+    return;
+  }
+
+  closeCardEdit();
+  await loadBrowsePage(App.browse.page);
 });
 
 document.getElementById('inp-search').addEventListener('input', e => {

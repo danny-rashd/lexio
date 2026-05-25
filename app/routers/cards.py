@@ -5,7 +5,7 @@ from app.database import get_db
 from app.models.card import Card, Deck
 from app.models.user import User
 from app.routers.auth import get_current_user
-from app.schemas.card import CardCreate, CardResponse
+from app.schemas.card import CardCreate, CardResponse, CardUpdate
 from app.services.importer import compute_idempotency_key
 from app.utils.text import normalize_deck_label
 
@@ -57,6 +57,44 @@ def create_card(
         source_log_id=body.source_log_id,
     )
     db.add(card)
+    db.commit()
+    db.refresh(card)
+    return card
+
+
+@router.patch("/{card_id}", response_model=CardResponse)
+def update_card(
+    card_id: int,
+    body: CardUpdate,
+    db: Session = Depends(get_db),
+    _: User = Depends(get_current_user),
+) -> CardResponse:
+    from sqlalchemy.orm import joinedload
+    card = (
+        db.query(Card)
+        .options(joinedload(Card.deck))
+        .filter(Card.id == card_id, Card.is_active.is_(True))
+        .first()
+    )
+    if not card:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Card not found")
+
+    if body.word != card.word:
+        new_key = compute_idempotency_key(
+            normalize_deck_label(card.deck.language),
+            normalize_deck_label(card.deck.topic),
+            body.word,
+        )
+        conflict = db.query(Card).filter(
+            Card.idempotency_key == new_key, Card.id != card_id
+        ).first()
+        if conflict:
+            raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="A card with this word already exists in this deck")
+        card.idempotency_key = new_key
+        card.word = body.word
+
+    card.meaning = body.meaning
+    card.native = body.native.strip() or None
     db.commit()
     db.refresh(card)
     return card
