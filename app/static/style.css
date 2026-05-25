@@ -79,6 +79,7 @@ nav {
 
 /* ── Main ───────────────────────────────────────────────────────────────────── */
 main { max-width: 780px; margin: 0 auto; padding: 2rem 1rem 2rem; }
+main[data-screen="screen-conjugate"] { max-width: 1024px; }
 
 /* ── Utilities ──────────────────────────────────────────────────────────────── */
 .hidden   { display: none !important; }
@@ -865,7 +866,7 @@ kbd {
 .conj-cross-table td     { padding: .35rem .65rem; text-align: left; border-bottom: 1px solid var(--border); }
 .conj-cross-table tbody tr:last-child td { border-bottom: none; }
 .conj-corner             { padding-right: 1rem; }
-.conj-tense-header       { font-size: .7rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: .05em; border-bottom: 2px solid var(--border) !important; }
+.conj-tense-header       { font-size: .7rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: .05em; border-bottom: 2px solid var(--border) !important; white-space: normal; min-width: 80px; }
 .conj-person-cell        { color: var(--text-secondary); font-size: .8rem; font-weight: 600; padding-right: 1.25rem; }
 .conj-form-cell          { color: var(--text-primary); font-weight: 500; }
 /* ── Translate page ─────────────────────────────────────────────────────────── */
@@ -939,7 +940,7 @@ kbd {
   box-sizing: border-box; outline: none;
 }
 .conj-verb-search:focus { border-color: var(--accent); }
-.conj-verb-list    { border: 1.5px solid var(--border); border-radius: 8px; overflow-y: auto; max-height: calc(100vh - 260px); }
+.conj-verb-list    { border: 1.5px solid var(--border); border-radius: 8px; overflow-y: auto; max-height: calc((100vh - 260px) * 0.75); }
 .conj-verb-item    {
   padding: .55rem .75rem; cursor: pointer; border-bottom: 1px solid var(--border);
   display: flex; flex-direction: column; gap: .1rem;

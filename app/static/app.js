@@ -576,6 +576,7 @@ document.addEventListener('click', e => {
 function showScreen(id) {
   document.querySelectorAll('#main > section').forEach(s => s.classList.add('hidden'));
   document.getElementById(id).classList.remove('hidden');
+  document.getElementById('main').dataset.screen = id;
   const isLogin = id === 'screen-login';
   document.getElementById('nav').classList.toggle('hidden', isLogin);
 }
