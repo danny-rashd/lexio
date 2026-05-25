@@ -270,7 +270,9 @@
 
       <div id="quiz-flashcard" class="hidden">
         <div id="flashcard-answer" class="flashcard-answer hidden"></div>
+        <p id="flashcard-ipa"      class="flashcard-ipa hidden"></p>
         <p id="flashcard-sentence" class="example-sentence hidden"></p>
+        <p id="flashcard-notes"    class="flashcard-notes hidden"></p>
         <button id="btn-reveal" class="btn-primary w-full">
           <span class="kbd-badge" style="margin-right:.4rem">Space</span>Reveal
         </button>
@@ -293,7 +295,9 @@
         <span id="feedback-icon" class="feedback-icon"></span>
         <span id="feedback-msg"></span>
         <p id="feedback-correct" class="feedback-correct hidden"></p>
+        <p id="feedback-ipa"     class="feedback-ipa hidden"></p>
         <p id="feedback-sentence" class="example-sentence hidden"></p>
+        <p id="feedback-notes"   class="feedback-notes hidden"></p>
         <button id="btn-next" class="btn-primary">Next &#8594;</button>
         <div id="countdown-bar" class="countdown-bar hidden"></div>
       </div>
@@ -760,6 +764,14 @@
     <div class="field-group">
       <label for="card-edit-sentence">Example sentence <span class="text-secondary">(use {{word}} to mark the blank)</span></label>
       <input id="card-edit-sentence" type="text" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="e.g. Il aime {{parler}} avec ses amis.">
+    </div>
+    <div class="field-group">
+      <label for="card-edit-ipa">Pronunciation / IPA <span class="text-secondary">(optional)</span></label>
+      <input id="card-edit-ipa" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="e.g. aˈle">
+    </div>
+    <div class="field-group">
+      <label for="card-edit-notes">Notes / mnemonic <span class="text-secondary">(optional)</span></label>
+      <input id="card-edit-notes" type="text" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="e.g. sounds like 'a lover' → to go">
     </div>
     <p id="card-edit-err" class="error hidden" style="margin-top:.5rem"></p>
     <div class="modal-actions" style="margin-top:1rem">

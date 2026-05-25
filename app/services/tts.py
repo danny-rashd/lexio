@@ -10,7 +10,7 @@ _VOICE_MAP: dict[str, tuple[str, str]] = {
     "german":   ("de-DE", "de-DE-Neural2-A"),
     "norsk":    ("nb-NO", "nb-NO-Wavenet-A"),
     "japanese": ("ja-JP", "ja-JP-Neural2-B"),
-    "mandarin": ("cmn-CN", "cmn-CN-Neural2-A"),
+    "mandarin": ("cmn-CN", "cmn-CN-Wavenet-A"),
 }
 
 _TTS_URL = "https://texttospeech.googleapis.com/v1/text:synthesize"

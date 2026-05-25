@@ -523,11 +523,19 @@ button:disabled { opacity: .4; cursor: default; }
 .feedback.wrong   .feedback-icon { color: var(--danger); }
 .feedback-correct { font-size: .875rem; color: var(--text-secondary); }
 .example-sentence    { font-size: .875rem; color: var(--text-secondary); font-style: italic; margin: .1rem 0 0; }
+.flashcard-ipa       { font-size: .95rem;  color: var(--text-secondary); font-family: monospace; margin: .15rem 0 0; }
+.flashcard-notes     { font-size: .85rem;  color: var(--text-secondary); font-style: italic; margin: .25rem 0 0; border-left: 2px solid var(--accent); padding-left: .6rem; }
+.feedback-ipa        { font-size: .85rem;  color: var(--text-secondary); font-family: monospace; }
+.feedback-notes      { font-size: .85rem;  color: var(--text-secondary); font-style: italic; border-left: 2px solid var(--accent); padding-left: .6rem; }
+.browse-ipa          { font-size: .72rem;  color: var(--text-secondary); font-family: monospace; }
 .browse-row-expandable { cursor: pointer; }
 .browse-row-expandable:hover { background: var(--bg-hover, color-mix(in srgb, var(--accent) 6%, transparent)); }
 .browse-expand-hint  { font-size: .7rem; color: var(--text-secondary); user-select: none; }
-.browse-sentence-row { background: var(--bg-card); }
-.browse-sentence-cell { font-size: .85rem; color: var(--text-secondary); font-style: italic; padding: .35rem 1rem .55rem 1.25rem !important; border-top: none !important; }
+.browse-sentence-row  { background: var(--bg-card); }
+.browse-sentence-cell { font-size: .85rem; padding: .35rem 1rem .55rem 1.25rem !important; border-top: none !important; display: flex; flex-direction: column; gap: .3rem; }
+.browse-detail-ipa      { font-family: monospace; color: var(--text-secondary); font-size: .82rem; }
+.browse-detail-sentence { font-style: italic; color: var(--text-secondary); }
+.browse-detail-notes    { color: var(--text-secondary); font-size: .82rem; border-left: 2px solid var(--accent); padding-left: .5rem; }
 .feedback #btn-next { align-self: flex-end; margin-top: .25rem; }
 .countdown-bar { height: 3px; border-radius: 99px; width: 100%; margin-top: .5rem; }
 .feedback.correct .countdown-bar { background: var(--success); }

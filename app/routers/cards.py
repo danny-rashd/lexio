@@ -96,6 +96,8 @@ def update_card(
     card.meaning  = body.meaning
     card.native   = body.native.strip() or None
     card.sentence = body.sentence.strip() or None
+    card.ipa      = body.ipa.strip() or None
+    card.notes    = body.notes.strip() or None
     db.commit()
     db.refresh(card)
     return card

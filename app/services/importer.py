@@ -84,9 +84,14 @@ def parse_vocab_file(file_path: Path) -> list[dict]:
             meaning = row[1].strip() if len(row) > 1 else ""
             native   = row[2].strip() if len(row) > 2 else ""
             sentence = row[3].strip() if len(row) > 3 else ""
+            ipa      = row[4].strip() if len(row) > 4 else ""
+            notes    = row[5].strip() if len(row) > 5 else ""
             if not word or not meaning:
                 continue
-            rows.append({"word": word, "meaning": meaning, "native": native or None, "sentence": sentence or None})
+            rows.append({
+                "word": word, "meaning": meaning, "native": native or None,
+                "sentence": sentence or None, "ipa": ipa or None, "notes": notes or None,
+            })
 
     return rows
 
@@ -147,13 +152,21 @@ def import_rows(
                 meaning=r["meaning"],
                 native=r["native"],
                 sentence=r.get("sentence"),
+                ipa=r.get("ipa"),
+                notes=r.get("notes"),
                 idempotency_key=key,
             ))
-        elif key in existing_keys and r.get("sentence"):
-            db.query(Card).filter(
-                Card.idempotency_key == key,
-                Card.sentence.is_(None),
-            ).update({"sentence": r["sentence"]})
+        elif key in existing_keys:
+            updates: dict = {}
+            if r.get("sentence"): updates["sentence"] = r["sentence"]
+            if r.get("ipa"):      updates["ipa"]      = r["ipa"]
+            if r.get("notes"):    updates["notes"]    = r["notes"]
+            if updates:
+                for field, value in updates.items():
+                    db.query(Card).filter(
+                        Card.idempotency_key == key,
+                        getattr(Card, field).is_(None),
+                    ).update({field: value})
 
     db.add_all(new_cards)
 

@@ -31,6 +31,8 @@ class Card(Base):
     meaning: Mapped[str] = mapped_column(String, nullable=False)
     native: Mapped[str | None] = mapped_column(String, nullable=True)
     sentence: Mapped[str | None] = mapped_column(String, nullable=True)
+    ipa: Mapped[str | None] = mapped_column(String, nullable=True)
+    notes: Mapped[str | None] = mapped_column(String, nullable=True)
     idempotency_key: Mapped[str] = mapped_column(String, nullable=False, unique=True)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
     source_log_id: Mapped[int | None] = mapped_column(

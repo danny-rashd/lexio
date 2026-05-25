@@ -1408,19 +1408,18 @@ function renderFlashcard(question) {
   const answerEl  = document.getElementById('flashcard-answer');
   const gradeEl   = document.getElementById('flashcard-grade');
   const revealBtn = document.getElementById('btn-reveal');
+  const ipaEl     = document.getElementById('flashcard-ipa');
   const sentEl    = document.getElementById('flashcard-sentence');
+  const notesEl   = document.getElementById('flashcard-notes');
   answerEl.textContent = question.correct_answer;
   answerEl.classList.add('hidden');
   gradeEl.classList.add('hidden');
   gradeEl.querySelectorAll('.grade-btn').forEach(b => { b.disabled = false; });
   revealBtn.classList.remove('hidden');
-  if (question.sentence) {
-    sentEl.textContent = question.sentence.replace(/\{\{(.+?)\}\}/g, '$1');
-    sentEl.classList.add('hidden');
-  } else {
-    sentEl.textContent = '';
-    sentEl.classList.add('hidden');
-  }
+  ipaEl.textContent   = question.ipa   || '';
+  sentEl.textContent  = question.sentence ? question.sentence.replace(/\{\{(.+?)\}\}/g, '$1') : '';
+  notesEl.textContent = question.notes  || '';
+  [ipaEl, sentEl, notesEl].forEach(el => el.classList.add('hidden'));
   section.classList.remove('hidden');
 }
 
@@ -1428,8 +1427,12 @@ function revealFlashcard() {
   document.getElementById('flashcard-answer').classList.remove('hidden');
   document.getElementById('btn-reveal').classList.add('hidden');
   document.getElementById('flashcard-grade').classList.remove('hidden');
-  const sentEl = document.getElementById('flashcard-sentence');
-  if (sentEl.textContent) sentEl.classList.remove('hidden');
+  const ipaEl   = document.getElementById('flashcard-ipa');
+  const sentEl  = document.getElementById('flashcard-sentence');
+  const notesEl = document.getElementById('flashcard-notes');
+  if (ipaEl.textContent)   ipaEl.classList.remove('hidden');
+  if (sentEl.textContent)  sentEl.classList.remove('hidden');
+  if (notesEl.textContent) notesEl.classList.remove('hidden');
 }
 
 document.getElementById('btn-reveal').addEventListener('click', revealFlashcard);
@@ -1543,15 +1546,19 @@ function showFeedback(isCorrect, correctAnswer, nextQuestion, diacriticsRemark =
     correctEl.classList.add('hidden');
   }
 
-  const sentEl = document.getElementById('feedback-sentence');
-  const q = App.quiz.question;
-  if (q?.sentence) {
-    sentEl.textContent = q.sentence.replace(/\{\{(.+?)\}\}/g, '$1');
-    sentEl.classList.remove('hidden');
-  } else {
-    sentEl.textContent = '';
-    sentEl.classList.add('hidden');
-  }
+  const q       = App.quiz.question;
+  const ipaEl   = document.getElementById('feedback-ipa');
+  const sentEl  = document.getElementById('feedback-sentence');
+  const notesEl = document.getElementById('feedback-notes');
+
+  ipaEl.textContent = q?.ipa || '';
+  q?.ipa ? ipaEl.classList.remove('hidden') : ipaEl.classList.add('hidden');
+
+  sentEl.textContent = q?.sentence ? q.sentence.replace(/\{\{(.+?)\}\}/g, '$1') : '';
+  sentEl.textContent ? sentEl.classList.remove('hidden') : sentEl.classList.add('hidden');
+
+  notesEl.textContent = q?.notes || '';
+  q?.notes ? notesEl.classList.remove('hidden') : notesEl.classList.add('hidden');
 
   const btnNext = document.getElementById('btn-next');
   const nextLabel = nextQuestion ? 'Next →' : 'See Results';
@@ -1764,17 +1771,23 @@ function renderBrowseCards(cards) {
   tbody.innerHTML = cards.map(c => {
     const sentence = c.sentence ? c.sentence.replace(/\{\{(.+?)\}\}/g, '$1') : '';
     return `
-    <tr class="browse-row${sentence ? ' browse-row-expandable' : ''}" data-card-id="${c.id}">
-      <td>${esc(c.word)}${sentence ? ' <span class="browse-expand-hint">▸</span>' : ''}</td>
+    <tr class="browse-row${(sentence || c.notes) ? ' browse-row-expandable' : ''}" data-card-id="${c.id}">
+      <td>${esc(c.word)}${c.ipa ? `<br><span class="browse-ipa">${esc(c.ipa)}</span>` : ''}${(sentence || c.notes) ? ' <span class="browse-expand-hint">▸</span>' : ''}</td>
       <td>${esc(c.meaning)}</td>
       <td>${c.native ? esc(c.native) : '<span style="color:var(--text-secondary)">—</span>'}</td>
       <td class="browse-actions">
         <button class="btn-ghost btn-sm btn-tts-row" data-speak="${esc(c.word)}" data-lang="${esc(App.browse.deck?.language || '')}" aria-label="Speak">🔊</button>
-        <button class="btn-ghost btn-sm" data-edit-id="${c.id}" data-edit-word="${esc(c.word)}" data-edit-meaning="${esc(c.meaning)}" data-edit-native="${esc(c.native || '')}" data-edit-sentence="${esc(c.sentence || '')}">Edit</button>
+        <button class="btn-ghost btn-sm" data-edit-id="${c.id}" data-edit-word="${esc(c.word)}" data-edit-meaning="${esc(c.meaning)}" data-edit-native="${esc(c.native || '')}" data-edit-sentence="${esc(c.sentence || '')}" data-edit-ipa="${esc(c.ipa || '')}" data-edit-notes="${esc(c.notes || '')}">Edit</button>
         <button class="btn-danger btn-sm" data-delete-id="${c.id}">Delete</button>
       </td>
     </tr>
-    ${sentence ? `<tr class="browse-sentence-row hidden" data-sentence-for="${c.id}"><td colspan="4" class="browse-sentence-cell">${esc(sentence)}</td></tr>` : ''}`;
+    ${(sentence || c.notes) ? `
+    <tr class="browse-sentence-row hidden" data-sentence-for="${c.id}">
+      <td colspan="4" class="browse-sentence-cell">
+        ${sentence ? `<span class="browse-detail-sentence">${esc(sentence)}</span>` : ''}
+        ${c.notes  ? `<span class="browse-detail-notes">${esc(c.notes)}</span>` : ''}
+      </td>
+    </tr>` : ''}`;
   }).join('');
 }
 
@@ -1818,7 +1831,7 @@ document.getElementById('browse-tbody').addEventListener('click', async e => {
     if (hint) hint.textContent = expanded ? '▸' : '▾';
     if (!expanded) {
       const ttsBtn = row.querySelector('.btn-tts-row');
-      const sentenceText = sentRow.querySelector('.browse-sentence-cell')?.textContent.trim();
+      const sentenceText = sentRow.querySelector('.browse-detail-sentence')?.textContent.trim();
       if (ttsBtn && sentenceText) speak(sentenceText, ttsBtn.dataset.lang);
     }
     return;
@@ -1840,6 +1853,8 @@ function openCardEdit(btn) {
   document.getElementById('card-edit-meaning').value  = btn.dataset.editMeaning;
   document.getElementById('card-edit-native').value   = btn.dataset.editNative;
   document.getElementById('card-edit-sentence').value = btn.dataset.editSentence || '';
+  document.getElementById('card-edit-ipa').value      = btn.dataset.editIpa || '';
+  document.getElementById('card-edit-notes').value    = btn.dataset.editNotes || '';
   document.getElementById('card-edit-err').classList.add('hidden');
   document.getElementById('card-edit-modal-overlay').classList.remove('hidden');
   document.getElementById('card-edit-word').focus();
@@ -1857,6 +1872,8 @@ document.getElementById('card-edit-save').addEventListener('click', async () => 
   const meaning  = document.getElementById('card-edit-meaning').value.trim();
   const native   = document.getElementById('card-edit-native').value.trim();
   const sentence = document.getElementById('card-edit-sentence').value.trim();
+  const ipa      = document.getElementById('card-edit-ipa').value.trim();
+  const notes    = document.getElementById('card-edit-notes').value.trim();
   const errEl   = document.getElementById('card-edit-err');
 
   if (!word || !meaning) {
@@ -1867,7 +1884,7 @@ document.getElementById('card-edit-save').addEventListener('click', async () => 
 
   const saveBtn = document.getElementById('card-edit-save');
   setLoading(saveBtn, true);
-  const res = await api('PATCH', `/api/cards/${_editingCardId}`, { word, meaning, native, sentence });
+  const res = await api('PATCH', `/api/cards/${_editingCardId}`, { word, meaning, native, sentence, ipa, notes });
   setLoading(saveBtn, false);
 
   if (!res?.ok) {

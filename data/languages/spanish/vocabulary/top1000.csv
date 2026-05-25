@@ -1,1016 +1,1016 @@
-word,meaning,native,sentence
+word,meaning,native,sentence,ipa
 # ── Verbs ────────────────────────────────────────────────────────────────────
-ser,to be (permanent),,Ella quiere {{ser}} médica algún día.
-estar,to be (temporary),,Mi hermano {{está}} en casa ahora mismo.
-tener,to have,,Nosotros {{tenemos}} tres gatos muy adorables.
-hacer,to do / to make,,¿Qué {{haces}} los fines de semana?
-ir,to go,,Ellos {{van}} al cine esta noche.
-poder,to be able to / can,,Tú {{puedes}} hacerlo si lo intentas.
-decir,to say / to tell,,Mi madre me {{dijo}} la verdad ayer.
-saber,to know (fact),,Yo {{sé}} dónde vive mi mejor amiga.
-querer,to want / to love,,Los niños {{quieren}} jugar en el parque.
-llegar,to arrive,,El tren {{llegará}} a las tres de tarde.
-pasar,to pass / to happen,,Algo extraño {{pasó}} en la reunión hoy.
-deber,to must / to owe,,Nosotros {{debemos}} estudiar para el examen.
-poner,to put / to place,,Ella {{puso}} las flores en la mesa.
-parecer,to seem / to appear,,Este libro {{parece}} muy interesante y largo.
-quedar,to stay / to remain,,Nosotros {{quedamos}} en el café por horas.
-creer,to believe / to think,,Yo {{creo}} que todo saldrá bien pronto.
-hablar,to speak / to talk,,Ellos {{hablan}} español y también inglés fluido.
-llevar,to carry / to take,,Mi padre {{lleva}} su maleta al trabajo.
-dejar,to leave / to let,,Por favor {{deja}} la puerta abierta para mí.
-seguir,to follow / to continue,,Nosotros {{seguimos}} caminando hacia el centro.
-encontrar,to find / to meet,,Finalmente {{encontré}} mis llaves en la cocina.
-llamar,to call / to name,,Mi abuela me {{llama}} todos los domingos.
-volver,to return / to come back,,Ellos {{vuelven}} de vacaciones el próximo lunes.
-dar,to give,,Yo te {{doy}} este regalo para tu cumpleaños.
-conocer,to know (person/place),,¿Ya {{conoces}} a mi nuevo compañero de clase?
-sentir,to feel / to sense,,Nosotros {{sentimos}} mucho lo que pasó ayer.
-ver,to see,,Tú {{ves}} las montañas desde tu ventana.
-haber,to have (auxiliary),,{{Ha}} habido un accidente en la carretera.
-existir,to exist,,No creo que {{exista}} tal cosa en realidad.
-pensar,to think,,¿En qué {{piensas}} en estos momentos ahora?
-salir,to leave / to go out,,Nosotros {{salimos}} del trabajo a las seis.
-empezar,to begin / to start,,La película {{empieza}} en quince minutos exactamente.
-esperar,to wait / to hope,,Yo {{espero}} que tengas un buen día hoy.
-buscar,to look for / to search,,Ella {{busca}} trabajo en diferentes empresas grandes.
-traer,to bring,,Por favor {{trae}} el pan de la panadería.
-trabajar,to work,,Mi padre {{trabaja}} en una oficina muy grande.
-comer,to eat,,Nosotros {{comemos}} juntos cada domingo en casa.
-vivir,to live,,Yo {{vivo}} en una casa cerca del mar.
-beber,to drink,,Los niños {{beben}} leche en el desayuno.
-leer,to read,,Ella {{lee}} tres libros cada mes siempre.
-escribir,to write,,Yo {{escribo}} cartas a mis amigos antiguos.
-escuchar,to listen,,Nosotros {{escuchamos}} música mientras hacemos la tarea.
-mirar,to look at / to watch,,Él {{mira}} las nubes desde su ventana.
-jugar,to play,,Los niños {{juegan}} fútbol en el parque.
-abrir,to open,,Por favor {{abre}} la ventana hace mucho calor.
-cerrar,to close,,Ella {{cierra}} la puerta antes de dormir.
-comprar,to buy,,Yo {{compro}} frutas frescas en el mercado.
-vender,to sell,,Mi tío {{vende}} coches en la ciudad.
-caminar,to walk,,Nosotros {{caminamos}} por el parque cada mañana.
-correr,to run,,El atleta {{corre}} muy rápido en las competiciones.
-dormir,to sleep,,Los niños {{duermen}} ocho horas cada noche.
-despertar,to wake up,,Me {{despierto}} temprano todos los días de la semana.
-levantarse,to get up,,Ella {{se levanta}} a las seis de la mañana.
-sentarse,to sit down,,Por favor {{siéntate}} en la silla al lado mío.
-ayudar,to help,,Mi hermano me {{ayuda}} con la tarea de matemáticas.
-necesitar,to need,,{{Necesito}} dinero para comprar libros nuevos este mes.
-usar,to use,,Yo {{uso}} mi computadora para trabajar desde casa.
-tomar,to take / to drink,,Cada mañana {{tomo}} café con leche caliente.
-pagar,to pay,,Ellos {{pagan}} la renta del apartamento cada mes.
-ganar,to win / to earn,,Nuestro equipo {{ganó}} el partido de fútbol ayer.
-perder,to lose,,No quiero {{perder}} las llaves de mi casa.
-aprender,to learn,,Los estudiantes {{aprenden}} inglés en la escuela secundaria.
-enseñar,to teach,,El profesor {{enseña}} historia con mucho entusiasmo.
-entender,to understand,,¿{{Entiendes}} lo que acabo de explicar completamente?
-recordar,to remember,,Siempre {{recuerdo}} el día en que nos conocimos.
-olvidar,to forget,,No {{olvides}} traer tu pasaporte al aeropuerto mañana.
-preguntar,to ask a question,,Los niños siempre {{preguntan}} muchas cosas curiosas.
-contestar,to answer,,Él {{contestó}} correctamente todas las preguntas del examen.
-explicar,to explain,,La maestra {{explica}} la lección muy claramente a todos.
-decidir,to decide,,Finalmente {{decidimos}} viajar a Costa Rica este verano.
-tratar,to try / to treat,,El doctor {{trata}} a los pacientes con mucho cuidado.
-intentar,to try / to attempt,,Voy a {{intentar}} aprender a tocar la guitarra pronto.
-conseguir,to get / to achieve,,Ella {{consiguió}} un trabajo nuevo en la empresa.
-crear,to create,,Los artistas {{crean}} obras maravillosas con sus manos.
-cambiar,to change,,El clima {{cambia}} mucho durante las diferentes estaciones.
-mantener,to maintain / to keep,,Debemos {{mantener}} nuestro hogar limpio y organizado.
-mostrar,to show,,Te {{mostraré}} las fotos de mis vacaciones en México.
-ofrecer,to offer,,La tienda {{ofrece}} descuentos especiales para clientes antiguos.
-recibir,to receive,,Ayer {{recibí}} un paquete del correo en mi casa.
-enviar,to send,,Voy a {{enviar}} este email a mi jefe ahora.
-nacer,to be born,,Mi hijo {{nació}} el día de Navidad hace tres años.
-morir,to die,,Mi abuelo {{murió}} a los noventa años de edad.
-crecer,to grow,,Los árboles {{crecen}} muy lentamente en el bosque.
-caer,to fall,,Ten cuidado para no {{caerte}} de la escalera.
-subir,to go up / to upload,,Los excursionistas {{suben}} la montaña muy temprano.
-bajar,to go down / to download,,Necesito {{bajar}} las maletas del segundo piso.
-entrar,to enter,,Por favor {{entra}} en la casa sin hacer ruido.
-saltar,to jump,,Los niños {{saltan}} la cuerda en el patio.
-nadar,to swim,,Me encanta {{nadar}} en la piscina durante el verano.
-volar,to fly,,Los pájaros {{vuelan}} hacia el sur en invierno.
-conducir,to drive,,Mi padre {{conduce}} el coche al trabajo cada día.
-manejar,to drive / to manage,,Yo {{manejo}} un coche automático desde hace años.
-construir,to build / to construct,,Están {{construyendo}} un nuevo hospital en la ciudad.
-romper,to break,,No {{rompas}} el vaso de cristal que es frágil.
-tocar,to touch / to play (instrument),,Mi hermana {{toca}} el piano muy hermosamente.
-cantar,to sing,,Ella {{canta}} en el coro de la iglesia.
-bailar,to dance,,Nos encanta {{bailar}} salsa en las fiestas.
-cocinar,to cook,,Mi mamá {{cocina}} deliciosas comidas para toda la familia.
-limpiar,to clean,,Debo {{limpiar}} mi habitación antes de salir.
-lavar,to wash,,Voy a {{lavar}} mi coche el próximo fin de semana.
-planchar,to iron,,Mi madre {{plancha}} la ropa todos los domingos por la mañana.
-coser,to sew,,Abuela me enseña a {{coser}} botones en mis camisas rotas.
-pintar,to paint,,Los niños quieren {{pintar}} el muro de la casa con colores.
-dibujar,to draw,,Mi hermana {{dibuja}} animales muy bonitos en su cuaderno.
-fotografiar,to photograph,,El fotógrafo va a {{fotografiar}} la boda el próximo sábado.
-viajar,to travel,,Nosotros planeamos {{viajar}} a España el próximo verano.
-visitar,to visit,,¿Quieres {{visitar}} el museo de arte conmigo mañana?
-explorar,to explore,,Los niños {{exploran}} la cueva con linternas y curiosidad.
-descansar,to rest,,"Después del trabajo, necesito {{descansar}} en el sofá."
-relajarse,to relax,,Me gusta {{relajarme}} con música clásica por las noches.
-preocuparse,to worry,,No debes {{preocuparte}} demasiado por los exámenes finales.
-reír,to laugh,,Todos {{reímos}} mucho viendo la película cómica anoche.
-llorar,to cry,,El bebé {{llora}} porque tiene hambre y sueño.
-gritar,to shout / to scream,,¿Por qué {{gritas}} si estamos en la misma habitación?
-susurrar,to whisper,,Ella {{susurra}} secretos al oído de su mejor amiga.
-respirar,to breathe,,Debes {{respirar}} profundamente para calmar tu ansiedad ahora.
-probar,to try / to taste,,Quiero {{probar}} el postre de chocolate que hiciste.
-elegir,to choose,,Tienes que {{elegir}} entre las dos opciones disponibles hoy.
-coger,to take / to catch,,Voy a {{coger}} el autobús número cinco para la escuela.
-echar,to throw / to pour,,"No {{eches}} basura en el río, por favor."
-meter,to put into,,Necesito {{meter}} estos libros en mi mochila nueva.
-sacar,to take out,,¿Puedes {{sacar}} la basura cuando termines de comer?
-guardar,to keep / to save,,Debo {{guardar}} mis documentos importantes en un lugar seguro.
-gastar,to spend / to waste,,No deberías {{gastar}} todo tu dinero en videojuegos ahora.
-ahorrar,to save (money),,Estoy {{ahorrando}} dinero para comprar una bicicleta nueva.
-pedir,to ask for / to order,,Voy a {{pedir}} café con leche en la cafetería.
-rogar,to beg / to pray,,Te {{ruego}} que me ayudes con este problema difícil.
-rezar,to pray,,Mi abuela {{reza}} todas las noches antes de dormir.
-soñar,to dream,,Anoche {{soñé}} que volaba por el cielo azul.
-imaginar,to imagine,,Puedo {{imaginar}} fácilmente cómo será el futuro.
-suponer,to suppose / to assume,,Supongo que {{supondrás}} que no vengo a la fiesta.
-considerar,to consider,,Debes {{considerar}} todas las opciones antes de decidir.
-aceptar,to accept,,Finalmente {{acepté}} la oferta de trabajo en la empresa.
-rechazar,to reject,,Él {{rechazó}} la invitación a la cena de negocios.
-permitir,to allow / to permit,,¿Me {{permites}} usar tu computadora por un momento?
-prohibir,to prohibit,,El profesor {{prohíbe}} el uso de celulares en clase.
-obligar,to force / to oblige,,No me {{obligues}} a hacer algo que no quiero.
-invitar,to invite,,Te {{invito}} a mi cumpleaños el próximo fin de semana.
-celebrar,to celebrate,,Vamos a {{celebrar}} el aniversario con una cena especial.
-festejar,to celebrate / to party,,Queremos {{festejar}} el éxito con todos nuestros amigos.
-reunirse,to meet / to gather,,Nos {{reunimos}} los jueves para hablar sobre nuestros proyectos.
-separarse,to separate,,Ellos decidieron {{separarse}} después de muchos años juntos.
-casarse,to get married,,Mi hermano se {{casará}} con su novia el próximo año.
-divorciarse,to get divorced,,Mis padres se {{divorciaron}} cuando yo tenía cinco años.
-namorar,to fall in love,,María se {{enamoró}} del nuevo estudiante en la escuela.
-odiar,to hate,,"No {{odio}} a nadie, pero hay personas que me molestan."
-admirar,to admire,,{{Admiro}} mucho a las personas que trabajan por sus sueños.
-respetar,to respect,,Debemos {{respetar}} las opiniones de las otras personas siempre.
-confiar,to trust,,{{Confío}} completamente en mis mejores amigos desde la infancia.
-mentir,to lie,,No debes {{mentir}} a tus padres sobre lo que hiciste.
-robar,to steal,,El ladrón intentó {{robar}} el banco ayer por la noche.
-huir,to flee / to escape,,Los criminales decidieron {{huir}} del país inmediatamente.
-proteger,to protect,,Los padres quieren {{proteger}} a sus hijos de todo peligro.
-defender,to defend,,El abogado va a {{defender}} a su cliente en el juicio.
-atacar,to attack,,El ejército enemigo decidió {{atacar}} la ciudad al amanecer.
-luchar,to fight / to struggle,,Debemos {{luchar}} por nuestros derechos y libertades fundamentales.
-empatar,to tie / to draw,,Los dos equipos {{empataron}} dos a dos en el partido.
+ser,to be (permanent),,Ella quiere {{ser}} médica algún día.,seɾ
+estar,to be (temporary),,Mi hermano {{está}} en casa ahora mismo.,esˈtaɾ
+tener,to have,,Nosotros {{tenemos}} tres gatos muy adorables.,teˈneɾ
+hacer,to do / to make,,¿Qué {{haces}} los fines de semana?,aˈθeɾ
+ir,to go,,Ellos {{van}} al cine esta noche.,iɾ
+poder,to be able to / can,,Tú {{puedes}} hacerlo si lo intentas.,poˈðeɾ
+decir,to say / to tell,,Mi madre me {{dijo}} la verdad ayer.,deˈθiɾ
+saber,to know (fact),,Yo {{sé}} dónde vive mi mejor amiga.,saˈβeɾ
+querer,to want / to love,,Los niños {{quieren}} jugar en el parque.,keˈɾeɾ
+llegar,to arrive,,El tren {{llegará}} a las tres de tarde.,ʎeˈɣaɾ
+pasar,to pass / to happen,,Algo extraño {{pasó}} en la reunión hoy.,paˈsaɾ
+deber,to must / to owe,,Nosotros {{debemos}} estudiar para el examen.,deˈβeɾ
+poner,to put / to place,,Ella {{puso}} las flores en la mesa.,poˈneɾ
+parecer,to seem / to appear,,Este libro {{parece}} muy interesante y largo.,paɾeˈθeɾ
+quedar,to stay / to remain,,Nosotros {{quedamos}} en el café por horas.,keˈðaɾ
+creer,to believe / to think,,Yo {{creo}} que todo saldrá bien pronto.,kɾeˈeɾ
+hablar,to speak / to talk,,Ellos {{hablan}} español y también inglés fluido.,aˈβlaɾ
+llevar,to carry / to take,,Mi padre {{lleva}} su maleta al trabajo.,ʎeˈβaɾ
+dejar,to leave / to let,,Por favor {{deja}} la puerta abierta para mí.,deˈxaɾ
+seguir,to follow / to continue,,Nosotros {{seguimos}} caminando hacia el centro.,seˈɣiɾ
+encontrar,to find / to meet,,Finalmente {{encontré}} mis llaves en la cocina.,eŋkonˈtɾaɾ
+llamar,to call / to name,,Mi abuela me {{llama}} todos los domingos.,ʎaˈmaɾ
+volver,to return / to come back,,Ellos {{vuelven}} de vacaciones el próximo lunes.,bolˈβeɾ
+dar,to give,,Yo te {{doy}} este regalo para tu cumpleaños.,daɾ
+conocer,to know (person/place),,¿Ya {{conoces}} a mi nuevo compañero de clase?,konoˈθeɾ
+sentir,to feel / to sense,,Nosotros {{sentimos}} mucho lo que pasó ayer.,senˈtiɾ
+ver,to see,,Tú {{ves}} las montañas desde tu ventana.,beɾ
+haber,to have (auxiliary),,{{Ha}} habido un accidente en la carretera.,aˈβeɾ
+existir,to exist,,No creo que {{exista}} tal cosa en realidad.,eksisˈtiɾ
+pensar,to think,,¿En qué {{piensas}} en estos momentos ahora?,penˈsaɾ
+salir,to leave / to go out,,Nosotros {{salimos}} del trabajo a las seis.,saˈliɾ
+empezar,to begin / to start,,La película {{empieza}} en quince minutos exactamente.,empeˈθaɾ
+esperar,to wait / to hope,,Yo {{espero}} que tengas un buen día hoy.,espeˈɾaɾ
+buscar,to look for / to search,,Ella {{busca}} trabajo en diferentes empresas grandes.,busˈkaɾ
+traer,to bring,,Por favor {{trae}} el pan de la panadería.,tɾaˈeɾ
+trabajar,to work,,Mi padre {{trabaja}} en una oficina muy grande.,tɾaβaˈxaɾ
+comer,to eat,,Nosotros {{comemos}} juntos cada domingo en casa.,koˈmeɾ
+vivir,to live,,Yo {{vivo}} en una casa cerca del mar.,biˈβiɾ
+beber,to drink,,Los niños {{beben}} leche en el desayuno.,beˈβeɾ
+leer,to read,,Ella {{lee}} tres libros cada mes siempre.,leˈeɾ
+escribir,to write,,Yo {{escribo}} cartas a mis amigos antiguos.,eskɾiˈβiɾ
+escuchar,to listen,,Nosotros {{escuchamos}} música mientras hacemos la tarea.,eskuˈtʃaɾ
+mirar,to look at / to watch,,Él {{mira}} las nubes desde su ventana.,miˈɾaɾ
+jugar,to play,,Los niños {{juegan}} fútbol en el parque.,xuˈɣaɾ
+abrir,to open,,Por favor {{abre}} la ventana hace mucho calor.,aˈβɾiɾ
+cerrar,to close,,Ella {{cierra}} la puerta antes de dormir.,θeˈɾaɾ
+comprar,to buy,,Yo {{compro}} frutas frescas en el mercado.,komˈpɾaɾ
+vender,to sell,,Mi tío {{vende}} coches en la ciudad.,benˈdeɾ
+caminar,to walk,,Nosotros {{caminamos}} por el parque cada mañana.,kamiˈnaɾ
+correr,to run,,El atleta {{corre}} muy rápido en las competiciones.,koˈɾeɾ
+dormir,to sleep,,Los niños {{duermen}} ocho horas cada noche.,dorˈmiɾ
+despertar,to wake up,,Me {{despierto}} temprano todos los días de la semana.,despeɾˈtaɾ
+levantarse,to get up,,Ella {{se levanta}} a las seis de la mañana.,leβanˈtaɾse
+sentarse,to sit down,,Por favor {{siéntate}} en la silla al lado mío.,senˈtaɾse
+ayudar,to help,,Mi hermano me {{ayuda}} con la tarea de matemáticas.,aʝuˈðaɾ
+necesitar,to need,,{{Necesito}} dinero para comprar libros nuevos este mes.,neθesiˈtaɾ
+usar,to use,,Yo {{uso}} mi computadora para trabajar desde casa.,uˈsaɾ
+tomar,to take / to drink,,Cada mañana {{tomo}} café con leche caliente.,toˈmaɾ
+pagar,to pay,,Ellos {{pagan}} la renta del apartamento cada mes.,paˈɣaɾ
+ganar,to win / to earn,,Nuestro equipo {{ganó}} el partido de fútbol ayer.,ɡaˈnaɾ
+perder,to lose,,No quiero {{perder}} las llaves de mi casa.,peɾˈðeɾ
+aprender,to learn,,Los estudiantes {{aprenden}} inglés en la escuela secundaria.,aˈpɾendeɾ
+enseñar,to teach,,El profesor {{enseña}} historia con mucho entusiasmo.,enzeˈɲaɾ
+entender,to understand,,¿{{Entiendes}} lo que acabo de explicar completamente?,entenˈdeɾ
+recordar,to remember,,Siempre {{recuerdo}} el día en que nos conocimos.,rekoɾˈðaɾ
+olvidar,to forget,,No {{olvides}} traer tu pasaporte al aeropuerto mañana.,olβiˈðaɾ
+preguntar,to ask a question,,Los niños siempre {{preguntan}} muchas cosas curiosas.,pɾeɡunˈtaɾ
+contestar,to answer,,Él {{contestó}} correctamente todas las preguntas del examen.,konteˈstaɾ
+explicar,to explain,,La maestra {{explica}} la lección muy claramente a todos.,eksliˈkaɾ
+decidir,to decide,,Finalmente {{decidimos}} viajar a Costa Rica este verano.,deθiˈðiɾ
+tratar,to try / to treat,,El doctor {{trata}} a los pacientes con mucho cuidado.,tɾaˈtaɾ
+intentar,to try / to attempt,,Voy a {{intentar}} aprender a tocar la guitarra pronto.,intenˈtaɾ
+conseguir,to get / to achieve,,Ella {{consiguió}} un trabajo nuevo en la empresa.,konseˈɣiɾ
+crear,to create,,Los artistas {{crean}} obras maravillosas con sus manos.,kɾeˈaɾ
+cambiar,to change,,El clima {{cambia}} mucho durante las diferentes estaciones.,kamˈbjaɾ
+mantener,to maintain / to keep,,Debemos {{mantener}} nuestro hogar limpio y organizado.,manteˈneɾ
+mostrar,to show,,Te {{mostraré}} las fotos de mis vacaciones en México.,mosˈtɾaɾ
+ofrecer,to offer,,La tienda {{ofrece}} descuentos especiales para clientes antiguos.,ofɾeˈθeɾ
+recibir,to receive,,Ayer {{recibí}} un paquete del correo en mi casa.,ɾeθiˈβiɾ
+enviar,to send,,Voy a {{enviar}} este email a mi jefe ahora.,emˈbjaɾ
+nacer,to be born,,Mi hijo {{nació}} el día de Navidad hace tres años.,naˈθeɾ
+morir,to die,,Mi abuelo {{murió}} a los noventa años de edad.,moˈɾiɾ
+crecer,to grow,,Los árboles {{crecen}} muy lentamente en el bosque.,kɾeˈθeɾ
+caer,to fall,,Ten cuidado para no {{caerte}} de la escalera.,kaˈeɾ
+subir,to go up / to upload,,Los excursionistas {{suben}} la montaña muy temprano.,suˈβiɾ
+bajar,to go down / to download,,Necesito {{bajar}} las maletas del segundo piso.,baˈxaɾ
+entrar,to enter,,Por favor {{entra}} en la casa sin hacer ruido.,enˈtɾaɾ
+saltar,to jump,,Los niños {{saltan}} la cuerda en el patio.,salˈtaɾ
+nadar,to swim,,Me encanta {{nadar}} en la piscina durante el verano.,naˈðaɾ
+volar,to fly,,Los pájaros {{vuelan}} hacia el sur en invierno.,boˈlaɾ
+conducir,to drive,,Mi padre {{conduce}} el coche al trabajo cada día.,konduˈθiɾ
+manejar,to drive / to manage,,Yo {{manejo}} un coche automático desde hace años.,maneˈxaɾ
+construir,to build / to construct,,Están {{construyendo}} un nuevo hospital en la ciudad.,konsˈtɾu̯iɾ
+romper,to break,,No {{rompas}} el vaso de cristal que es frágil.,ɾomˈpeɾ
+tocar,to touch / to play (instrument),,Mi hermana {{toca}} el piano muy hermosamente.,toˈkaɾ
+cantar,to sing,,Ella {{canta}} en el coro de la iglesia.,kanˈtaɾ
+bailar,to dance,,Nos encanta {{bailar}} salsa en las fiestas.,baiˈlaɾ
+cocinar,to cook,,Mi mamá {{cocina}} deliciosas comidas para toda la familia.,koθiˈnaɾ
+limpiar,to clean,,Debo {{limpiar}} mi habitación antes de salir.,limˈpjaɾ
+lavar,to wash,,Voy a {{lavar}} mi coche el próximo fin de semana.,laˈβaɾ
+planchar,to iron,,Mi madre {{plancha}} la ropa todos los domingos por la mañana.,planˈtʃaɾ
+coser,to sew,,Abuela me enseña a {{coser}} botones en mis camisas rotas.,koˈseɾ
+pintar,to paint,,Los niños quieren {{pintar}} el muro de la casa con colores.,pinˈtaɾ
+dibujar,to draw,,Mi hermana {{dibuja}} animales muy bonitos en su cuaderno.,diβuˈxaɾ
+fotografiar,to photograph,,El fotógrafo va a {{fotografiar}} la boda el próximo sábado.,fotoɣɾaˈfiaɾ
+viajar,to travel,,Nosotros planeamos {{viajar}} a España el próximo verano.,biaˈxaɾ
+visitar,to visit,,¿Quieres {{visitar}} el museo de arte conmigo mañana?,bisiˈtaɾ
+explorar,to explore,,Los niños {{exploran}} la cueva con linternas y curiosidad.,eksploˈɾaɾ
+descansar,to rest,,"Después del trabajo, necesito {{descansar}} en el sofá.",deskanˈsaɾ
+relajarse,to relax,,Me gusta {{relajarme}} con música clásica por las noches.,relaˈxaɾse
+preocuparse,to worry,,No debes {{preocuparte}} demasiado por los exámenes finales.,pɾeokuˈpaɾse
+reír,to laugh,,Todos {{reímos}} mucho viendo la película cómica anoche.,reˈiɾ
+llorar,to cry,,El bebé {{llora}} porque tiene hambre y sueño.,ʎoˈɾaɾ
+gritar,to shout / to scream,,¿Por qué {{gritas}} si estamos en la misma habitación?,ɡɾiˈtaɾ
+susurrar,to whisper,,Ella {{susurra}} secretos al oído de su mejor amiga.,susuˈraɾ
+respirar,to breathe,,Debes {{respirar}} profundamente para calmar tu ansiedad ahora.,ɾespiˈɾaɾ
+probar,to try / to taste,,Quiero {{probar}} el postre de chocolate que hiciste.,pɾoˈβaɾ
+elegir,to choose,,Tienes que {{elegir}} entre las dos opciones disponibles hoy.,eleˈxiɾ
+coger,to take / to catch,,Voy a {{coger}} el autobús número cinco para la escuela.,koˈxeɾ
+echar,to throw / to pour,,"No {{eches}} basura en el río, por favor.",eˈtʃaɾ
+meter,to put into,,Necesito {{meter}} estos libros en mi mochila nueva.,meˈteɾ
+sacar,to take out,,¿Puedes {{sacar}} la basura cuando termines de comer?,saˈkaɾ
+guardar,to keep / to save,,Debo {{guardar}} mis documentos importantes en un lugar seguro.,ɡwaɾˈðaɾ
+gastar,to spend / to waste,,No deberías {{gastar}} todo tu dinero en videojuegos ahora.,ɡasˈtaɾ
+ahorrar,to save (money),,Estoy {{ahorrando}} dinero para comprar una bicicleta nueva.,aoˈraɾ
+pedir,to ask for / to order,,Voy a {{pedir}} café con leche en la cafetería.,peˈðiɾ
+rogar,to beg / to pray,,Te {{ruego}} que me ayudes con este problema difícil.,ɾoˈɡaɾ
+rezar,to pray,,Mi abuela {{reza}} todas las noches antes de dormir.,ɾeˈθaɾ
+soñar,to dream,,Anoche {{soñé}} que volaba por el cielo azul.,soˈɲaɾ
+imaginar,to imagine,,Puedo {{imaginar}} fácilmente cómo será el futuro.,imaximaˈnaɾ
+suponer,to suppose / to assume,,Supongo que {{supondrás}} que no vengo a la fiesta.,supoˈneɾ
+considerar,to consider,,Debes {{considerar}} todas las opciones antes de decidir.,konsiðeˈɾaɾ
+aceptar,to accept,,Finalmente {{acepté}} la oferta de trabajo en la empresa.,aθepˈtaɾ
+rechazar,to reject,,Él {{rechazó}} la invitación a la cena de negocios.,ɾetʃaˈθaɾ
+permitir,to allow / to permit,,¿Me {{permites}} usar tu computadora por un momento?,peɾmiˈtiɾ
+prohibir,to prohibit,,El profesor {{prohíbe}} el uso de celulares en clase.,pɾoiˈβiɾ
+obligar,to force / to oblige,,No me {{obligues}} a hacer algo que no quiero.,obliˈɡaɾ
+invitar,to invite,,Te {{invito}} a mi cumpleaños el próximo fin de semana.,imbiˈtaɾ
+celebrar,to celebrate,,Vamos a {{celebrar}} el aniversario con una cena especial.,θeleˈβɾaɾ
+festejar,to celebrate / to party,,Queremos {{festejar}} el éxito con todos nuestros amigos.,festeˈxaɾ
+reunirse,to meet / to gather,,Nos {{reunimos}} los jueves para hablar sobre nuestros proyectos.,ɾeuˈniɾse
+separarse,to separate,,Ellos decidieron {{separarse}} después de muchos años juntos.,sepaˈɾaɾse
+casarse,to get married,,Mi hermano se {{casará}} con su novia el próximo año.,kasaˈɾse
+divorciarse,to get divorced,,Mis padres se {{divorciaron}} cuando yo tenía cinco años.,divoɾˈθjaɾse
+namorar,to fall in love,,María se {{enamoró}} del nuevo estudiante en la escuela.,namoˈɾaɾ
+odiar,to hate,,"No {{odio}} a nadie, pero hay personas que me molestan.",oˈðjaɾ
+admirar,to admire,,{{Admiro}} mucho a las personas que trabajan por sus sueños.,admiˈɾaɾ
+respetar,to respect,,Debemos {{respetar}} las opiniones de las otras personas siempre.,ɾespeˈtaɾ
+confiar,to trust,,{{Confío}} completamente en mis mejores amigos desde la infancia.,konˈfjaɾ
+mentir,to lie,,No debes {{mentir}} a tus padres sobre lo que hiciste.,menˈtiɾ
+robar,to steal,,El ladrón intentó {{robar}} el banco ayer por la noche.,roˈβaɾ
+huir,to flee / to escape,,Los criminales decidieron {{huir}} del país inmediatamente.,u'iɾ
+proteger,to protect,,Los padres quieren {{proteger}} a sus hijos de todo peligro.,pɾoteˈxeɾ
+defender,to defend,,El abogado va a {{defender}} a su cliente en el juicio.,defen'deɾ
+atacar,to attack,,El ejército enemigo decidió {{atacar}} la ciudad al amanecer.,ataˈkaɾ
+luchar,to fight / to struggle,,Debemos {{luchar}} por nuestros derechos y libertades fundamentales.,luˈtʃaɾ
+empatar,to tie / to draw,,Los dos equipos {{empataron}} dos a dos en el partido.,empaˈtaɾ
 # ── Nouns ────────────────────────────────────────────────────────────────────
-tiempo,time / weather,,El {{tiempo}} ha cambiado mucho en los últimos años.
-año,year,,Hace un {{año}} que no veo a mi mejor amigo.
-vida,life,,La {{vida}} es corta y debemos aprovecharla al máximo.
-hombre,man,,El {{hombre}} caminaba lentamente por la calle oscura.
-mujer,woman,,La {{mujer}} trabajaba como ingeniera en una empresa grande.
-día,day,,Cada {{día}} me levanto temprano para ir al trabajo.
-cosa,thing,,No entiendo por qué hizo esa {{cosa}} tan extraña.
-parte,part,,La primera {{parte}} del libro fue muy interesante y emocionante.
-lugar,place,,Este {{lugar}} es perfecto para pasar las vacaciones familiares.
-momento,moment,,En ese {{momento}} comprendí que había cometido un gran error.
-manera,way / manner,,La {{manera}} correcta de estudiar es con disciplina y paciencia.
-persona,person,,Esa {{persona}} es muy amable y siempre ayuda a otros.
-mano,hand,,Me duele la {{mano}} después de escribir toda la tarde.
-mundo,world,,El {{mundo}} es grande y está lleno de culturas diferentes.
-vez,time (occurrence),,"La próxima {{vez}} que visite París, iré a la Torre Eiffel."
-caso,case,,"En ese {{caso}}, deberías consultar con un profesional experimentado."
-trabajo,work / job,,Mi {{trabajo}} es muy interesante aunque también bastante demandante.
-problema,problem,,Tenemos un {{problema}} que necesita solución inmediata y urgente.
-país,country,,Este {{país}} tiene una rica historia y tradiciones culturales.
-ciudad,city,,La {{ciudad}} de Barcelona es hermosa y muy visitada.
-casa,house / home,,Mi {{casa}} está cerca del parque central de la ciudad.
-agua,water,,El {{agua}} es esencial para la vida de todos los seres.
-pueblo,town / village,,El {{pueblo}} era pequeño pero tenía mucho encanto y carácter.
-grupo,group,,El {{grupo}} de amigos se reunía cada viernes para cenar.
-empresa,company / business,,La {{empresa}} ofrece buenos beneficios y ambiente de trabajo.
-nombre,name,,¿Cuál es el {{nombre}} de la película que viste ayer?
-número,number,,El {{número}} de estudiantes en la clase es treinta y cinco.
-forma,form / shape,,La {{forma}} de la tierra es esférica aproximadamente redonda.
-sistema,system,,El {{sistema}} educativo necesita reformas importantes en varios niveles.
-ejemplo,example,,"Por {{ejemplo}}, el español se habla en muchos países."
-punto,point / dot,,El {{punto}} de la reunión más importante fue el presupuesto.
-gobierno,government,,El {{gobierno}} aprobó nuevas leyes para proteger el medio ambiente.
-información,information,,Necesito {{información}} sobre los horarios de los autobuses disponibles.
-historia,history / story,,La {{historia}} de España es fascinante y muy compleja.
-familia,family,,Mi {{familia}} vive en un pueblo pequeño cerca de Madrid.
-sociedad,society,,La {{sociedad}} moderna enfrenta muchos desafíos y cambios importantes.
-nivel,level,,Tu {{nivel}} de español ha mejorado muchísimo este semestre.
-tipo,type / kind,,¿Qué {{tipo}} de música prefieres escuchar en tu tiempo libre?
-relación,relationship,,La {{relación}} entre hermanos puede ser complicada a veces.
-proceso,process,,El {{proceso}} de aprendizaje requiere paciencia y dedicación constante.
-servicio,service,,El {{servicio}} al cliente en este restaurante es excelente siempre.
-política,politics / policy,,La {{política}} es un tema importante en la sociedad contemporánea.
-cambio,change,,El {{cambio}} es necesario para mejorar nuestras vidas completamente.
-resultado,result,,El {{resultado}} del examen fue mejor de lo esperado.
-dinero,money,,No tengo suficiente {{dinero}} para comprar ese libro.
-hora,hour / time,,¿A qué {{hora}} termina tu clase de español?
-mes,month,,Próximo {{mes}} viajaré a visitar a mi familia.
-semana,week,,La {{semana}} pasada fue muy ocupada y cansadora.
-noche,night,,Por la {{noche}} me gusta leer antes de dormir.
-mañana,morning / tomorrow,,{{Mañana}} tengo que entregar el proyecto de trabajo.
-tarde,afternoon / evening,,Esta {{tarde}} iremos al cine con nuestros amigos.
-minuto,minute,,Espera un {{minuto}} mientras busco mis llaves.
-segundo,second,,En un {{segundo}} todo cambió para siempre.
-siglo,century,,El {{siglo}} diecinueve fue muy importante para la historia.
-época,era / period,,En la {{época}} medieval había muchos castillos grandes.
-futuro,future,,El {{futuro}} depende de las decisiones que tomes hoy.
-pasado,past,,Mi {{pasado}} me enseñó lecciones valiosas sobre la vida.
-presente,present,,Debemos enfocarnos en el {{presente}} y no preocuparnos tanto.
-inicio,beginning / start,,El {{inicio}} del curso es el próximo lunes.
-fin,end,,Al {{fin}} llegamos a nuestro destino después de viajar.
-centro,centre,,El {{centro}} de la ciudad tiene muchos restaurantes buenos.
-norte,north,,Vamos al {{norte}} para ver las montañas nevadas.
-sur,south,,El {{sur}} del país tiene un clima más cálido.
-este,east,,El {{este}} es la dirección donde sale el sol.
-oeste,west,,El {{oeste}} tiene unas puestas de sol hermosas.
-arriba,above / up,,Mi habitación está {{arriba}} de la sala principal.
-abajo,below / down,,Los niños juegan {{abajo}} en el patio de casa.
-derecha,right (direction),,La tienda está a la {{derecha}} de la esquina.
-izquierda,left (direction),,Gira a la {{izquierda}} en el próximo semáforo.
-calle,street,,La {{calle}} principal tiene muchas tiendas y cafés.
-camino,road / path,,El {{camino}} al pueblo es largo y sinuoso.
-puerta,door,,Llama a la {{puerta}} antes de entrar a la casa.
-ventana,window,,Abre la {{ventana}} para que entre aire fresco.
-suelo,floor / ground,,El {{suelo}} de la cocina está muy limpio hoy.
-techo,ceiling / roof,,Hay una mancha de agua en el {{techo}}.
-pared,wall,,Pintaron la {{pared}} de color azul claro ayer.
-habitación,room,,Mi {{habitación}} es pequeña pero muy acogedora.
-cocina,kitchen,,Preparo el desayuno en la {{cocina}} cada mañana.
-baño,bathroom,,El {{baño}} necesita una reparación urgente del grifo.
-jardín,garden,,El {{jardín}} tiene flores muy hermosas en primavera.
-edificio,building,,El {{edificio}} nuevo tiene treinta pisos muy altos.
-piso,floor / flat,,Vivo en el tercer {{piso}} de este edificio.
-apartamento,apartment,,Mi {{apartamento}} está cerca de la estación de metro.
-hotel,hotel,,El {{hotel}} tiene una vista panorámica del mar.
-hospital,hospital,,Mi madre trabaja en el {{hospital}} como enfermera.
-escuela,school,,Voy a la {{escuela}} todos los días de lunes.
-universidad,university,,Estudiaré ingeniería en la {{universidad}} el próximo año.
-biblioteca,library,,La {{biblioteca}} cierra a las ocho de la noche.
-tienda,shop / store,,Compré pan en la {{tienda}} de la esquina.
-mercado,market,,El {{mercado}} vende frutas y verduras muy frescas.
-banco,bank,,Fui al {{banco}} a retirar dinero para el viaje.
-iglesia,church,,La {{iglesia}} tiene un campanario muy antiguo.
-parque,park,,Los niños juegan en el {{parque}} los fines de semana.
-playa,beach,,Me encanta pasar {{playa}} los fines de semana con mi familia.
-montaña,mountain,,La {{montaña}} más alta está cubierta de nieve todo el año.
-río,river,,El {{río}} fluye hacia el océano muy rápidamente en primavera.
-lago,lake,,Nadamos en el {{lago}} durante nuestras vacaciones de verano pasadas.
-mar,sea,,El {{mar}} está muy agitado cuando hay tormenta en la costa.
-bosque,forest,,Caminamos por el {{bosque}} y vimos muchos animales salvajes diferentes.
-campo,countryside / field,,Mi abuelo cultiva maíz en el {{campo}} durante toda la primavera.
-cielo,sky,,El {{cielo}} estaba completamente despejado y muy azul ayer por la tarde.
-sol,sun,,El {{sol}} sale muy temprano durante los meses de verano aquí.
-luna,moon,,La {{luna}} brilla hermosamente en las noches claras sin nubes.
-estrella,star,,Esa {{estrella}} es la más brillante que puedo ver desde aquí.
-nube,cloud,,Una {{nube}} blanca flotaba lentamente por el cielo azul ayer.
-lluvia,rain,,La {{lluvia}} cayó durante toda la noche sin parar en absoluto.
-nieve,snow,,La {{nieve}} cubrió toda la ciudad después de la tormenta invernal.
-viento,wind,,El {{viento}} soplaba muy fuerte y derribó varios árboles grandes.
-fuego,fire,,Encendimos un {{fuego}} para calentarnos alrededor durante la noche fría.
-tierra,earth / land,,La {{tierra}} es muy fértil para cultivar verduras y frutas.
-piedra,stone / rock,,Encontré una {{piedra}} muy lisa en la orilla del río ayer.
-árbol,tree,,Ese {{árbol}} es muy antiguo y tiene más de cien años.
-flor,flower,,La {{flor}} roja es la más bonita del jardín de mi casa.
-planta,plant,,Esta {{planta}} necesita mucha luz solar para crecer correctamente y bien.
-hierba,grass / herb,,La {{hierba}} verde cubre todo el prado en la primavera.
-animal,animal,,Cada {{animal}} tiene características únicas que lo hacen especial y diferente.
-perro,dog,,Mi {{perro}} es muy inteligente y obedece todas mis órdenes fácilmente.
-gato,cat,,El {{gato}} duerme cómodamente en el sofá durante todo el día.
-pájaro,bird,,El {{pájaro}} canta hermosamente cada mañana al amanecer del nuevo día.
-pez,fish,,El {{pez}} nada rápidamente en el acuario de mi habitación aquí.
-caballo,horse,,El {{caballo}} corre muy rápido por el campo abierto y verde.
-vaca,cow,,La {{vaca}} produce leche deliciosa que usamos para hacer queso.
-cerdo,pig,,El {{cerdo}} come mucho alimento durante todo el día en la granja.
-oveja,sheep,,La {{oveja}} tiene lana blanca muy suave y esponjosa para abrigos.
-gallina,hen / chicken,,La {{gallina}} pone huevos frescos todos los días en la granja.
-cuerpo,body,,Mi {{cuerpo}} está cansado después de trabajar durante todo el día.
-cabeza,head,,Me duele la {{cabeza}} desde hace varias horas sin descansar nada.
-cara,face,,Tiene una {{cara}} muy amable y sonríe constantemente con todos aquí.
-ojo,eye,,El {{ojo}} izquierdo veo mejor que el derecho hace años ya.
-nariz,nose,,La {{nariz}} es importante para respirar y oler cosas naturales.
-boca,mouth,,Abre la {{boca}} para comer la comida deliciosa ahora mismo.
-oreja,ear,,La {{oreja}} derecha escucha mejor que la izquierda en general siempre.
-diente,tooth,,Un {{diente}} se me cayó cuando era muy pequeño hace años.
-lengua,tongue,,La {{lengua}} es necesaria para hablar y probar el sabor.
-cuello,neck,,Llevo un collar alrededor del {{cuello}} durante las ocasiones especiales.
-hombro,shoulder,,Me duele el {{hombro}} izquierdo después de jugar al fútbol ayer.
-brazo,arm,,Levanta el {{brazo}} derecho para señalar dónde está la casa.
-codo,elbow,,El {{codo}} es la articulación entre el brazo y el antebrazo.
-muñeca,wrist,,Llevo un reloj en la {{muñeca}} izquierda todos los días sin falta.
-dedo,finger,,El {{dedo}} índice es muy importante para escribir y señalar cosas.
-pierna,leg,,La {{pierna}} derecha es más fuerte que la izquierda en mi cuerpo.
-rodilla,knee,,La {{rodilla}} se dobla para que podamos caminar correctamente sin problemas.
-pie,foot,,Tengo el {{pie}} izquierdo adolorido después de caminar todo el día.
-corazón,heart,,El {{corazón}} late rápidamente cuando estoy nervioso.
-pulmón,lung,,Respirar profundamente llena mis {{pulmones}} de aire fresco.
-estómago,stomach,,"Después de comer, mi {{estómago}} se siente muy lleno."
-cerebro,brain,,El {{cerebro}} controla todas nuestras funciones corporales.
-sangre,blood,,La {{sangre}} circula por todo el cuerpo humano.
-hueso,bone,,Cada {{hueso}} del cuerpo tiene una función importante.
-músculo,muscle,,Levantar pesas fortalece cada {{músculo}} del brazo.
-piel,skin,,La {{piel}} protege nuestro cuerpo de las infecciones.
-pelo,hair,,Mi {{pelo}} es largo y de color café oscuro.
-ropa,clothes,,Compré {{ropa}} nueva para el invierno la semana pasada.
-camisa,shirt,,Usa una {{camisa}} azul al trabajo todos los días.
-pantalón,trousers,,Necesito comprar un {{pantalón}} negro para la reunión.
-falda,skirt,,Ella lleva una {{falda}} roja muy elegante hoy.
-vestido,dress,,El {{vestido}} blanco es perfecto para la ceremonia.
-chaqueta,jacket,,Ponte la {{chaqueta}} porque hace frío afuera.
-abrigo,coat,,El {{abrigo}} de invierno está en el armario.
-zapato,shoe,,Me duele el {{zapato}} derecho desde esta mañana.
-calcetín,sock,,Perdí un {{calcetín}} en la lavadora nuevamente.
-sombrero,hat,,El {{sombrero}} te protege del sol en verano.
-bufanda,scarf,,Necesito una {{bufanda}} caliente para este invierno frío.
-guante,glove,,Ponte los {{guantes}} antes de salir al frío.
-comida,food,,La {{comida}} está lista para servir en la mesa.
-pan,bread,,Compré {{pan}} fresco en la panadería esta mañana.
-arroz,rice,,El {{arroz}} blanco es mi carbohidrato favorito.
-pasta,pasta,,Preparé {{pasta}} con salsa de tomate para la cena.
-carne,meat,,La {{carne}} roja es muy nutritiva y deliciosa.
-pollo,chicken,,Asamos {{pollo}} a la parrilla el fin de semana.
-pescado,fish (food),,El {{pescado}} fresco viene del mercado local hoy.
-huevo,egg,,Como un {{huevo}} frito para el desayuno diariamente.
-leche,milk,,Bebo {{leche}} caliente antes de dormir cada noche.
-queso,cheese,,El {{queso}} cheddar es mi favorito para sándwiches.
-mantequilla,butter,,Unté {{mantequilla}} en el pan tostado esta mañana.
-aceite,oil,,Usa {{aceite}} de oliva para cocinar las verduras.
-sal,salt,,Agrega {{sal}} al agua antes de cocinar la pasta.
-azúcar,sugar,,Puso {{azúcar}} en el café para endulzarlo más.
-café,coffee,,Bebo {{café}} negro todas las mañanas sin falta.
-té,tea,,El {{té}} verde es muy saludable y relajante.
-vino,wine,,El {{vino}} tinto acompaña bien con la carne.
-cerveza,beer,,Tomamos {{cerveza}} fría después del partido de fútbol.
-jugo,juice,,El {{jugo}} de naranja es fresco y nutritivo.
-fruta,fruit,,Come {{fruta}} diariamente para mantenerte saludable y fuerte.
-manzana,apple,,La {{manzana}} roja es crujiente y muy sabrosa.
-naranja,orange,,La {{naranja}} tiene mucha vitamina C y jugo.
-uva,grape,,Las {{uvas}} moradas son dulces y muy refrescantes.
-plátano,banana,,El {{plátano}} maduro es perfecto para los batidos.
-fresa,strawberry,,Las {{fresas}} frescas se ven rojas y brillantes.
-limón,lemon,,Exprimí {{limón}} fresco en el agua para beber.
-tomate,tomato,,El {{tomate}} maduro es ideal para la ensalada.
-lechuga,lettuce,,La {{lechuga}} cruda es nutritiva en la ensalada.
-zanahoria,carrot,,La {{zanahoria}} naranja tiene mucha vitamina A.
-cebolla,onion,,Mi abuela usa {{cebolla}} en casi todas sus recetas.
-ajo,garlic,,El {{ajo}} le da mucho sabor a la pasta.
-papa,potato,,Ayer preparé {{papas}} al horno con queso derretido.
-libro,book,,Estoy leyendo un {{libro}} muy interesante sobre historia.
-página,page,,Encontré la información importante en la {{página}} treinta.
-carta,letter,,Recibí una {{carta}} de mi abuela el martes pasado.
-periódico,newspaper,,Mi padre lee el {{periódico}} todas las mañanas con café.
-revista,magazine,,Compré una {{revista}} de moda en la tienda.
-noticia,news,,La {{noticia}} sobre el viaje fue sorprendente para todos.
-pregunta,question,,El profesor hizo una {{pregunta}} difícil en el examen.
-respuesta,answer,,Tu {{respuesta}} a la pregunta fue completamente correcta.
-idea,idea,,Tuve una {{idea}} brillante para el proyecto.
-opinión,opinion,,"En mi {{opinión}}, ese restaurante es el mejor del barrio."
-palabra,word,,No entiendo el significado de esa {{palabra}} en inglés.
-frase,sentence / phrase,,Esta {{frase}} es perfecta para describir la situación.
-idioma,language,,Mi hermano habla cuatro {{idiomas}} diferentes fluidamente.
-acento,accent,,Ella tiene un {{acento}} español muy bonito y particular.
-cultura,culture,,La {{cultura}} mexicana es muy rica en tradiciones.
-arte,art,,El {{arte}} moderno no siempre es fácil de entender.
-música,music,,La {{música}} clásica me relaja después de un día difícil.
-canción,song,,Esa {{canción}} fue número uno en las listas.
-película,film / movie,,Vimos una {{película}} excelente en el cine anoche.
-teatro,theatre,,El {{teatro}} es mi forma favorita de entretenimiento cultural.
-deporte,sport,,El {{deporte}} es importante para la salud física.
-fútbol,football / soccer,,Mi equipo favorito ganó el partido de {{fútbol}}.
-tenis,tennis,,Juego {{tenis}} cada fin de semana en el parque.
-natación,swimming,,La {{natación}} es un deporte muy completo y saludable.
-carrera,race / career,,Mi {{carrera}} universitaria fue muy exigente pero gratificante.
-equipo,team / equipment,,El {{equipo}} de fútbol necesita nuevos jugadores jóvenes.
-juego,game,,Este {{juego}} de mesa es muy divertido para toda familia.
-victoria,victory,,Celebramos la {{victoria}} con todos nuestros amigos y familiares.
-derrota,defeat,,La {{derrota}} fue difícil de aceptar para el equipo.
-premio,prize / award,,Ganó un {{premio}} importante por su trabajo excelente.
-viaje,journey / trip,,Planificamos un {{viaje}} a Barcelona para el próximo verano.
-vacaciones,holidays,,Mis {{vacaciones}} fueron las mejores de toda mi vida.
-transporte,transport,,El {{transporte}} público en la ciudad es muy eficiente.
-coche,car,,Compré un {{coche}} nuevo de color azul oscuro.
-autobús,bus,,Todos los días tomo el {{autobús}} para ir al trabajo.
-tren,train,,El {{tren}} llegó con retraso debido al mal tiempo.
-avión,airplane,,El {{avión}} despegó a las ocho de la mañana.
-barco,ship / boat,,Viajamos en {{barco}} durante nuestras vacaciones en verano.
-bicicleta,bicycle,,Mi {{bicicleta}} nueva es roja y muy rápida.
-motocicleta,motorcycle,,Mi amigo tiene una {{motocicleta}} de marca italiana.
-billete,ticket,,Necesito comprar un {{billete}} de tren para mañana.
-pasaporte,passport,,No puedo viajar sin mi {{pasaporte}} renovado.
-maleta,suitcase,,Empacé toda mi ropa en una sola {{maleta}}.
-mapa,map,,Usé un {{mapa}} para encontrar el camino correcto.
-tecnología,technology,,La {{tecnología}} moderna cambió nuestras vidas completamente.
-ordenador,computer,,Mi {{ordenador}} es muy rápido para programar y trabajar.
-teléfono,phone,,Olvidé mi {{teléfono}} en casa esta mañana.
-internet,internet,,Mi hermano usa {{internet}} para estudiar cada día.
-correo,mail / email,,Recibí un {{correo}} importante de mi jefe esta mañana.
-red,network,,La {{red}} de wifi no funciona en toda la casa.
-programa,program,,Este {{programa}} de televisión es muy divertido y emocionante.
-aplicación,application / app,,Descargué una {{aplicación}} nueva para organizar mis tareas diarias.
-pantalla,screen,,La {{pantalla}} del computador está muy brillante hoy.
-teclado,keyboard,,Mi {{teclado}} mecánico hace mucho ruido cuando escribo.
-ratón,mouse,,El {{ratón}} inalámbrico se quedó sin batería ayer.
-cámara,camera,,La {{cámara}} de mi teléfono toma fotos muy bonitas.
-televisión,television,,Miramos {{televisión}} toda la noche con la familia.
-radio,radio,,Escucho {{radio}} en el coche camino al trabajo.
-batería,battery,,La {{batería}} del móvil se agotó rápidamente hoy.
-electricidad,electricity,,Pagamos mucha {{electricidad}} en invierno por la calefacción.
-luz,light,,Apagué la {{luz}} antes de irme a dormir.
-sonido,sound,,El {{sonido}} de la música era muy fuerte anoche.
-color,colour,,Mi {{color}} favorito es azul desde hace muchos años.
-rojo,red,,Compré una camiseta {{roja}} en la tienda del centro.
-azul,blue,,El cielo está muy {{azul}} en esta hermosa mañana.
-verde,green,,Las hojas {{verdes}} del árbol crecen durante la primavera.
-amarillo,yellow,,El {{amarillo}} del sol ilumina toda la habitación.
-negro,black,,Llevo pantalones {{negros}} a la oficina todos los días.
-blanco,white,,Las paredes {{blancas}} hacen que la casa sea más luminosa.
-gris,grey,,El cielo {{gris}} anuncia que va a llover pronto.
-morado,purple,,Mi flor favorita es {{morada}} y crece en el jardín.
-rosa,pink,,El vestido {{rosa}} de mi hermana es muy bonito.
-marrón,brown,,Los ojos {{marrones}} de mi padre son muy expresivos.
-dolor,pain,,Tengo {{dolor}} de cabeza desde esta mañana temprano.
-enfermedad,illness,,La {{enfermedad}} me mantuvo en cama durante una semana.
-medicina,medicine,,Tomo {{medicina}} todos los días para controlar la presión.
-médico,doctor,,El {{médico}} revisó mis síntomas con mucho cuidado.
-enfermero,nurse,,El {{enfermero}} me puso la inyección con mucha destreza.
-operación,operation,,Mi abuelo se sometió a una {{operación}} hace dos meses.
-tratamiento,treatment,,El {{tratamiento}} duró varios meses pero funcionó muy bien.
-salud,health,,La {{salud}} es lo más importante en la vida.
-mente,mind,,Una {{mente}} fuerte te ayuda a superar los problemas.
-emoción,emotion,,Siente mucha {{emoción}} cuando ve a su familia reunida.
-miedo,fear,,El niño siente {{miedo}} cuando ve películas de terror.
-alegría,joy,,La {{alegría}} llenó el corazón de todos en la fiesta.
-tristeza,sadness,,La {{tristeza}} cubrió su rostro cuando escuchó las noticias.
-amor,love,,El {{amor}} entre ellos es profundo y muy verdadero.
-odio,hate,,No siento {{odio}} hacia nadie en este mundo.
-esperanza,hope,,La {{esperanza}} nos mantiene adelante en los momentos difíciles.
-fe,faith,,Mi {{fe}} religiosa es muy importante en mi vida.
-verdad,truth,,Siempre digo la {{verdad}} sin importar las consecuencias.
-mentira,lie,,Detesto la {{mentira}} y prefiero la honestidad siempre.
-justicia,justice,,La {{justicia}} debe aplicarse a todos por igual.
-ley,law,,La {{ley}} protege los derechos de todos los ciudadanos.
-policía,police,,La {{policía}} llegó rápidamente al lugar del accidente.
-soldado,soldier,,Mi tío fue {{soldado}} durante veinte años en el ejército.
-guerra,war,,La {{guerra}} dejó muchas pérdidas en la población civil.
-paz,peace,,Todos deseamos vivir en {{paz}} y armonía con nuestros vecinos.
-accidente,accident,,El {{accidente}} de coche ocurrió en la carretera principal ayer.
-peligro,danger,,Hay {{peligro}} de inundaciones durante la temporada de lluvias.
-seguridad,safety / security,,La {{seguridad}} en el hogar es muy importante para las familias.
-éxito,success,,Su {{éxito}} profesional fue resultado de años de trabajo duro.
-fracaso,failure,,No consideramos el {{fracaso}} como el fin de nuestros sueños.
-dificultad,difficulty,,La {{dificultad}} del examen sorprendió a muchos estudiantes universitarios.
-solución,solution,,Encontramos una {{solución}} rápida para resolver el problema técnico.
-oportunidad,opportunity,,Esta {{oportunidad}} laboral es perfecta para mi carrera profesional futura.
-derecho,right / law,,Todos tienen {{derecho}} a la educación de calidad en la escuela.
-responsabilidad,responsibility,,Asumir {{responsabilidad}} por nuestros actos es signo de madurez.
-libertad,freedom,,La {{libertad}} de expresión es fundamental en una democracia.
-igualdad,equality,,Luchamos por la {{igualdad}} de oportunidades para todas las personas.
-comunidad,community,,Nuestra {{comunidad}} organiza eventos culturales cada mes para todos.
-nación,nation,,La {{nación}} celebra su día de independencia con entusiasmo cada año.
-región,region,,Esta {{región}} es famosa por su deliciosa gastronomía y tradiciones.
-capital,capital city,,Madrid es la {{capital}} de España y una ciudad muy cosmopolita.
-población,population,,La {{población}} de la ciudad ha crecido significativamente en los últimos años.
-economía,economy,,La {{economía}} del país depende mucho del sector turístico principalmente.
-comercio,trade / commerce,,El {{comercio}} electrónico ha transformado la forma de comprar y vender.
-industria,industry,,La {{industria}} automotriz es muy importante en esta región económica.
-agricultura,agriculture,,La {{agricultura}} orgánica está ganando popularidad entre los consumidores conscientes.
-medio ambiente,environment,,Debemos proteger el {{medio ambiente}} para las generaciones futuras del planeta.
-naturaleza,nature,,Amamos pasar tiempo en la {{naturaleza}} durante nuestras vacaciones de verano.
-energía,energy,,Las paneles solares generan {{energía}} limpia y renovable para el hogar.
-recurso,resource,,El agua es un {{recurso}} natural muy valioso en todas partes.
-contaminación,pollution,,La {{contaminación}} del aire afecta la salud de millones de personas.
-clima,climate,,El {{clima}} tropical es perfecto para cultivar frutas exóticas aquí.
-temperatura,temperature,,La {{temperatura}} ha subido varios grados en los últimos meses.
+tiempo,time / weather,,El {{tiempo}} ha cambiado mucho en los últimos años.,ˈtjemp̬o
+año,year,,Hace un {{año}} que no veo a mi mejor amigo.,ˈaɲo
+vida,life,,La {{vida}} es corta y debemos aprovecharla al máximo.,ˈβiða
+hombre,man,,El {{hombre}} caminaba lentamente por la calle oscura.,ˈom̬bɾe
+mujer,woman,,La {{mujer}} trabajaba como ingeniera en una empresa grande.,muˈxeɾ
+día,day,,Cada {{día}} me levanto temprano para ir al trabajo.,ˈdia
+cosa,thing,,No entiendo por qué hizo esa {{cosa}} tan extraña.,ˈkosa
+parte,part,,La primera {{parte}} del libro fue muy interesante y emocionante.,ˈpaɾte
+lugar,place,,Este {{lugar}} es perfecto para pasar las vacaciones familiares.,luˈɡaɾ
+momento,moment,,En ese {{momento}} comprendí que había cometido un gran error.,moˈmento
+manera,way / manner,,La {{manera}} correcta de estudiar es con disciplina y paciencia.,maˈneɾa
+persona,person,,Esa {{persona}} es muy amable y siempre ayuda a otros.,peɾˈsona
+mano,hand,,Me duele la {{mano}} después de escribir toda la tarde.,ˈmano
+mundo,world,,El {{mundo}} es grande y está lleno de culturas diferentes.,ˈmun̬do
+vez,time (occurrence),,"La próxima {{vez}} que visite París, iré a la Torre Eiffel.",ˈβeθ
+caso,case,,"En ese {{caso}}, deberías consultar con un profesional experimentado.",ˈkaso
+trabajo,work / job,,Mi {{trabajo}} es muy interesante aunque también bastante demandante.,tɾaˈβaxo
+problema,problem,,Tenemos un {{problema}} que necesita solución inmediata y urgente.,pɾoˈβlema
+país,country,,Este {{país}} tiene una rica historia y tradiciones culturales.,paˈis
+ciudad,city,,La {{ciudad}} de Barcelona es hermosa y muy visitada.,θju'ðað
+casa,house / home,,Mi {{casa}} está cerca del parque central de la ciudad.,ˈkasa
+agua,water,,El {{agua}} es esencial para la vida de todos los seres.,ˈaɣwa
+pueblo,town / village,,El {{pueblo}} era pequeño pero tenía mucho encanto y carácter.,ˈpweβlo
+grupo,group,,El {{grupo}} de amigos se reunía cada viernes para cenar.,ˈɡɾupo
+empresa,company / business,,La {{empresa}} ofrece buenos beneficios y ambiente de trabajo.,emˈpɾesa
+nombre,name,,¿Cuál es el {{nombre}} de la película que viste ayer?,ˈnom̬bɾe
+número,number,,El {{número}} de estudiantes en la clase es treinta y cinco.,ˈnumeɾo
+forma,form / shape,,La {{forma}} de la tierra es esférica aproximadamente redonda.,ˈfoɾma
+sistema,system,,El {{sistema}} educativo necesita reformas importantes en varios niveles.,sisˈtema
+ejemplo,example,,"Por {{ejemplo}}, el español se habla en muchos países.",eˈxemplo
+punto,point / dot,,El {{punto}} de la reunión más importante fue el presupuesto.,ˈpun̬to
+gobierno,government,,El {{gobierno}} aprobó nuevas leyes para proteger el medio ambiente.,ɡoˈβjeɾno
+información,information,,Necesito {{información}} sobre los horarios de los autobuses disponibles.,infoɾmaˈθjon
+historia,history / story,,La {{historia}} de España es fascinante y muy compleja.,isˈtoɾja
+familia,family,,Mi {{familia}} vive en un pueblo pequeño cerca de Madrid.,faˈmilја
+sociedad,society,,La {{sociedad}} moderna enfrenta muchos desafíos y cambios importantes.,soθjeˈðað
+nivel,level,,Tu {{nivel}} de español ha mejorado muchísimo este semestre.,niˈβel
+tipo,type / kind,,¿Qué {{tipo}} de música prefieres escuchar en tu tiempo libre?,ˈtipo
+relación,relationship,,La {{relación}} entre hermanos puede ser complicada a veces.,relaˈθjon
+proceso,process,,El {{proceso}} de aprendizaje requiere paciencia y dedicación constante.,pɾoˈθeso
+servicio,service,,El {{servicio}} al cliente en este restaurante es excelente siempre.,seɾˈβiθjo
+política,politics / policy,,La {{política}} es un tema importante en la sociedad contemporánea.,poˈlitika
+cambio,change,,El {{cambio}} es necesario para mejorar nuestras vidas completamente.,ˈkambjo
+resultado,result,,El {{resultado}} del examen fue mejor de lo esperado.,reˈsultaðo
+dinero,money,,No tengo suficiente {{dinero}} para comprar ese libro.,diˈneɾo
+hora,hour / time,,¿A qué {{hora}} termina tu clase de español?,ˈoɾa
+mes,month,,Próximo {{mes}} viajaré a visitar a mi familia.,mes
+semana,week,,La {{semana}} pasada fue muy ocupada y cansadora.,seˈmana
+noche,night,,Por la {{noche}} me gusta leer antes de dormir.,ˈnotʃe
+mañana,morning / tomorrow,,{{Mañana}} tengo que entregar el proyecto de trabajo.,maˈɲana
+tarde,afternoon / evening,,Esta {{tarde}} iremos al cine con nuestros amigos.,ˈtaɾðe
+minuto,minute,,Espera un {{minuto}} mientras busco mis llaves.,miˈnuto
+segundo,second,,En un {{segundo}} todo cambió para siempre.,seˈɡundo
+siglo,century,,El {{siglo}} diecinueve fue muy importante para la historia.,ˈsiɡlo
+época,era / period,,En la {{época}} medieval había muchos castillos grandes.,ˈepoka
+futuro,future,,El {{futuro}} depende de las decisiones que tomes hoy.,fuˈtuɾo
+pasado,past,,Mi {{pasado}} me enseñó lecciones valiosas sobre la vida.,paˈsaðo
+presente,present,,Debemos enfocarnos en el {{presente}} y no preocuparnos tanto.,pɾeˈsente
+inicio,beginning / start,,El {{inicio}} del curso es el próximo lunes.,iˈniθjo
+fin,end,,Al {{fin}} llegamos a nuestro destino después de viajar.,fin
+centro,centre,,El {{centro}} de la ciudad tiene muchos restaurantes buenos.,ˈθentɾo
+norte,north,,Vamos al {{norte}} para ver las montañas nevadas.,ˈnoɾte
+sur,south,,El {{sur}} del país tiene un clima más cálido.,suɾ
+este,east,,El {{este}} es la dirección donde sale el sol.,ˈeste
+oeste,west,,El {{oeste}} tiene unas puestas de sol hermosas.,oeˈste
+arriba,above / up,,Mi habitación está {{arriba}} de la sala principal.,aˈriba
+abajo,below / down,,Los niños juegan {{abajo}} en el patio de casa.,aˈβaxo
+derecha,right (direction),,La tienda está a la {{derecha}} de la esquina.,deˈɾetʃa
+izquierda,left (direction),,Gira a la {{izquierda}} en el próximo semáforo.,iˈskjeɾða
+calle,street,,La {{calle}} principal tiene muchas tiendas y cafés.,ˈkaʎe
+camino,road / path,,El {{camino}} al pueblo es largo y sinuoso.,kaˈmino
+puerta,door,,Llama a la {{puerta}} antes de entrar a la casa.,ˈpweɾta
+ventana,window,,Abre la {{ventana}} para que entre aire fresco.,βenˈtana
+suelo,floor / ground,,El {{suelo}} de la cocina está muy limpio hoy.,ˈswelo
+techo,ceiling / roof,,Hay una mancha de agua en el {{techo}}.,ˈtetʃo
+pared,wall,,Pintaron la {{pared}} de color azul claro ayer.,paˈɾeð
+habitación,room,,Mi {{habitación}} es pequeña pero muy acogedora.,aβitaˈθjon
+cocina,kitchen,,Preparo el desayuno en la {{cocina}} cada mañana.,koˈθina
+baño,bathroom,,El {{baño}} necesita una reparación urgente del grifo.,ˈbaɲo
+jardín,garden,,El {{jardín}} tiene flores muy hermosas en primavera.,xaɾˈðin
+edificio,building,,El {{edificio}} nuevo tiene treinta pisos muy altos.,eˈðifiθjo
+piso,floor / flat,,Vivo en el tercer {{piso}} de este edificio.,ˈpiso
+apartamento,apartment,,Mi {{apartamento}} está cerca de la estación de metro.,apaɾtaˈmento
+hotel,hotel,,El {{hotel}} tiene una vista panorámica del mar.,oˈtel
+hospital,hospital,,Mi madre trabaja en el {{hospital}} como enfermera.,ospiˈtal
+escuela,school,,Voy a la {{escuela}} todos los días de lunes.,esˈkwela
+universidad,university,,Estudiaré ingeniería en la {{universidad}} el próximo año.,uniβeɾsiˈðað
+biblioteca,library,,La {{biblioteca}} cierra a las ocho de la noche.,biβljoˈteka
+tienda,shop / store,,Compré pan en la {{tienda}} de la esquina.,tˈjenda
+mercado,market,,El {{mercado}} vende frutas y verduras muy frescas.,meɾˈkaðo
+banco,bank,,Fui al {{banco}} a retirar dinero para el viaje.,ˈβaŋko
+iglesia,church,,La {{iglesia}} tiene un campanario muy antiguo.,iˈɡlesja
+parque,park,,Los niños juegan en el {{parque}} los fines de semana.,ˈpaɾke
+playa,beach,,Me encanta pasar {{playa}} los fines de semana con mi familia.,ˈplaja
+montaña,mountain,,La {{montaña}} más alta está cubierta de nieve todo el año.,monˈtaɲa
+río,river,,El {{río}} fluye hacia el océano muy rápidamente en primavera.,ˈri.o
+lago,lake,,Nadamos en el {{lago}} durante nuestras vacaciones de verano pasadas.,ˈlaɣo
+mar,sea,,El {{mar}} está muy agitado cuando hay tormenta en la costa.,maɾ
+bosque,forest,,Caminamos por el {{bosque}} y vimos muchos animales salvajes diferentes.,ˈboskɛ
+campo,countryside / field,,Mi abuelo cultiva maíz en el {{campo}} durante toda la primavera.,ˈkampo
+cielo,sky,,El {{cielo}} estaba completamente despejado y muy azul ayer por la tarde.,ˈθjɛlo
+sol,sun,,El {{sol}} sale muy temprano durante los meses de verano aquí.,sol
+luna,moon,,La {{luna}} brilla hermosamente en las noches claras sin nubes.,ˈluna
+estrella,star,,Esa {{estrella}} es la más brillante que puedo ver desde aquí.,esˈtɾɛʎa
+nube,cloud,,Una {{nube}} blanca flotaba lentamente por el cielo azul ayer.,ˈnuβɛ
+lluvia,rain,,La {{lluvia}} cayó durante toda la noche sin parar en absoluto.,ˈʎuβja
+nieve,snow,,La {{nieve}} cubrió toda la ciudad después de la tormenta invernal.,ˈnjɛβɛ
+viento,wind,,El {{viento}} soplaba muy fuerte y derribó varios árboles grandes.,ˈbjɛnto
+fuego,fire,,Encendimos un {{fuego}} para calentarnos alrededor durante la noche fría.,ˈfwɛɣo
+tierra,earth / land,,La {{tierra}} es muy fértil para cultivar verduras y frutas.,ˈtjɛrːa
+piedra,stone / rock,,Encontré una {{piedra}} muy lisa en la orilla del río ayer.,ˈpjɛðɾa
+árbol,tree,,Ese {{árbol}} es muy antiguo y tiene más de cien años.,ˈaɾβol
+flor,flower,,La {{flor}} roja es la más bonita del jardín de mi casa.,floɾ
+planta,plant,,Esta {{planta}} necesita mucha luz solar para crecer correctamente y bien.,ˈplanta
+hierba,grass / herb,,La {{hierba}} verde cubre todo el prado en la primavera.,ˈjɛɾβa
+animal,animal,,Cada {{animal}} tiene características únicas que lo hacen especial y diferente.,aniˈmal
+perro,dog,,Mi {{perro}} es muy inteligente y obedece todas mis órdenes fácilmente.,ˈpɛrːo
+gato,cat,,El {{gato}} duerme cómodamente en el sofá durante todo el día.,ˈɣato
+pájaro,bird,,El {{pájaro}} canta hermosamente cada mañana al amanecer del nuevo día.,ˈpaxaɾo
+pez,fish,,El {{pez}} nada rápidamente en el acuario de mi habitación aquí.,pɛθ
+caballo,horse,,El {{caballo}} corre muy rápido por el campo abierto y verde.,kaˈβaʎo
+vaca,cow,,La {{vaca}} produce leche deliciosa que usamos para hacer queso.,ˈβaka
+cerdo,pig,,El {{cerdo}} come mucho alimento durante todo el día en la granja.,ˈθɛɾðo
+oveja,sheep,,La {{oveja}} tiene lana blanca muy suave y esponjosa para abrigos.,oˈβɛxa
+gallina,hen / chicken,,La {{gallina}} pone huevos frescos todos los días en la granja.,ɡaˈʎina
+cuerpo,body,,Mi {{cuerpo}} está cansado después de trabajar durante todo el día.,ˈkwɛɾpo
+cabeza,head,,Me duele la {{cabeza}} desde hace varias horas sin descansar nada.,kaˈβɛθa
+cara,face,,Tiene una {{cara}} muy amable y sonríe constantemente con todos aquí.,ˈkaɾa
+ojo,eye,,El {{ojo}} izquierdo veo mejor que el derecho hace años ya.,ˈoxo
+nariz,nose,,La {{nariz}} es importante para respirar y oler cosas naturales.,naˈɾiθ
+boca,mouth,,Abre la {{boca}} para comer la comida deliciosa ahora mismo.,ˈβoka
+oreja,ear,,La {{oreja}} derecha escucha mejor que la izquierda en general siempre.,oˈɾɛxa
+diente,tooth,,Un {{diente}} se me cayó cuando era muy pequeño hace años.,ˈdjɛntɛ
+lengua,tongue,,La {{lengua}} es necesaria para hablar y probar el sabor.,ˈlɛŋɡwa
+cuello,neck,,Llevo un collar alrededor del {{cuello}} durante las ocasiones especiales.,ˈkwɛʎo
+hombro,shoulder,,Me duele el {{hombro}} izquierdo después de jugar al fútbol ayer.,ˈombɾo
+brazo,arm,,Levanta el {{brazo}} derecho para señalar dónde está la casa.,ˈbɾaθo
+codo,elbow,,El {{codo}} es la articulación entre el brazo y el antebrazo.,ˈkoðo
+muñeca,wrist,,Llevo un reloj en la {{muñeca}} izquierda todos los días sin falta.,muˈɲɛka
+dedo,finger,,El {{dedo}} índice es muy importante para escribir y señalar cosas.,ˈðɛðo
+pierna,leg,,La {{pierna}} derecha es más fuerte que la izquierda en mi cuerpo.,ˈpjɛɾna
+rodilla,knee,,La {{rodilla}} se dobla para que podamos caminar correctamente sin problemas.,ɾoˈðiʎa
+pie,foot,,Tengo el {{pie}} izquierdo adolorido después de caminar todo el día.,ˈpi.ɛ
+corazón,heart,,El {{corazón}} late rápidamente cuando estoy nervioso.,koɾaˈθon
+pulmón,lung,,Respirar profundamente llena mis {{pulmones}} de aire fresco.,pulˈmon
+estómago,stomach,,"Después de comer, mi {{estómago}} se siente muy lleno.",esˈtomɑɡo
+cerebro,brain,,El {{cerebro}} controla todas nuestras funciones corporales.,θeˈɾebɾo
+sangre,blood,,La {{sangre}} circula por todo el cuerpo humano.,ˈsɑŋɡɾe
+hueso,bone,,Cada {{hueso}} del cuerpo tiene una función importante.,ˈweso
+músculo,muscle,,Levantar pesas fortalece cada {{músculo}} del brazo.,ˈmuskulo
+piel,skin,,La {{piel}} protege nuestro cuerpo de las infecciones.,pjel
+pelo,hair,,Mi {{pelo}} es largo y de color café oscuro.,ˈpelo
+ropa,clothes,,Compré {{ropa}} nueva para el invierno la semana pasada.,ˈɾopa
+camisa,shirt,,Usa una {{camisa}} azul al trabajo todos los días.,kaˈmisa
+pantalón,trousers,,Necesito comprar un {{pantalón}} negro para la reunión.,pantaˈlon
+falda,skirt,,Ella lleva una {{falda}} roja muy elegante hoy.,ˈfalda
+vestido,dress,,El {{vestido}} blanco es perfecto para la ceremonia.,besˈtido
+chaqueta,jacket,,Ponte la {{chaqueta}} porque hace frío afuera.,tʃaˈketa
+abrigo,coat,,El {{abrigo}} de invierno está en el armario.,aˈβɾiɡo
+zapato,shoe,,Me duele el {{zapato}} derecho desde esta mañana.,θaˈpato
+calcetín,sock,,Perdí un {{calcetín}} en la lavadora nuevamente.,kalθeˈtin
+sombrero,hat,,El {{sombrero}} te protege del sol en verano.,somˈbɾeɾo
+bufanda,scarf,,Necesito una {{bufanda}} caliente para este invierno frío.,buˈfanda
+guante,glove,,Ponte los {{guantes}} antes de salir al frío.,ˈɡwante
+comida,food,,La {{comida}} está lista para servir en la mesa.,koˈmida
+pan,bread,,Compré {{pan}} fresco en la panadería esta mañana.,pan
+arroz,rice,,El {{arroz}} blanco es mi carbohidrato favorito.,aˈroθ
+pasta,pasta,,Preparé {{pasta}} con salsa de tomate para la cena.,ˈpasta
+carne,meat,,La {{carne}} roja es muy nutritiva y deliciosa.,ˈkaɾne
+pollo,chicken,,Asamos {{pollo}} a la parrilla el fin de semana.,ˈpoʎo
+pescado,fish (food),,El {{pescado}} fresco viene del mercado local hoy.,pesˈkado
+huevo,egg,,Como un {{huevo}} frito para el desayuno diariamente.,ˈweβo
+leche,milk,,Bebo {{leche}} caliente antes de dormir cada noche.,ˈletʃe
+queso,cheese,,El {{queso}} cheddar es mi favorito para sándwiches.,ˈkeso
+mantequilla,butter,,Unté {{mantequilla}} en el pan tostado esta mañana.,manteˈkiʎa
+aceite,oil,,Usa {{aceite}} de oliva para cocinar las verduras.,aˈθejte
+sal,salt,,Agrega {{sal}} al agua antes de cocinar la pasta.,sal
+azúcar,sugar,,Puso {{azúcar}} en el café para endulzarlo más.,aˈθukaɾ
+café,coffee,,Bebo {{café}} negro todas las mañanas sin falta.,kaˈfe
+té,tea,,El {{té}} verde es muy saludable y relajante.,te
+vino,wine,,El {{vino}} tinto acompaña bien con la carne.,ˈβino
+cerveza,beer,,Tomamos {{cerveza}} fría después del partido de fútbol.,θeɾˈβeθa
+jugo,juice,,El {{jugo}} de naranja es fresco y nutritivo.,ˈxuɡo
+fruta,fruit,,Come {{fruta}} diariamente para mantenerte saludable y fuerte.,ˈfɾuta
+manzana,apple,,La {{manzana}} roja es crujiente y muy sabrosa.,manˈθana
+naranja,orange,,La {{naranja}} tiene mucha vitamina C y jugo.,naˈɾaŋxa
+uva,grape,,Las {{uvas}} moradas son dulces y muy refrescantes.,ˈuβa
+plátano,banana,,El {{plátano}} maduro es perfecto para los batidos.,ˈplɑtano
+fresa,strawberry,,Las {{fresas}} frescas se ven rojas y brillantes.,ˈfɾesa
+limón,lemon,,Exprimí {{limón}} fresco en el agua para beber.,liˈmon
+tomate,tomato,,El {{tomate}} maduro es ideal para la ensalada.,toˈmate
+lechuga,lettuce,,La {{lechuga}} cruda es nutritiva en la ensalada.,leˈtʃuɡa
+zanahoria,carrot,,La {{zanahoria}} naranja tiene mucha vitamina A.,θanaˈoɾja
+cebolla,onion,,Mi abuela usa {{cebolla}} en casi todas sus recetas.,θeˈβoʎa
+ajo,garlic,,El {{ajo}} le da mucho sabor a la pasta.,ˈaxo
+papa,potato,,Ayer preparé {{papas}} al horno con queso derretido.,ˈpapa
+libro,book,,Estoy leyendo un {{libro}} muy interesante sobre historia.,ˈliβɾo
+página,page,,Encontré la información importante en la {{página}} treinta.,ˈpaxina
+carta,letter,,Recibí una {{carta}} de mi abuela el martes pasado.,ˈkaɾta
+periódico,newspaper,,Mi padre lee el {{periódico}} todas las mañanas con café.,peɾiˈɔðiko
+revista,magazine,,Compré una {{revista}} de moda en la tienda.,reˈβista
+noticia,news,,La {{noticia}} sobre el viaje fue sorprendente para todos.,noˈtisja
+pregunta,question,,El profesor hizo una {{pregunta}} difícil en el examen.,pɾeˈɡunta
+respuesta,answer,,Tu {{respuesta}} a la pregunta fue completamente correcta.,ɾesˈpwesta
+idea,idea,,Tuve una {{idea}} brillante para el proyecto.,iˈðea
+opinión,opinion,,"En mi {{opinión}}, ese restaurante es el mejor del barrio.",opiˈnjon
+palabra,word,,No entiendo el significado de esa {{palabra}} en inglés.,paˈlaβɾa
+frase,sentence / phrase,,Esta {{frase}} es perfecta para describir la situación.,ˈfɾase
+idioma,language,,Mi hermano habla cuatro {{idiomas}} diferentes fluidamente.,iˈðjoma
+acento,accent,,Ella tiene un {{acento}} español muy bonito y particular.,aˈθento
+cultura,culture,,La {{cultura}} mexicana es muy rica en tradiciones.,kulˈtuɾa
+arte,art,,El {{arte}} moderno no siempre es fácil de entender.,ˈaɾte
+música,music,,La {{música}} clásica me relaja después de un día difícil.,ˈmusika
+canción,song,,Esa {{canción}} fue número uno en las listas.,kanˈθjon
+película,film / movie,,Vimos una {{película}} excelente en el cine anoche.,peˈlikula
+teatro,theatre,,El {{teatro}} es mi forma favorita de entretenimiento cultural.,teˈatɾo
+deporte,sport,,El {{deporte}} es importante para la salud física.,deˈpoɾte
+fútbol,football / soccer,,Mi equipo favorito ganó el partido de {{fútbol}}.,ˈfutβol
+tenis,tennis,,Juego {{tenis}} cada fin de semana en el parque.,ˈtenis
+natación,swimming,,La {{natación}} es un deporte muy completo y saludable.,notaˈθjon
+carrera,race / career,,Mi {{carrera}} universitaria fue muy exigente pero gratificante.,kaˈreɾa
+equipo,team / equipment,,El {{equipo}} de fútbol necesita nuevos jugadores jóvenes.,eˈkipo
+juego,game,,Este {{juego}} de mesa es muy divertido para toda familia.,ˈxweɡo
+victoria,victory,,Celebramos la {{victoria}} con todos nuestros amigos y familiares.,βikˈtoɾja
+derrota,defeat,,La {{derrota}} fue difícil de aceptar para el equipo.,deˈrota
+premio,prize / award,,Ganó un {{premio}} importante por su trabajo excelente.,ˈpɾemjo
+viaje,journey / trip,,Planificamos un {{viaje}} a Barcelona para el próximo verano.,ˈβjaxe
+vacaciones,holidays,,Mis {{vacaciones}} fueron las mejores de toda mi vida.,βakaˈθjones
+transporte,transport,,El {{transporte}} público en la ciudad es muy eficiente.,tɾansˈpoɾte
+coche,car,,Compré un {{coche}} nuevo de color azul oscuro.,ˈkoʧe
+autobús,bus,,Todos los días tomo el {{autobús}} para ir al trabajo.,awtoˈβus
+tren,train,,El {{tren}} llegó con retraso debido al mal tiempo.,ˈtɾen
+avión,airplane,,El {{avión}} despegó a las ocho de la mañana.,aˈβjon
+barco,ship / boat,,Viajamos en {{barco}} durante nuestras vacaciones en verano.,ˈbaɾko
+bicicleta,bicycle,,Mi {{bicicleta}} nueva es roja y muy rápida.,biθiˈkleta
+motocicleta,motorcycle,,Mi amigo tiene una {{motocicleta}} de marca italiana.,motoθiˈkleta
+billete,ticket,,Necesito comprar un {{billete}} de tren para mañana.,biˈʎete
+pasaporte,passport,,No puedo viajar sin mi {{pasaporte}} renovado.,pasaˈpoɾte
+maleta,suitcase,,Empacé toda mi ropa en una sola {{maleta}}.,maˈleta
+mapa,map,,Usé un {{mapa}} para encontrar el camino correcto.,ˈmapa
+tecnología,technology,,La {{tecnología}} moderna cambió nuestras vidas completamente.,teknoloˈxia
+ordenador,computer,,Mi {{ordenador}} es muy rápido para programar y trabajar.,oɾðenaˈðoɾ
+teléfono,phone,,Olvidé mi {{teléfono}} en casa esta mañana.,teˈlefono
+internet,internet,,Mi hermano usa {{internet}} para estudiar cada día.,inteɾˈnet
+correo,mail / email,,Recibí un {{correo}} importante de mi jefe esta mañana.,koˈreːo
+red,network,,La {{red}} de wifi no funciona en toda la casa.,reð
+programa,program,,Este {{programa}} de televisión es muy divertido y emocionante.,pɾoˈɣɾama
+aplicación,application / app,,Descargué una {{aplicación}} nueva para organizar mis tareas diarias.,aplikaˈθjon
+pantalla,screen,,La {{pantalla}} del computador está muy brillante hoy.,panˈtaʎa
+teclado,keyboard,,Mi {{teclado}} mecánico hace mucho ruido cuando escribo.,tekˈlaðo
+ratón,mouse,,El {{ratón}} inalámbrico se quedó sin batería ayer.,ɾaˈton
+cámara,camera,,La {{cámara}} de mi teléfono toma fotos muy bonitas.,ˈkamaɾa
+televisión,television,,Miramos {{televisión}} toda la noche con la familia.,teleβiˈsjon
+radio,radio,,Escucho {{radio}} en el coche camino al trabajo.,ˈɾaðjo
+batería,battery,,La {{batería}} del móvil se agotó rápidamente hoy.,bateˈɾia
+electricidad,electricity,,Pagamos mucha {{electricidad}} en invierno por la calefacción.,elektɾisiˈðað
+luz,light,,Apagué la {{luz}} antes de irme a dormir.,luθ
+sonido,sound,,El {{sonido}} de la música era muy fuerte anoche.,soˈniðo
+color,colour,,Mi {{color}} favorito es azul desde hace muchos años.,koˈloɾ
+rojo,red,,Compré una camiseta {{roja}} en la tienda del centro.,ˈɾoxo
+azul,blue,,El cielo está muy {{azul}} en esta hermosa mañana.,aˈθul
+verde,green,,Las hojas {{verdes}} del árbol crecen durante la primavera.,ˈbeɾðe
+amarillo,yellow,,El {{amarillo}} del sol ilumina toda la habitación.,amaˈɾiʎo
+negro,black,,Llevo pantalones {{negros}} a la oficina todos los días.,ˈneɣɾo
+blanco,white,,Las paredes {{blancas}} hacen que la casa sea más luminosa.,ˈblaŋko
+gris,grey,,El cielo {{gris}} anuncia que va a llover pronto.,ɡɾis
+morado,purple,,Mi flor favorita es {{morada}} y crece en el jardín.,moˈɾaðo
+rosa,pink,,El vestido {{rosa}} de mi hermana es muy bonito.,ˈɾosa
+marrón,brown,,Los ojos {{marrones}} de mi padre son muy expresivos.,maˈron
+dolor,pain,,Tengo {{dolor}} de cabeza desde esta mañana temprano.,doˈloɾ
+enfermedad,illness,,La {{enfermedad}} me mantuvo en cama durante una semana.,enfeɾmeˈðað
+medicina,medicine,,Tomo {{medicina}} todos los días para controlar la presión.,meðiˈθina
+médico,doctor,,El {{médico}} revisó mis síntomas con mucho cuidado.,ˈmeðiko
+enfermero,nurse,,El {{enfermero}} me puso la inyección con mucha destreza.,enfeɾˈmeɾo
+operación,operation,,Mi abuelo se sometió a una {{operación}} hace dos meses.,opeɾaˈθjon
+tratamiento,treatment,,El {{tratamiento}} duró varios meses pero funcionó muy bien.,tɾataˈmjento
+salud,health,,La {{salud}} es lo más importante en la vida.,saˈluð
+mente,mind,,Una {{mente}} fuerte te ayuda a superar los problemas.,ˈmente
+emoción,emotion,,Siente mucha {{emoción}} cuando ve a su familia reunida.,emoˈθjon
+miedo,fear,,El niño siente {{miedo}} cuando ve películas de terror.,ˈmjeðo
+alegría,joy,,La {{alegría}} llenó el corazón de todos en la fiesta.,aleˈɣɾia
+tristeza,sadness,,La {{tristeza}} cubrió su rostro cuando escuchó las noticias.,tɾisˈteθa
+amor,love,,El {{amor}} entre ellos es profundo y muy verdadero.,aˈmoɾ
+odio,hate,,No siento {{odio}} hacia nadie en este mundo.,ˈoðjo
+esperanza,hope,,La {{esperanza}} nos mantiene adelante en los momentos difíciles.,esperˈanθa
+fe,faith,,Mi {{fe}} religiosa es muy importante en mi vida.,fe
+verdad,truth,,Siempre digo la {{verdad}} sin importar las consecuencias.,beɾˈðað
+mentira,lie,,Detesto la {{mentira}} y prefiero la honestidad siempre.,menˈtiɾa
+justicia,justice,,La {{justicia}} debe aplicarse a todos por igual.,xusˈtisja
+ley,law,,La {{ley}} protege los derechos de todos los ciudadanos.,lej
+policía,police,,La {{policía}} llegó rápidamente al lugar del accidente.,poliˈθia
+soldado,soldier,,Mi tío fue {{soldado}} durante veinte años en el ejército.,solˈðaðo
+guerra,war,,La {{guerra}} dejó muchas pérdidas en la población civil.,ˈɡeɾa
+paz,peace,,Todos deseamos vivir en {{paz}} y armonía con nuestros vecinos.,paθ
+accidente,accident,,El {{accidente}} de coche ocurrió en la carretera principal ayer.,akθiˈðente
+peligro,danger,,Hay {{peligro}} de inundaciones durante la temporada de lluvias.,peˈliɡɾo
+seguridad,safety / security,,La {{seguridad}} en el hogar es muy importante para las familias.,seɡuɾiˈðað
+éxito,success,,Su {{éxito}} profesional fue resultado de años de trabajo duro.,ˈeksito
+fracaso,failure,,No consideramos el {{fracaso}} como el fin de nuestros sueños.,fɾaˈkaso
+dificultad,difficulty,,La {{dificultad}} del examen sorprendió a muchos estudiantes universitarios.,difikulˈtað
+solución,solution,,Encontramos una {{solución}} rápida para resolver el problema técnico.,soluˈθjon
+oportunidad,opportunity,,Esta {{oportunidad}} laboral es perfecta para mi carrera profesional futura.,opoɾtuniˈðað
+derecho,right / law,,Todos tienen {{derecho}} a la educación de calidad en la escuela.,deˈɾetʃo
+responsabilidad,responsibility,,Asumir {{responsabilidad}} por nuestros actos es signo de madurez.,ɾesponsabiliˈðað
+libertad,freedom,,La {{libertad}} de expresión es fundamental en una democracia.,libeɾˈtað
+igualdad,equality,,Luchamos por la {{igualdad}} de oportunidades para todas las personas.,iɡwalˈðað
+comunidad,community,,Nuestra {{comunidad}} organiza eventos culturales cada mes para todos.,komuniˈðað
+nación,nation,,La {{nación}} celebra su día de independencia con entusiasmo cada año.,naˈθjon
+región,region,,Esta {{región}} es famosa por su deliciosa gastronomía y tradiciones.,ɾeˈxjon
+capital,capital city,,Madrid es la {{capital}} de España y una ciudad muy cosmopolita.,kapiˈtal
+población,population,,La {{población}} de la ciudad ha crecido significativamente en los últimos años.,poblaˈθjon
+economía,economy,,La {{economía}} del país depende mucho del sector turístico principalmente.,ekonomiˈa
+comercio,trade / commerce,,El {{comercio}} electrónico ha transformado la forma de comprar y vender.,koˈmeɾθjo
+industria,industry,,La {{industria}} automotriz es muy importante en esta región económica.,inˈdustɾja
+agricultura,agriculture,,La {{agricultura}} orgánica está ganando popularidad entre los consumidores conscientes.,aɡɾikulˈtuɾa
+medio ambiente,environment,,Debemos proteger el {{medio ambiente}} para las generaciones futuras del planeta.,ˈmeðjo amˈbjente
+naturaleza,nature,,Amamos pasar tiempo en la {{naturaleza}} durante nuestras vacaciones de verano.,natuɾaˈleθa
+energía,energy,,Las paneles solares generan {{energía}} limpia y renovable para el hogar.,eneɾˈxia
+recurso,resource,,El agua es un {{recurso}} natural muy valioso en todas partes.,ɾeˈkuɾso
+contaminación,pollution,,La {{contaminación}} del aire afecta la salud de millones de personas.,kontaminaˈθjon
+clima,climate,,El {{clima}} tropical es perfecto para cultivar frutas exóticas aquí.,ˈklima
+temperatura,temperature,,La {{temperatura}} ha subido varios grados en los últimos meses.,tempeɾaˈtuɾa
 # ── Adjectives ───────────────────────────────────────────────────────────────
-bueno,good,,El {{bueno}} tiempo permitió que disfrutáramos del paseo al parque.
-malo,bad,,El {{malo}} comportamiento será castigado según las normas escolares.
-grande,big / great,,Compramos una {{grande}} casa con jardín para toda la familia.
-pequeño,small,,El {{pequeño}} pueblo tiene un encanto especial muy característico.
-nuevo,new,,Mi {{nuevo}} trabajo comienza el próximo lunes en la oficina.
-viejo,old,,El {{viejo}} edificio será renovado para convertirse en un museo.
-joven,young,,La {{joven}} estudiante ganó el premio al mejor proyecto de investigación.
-alto,tall / high,,El edificio {{alto}} se ve desde cualquier punto de la ciudad.
-bajo,short / low,,El {{bajo}} precio de estos productos los hace muy accesibles.
-largo,long,,El {{largo}} viaje en tren fue cansador pero muy entretenido.
-corto,short,,Un {{corto}} paseo por la playa nos hizo sentir relajados.
-ancho,wide,,La {{ancho}} avenida tiene muchas tiendas y restaurantes para visitar.
-estrecho,narrow,,El {{estrecho}} pasillo del edificio antiguo es difícil de navegar.
-gordo,fat,,El {{gordo}} gato duerme todo el día en el sofá cómodo.
-delgado,thin / slim,,El {{delgado}} atleta corrió la maratón en tiempo récord impressionante.
-fuerte,strong,,El {{fuerte}} terremoto causó daños significativos en varios edificios antiguos.
-débil,weak,,Su {{débil}} voz apenas se escuchaba en la sala de conferencias.
-rápido,fast,,El {{rápido}} servicio de entrega nos sorprendió gratamente.
-lento,slow,,El {{lento}} tráfico en la autopista nos retrasó dos horas.
-fácil,easy,,Este {{fácil}} ejercicio es perfecto para los principiantes absolutos.
-difícil,difficult,,El {{difícil}} problema matemático requiere concentración y tiempo para resolver.
-importante,important,,La educación es {{importante}} para el futuro de los niños.
-necesario,necessary,,Es {{necesario}} estudiar mucho para aprobar el examen final.
-posible,possible,,Es {{posible}} viajar a Europa si ahorras dinero ahora.
-imposible,impossible,,Es {{imposible}} vivir sin agua ni alimentos por mucho tiempo.
-verdadero,true / real,,"Ese cuento no es {{verdadero}}, es solo ficción y fantasía."
-falso,false,,La información que encontré en internet era {{falsa}} completamente.
-seguro,safe / sure,,Este lugar es muy {{seguro}} para que jueguen los niños.
-peligroso,dangerous,,Cruzar la calle sin mirar es muy {{peligroso}} y arriesgado.
-rico,rich / delicious,,La comida {{rica}} que preparó mi abuela estaba deliciosa.
-pobre,poor,,El {{pobre}} hombre no tenía dinero para comprar comida.
-feliz,happy,,Mi hermana está muy {{feliz}} porque aprobó todos sus exámenes.
-triste,sad,,El {{triste}} perro buscaba a su dueño en la calle.
-enojado,angry,,Mi padre está {{enojado}} porque llegué tarde a casa hoy.
-calmado,calm,,El profesor {{calmado}} explicó la lección con mucha paciencia y claridad.
-nervioso,nervous,,Estoy muy {{nervioso}} antes de mi presentación en la escuela.
-tranquilo,calm / peaceful,,El pueblo {{tranquilo}} es perfecto para descansar después del trabajo.
-aburrido,bored / boring,,La película fue {{aburrida}} así que me dormí en el cine.
-interesante,interesting,,El libro {{interesante}} me mantuvo leyendo toda la noche sin parar.
-hermoso,beautiful,,Las montañas {{hermosas}} se veían espectaculares al atardecer.
-feo,ugly,,Ese edificio {{feo}} necesita una renovación urgente y completa.
-limpio,clean,,Mi habitación está {{limpia}} porque la organicé este fin de semana.
-sucio,dirty,,El río {{sucio}} no es seguro para nadar ni beber.
-lleno,full,,El autobús estaba {{lleno}} de pasajeros durante la hora pico.
-vacío,empty,,El {{vacío}} edificio ha estado deshabitado por muchos años ya.
-abierto,open,,La puerta está {{abierta}} así que puedes entrar sin problemas.
-cerrado,closed,,El museo estará {{cerrado}} los lunes para limpieza y mantenimiento.
-libre,free,,Mañana estoy {{libre}} así que podemos ir al cine juntos.
-ocupado,busy,,Mi jefe está {{ocupado}} en una reunión importante en este momento.
-diferente,different,,Tu perspectiva es {{diferente}} a la mía pero ambas son válidas.
-igual,equal / same,,Los dos hermanos tienen {{igual}} altura y apariencia física muy similar.
-similar,similar,,Esos dos coches tienen diseños {{similares}} pero marcas completamente diferentes.
-especial,special,,Este regalo {{especial}} lo guardé para tu cumpleaños más importante.
-normal,normal,,Es {{normal}} sentir nervios antes de un examen importante como este.
-extraño,strange / foreign,,Ese comportamiento {{extraño}} me preocupa mucho sobre tu bienestar mental.
-común,common,,El acero es un material {{común}} en la construcción de edificios.
-raro,rare / strange,,Es {{raro}} ver nieve en esta región durante el verano.
-típico,typical,,El café {{típico}} de Colombia es reconocido mundialmente por su calidad.
-moderno,modern,,El diseño {{moderno}} del edificio ganó varios premios internacionales de arquitectura.
-antiguo,ancient / old,,El templo {{antiguo}} fue construido hace más de dos mil años.
-natural,natural,,Este ingrediente {{natural}} es muy beneficioso para la salud corporal.
-artificial,artificial,,El azúcar {{artificial}} no es recomendable para consumir regularmente.
-físico,physical,,El {{físico}} ejercicio diario mejora significativamente la salud mental y corporal.
-mental,mental,,La salud {{mental}} es tan importante como la salud física.
-social,social,,Las redes {{sociales}} conectan a millones de personas en el mundo.
-político,political,,El debate {{político}} fue muy intenso entre los dos candidatos.
-económico,economic,,La crisis {{económica}} afectó a muchas familias en toda la región.
-cultural,cultural,,El festival {{cultural}} celebra tradiciones de diferentes comunidades y naciones.
-nacional,national,,El equipo {{nacional}} ganó el campeonato de fútbol hace poco.
-internacional,international,,La conferencia {{internacional}} reunirá expertos de cincuenta países diferentes.
-local,local,,El mercado {{local}} vende productos frescos de la región cercana.
-público,public,,La biblioteca {{pública}} ofrece muchos servicios gratuitos a todos.
-privado,private,,Mi jardín {{privado}} es mi lugar favorito para relajarme.
-personal,personal,,No me gusta compartir mis asuntos {{personales}} con extraños.
-profesional,professional,,Ella mantiene un comportamiento {{profesional}} en su trabajo diario.
-educado,educated / polite,,Mi abuelo es un hombre muy {{educado}} y respetuoso.
-inteligente,intelligent,,El niño {{inteligente}} resolvió el problema muy rápidamente.
-listo,ready / clever,,¿Estás {{listo}} para salir ahora mismo con nosotros?
-tonto,stupid / silly,,No seas {{tonto}} y escucha bien mis instrucciones importantes.
-serio,serious,,El director habló con un tono {{serio}} sobre el asunto.
-divertido,fun / funny,,La película fue muy {{divertida}} y todos reímos mucho.
-amable,kind / friendly,,Tu hermana es {{amable}} y siempre ayuda a otros.
-simpático,nice / likeable,,El nuevo profesor es {{simpático}} y se lleva bien.
-antipático,unfriendly,,Ese cliente fue muy {{antipático}} durante toda la conversación.
-honesto,honest,,Es importante ser {{honesto}} en todos nuestros negocios.
-generoso,generous,,Mi tío es muy {{generoso}} con su dinero y tiempo.
-egoísta,selfish,,No seas {{egoísta}} y comparte tus cosas con los demás.
-valiente,brave,,El soldado {{valiente}} protegió a su país sin miedo.
-cobarde,cowardly,,No quiero ser {{cobarde}} ante los desafíos de la vida.
-paciente,patient,,La enfermera {{paciente}} cuidó al anciano con mucho amor.
-impaciente,impatient,,Él se volvió {{impaciente}} después de esperar demasiado tiempo.
-activo,active,,Los niños {{activos}} necesitan hacer ejercicio todos los días.
-pasivo,passive,,Prefiero un rol {{pasivo}} en las decisiones de grupo.
-positivo,positive,,Su actitud {{positiva}} inspira a todos en la empresa.
-negativo,negative,,No tengas un pensamiento {{negativo}} sobre tu futuro profesional.
-siguiente,following / next,,El {{siguiente}} paso es completar el formulario de solicitud.
-último,last,,Fue el {{último}} cliente que atendí antes de cerrar.
-primero,first,,El {{primero}} lugar en la carrera fue para María.
-tercero,third,,Ganó la medalla de bronce en el {{tercero}} lugar.
-único,unique / only,,Este es el {{único}} libro que necesitas para preparar.
-completo,complete,,El informe {{completo}} fue entregado al director ayer.
-perfecto,perfect,,Tu presentación estuvo {{perfecta}} y todos aplaudieron.
-correcto,correct,,La respuesta {{correcta}} al examen fue la opción B.
-incorrecto,incorrect,,Tu cálculo matemático fue {{incorrecto}} según mis notas.
-exacto,exact,,La cantidad {{exacta}} de dinero fue depositada hoy.
-aproximado,approximate,,El costo {{aproximado}} del proyecto es de mil dólares.
-total,total,,El {{total}} de estudiantes aprobó el examen final.
-parcial,partial,,Recibí una refund {{parcial}} por el producto defectuoso.
-principal,main / principal,,La calle {{principal}} de la ciudad está llena de tiendas.
-secundario,secondary,,Este asunto es {{secundario}} comparado con lo otro.
-anterior,previous / anterior,,El capítulo {{anterior}} explicaba los conceptos básicos bien.
-posterior,later / posterior,,La {{posterior}} reunión fue más productiva que esta.
-interior,interior,,La decoración {{interior}} de la casa es muy moderna.
-exterior,exterior,,El diseño {{exterior}} del edificio es arquitectónicamente hermoso.
-directo,direct,,Prefiero una respuesta {{directa}} sin explicaciones complicadas.
-indirecto,indirect,,Su crítica fue {{indirecta}} pero entendí perfectamente.
-oficial,official,,El anuncio {{oficial}} será publicado mañana en prensa.
-informal,informal,,La reunión {{informal}} fue más agradable y relajada.
-formal,formal,,El evento {{formal}} requiere traje de etiqueta obligatorio.
+bueno,good,,El {{bueno}} tiempo permitió que disfrutáramos del paseo al parque.,ˈbweno
+malo,bad,,El {{malo}} comportamiento será castigado según las normas escolares.,ˈmalo
+grande,big / great,,Compramos una {{grande}} casa con jardín para toda la familia.,ˈɡɾande
+pequeño,small,,El {{pequeño}} pueblo tiene un encanto especial muy característico.,peˈkeɲo
+nuevo,new,,Mi {{nuevo}} trabajo comienza el próximo lunes en la oficina.,ˈnwebo
+viejo,old,,El {{viejo}} edificio será renovado para convertirse en un museo.,ˈbjexo
+joven,young,,La {{joven}} estudiante ganó el premio al mejor proyecto de investigación.,ˈxoβen
+alto,tall / high,,El edificio {{alto}} se ve desde cualquier punto de la ciudad.,ˈalto
+bajo,short / low,,El {{bajo}} precio de estos productos los hace muy accesibles.,ˈbaxo
+largo,long,,El {{largo}} viaje en tren fue cansador pero muy entretenido.,ˈlaɾɡo
+corto,short,,Un {{corto}} paseo por la playa nos hizo sentir relajados.,ˈkoɾto
+ancho,wide,,La {{ancho}} avenida tiene muchas tiendas y restaurantes para visitar.,ˈantʃo
+estrecho,narrow,,El {{estrecho}} pasillo del edificio antiguo es difícil de navegar.,esˈtɾetʃo
+gordo,fat,,El {{gordo}} gato duerme todo el día en el sofá cómodo.,ˈɡoɾðo
+delgado,thin / slim,,El {{delgado}} atleta corrió la maratón en tiempo récord impressionante.,delˈɡaðo
+fuerte,strong,,El {{fuerte}} terremoto causó daños significativos en varios edificios antiguos.,ˈfweɾte
+débil,weak,,Su {{débil}} voz apenas se escuchaba en la sala de conferencias.,ˈðeβil
+rápido,fast,,El {{rápido}} servicio de entrega nos sorprendió gratamente.,ˈɾapiðo
+lento,slow,,El {{lento}} tráfico en la autopista nos retrasó dos horas.,ˈlento
+fácil,easy,,Este {{fácil}} ejercicio es perfecto para los principiantes absolutos.,ˈfaθil
+difícil,difficult,,El {{difícil}} problema matemático requiere concentración y tiempo para resolver.,diˈfiθil
+importante,important,,La educación es {{importante}} para el futuro de los niños.,impoɾˈtante
+necesario,necessary,,Es {{necesario}} estudiar mucho para aprobar el examen final.,neθeˈsaɾjo
+posible,possible,,Es {{posible}} viajar a Europa si ahorras dinero ahora.,poˈsible
+imposible,impossible,,Es {{imposible}} vivir sin agua ni alimentos por mucho tiempo.,impoˈsible
+verdadero,true / real,,"Ese cuento no es {{verdadero}}, es solo ficción y fantasía.",beɾðaˈðeɾo
+falso,false,,La información que encontré en internet era {{falsa}} completamente.,ˈfalso
+seguro,safe / sure,,Este lugar es muy {{seguro}} para que jueguen los niños.,seˈɣuɾo
+peligroso,dangerous,,Cruzar la calle sin mirar es muy {{peligroso}} y arriesgado.,peliˈɣɾoso
+rico,rich / delicious,,La comida {{rica}} que preparó mi abuela estaba deliciosa.,ˈɾiko
+pobre,poor,,El {{pobre}} hombre no tenía dinero para comprar comida.,ˈpoβɾe
+feliz,happy,,Mi hermana está muy {{feliz}} porque aprobó todos sus exámenes.,feˈlis
+triste,sad,,El {{triste}} perro buscaba a su dueño en la calle.,ˈtɾiste
+enojado,angry,,Mi padre está {{enojado}} porque llegué tarde a casa hoy.,enoˈxaðo
+calmado,calm,,El profesor {{calmado}} explicó la lección con mucha paciencia y claridad.,kalˈmaðo
+nervioso,nervous,,Estoy muy {{nervioso}} antes de mi presentación en la escuela.,neɾˈβjoso
+tranquilo,calm / peaceful,,El pueblo {{tranquilo}} es perfecto para descansar después del trabajo.,tɾaŋˈkilo
+aburrido,bored / boring,,La película fue {{aburrida}} así que me dormí en el cine.,aβuˈɾiðo
+interesante,interesting,,El libro {{interesante}} me mantuvo leyendo toda la noche sin parar.,inteɾeˈsante
+hermoso,beautiful,,Las montañas {{hermosas}} se veían espectaculares al atardecer.,eɾˈmoso
+feo,ugly,,Ese edificio {{feo}} necesita una renovación urgente y completa.,ˈfeo
+limpio,clean,,Mi habitación está {{limpia}} porque la organicé este fin de semana.,ˈlimpjo
+sucio,dirty,,El río {{sucio}} no es seguro para nadar ni beber.,ˈsuθjo
+lleno,full,,El autobús estaba {{lleno}} de pasajeros durante la hora pico.,ˈʎeno
+vacío,empty,,El {{vacío}} edificio ha estado deshabitado por muchos años ya.,baˈθio
+abierto,open,,La puerta está {{abierta}} así que puedes entrar sin problemas.,aˈβjeɾto
+cerrado,closed,,El museo estará {{cerrado}} los lunes para limpieza y mantenimiento.,θeˈɾaðo
+libre,free,,Mañana estoy {{libre}} así que podemos ir al cine juntos.,ˈliβɾe
+ocupado,busy,,Mi jefe está {{ocupado}} en una reunión importante en este momento.,okuˈpaðo
+diferente,different,,Tu perspectiva es {{diferente}} a la mía pero ambas son válidas.,difeˈɾente
+igual,equal / same,,Los dos hermanos tienen {{igual}} altura y apariencia física muy similar.,iˈɣwal
+similar,similar,,Esos dos coches tienen diseños {{similares}} pero marcas completamente diferentes.,simiˈlaɾ
+especial,special,,Este regalo {{especial}} lo guardé para tu cumpleaños más importante.,espeˈθjal
+normal,normal,,Es {{normal}} sentir nervios antes de un examen importante como este.,noɾˈmal
+extraño,strange / foreign,,Ese comportamiento {{extraño}} me preocupa mucho sobre tu bienestar mental.,eksˈtɾaɲo
+común,common,,El acero es un material {{común}} en la construcción de edificios.,koˈmun
+raro,rare / strange,,Es {{raro}} ver nieve en esta región durante el verano.,ˈɾaɾo
+típico,typical,,El café {{típico}} de Colombia es reconocido mundialmente por su calidad.,ˈtipiko
+moderno,modern,,El diseño {{moderno}} del edificio ganó varios premios internacionales de arquitectura.,moˈðeɾno
+antiguo,ancient / old,,El templo {{antiguo}} fue construido hace más de dos mil años.,anˈtiɣwo
+natural,natural,,Este ingrediente {{natural}} es muy beneficioso para la salud corporal.,natuˈɾal
+artificial,artificial,,El azúcar {{artificial}} no es recomendable para consumir regularmente.,aɾtifiˈθjal
+físico,physical,,El {{físico}} ejercicio diario mejora significativamente la salud mental y corporal.,ˈfisiko
+mental,mental,,La salud {{mental}} es tan importante como la salud física.,menˈtal
+social,social,,Las redes {{sociales}} conectan a millones de personas en el mundo.,soˈθjal
+político,political,,El debate {{político}} fue muy intenso entre los dos candidatos.,poˈlitiko
+económico,economic,,La crisis {{económica}} afectó a muchas familias en toda la región.,ekoˈnomiko
+cultural,cultural,,El festival {{cultural}} celebra tradiciones de diferentes comunidades y naciones.,kultuˈɾal
+nacional,national,,El equipo {{nacional}} ganó el campeonato de fútbol hace poco.,naθjoˈnal
+internacional,international,,La conferencia {{internacional}} reunirá expertos de cincuenta países diferentes.,inteɾnaθjoˈnal
+local,local,,El mercado {{local}} vende productos frescos de la región cercana.,loˈkal
+público,public,,La biblioteca {{pública}} ofrece muchos servicios gratuitos a todos.,ˈpuβliko
+privado,private,,Mi jardín {{privado}} es mi lugar favorito para relajarme.,pɾiˈβaðo
+personal,personal,,No me gusta compartir mis asuntos {{personales}} con extraños.,peɾsoˈnal
+profesional,professional,,Ella mantiene un comportamiento {{profesional}} en su trabajo diario.,pɾofesjonal
+educado,educated / polite,,Mi abuelo es un hombre muy {{educado}} y respetuoso.,eduˈkaðo
+inteligente,intelligent,,El niño {{inteligente}} resolvió el problema muy rápidamente.,inteˈliˈxente
+listo,ready / clever,,¿Estás {{listo}} para salir ahora mismo con nosotros?,ˈlisto
+tonto,stupid / silly,,No seas {{tonto}} y escucha bien mis instrucciones importantes.,ˈtonto
+serio,serious,,El director habló con un tono {{serio}} sobre el asunto.,ˈseɾjo
+divertido,fun / funny,,La película fue muy {{divertida}} y todos reímos mucho.,dibeɾˈtiðo
+amable,kind / friendly,,Tu hermana es {{amable}} y siempre ayuda a otros.,aˈmaβle
+simpático,nice / likeable,,El nuevo profesor es {{simpático}} y se lleva bien.,simˈpatiko
+antipático,unfriendly,,Ese cliente fue muy {{antipático}} durante toda la conversación.,antiˈpatiko
+honesto,honest,,Es importante ser {{honesto}} en todos nuestros negocios.,oˈnesto
+generoso,generous,,Mi tío es muy {{generoso}} con su dinero y tiempo.,xeneˈɾoso
+egoísta,selfish,,No seas {{egoísta}} y comparte tus cosas con los demás.,eɣoˈista
+valiente,brave,,El soldado {{valiente}} protegió a su país sin miedo.,baˈljente
+cobarde,cowardly,,No quiero ser {{cobarde}} ante los desafíos de la vida.,koˈβaɾðe
+paciente,patient,,La enfermera {{paciente}} cuidó al anciano con mucho amor.,paˈθjente
+impaciente,impatient,,Él se volvió {{impaciente}} después de esperar demasiado tiempo.,impaˈθjente
+activo,active,,Los niños {{activos}} necesitan hacer ejercicio todos los días.,akˈtiβo
+pasivo,passive,,Prefiero un rol {{pasivo}} en las decisiones de grupo.,paˈsiβo
+positivo,positive,,Su actitud {{positiva}} inspira a todos en la empresa.,positˈiβo
+negativo,negative,,No tengas un pensamiento {{negativo}} sobre tu futuro profesional.,neɣaˈtiβo
+siguiente,following / next,,El {{siguiente}} paso es completar el formulario de solicitud.,siˈɣjente
+último,last,,Fue el {{último}} cliente que atendí antes de cerrar.,ˈultimo
+primero,first,,El {{primero}} lugar en la carrera fue para María.,pɾiˈmeɾo
+tercero,third,,Ganó la medalla de bronce en el {{tercero}} lugar.,teɾˈθeɾo
+único,unique / only,,Este es el {{único}} libro que necesitas para preparar.,ˈuniko
+completo,complete,,El informe {{completo}} fue entregado al director ayer.,komˈpleto
+perfecto,perfect,,Tu presentación estuvo {{perfecta}} y todos aplaudieron.,peɾˈfekto
+correcto,correct,,La respuesta {{correcta}} al examen fue la opción B.,koˈɾekto
+incorrecto,incorrect,,Tu cálculo matemático fue {{incorrecto}} según mis notas.,inkoˈɾekto
+exacto,exact,,La cantidad {{exacta}} de dinero fue depositada hoy.,eɣˈzakto
+aproximado,approximate,,El costo {{aproximado}} del proyecto es de mil dólares.,apɾoksiˈmaðo
+total,total,,El {{total}} de estudiantes aprobó el examen final.,toˈtal
+parcial,partial,,Recibí una refund {{parcial}} por el producto defectuoso.,paɾˈθjal
+principal,main / principal,,La calle {{principal}} de la ciudad está llena de tiendas.,pɾinθiˈpal
+secundario,secondary,,Este asunto es {{secundario}} comparado con lo otro.,sekunˈðaɾjo
+anterior,previous / anterior,,El capítulo {{anterior}} explicaba los conceptos básicos bien.,anteˈɾjoɾ
+posterior,later / posterior,,La {{posterior}} reunión fue más productiva que esta.,posteˈɾjoɾ
+interior,interior,,La decoración {{interior}} de la casa es muy moderna.,inteˈɾjoɾ
+exterior,exterior,,El diseño {{exterior}} del edificio es arquitectónicamente hermoso.,eksteˈɾjoɾ
+directo,direct,,Prefiero una respuesta {{directa}} sin explicaciones complicadas.,diˈɾekto
+indirecto,indirect,,Su crítica fue {{indirecta}} pero entendí perfectamente.,indiˈɾekto
+oficial,official,,El anuncio {{oficial}} será publicado mañana en prensa.,ofiˈθjal
+informal,informal,,La reunión {{informal}} fue más agradable y relajada.,infoɾˈmal
+formal,formal,,El evento {{formal}} requiere traje de etiqueta obligatorio.,foɾˈmal
 # ── Adverbs ──────────────────────────────────────────────────────────────────
-muy,very,,Este restaurante es {{muy}} bueno para cenar con amigos.
-más,more,,Necesito {{más}} tiempo para terminar este proyecto importante.
-menos,less,,Prefiero {{menos}} azúcar en mi café por la mañana.
-también,also / too,,Mi hermana {{también}} quiere viajar a Europa el próximo año.
-tampoco,neither / not either,,No me gusta el pescado y {{tampoco}} me gusta el marisco.
-ya,already / now,,Ella {{ya}} terminó sus tareas escolares hace una hora.
-todavía,still / yet,,Todavía {{todavía}} no hemos recibido noticias del banco este mes.
-nunca,never,,Yo {{nunca}} he visitado un país asiático en mi vida.
-siempre,always,,Mi abuelo {{siempre}} desayuna café con pan tostado cada mañana.
-casi,almost,,El proyecto {{casi}} está listo para presentar la próxima semana.
-solo,only / alone,,Ella viaja {{solo}} a países donde habla el idioma local.
-bastante,quite / enough,,Este libro es {{bastante}} interesante y recomendado para todos.
-demasiado,too much,,Hay {{demasiado}} tráfico en la ciudad durante las horas pico.
-poco,a little,,Comimos {{poco}} en la fiesta porque estábamos muy ocupados.
-mucho,a lot,,Los niños comen {{mucho}} cuando juegan en el parque afuera.
-bien,well,,Mi hijo canta {{bien}} y quiere ser cantante profesional algún día.
-mal,badly,,El proyecto salió {{mal}} porque no planeamos correctamente desde el inicio.
-mejor,better,,Esta película es {{mejor}} que la anterior según los críticos.
-peor,worse,,Este fue el {{peor}} día de toda mi vida sin duda.
-rápidamente,quickly,,El corredor {{rápidamente}} llegó a la meta ante todos nosotros.
-lentamente,slowly,,Caminamos {{lentamente}} por el parque disfrutando de la naturaleza hermosa.
-fácilmente,easily,,Los gatos {{fácilmente}} suben a los árboles del jardín trasero.
-difícilmente,with difficulty,,{{Difícilmente}} puedo entender ese acento tan fuerte y extraño.
-probablemente,probably,,{{Probablemente}} llueva mañana según el pronóstico de la televisión.
-posiblemente,possibly,,{{Posiblemente}} vayamos a la playa el próximo fin de semana.
-seguramente,surely / certainly,,{{Seguramente}} ganaremos el partido porque somos muy buenos.
-realmente,really,,{{Realmente}} no sabía que ella tenía tanto talento musical increíble.
-verdaderamente,truly,,{{Verdaderamente}} fue una experiencia memorable en mi vida entera.
-totalmente,totally,,Estoy {{totalmente}} de acuerdo con tu opinión sobre este tema.
-completamente,completely,,El restaurante está {{completamente}} lleno de gente esta noche.
-absolutamente,absolutely,,{{Absolutamente}} necesito descansar después de trabajar tantas horas.
-especialmente,especially,,"Me encanta la comida italiana, {{especialmente}} la pasta fresca casera."
-principalmente,mainly,,{{Principalmente}} estudiamos matemáticas e inglés en nuestra escuela secundaria.
-generalmente,generally,,{{Generalmente}} desayuno a las siete de la mañana todos.
-normalmente,normally,,{{Normalmente}} voy al cine los viernes por la noche.
-frecuentemente,frequently,,{{Frecuentemente}} visito a mis abuelos en el pueblo cada mes.
-raramente,rarely,,{{Raramente}} vemos películas de terror porque me asustan mucho.
-inmediatamente,immediately,,Salimos {{inmediatamente}} de la casa cuando escuchamos la alarma.
-finalmente,finally,,{{Finalmente}} llegamos a nuestro destino después de muchas horas.
-inicialmente,initially,,{{Inicialmente}} no quería ir pero después cambié completamente de opinión.
-exactamente,exactly,,Son {{exactamente}} las tres de la tarde en punto ahora.
-aproximadamente,approximately,,Hay {{aproximadamente}} cien personas esperando en la fila del banco.
-aquí,here,,El monumento histórico está {{aquí}} en el centro de la ciudad.
-ahí,there,,Mis amigos están esperando {{ahí}} junto a la puerta principal.
-allí,there (far),,Vimos un castillo antiguo {{allí}} en la montaña muy alto.
-cerca,near / close,,Mi casa está {{cerca}} de la estación de autobuses principal.
-lejos,far,,La biblioteca queda {{lejos}} pero podemos ir en autobús.
-dentro,inside,,Los documentos importantes están {{dentro}} de la caja fuerte metal.
-fuera,outside,,Los niños juegan {{fuera}} en el jardín cuando hace buen tiempo.
-delante,in front,,El auto azul está estacionado {{delante}} de la casa blanca.
-detrás,behind,,El gato se esconde {{detrás}} de las cortinas del salón.
-encima,on top,,El libro está {{encima}} de la mesa al lado de la ventana.
-debajo,underneath,,El gato está {{debajo}} de la mesa ahora.
+muy,very,,Este restaurante es {{muy}} bueno para cenar con amigos.,ˈmwi
+más,more,,Necesito {{más}} tiempo para terminar este proyecto importante.,ˈmas
+menos,less,,Prefiero {{menos}} azúcar en mi café por la mañana.,ˈmenos
+también,also / too,,Mi hermana {{también}} quiere viajar a Europa el próximo año.,tamˈbjen
+tampoco,neither / not either,,No me gusta el pescado y {{tampoco}} me gusta el marisco.,tamˈpoko
+ya,already / now,,Ella {{ya}} terminó sus tareas escolares hace una hora.,ʝa
+todavía,still / yet,,Todavía {{todavía}} no hemos recibido noticias del banco este mes.,todaˈβia
+nunca,never,,Yo {{nunca}} he visitado un país asiático en mi vida.,ˈnuŋka
+siempre,always,,Mi abuelo {{siempre}} desayuna café con pan tostado cada mañana.,ˈsjempɾe
+casi,almost,,El proyecto {{casi}} está listo para presentar la próxima semana.,ˈkasi
+solo,only / alone,,Ella viaja {{solo}} a países donde habla el idioma local.,ˈsolo
+bastante,quite / enough,,Este libro es {{bastante}} interesante y recomendado para todos.,basˈtante
+demasiado,too much,,Hay {{demasiado}} tráfico en la ciudad durante las horas pico.,demaˈsjaðo
+poco,a little,,Comimos {{poco}} en la fiesta porque estábamos muy ocupados.,ˈpoko
+mucho,a lot,,Los niños comen {{mucho}} cuando juegan en el parque afuera.,ˈmutʃo
+bien,well,,Mi hijo canta {{bien}} y quiere ser cantante profesional algún día.,ˈbjen
+mal,badly,,El proyecto salió {{mal}} porque no planeamos correctamente desde el inicio.,mal
+mejor,better,,Esta película es {{mejor}} que la anterior según los críticos.,meˈxoɾ
+peor,worse,,Este fue el {{peor}} día de toda mi vida sin duda.,peˈoɾ
+rápidamente,quickly,,El corredor {{rápidamente}} llegó a la meta ante todos nosotros.,ˈɾapiðamente
+lentamente,slowly,,Caminamos {{lentamente}} por el parque disfrutando de la naturaleza hermosa.,lenˈtamente
+fácilmente,easily,,Los gatos {{fácilmente}} suben a los árboles del jardín trasero.,ˈfaθilmente
+difícilmente,with difficulty,,{{Difícilmente}} puedo entender ese acento tan fuerte y extraño.,diˈfiθilmente
+probablemente,probably,,{{Probablemente}} llueva mañana según el pronóstico de la televisión.,pɾoβaˈβlemente
+posiblemente,possibly,,{{Posiblemente}} vayamos a la playa el próximo fin de semana.,poˈsiβlemente
+seguramente,surely / certainly,,{{Seguramente}} ganaremos el partido porque somos muy buenos.,seɡuɾaˈmente
+realmente,really,,{{Realmente}} no sabía que ella tenía tanto talento musical increíble.,ɾeˈalmente
+verdaderamente,truly,,{{Verdaderamente}} fue una experiencia memorable en mi vida entera.,beɾðadeɾaˈmente
+totalmente,totally,,Estoy {{totalmente}} de acuerdo con tu opinión sobre este tema.,totalˈmente
+completamente,completely,,El restaurante está {{completamente}} lleno de gente esta noche.,kompleˈtamente
+absolutamente,absolutely,,{{Absolutamente}} necesito descansar después de trabajar tantas horas.,apsolˈutamente
+especialmente,especially,,"Me encanta la comida italiana, {{especialmente}} la pasta fresca casera.",espeθjalˈmente
+principalmente,mainly,,{{Principalmente}} estudiamos matemáticas e inglés en nuestra escuela secundaria.,pɾinθipalˈmente
+generalmente,generally,,{{Generalmente}} desayuno a las siete de la mañana todos.,xeneɾalˈmente
+normalmente,normally,,{{Normalmente}} voy al cine los viernes por la noche.,noɾmalˈmente
+frecuentemente,frequently,,{{Frecuentemente}} visito a mis abuelos en el pueblo cada mes.,fɾekuenteˈmente
+raramente,rarely,,{{Raramente}} vemos películas de terror porque me asustan mucho.,ɾaɾaˈmente
+inmediatamente,immediately,,Salimos {{inmediatamente}} de la casa cuando escuchamos la alarma.,inmeðjaˈtamente
+finalmente,finally,,{{Finalmente}} llegamos a nuestro destino después de muchas horas.,finalˈmente
+inicialmente,initially,,{{Inicialmente}} no quería ir pero después cambié completamente de opinión.,iniθjalˈmente
+exactamente,exactly,,Son {{exactamente}} las tres de la tarde en punto ahora.,eɡzakˈtamente
+aproximadamente,approximately,,Hay {{aproximadamente}} cien personas esperando en la fila del banco.,apɾoksimaˈðamente
+aquí,here,,El monumento histórico está {{aquí}} en el centro de la ciudad.,aˈki
+ahí,there,,Mis amigos están esperando {{ahí}} junto a la puerta principal.,aˈi
+allí,there (far),,Vimos un castillo antiguo {{allí}} en la montaña muy alto.,aˈʎi
+cerca,near / close,,Mi casa está {{cerca}} de la estación de autobuses principal.,ˈθeɾka
+lejos,far,,La biblioteca queda {{lejos}} pero podemos ir en autobús.,ˈlexos
+dentro,inside,,Los documentos importantes están {{dentro}} de la caja fuerte metal.,ˈdentɾo
+fuera,outside,,Los niños juegan {{fuera}} en el jardín cuando hace buen tiempo.,ˈfweɾa
+delante,in front,,El auto azul está estacionado {{delante}} de la casa blanca.,deˈlante
+detrás,behind,,El gato se esconde {{detrás}} de las cortinas del salón.,detɾˈas
+encima,on top,,El libro está {{encima}} de la mesa al lado de la ventana.,enˈθima
+debajo,underneath,,El gato está {{debajo}} de la mesa ahora.,deˈβaxo
 # ── Prepositions and conjunctions ────────────────────────────────────────────
-de,of / from,,La casa {{de}} mi abuela es muy grande.
-a,to / at,,Voy {{a}} la escuela todos los días.
-en,in / on / at,,Los libros están {{en}} la biblioteca municipal.
-con,with,,Ella come pizza {{con}} sus amigos hoy.
-sin,without,,No puedo salir {{sin}} mi teléfono móvil.
-para,for / in order to,,Estudio {{para}} aprobar el examen mañana.
-por,by / for / through,,Paseo {{por}} el parque cada tarde.
-sobre,about / on / over,,Tenemos {{sobre}} muchos temas interesantes aquí.
-entre,between / among,,El secreto queda {{entre}} tú y yo.
-hasta,until / up to,,Trabajaré {{hasta}} las cinco de la tarde.
-desde,since / from,,Vivo aquí {{desde}} hace diez años.
-durante,during,,Llueve {{durante}} toda la noche frecuentemente.
-antes,before,,Desayuno {{antes}} de ir al trabajo.
-después,after,,Jugaremos {{después}} de terminar la tarea.
-aunque,although / even though,,"{{Aunque}} llueve, saldremos de todas formas."
-porque,because,,No vienes {{porque}} estás muy ocupado.
-si,if,,"{{Si}} quieres, podemos ir al cine juntos."
-cuando,when,,"{{Cuando}} llegues, llámame por teléfono."
-donde,where,,¿{{Donde}} dejaste tus llaves esta mañana?
-como,as / like / how,,Ella canta {{como}} una profesional talentosa.
-que,that / which / who,,El libro {{que}} leo es muy interesante.
-pero,but,,"Quiero ir, {{pero}} tengo mucho trabajo ahora."
-sino,but rather,,"No es blanco, {{sino}} amarillo brillante."
-o,or,,¿Prefieres café {{o}} té para beber?
-y,and,,Mi hermano {{y}} yo somos gemelos.
-ni,neither / nor,,No tengo {{ni}} dinero {{ni}} tiempo libre.
+de,of / from,,La casa {{de}} mi abuela es muy grande.,de
+a,to / at,,Voy {{a}} la escuela todos los días.,a
+en,in / on / at,,Los libros están {{en}} la biblioteca municipal.,en
+con,with,,Ella come pizza {{con}} sus amigos hoy.,kon
+sin,without,,No puedo salir {{sin}} mi teléfono móvil.,sin
+para,for / in order to,,Estudio {{para}} aprobar el examen mañana.,ˈpaɾa
+por,by / for / through,,Paseo {{por}} el parque cada tarde.,poɾ
+sobre,about / on / over,,Tenemos {{sobre}} muchos temas interesantes aquí.,ˈsoβɾe
+entre,between / among,,El secreto queda {{entre}} tú y yo.,ˈentɾe
+hasta,until / up to,,Trabajaré {{hasta}} las cinco de la tarde.,ˈasta
+desde,since / from,,Vivo aquí {{desde}} hace diez años.,ˈdezde
+durante,during,,Llueve {{durante}} toda la noche frecuentemente.,duˈɾante
+antes,before,,Desayuno {{antes}} de ir al trabajo.,ˈantes
+después,after,,Jugaremos {{después}} de terminar la tarea.,desˈpwes
+aunque,although / even though,,"{{Aunque}} llueve, saldremos de todas formas.",ˈauŋke
+porque,because,,No vienes {{porque}} estás muy ocupado.,ˈpoɾke
+si,if,,"{{Si}} quieres, podemos ir al cine juntos.",si
+cuando,when,,"{{Cuando}} llegues, llámame por teléfono.",ˈkwando
+donde,where,,¿{{Donde}} dejaste tus llaves esta mañana?,ˈdonde
+como,as / like / how,,Ella canta {{como}} una profesional talentosa.,ˈkomo
+que,that / which / who,,El libro {{que}} leo es muy interesante.,ke
+pero,but,,"Quiero ir, {{pero}} tengo mucho trabajo ahora.",ˈpeɾo
+sino,but rather,,"No es blanco, {{sino}} amarillo brillante.",ˈsino
+o,or,,¿Prefieres café {{o}} té para beber?,o
+y,and,,Mi hermano {{y}} yo somos gemelos.,i
+ni,neither / nor,,No tengo {{ni}} dinero {{ni}} tiempo libre.,ni
 # ── Pronouns ─────────────────────────────────────────────────────────────────
-yo,I,,{{Yo}} soy estudiante de medicina aquí.
-tú,you (informal),,¿{{Tú}} sabes dónde está mi abrigo?
-él,he,,{{Él}} es mi mejor amigo del colegio.
-ella,she,,{{Ella}} vive en la ciudad capital.
-nosotros,we,,{{Nosotros}} viajamos a España el verano pasado.
-vosotros,you all (Spain),,¿{{Vosotros}} venís al partido mañana por la tarde?
-ellos,they (masc),,{{Ellos}} juegan fútbol en el parque.
-ellas,they (fem),,{{Ellas}} estudian en la universidad ahora.
-usted,you (formal),,¿{{Usted}} necesita ayuda con algo especial?
-ustedes,you all (formal),,{{Ustedes}} deben llegar antes de las ocho.
-me,me (reflexive),,El doctor {{me}} examinó esta mañana.
-se,himself / herself / itself,,{{Se}} despertó muy temprano hoy.
-nos,us / ourselves,,{{Nos}} encontramos en el café de siempre.
-mi,my,,{{Mi}} familia vive en las afueras.
-su,his / her / your (formal),,"¿Dónde está {{su}} pasaporte, por favor?"
-nuestro,our,,{{Nuestro}} jardín tiene flores hermosas en primavera.
-ese,that,,¿Quién es {{ese}} chico de allá?
-aquel,that (far),,{{Aquel}} edificio fue construido hace cien años.
-algo,something,,¿Quieres {{algo}} para comer o beber?
-nada,nothing,,No hay {{nada}} interesante en la televisión.
-alguien,someone,,¿Hay {{alguien}} que pueda ayudarme mañana?
-nadie,nobody,,{{Nadie}} vino a la fiesta ayer.
-todo,everything / all,,Ella lo sabe {{todo}} sobre música clásica.
+yo,I,,{{Yo}} soy estudiante de medicina aquí.,ˈʝo
+tú,you (informal),,¿{{Tú}} sabes dónde está mi abrigo?,ˈtu
+él,he,,{{Él}} es mi mejor amigo del colegio.,ˈel
+ella,she,,{{Ella}} vive en la ciudad capital.,ˈeʎa
+nosotros,we,,{{Nosotros}} viajamos a España el verano pasado.,noˈsotɾos
+vosotros,you all (Spain),,¿{{Vosotros}} venís al partido mañana por la tarde?,βoˈsotɾos
+ellos,they (masc),,{{Ellos}} juegan fútbol en el parque.,ˈeʎos
+ellas,they (fem),,{{Ellas}} estudian en la universidad ahora.,ˈeʎas
+usted,you (formal),,¿{{Usted}} necesita ayuda con algo especial?,usˈted
+ustedes,you all (formal),,{{Ustedes}} deben llegar antes de las ocho.,usˈtedes
+me,me (reflexive),,El doctor {{me}} examinó esta mañana.,me
+se,himself / herself / itself,,{{Se}} despertó muy temprano hoy.,se
+nos,us / ourselves,,{{Nos}} encontramos en el café de siempre.,nos
+mi,my,,{{Mi}} familia vive en las afueras.,mi
+su,his / her / your (formal),,"¿Dónde está {{su}} pasaporte, por favor?",su
+nuestro,our,,{{Nuestro}} jardín tiene flores hermosas en primavera.,nwˈestɾo
+ese,that,,¿Quién es {{ese}} chico de allá?,ˈese
+aquel,that (far),,{{Aquel}} edificio fue construido hace cien años.,aˈkel
+algo,something,,¿Quieres {{algo}} para comer o beber?,ˈalɣo
+nada,nothing,,No hay {{nada}} interesante en la televisión.,ˈnada
+alguien,someone,,¿Hay {{alguien}} que pueda ayudarme mañana?,alˈɡjen
+nadie,nobody,,{{Nadie}} vino a la fiesta ayer.,ˈnadje
+todo,everything / all,,Ella lo sabe {{todo}} sobre música clásica.,ˈtodo
 # ── Numbers ──────────────────────────────────────────────────────────────────
-uno,one,,Tengo {{uno}} gato en mi casa.
-dos,two,,Mi hermana tiene {{dos}} perros muy pequeños.
-tres,three,,Comemos {{tres}} veces al día normalmente.
-cuatro,four,,Este mes tiene {{cuatro}} semanas completas.
-cinco,five,,La mano tiene {{cinco}} dedos diferentes.
-seis,six,,Mi clase tiene {{seis}} ventanas grandes.
-siete,seven,,La semana tiene {{siete}} días en total.
-ocho,eight,,Ella trabaja {{ocho}} horas cada día.
-nueve,nine,,El edificio tiene {{nueve}} pisos muy altos.
-diez,ten,,Necesito {{diez}} minutos para llegar allá.
-once,eleven,,La reunión es a las {{once}} mañana.
-doce,twelve,,Hay {{doce}} meses en un año.
-trece,thirteen,,Cumplí {{trece}} años el mes pasado.
-catorce,fourteen,,El {{catorce}} de febrero es San Valentín.
-quince,fifteen,,Tengo {{quince}} euros en mi billetera.
-veinte,twenty,,Un billete de {{veinte}} dólares cuesta mucho.
-treinta,thirty,,Mi padre tiene {{treinta}} años de edad.
-cuarenta,forty,,El libro tiene {{cuarenta}} páginas aproximadamente.
-cincuenta,fifty,,La temperatura llegó a {{cincuenta}} grados.
-cien,one hundred,,El examen tiene {{cien}} preguntas totales.
-mil,one thousand,,Esta ciudad tiene {{mil}} habitantes aproximadamente.
-millón,one million,,El empresario tiene {{un millón}} de euros.
+uno,one,,Tengo {{uno}} gato en mi casa.,ˈuno
+dos,two,,Mi hermana tiene {{dos}} perros muy pequeños.,dos
+tres,three,,Comemos {{tres}} veces al día normalmente.,tɾes
+cuatro,four,,Este mes tiene {{cuatro}} semanas completas.,ˈkwatɾo
+cinco,five,,La mano tiene {{cinco}} dedos diferentes.,ˈθiŋko
+seis,six,,Mi clase tiene {{seis}} ventanas grandes.,sejs
+siete,seven,,La semana tiene {{siete}} días en total.,ˈsjetə
+ocho,eight,,Ella trabaja {{ocho}} horas cada día.,ˈoʧo
+nueve,nine,,El edificio tiene {{nueve}} pisos muy altos.,ˈnweβə
+diez,ten,,Necesito {{diez}} minutos para llegar allá.,ˈdjeθ
+once,eleven,,La reunión es a las {{once}} mañana.,ˈonθə
+doce,twelve,,Hay {{doce}} meses en un año.,ˈdoθə
+trece,thirteen,,Cumplí {{trece}} años el mes pasado.,ˈtɾeθə
+catorce,fourteen,,El {{catorce}} de febrero es San Valentín.,kaˈtoɾθə
+quince,fifteen,,Tengo {{quince}} euros en mi billetera.,ˈkinθə
+veinte,twenty,,Un billete de {{veinte}} dólares cuesta mucho.,ˈbejntə
+treinta,thirty,,Mi padre tiene {{treinta}} años de edad.,ˈtɾejtə
+cuarenta,forty,,El libro tiene {{cuarenta}} páginas aproximadamente.,kwaˈɾentə
+cincuenta,fifty,,La temperatura llegó a {{cincuenta}} grados.,θiŋˈkwentə
+cien,one hundred,,El examen tiene {{cien}} preguntas totales.,θjen
+mil,one thousand,,Esta ciudad tiene {{mil}} habitantes aproximadamente.,mil
+millón,one million,,El empresario tiene {{un millón}} de euros.,miˈʎon
 # ── Question words ───────────────────────────────────────────────────────────
-quién,who,,{{Quién}} es tu mejor amigo en la escuela.
-cuál,which,,{{Cuál}} es tu película favorita de todos.
-cuánto,how much,,{{Cuánto}} cuesta este libro en la tienda.
-por qué,why,,{{Por qué}} no viniste a la fiesta ayer.
+quién,who,,{{Quién}} es tu mejor amigo en la escuela.,ˈkjen
+cuál,which,,{{Cuál}} es tu película favorita de todos.,ˈkwal
+cuánto,how much,,{{Cuánto}} cuesta este libro en la tienda.,ˈkwanto
+por qué,why,,{{Por qué}} no viniste a la fiesta ayer.,poɾˈke
 # ── Days of the week ─────────────────────────────────────────────────────────
-lunes,Monday,,El {{lunes}} tengo clase de educación física.
-martes,Tuesday,,Voy al cine cada {{martes}} por la noche.
-miércoles,Wednesday,,El {{miércoles}} es mi día favorito de la semana.
-jueves,Thursday,,La reunión es el {{jueves}} a las tres.
-viernes,Friday,,El {{viernes}} salimos con amigos después del trabajo.
-sábado,Saturday,,El {{sábado}} vamos al mercado con la familia.
-domingo,Sunday,,El {{domingo}} descansamos y dormimos más horas.
+lunes,Monday,,El {{lunes}} tengo clase de educación física.,ˈlunəs
+martes,Tuesday,,Voy al cine cada {{martes}} por la noche.,ˈmaɾtəs
+miércoles,Wednesday,,El {{miércoles}} es mi día favorito de la semana.,ˈmjeɾkolɘs
+jueves,Thursday,,La reunión es el {{jueves}} a las tres.,ˈxweβəs
+viernes,Friday,,El {{viernes}} salimos con amigos después del trabajo.,ˈbjeɾnəs
+sábado,Saturday,,El {{sábado}} vamos al mercado con la familia.,ˈsaβado
+domingo,Sunday,,El {{domingo}} descansamos y dormimos más horas.,doˈmiŋgo
 # ── Months ───────────────────────────────────────────────────────────────────
-enero,January,,{{Enero}} es el primer mes del año.
-febrero,February,,{{Febrero}} es el mes más corto del año.
-marzo,March,,Las flores salen en {{marzo}} en primavera.
-abril,April,,{{Abril}} trae lluvia y flores bonitas.
-mayo,May,,El clima es perfecto en {{mayo}} aquí.
-junio,June,,Las vacaciones empiezan en {{junio}} para nosotros.
-julio,July,,{{Julio}} es muy caluroso en este país.
-agosto,August,,Vamos a la playa en {{agosto}} cada año.
-septiembre,September,,La escuela comienza en {{septiembre}} nuevamente.
-octubre,October,,Halloween se celebra en {{octubre}} en muchos países.
-noviembre,November,,{{Noviembre}} trae el frío a nuestra región.
-diciembre,December,,{{Diciembre}} es el mes de Navidad siempre.
+enero,January,,{{Enero}} es el primer mes del año.,eˈneɾo
+febrero,February,,{{Febrero}} es el mes más corto del año.,feˈβɾeɾo
+marzo,March,,Las flores salen en {{marzo}} en primavera.,ˈmaɾθo
+abril,April,,{{Abril}} trae lluvia y flores bonitas.,aˈβɾil
+mayo,May,,El clima es perfecto en {{mayo}} aquí.,ˈmajo
+junio,June,,Las vacaciones empiezan en {{junio}} para nosotros.,ˈxunjo
+julio,July,,{{Julio}} es muy caluroso en este país.,ˈxuljo
+agosto,August,,Vamos a la playa en {{agosto}} cada año.,aˈɡosto
+septiembre,September,,La escuela comienza en {{septiembre}} nuevamente.,sepˈtjembɾə
+octubre,October,,Halloween se celebra en {{octubre}} en muchos países.,okˈtuβɾə
+noviembre,November,,{{Noviembre}} trae el frío a nuestra región.,noˈβjembɾə
+diciembre,December,,{{Diciembre}} es el mes de Navidad siempre.,diˈθjembɾə
 # ── Seasons ──────────────────────────────────────────────────────────────────
-primavera,spring,,La {{primavera}} es la estación más bonita del año.
-verano,summer,,En {{verano}} hace mucho calor y sol.
-otoño,autumn / fall,,Las hojas caen en {{otoño}} del árbol.
-invierno,winter,,En {{invierno}} nieva mucho en las montañas.
+primavera,spring,,La {{primavera}} es la estación más bonita del año.,pɾimaˈβeɾa
+verano,summer,,En {{verano}} hace mucho calor y sol.,beˈɾano
+otoño,autumn / fall,,Las hojas caen en {{otoño}} del árbol.,oˈtoɲo
+invierno,winter,,En {{invierno}} nieva mucho en las montañas.,imˈbjeɾno
 # ── Professions ──────────────────────────────────────────────────────────────
-maestro,teacher,,Mi {{maestro}} de matemáticas es muy inteligente.
-abogado,lawyer,,Mi hermano es {{abogado}} y trabaja en una firma importante.
-ingeniero,engineer,,El {{ingeniero}} diseñó el puente con mucha precisión.
-arquitecto,architect,,La {{arquitecta}} presentó un proyecto moderno y sostenible.
-cocinero,chef / cook,,El {{cocinero}} preparó una comida deliciosa para la cena.
-músico,musician,,El {{músico}} tocó la guitarra en el concierto anoche.
-artista,artist,,La {{artista}} pintó un cuadro hermoso en el estudio.
-escritor,writer,,El famoso {{escritor}} publicó su novela el año pasado.
-periodista,journalist,,La {{periodista}} investigó la noticia durante varias semanas.
-científico,scientist,,El {{científico}} descubrió una nueva teoría importante.
-dentista,dentist,,Visitaré al {{dentista}} para limpiarme los dientes mañana.
-farmacéutico,pharmacist,,El {{farmacéutico}} me recomendó un medicamento para la gripe.
-bombero,firefighter,,Los {{bomberos}} apagaron el incendio muy rápidamente.
-piloto,pilot,,El {{piloto}} manejó el avión durante el vuelo internacional.
-conductor,driver,,El {{conductor}} del autobús es amable y profesional.
-mecánico,mechanic,,El {{mecánico}} reparó mi coche en dos horas.
-electricista,electrician,,Llamé al {{electricista}} para instalar las luces nuevas.
-carpintero,carpenter,,El {{carpintero}} construyó muebles hermosos de madera.
-jardinero,gardener,,El {{jardinero}} plantó flores coloridas en el jardín.
-camarero,waiter,,El {{camarero}} nos sirvió la cena muy profesionalmente.
-empleado,employee,,El {{empleado}} llegó temprano a su trabajo hoy.
-jefe,boss / chief,,Mi {{jefe}} aprobó el proyecto que presenté ayer.
-director,director,,El {{director}} de la escuela habló con todos los estudiantes.
-gerente,manager,,La {{gerente}} organizó una reunión importante con el equipo.
-secretario,secretary,,El {{secretario}} agenda las citas del {{director}} cada día.
-contador,accountant,,El {{contador}} revisó todos los gastos de la empresa.
-economista,economist,,La {{economista}} analiza el impacto de la inflación.
-psicólogo,psychologist,,El {{psicólogo}} escucha los problemas de sus pacientes.
-sociólogo,sociologist,,La {{socióloga}} estudia el comportamiento de la sociedad.
-historiador,historian,,El {{historiador}} escribió un libro sobre la Revolución.
+maestro,teacher,,Mi {{maestro}} de matemáticas es muy inteligente.,maˈestɾo
+abogado,lawyer,,Mi hermano es {{abogado}} y trabaja en una firma importante.,aβoˈɡaðo
+ingeniero,engineer,,El {{ingeniero}} diseñó el puente con mucha precisión.,inxeˈnjero
+arquitecto,architect,,La {{arquitecta}} presentó un proyecto moderno y sostenible.,aɾkiˈtekto
+cocinero,chef / cook,,El {{cocinero}} preparó una comida deliciosa para la cena.,koθiˈnero
+músico,musician,,El {{músico}} tocó la guitarra en el concierto anoche.,ˈmusiko
+artista,artist,,La {{artista}} pintó un cuadro hermoso en el estudio.,aɾˈtista
+escritor,writer,,El famoso {{escritor}} publicó su novela el año pasado.,eskɾiˈtoɾ
+periodista,journalist,,La {{periodista}} investigó la noticia durante varias semanas.,peɾjoˈðista
+científico,scientist,,El {{científico}} descubrió una nueva teoría importante.,θjenˈtifiko
+dentista,dentist,,Visitaré al {{dentista}} para limpiarme los dientes mañana.,denˈtista
+farmacéutico,pharmacist,,El {{farmacéutico}} me recomendó un medicamento para la gripe.,faɾmaˈθewko
+bombero,firefighter,,Los {{bomberos}} apagaron el incendio muy rápidamente.,bomˈbeɾo
+piloto,pilot,,El {{piloto}} manejó el avión durante el vuelo internacional.,piˈloto
+conductor,driver,,El {{conductor}} del autobús es amable y profesional.,kondukˈtoɾ
+mecánico,mechanic,,El {{mecánico}} reparó mi coche en dos horas.,meˈkaniko
+electricista,electrician,,Llamé al {{electricista}} para instalar las luces nuevas.,elektɾiˈθista
+carpintero,carpenter,,El {{carpintero}} construyó muebles hermosos de madera.,kaɾpinˈteɾo
+jardinero,gardener,,El {{jardinero}} plantó flores coloridas en el jardín.,xaɾðiˈneɾo
+camarero,waiter,,El {{camarero}} nos sirvió la cena muy profesionalmente.,kamaˈɾeɾo
+empleado,employee,,El {{empleado}} llegó temprano a su trabajo hoy.,empleˈaðo
+jefe,boss / chief,,Mi {{jefe}} aprobó el proyecto que presenté ayer.,ˈxefe
+director,director,,El {{director}} de la escuela habló con todos los estudiantes.,diɾekˈtoɾ
+gerente,manager,,La {{gerente}} organizó una reunión importante con el equipo.,xeˈɾente
+secretario,secretary,,El {{secretario}} agenda las citas del {{director}} cada día.,sekɾeˈtaɾjo
+contador,accountant,,El {{contador}} revisó todos los gastos de la empresa.,kontaˈðoɾ
+economista,economist,,La {{economista}} analiza el impacto de la inflación.,ekonoˈmista
+psicólogo,psychologist,,El {{psicólogo}} escucha los problemas de sus pacientes.,psiˈkoloɣo
+sociólogo,sociologist,,La {{socióloga}} estudia el comportamiento de la sociedad.,soθjoˈloɣo
+historiador,historian,,El {{historiador}} escribió un libro sobre la Revolución.,istoɾjaˈðoɾ
 # ── More verbs ───────────────────────────────────────────────────────────────
-discutir,to discuss / to argue,,Los amigos {{discuten}} sobre política en la cafetería.
-comparar,to compare,,Necesito {{comparar}} los precios de las dos tiendas.
-analizar,to analyse,,El profesor {{analiza}} cada pregunta del examen.
-planear,to plan,,Estamos {{planeando}} un viaje para el próximo mes.
-organizar,to organize,,Debo {{organizar}} mi habitación antes del fin de semana.
-controlar,to control,,El director {{controla}} todos los aspectos de la empresa.
-medir,to measure,,Necesito {{medir}} la altura de la puerta cuidadosamente.
-mejorar,to improve,,Quiero {{mejorar}} mis calificaciones en matemáticas.
-empeorar,to worsen,,El clima {{empeorará}} según el pronóstico de mañana.
-renovar,to renovate,,Vamos a {{renovar}} la cocina con equipos nuevos.
-reparar,to repair,,El técnico {{reparará}} mi computadora la próxima semana.
-instalar,to install,,Los obreros {{instalaron}} las ventanas nuevas ayer.
-conectar,to connect,,Debes {{conectar}} el cable al puerto correcto.
-descargar,to download,,Voy a {{descargar}} el archivo desde internet ahora.
-cargar,to upload / to charge,,Por favor {{carga}} el teléfono toda la noche.
-programar,to program,,El informático {{programó}} la aplicación en dos meses.
-diseñar,to design,,Ella {{diseña}} ropa moderna y elegante para mujeres.
-inventar,to invent,,Thomas Edison {{inventó}} la bombilla eléctrica importante.
-descubrir,to discover,,Los científicos {{descubrieron}} una nueva especie de animal.
-investigar,to investigate,,El detective {{investiga}} el caso misterioso cuidadosamente.
-estudiar,to study,,Debo {{estudiar}} para el examen de español mañana.
-practicar,to practise,,Los estudiantes {{practican}} fútbol en el parque después de clases.
-competir,to compete,,Los atletas {{compiten}} por la medalla de oro en los juegos olímpicos.
-disfrutar,to enjoy,,Nosotros {{disfrutamos}} mucho de las vacaciones en la playa.
-sufrir,to suffer,,Mi abuela {{sufre}} de dolores de espalda desde hace años.
-cuidar,to take care of,,Mi hermana {{cuida}} a los niños mientras los padres trabajan.
-salvar,to save / to rescue,,El bombero {{salvó}} al gato que estaba atrapado en el árbol.
-compartir,to share,,Todos {{compartimos}} nuestras ideas en la reunión de equipo.
-envejecer,to age / to grow old,,Las personas {{envejecen}} con el paso del tiempo y la experiencia.
-cooperar,to cooperate,,Los países deben {{cooperar}} para resolver los problemas mundiales.
-negociar,to negotiate,,El gerente {{negocia}} con los clientes para conseguir mejores precios.
-contratar,to hire,,La empresa {{contrató}} a diez empleados nuevos este mes.
-exportar,to export,,Chile {{exporta}} mucho vino a diferentes países del mundo.
-importar,to import / to matter,,España {{importa}} productos electrónicos desde Asia principalmente.
-votar,to vote,,Los ciudadanos {{votaron}} en las elecciones presidenciales de ayer.
-gobernar,to govern,,El presidente {{gobierna}} el país durante cuatro años.
-demoler,to demolish,,Los trabajadores {{demolieron}} el edificio antiguo para construir uno nuevo.
-decorar,to decorate,,María {{decoró}} su habitación con plantas y cuadros bonitos.
-aconsejar,to advise,,Mi profesor me {{aconseja}} que estudie más para mejores resultados.
-aprobar,to approve,,El congreso {{aprobó}} la nueva ley sobre protección ambiental.
-aplicar,to apply,,Debemos {{aplicar}} las normas de seguridad en todas partes.
-lograr,to achieve,,Con esfuerzo y dedicación {{logramos}} alcanzar nuestros objetivos.
-mezclar,to mix,,El cocinero {{mezcla}} los ingredientes en un recipiente grande.
-preparar,to prepare,,Mi madre {{prepara}} una comida deliciosa para la cena.
-servir,to serve,,El camarero {{sirve}} las bebidas a todos los clientes.
-pedir prestado,to borrow,,Juan {{pidió prestado}} dinero a su amigo para comprar libros.
-derramar,to spill,,El niño {{derramó}} la leche accidentalmente en la mesa.
+discutir,to discuss / to argue,,Los amigos {{discuten}} sobre política en la cafetería.,diskuˈtiɾ
+comparar,to compare,,Necesito {{comparar}} los precios de las dos tiendas.,kompaˈɾaɾ
+analizar,to analyse,,El profesor {{analiza}} cada pregunta del examen.,analiˈθaɾ
+planear,to plan,,Estamos {{planeando}} un viaje para el próximo mes.,planeˈaɾ
+organizar,to organize,,Debo {{organizar}} mi habitación antes del fin de semana.,oɾɣaniˈθaɾ
+controlar,to control,,El director {{controla}} todos los aspectos de la empresa.,kontɾoˈlaɾ
+medir,to measure,,Necesito {{medir}} la altura de la puerta cuidadosamente.,meˈðiɾ
+mejorar,to improve,,Quiero {{mejorar}} mis calificaciones en matemáticas.,mexoˈɾaɾ
+empeorar,to worsen,,El clima {{empeorará}} según el pronóstico de mañana.,empeoˈɾaɾ
+renovar,to renovate,,Vamos a {{renovar}} la cocina con equipos nuevos.,ɾenoˈβaɾ
+reparar,to repair,,El técnico {{reparará}} mi computadora la próxima semana.,ɾepaˈɾaɾ
+instalar,to install,,Los obreros {{instalaron}} las ventanas nuevas ayer.,instaˈlaɾ
+conectar,to connect,,Debes {{conectar}} el cable al puerto correcto.,koneˈtaɾ
+descargar,to download,,Voy a {{descargar}} el archivo desde internet ahora.,deskaɾˈɡaɾ
+cargar,to upload / to charge,,Por favor {{carga}} el teléfono toda la noche.,kaɾˈɡaɾ
+programar,to program,,El informático {{programó}} la aplicación en dos meses.,pɾoɣɾaˈmaɾ
+diseñar,to design,,Ella {{diseña}} ropa moderna y elegante para mujeres.,diseˈɲaɾ
+inventar,to invent,,Thomas Edison {{inventó}} la bombilla eléctrica importante.,inβenˈtaɾ
+descubrir,to discover,,Los científicos {{descubrieron}} una nueva especie de animal.,deskuˈβɾiɾ
+investigar,to investigate,,El detective {{investiga}} el caso misterioso cuidadosamente.,inbestiˈɡaɾ
+estudiar,to study,,Debo {{estudiar}} para el examen de español mañana.,estuˈðjaɾ
+practicar,to practise,,Los estudiantes {{practican}} fútbol en el parque después de clases.,pɾaktiˈkaɾ
+competir,to compete,,Los atletas {{compiten}} por la medalla de oro en los juegos olímpicos.,kompeˈtiɾ
+disfrutar,to enjoy,,Nosotros {{disfrutamos}} mucho de las vacaciones en la playa.,disɸɾuˈtaɾ
+sufrir,to suffer,,Mi abuela {{sufre}} de dolores de espalda desde hace años.,suˈfɾiɾ
+cuidar,to take care of,,Mi hermana {{cuida}} a los niños mientras los padres trabajan.,kwiˈðaɾ
+salvar,to save / to rescue,,El bombero {{salvó}} al gato que estaba atrapado en el árbol.,salˈβaɾ
+compartir,to share,,Todos {{compartimos}} nuestras ideas en la reunión de equipo.,kompaɾˈtiɾ
+envejecer,to age / to grow old,,Las personas {{envejecen}} con el paso del tiempo y la experiencia.,embeheˈθeɾ
+cooperar,to cooperate,,Los países deben {{cooperar}} para resolver los problemas mundiales.,koopeɾaɾ
+negociar,to negotiate,,El gerente {{negocia}} con los clientes para conseguir mejores precios.,neɣoˈθjaɾ
+contratar,to hire,,La empresa {{contrató}} a diez empleados nuevos este mes.,kontɾaˈtaɾ
+exportar,to export,,Chile {{exporta}} mucho vino a diferentes países del mundo.,ekspoɾˈtaɾ
+importar,to import / to matter,,España {{importa}} productos electrónicos desde Asia principalmente.,impoɾˈtaɾ
+votar,to vote,,Los ciudadanos {{votaron}} en las elecciones presidenciales de ayer.,βoˈtaɾ
+gobernar,to govern,,El presidente {{gobierna}} el país durante cuatro años.,ɡoβeɾˈnaɾ
+demoler,to demolish,,Los trabajadores {{demolieron}} el edificio antiguo para construir uno nuevo.,demoˈleɾ
+decorar,to decorate,,María {{decoró}} su habitación con plantas y cuadros bonitos.,dekoˈɾaɾ
+aconsejar,to advise,,Mi profesor me {{aconseja}} que estudie más para mejores resultados.,akonsehˈaɾ
+aprobar,to approve,,El congreso {{aprobó}} la nueva ley sobre protección ambiental.,apɾoˈβaɾ
+aplicar,to apply,,Debemos {{aplicar}} las normas de seguridad en todas partes.,apliˈkaɾ
+lograr,to achieve,,Con esfuerzo y dedicación {{logramos}} alcanzar nuestros objetivos.,loˈɡɾaɾ
+mezclar,to mix,,El cocinero {{mezcla}} los ingredientes en un recipiente grande.,mesˈklaɾ
+preparar,to prepare,,Mi madre {{prepara}} una comida deliciosa para la cena.,pɾepaˈɾaɾ
+servir,to serve,,El camarero {{sirve}} las bebidas a todos los clientes.,seɾˈβiɾ
+pedir prestado,to borrow,,Juan {{pidió prestado}} dinero a su amigo para comprar libros.,peˈðiɾ pɾesˈtaðo
+derramar,to spill,,El niño {{derramó}} la leche accidentalmente en la mesa.,deraˈmaɾ
 # ── More nouns ───────────────────────────────────────────────────────────────
-democracia,democracy,,La {{democracia}} permite que todos los ciudadanos participen en decisiones.
-dictadura,dictatorship,,Una {{dictadura}} es un gobierno donde el poder está muy concentrado.
-elección,election,,Las {{elecciones}} se realizan cada cuatro años en este país.
-partido,political party / match,,El {{partido}} de fútbol fue muy emocionante y competitivo.
-impuesto,tax,,Todos los trabajadores deben pagar {{impuestos}} al gobierno.
-deuda,debt,,El país tiene una gran {{deuda}} con los bancos internacionales.
-interés,interest,,El {{interés}} del préstamo es demasiado alto para pagar.
-inversión,investment,,La {{inversión}} en educación produce buenos resultados a largo plazo.
-ganancia,profit,,El negocio generó una {{ganancia}} importante durante este trimestre.
-pérdida,loss,,La {{pérdida}} de dinero fue causada por malas decisiones.
-presupuesto,budget,,El {{presupuesto}} anual de la empresa fue aprobado por la junta.
-contrato,contract,,Ambas partes firmaron el {{contrato}} después de las negociaciones.
-acuerdo,agreement,,Llegamos a un {{acuerdo}} que satisface a todos los involucrados.
-norma,rule / norm,,La {{norma}} principal es respetar los derechos de los demás.
-regulación,regulation,,La nueva {{regulación}} requiere que todas las empresas cumplan con estándares.
-institución,institution,,Esta {{institución}} ha educado a miles de estudiantes durante años.
-organización,organization,,La {{organización}} se dedica a proteger el medio ambiente.
-asociación,association,,La {{asociación}} de padres organiza eventos importantes para la escuela.
-reunión,meeting,,Mañana tenemos una {{reunión}} importante con todos los directores.
-conferencia,conference,,El director dictó una {{conferencia}} sobre innovación y tecnología.
-informe,report,,El {{informe}} final del proyecto será entregado la próxima semana.
-estadística,statistic,,"Según la {{estadística}}, la población aumentó significativamente este año."
-investigación,research,,Los científicos realizan una {{investigación}} sobre nuevas enfermedades.
-experimento,experiment,,El {{experimento}} científico demostró que la teoría era correcta.
-laboratorio,laboratory,,Los científicos trabajan en el {{laboratorio}} cada día.
-clínica,clinic,,Mi abuela va a la {{clínica}} para revisar su salud.
-farmacia,pharmacy,,Necesito comprar medicinas en la {{farmacia}} del centro.
-receta,recipe / prescription,,El doctor me dio una {{receta}} para la infección.
-diagnóstico,diagnosis,,El {{diagnóstico}} del médico fue muy preciso y útil.
-síntoma,symptom,,La fiebre es un {{síntoma}} común de la gripe.
-vacuna,vaccine,,Todos deben recibir la {{vacuna}} antes de viajar.
-cirugía,surgery,,Mi padre necesita una {{cirugía}} en el hospital próximo.
-terapia,therapy,,La {{terapia}} me ayuda a sentirme mejor cada semana.
-psicología,psychology,,Estudio {{psicología}} para entender mejor el comportamiento humano.
-estrés,stress,,El {{estrés}} del trabajo afecta mi salud mental.
-ansiedad,anxiety,,Tengo {{ansiedad}} cuando viajo en avión a otros países.
-depresión,depression,,La {{depresión}} es una enfermedad que requiere tratamiento profesional.
-zona,zone / area,,La {{zona}} norte de la ciudad es muy peligrosa.
-barrio,neighbourhood,,Mi {{barrio}} tiene buenos parques y escuelas cerca.
-frontera,border,,Cruzamos la {{frontera}} entre México y Estados Unidos ayer.
-territorio,territory,,Este {{territorio}} pertenece a la nación desde hace siglos.
-provincia,province,,La {{provincia}} de Córdoba tiene muchos pueblos hermosos.
-municipio,municipality,,El {{municipio}} organiza eventos culturales todos los meses.
-aldea,village,,Visitamos una pequeña {{aldea}} en las montañas españolas.
-colonia,colony / neighbourhood,,Vivimos en la {{colonia}} San Miguel desde hace años.
-sótano,basement,,Guardamos las cosas viejas en el {{sótano}} de la casa.
-ático,attic,,El {{ático}} tiene ventanas que dan vista al mar.
-terraza,terrace,,Tomamos café en la {{terraza}} del restaurante italiano.
-balcón,balcony,,Desde mi {{balcón}} puedo ver toda la ciudad.
-ascensor,lift / elevator,,"El {{ascensor}} está roto, debemos usar la escalera."
-escalera,staircase,,Subo por la {{escalera}} porque el ascensor no funciona.
-pasillo,corridor / hallway,,El {{pasillo}} del hospital es muy largo y blanco.
-madera,wood,,La {{madera}} de esta mesa es muy resistente.
-metal,metal,,Este anillo es de {{metal}} plateado muy brillante.
-plástico,plastic,,Las botellas {{plástico}} son reciclables en nuestro pueblo.
-vidrio,glass,,El {{vidrio}} de la ventana se rompió en la tormenta.
-papel,paper,,Necesito {{papel}} para imprimir mi documento importante.
-tela,fabric / cloth,,La {{tela}} de algodón es suave y cómoda.
-lana,wool,,Mi suéter es de {{lana}} pura y muy abrigador.
-algodón,cotton,,Las camisetas de {{algodón}} son perfectas para el verano.
+democracia,democracy,,La {{democracia}} permite que todos los ciudadanos participen en decisiones.,demoˈkɾaθja
+dictadura,dictatorship,,Una {{dictadura}} es un gobierno donde el poder está muy concentrado.,diktaˈðuɾa
+elección,election,,Las {{elecciones}} se realizan cada cuatro años en este país.,elekˈθjon
+partido,political party / match,,El {{partido}} de fútbol fue muy emocionante y competitivo.,paɾˈtiðo
+impuesto,tax,,Todos los trabajadores deben pagar {{impuestos}} al gobierno.,imˈpwesto
+deuda,debt,,El país tiene una gran {{deuda}} con los bancos internacionales.,ˈðewða
+interés,interest,,El {{interés}} del préstamo es demasiado alto para pagar.,inteɾˈes
+inversión,investment,,La {{inversión}} en educación produce buenos resultados a largo plazo.,imbeɾˈsjon
+ganancia,profit,,El negocio generó una {{ganancia}} importante durante este trimestre.,ɡaˈnanθja
+pérdida,loss,,La {{pérdida}} de dinero fue causada por malas decisiones.,ˈpeɾðiða
+presupuesto,budget,,El {{presupuesto}} anual de la empresa fue aprobado por la junta.,pɾesuˈpwesto
+contrato,contract,,Ambas partes firmaron el {{contrato}} después de las negociaciones.,konˈtɾato
+acuerdo,agreement,,Llegamos a un {{acuerdo}} que satisface a todos los involucrados.,akweɾˈðo
+norma,rule / norm,,La {{norma}} principal es respetar los derechos de los demás.,ˈnoɾma
+regulación,regulation,,La nueva {{regulación}} requiere que todas las empresas cumplan con estándares.,reɡulaˈθjon
+institución,institution,,Esta {{institución}} ha educado a miles de estudiantes durante años.,institoˈθjon
+organización,organization,,La {{organización}} se dedica a proteger el medio ambiente.,oɾɡaniθaˈθjon
+asociación,association,,La {{asociación}} de padres organiza eventos importantes para la escuela.,asoθjaˈθjon
+reunión,meeting,,Mañana tenemos una {{reunión}} importante con todos los directores.,ɾeuˈnjon
+conferencia,conference,,El director dictó una {{conferencia}} sobre innovación y tecnología.,konfeˈɾenθja
+informe,report,,El {{informe}} final del proyecto será entregado la próxima semana.,inˈfoɾme
+estadística,statistic,,"Según la {{estadística}}, la población aumentó significativamente este año.",estadˈistika
+investigación,research,,Los científicos realizan una {{investigación}} sobre nuevas enfermedades.,imbestiɡaˈθjon
+experimento,experiment,,El {{experimento}} científico demostró que la teoría era correcta.,ekspeɾiˈmento
+laboratorio,laboratory,,Los científicos trabajan en el {{laboratorio}} cada día.,laβoɾaˈtoɾjo
+clínica,clinic,,Mi abuela va a la {{clínica}} para revisar su salud.,ˈklinika
+farmacia,pharmacy,,Necesito comprar medicinas en la {{farmacia}} del centro.,faɾˈmasja
+receta,recipe / prescription,,El doctor me dio una {{receta}} para la infección.,ɾeˈseta
+diagnóstico,diagnosis,,El {{diagnóstico}} del médico fue muy preciso y útil.,djaɣˈnostiko
+síntoma,symptom,,La fiebre es un {{síntoma}} común de la gripe.,ˈsintoma
+vacuna,vaccine,,Todos deben recibir la {{vacuna}} antes de viajar.,baˈkuna
+cirugía,surgery,,Mi padre necesita una {{cirugía}} en el hospital próximo.,siɾuˈxia
+terapia,therapy,,La {{terapia}} me ayuda a sentirme mejor cada semana.,teˈɾapja
+psicología,psychology,,Estudio {{psicología}} para entender mejor el comportamiento humano.,sikoloˈxia
+estrés,stress,,El {{estrés}} del trabajo afecta mi salud mental.,esˈtɾes
+ansiedad,anxiety,,Tengo {{ansiedad}} cuando viajo en avión a otros países.,ansjɛˈðað
+depresión,depression,,La {{depresión}} es una enfermedad que requiere tratamiento profesional.,depeɾˈsjon
+zona,zone / area,,La {{zona}} norte de la ciudad es muy peligrosa.,ˈsona
+barrio,neighbourhood,,Mi {{barrio}} tiene buenos parques y escuelas cerca.,ˈbaɾjo
+frontera,border,,Cruzamos la {{frontera}} entre México y Estados Unidos ayer.,fɾonˈteɾa
+territorio,territory,,Este {{territorio}} pertenece a la nación desde hace siglos.,teɾiˈtoɾjo
+provincia,province,,La {{provincia}} de Córdoba tiene muchos pueblos hermosos.,pɾoˈβinsja
+municipio,municipality,,El {{municipio}} organiza eventos culturales todos los meses.,muniˈsipjo
+aldea,village,,Visitamos una pequeña {{aldea}} en las montañas españolas.,alˈðea
+colonia,colony / neighbourhood,,Vivimos en la {{colonia}} San Miguel desde hace años.,koˈlonja
+sótano,basement,,Guardamos las cosas viejas en el {{sótano}} de la casa.,ˈsotano
+ático,attic,,El {{ático}} tiene ventanas que dan vista al mar.,ˈatiko
+terraza,terrace,,Tomamos café en la {{terraza}} del restaurante italiano.,teˈɾasa
+balcón,balcony,,Desde mi {{balcón}} puedo ver toda la ciudad.,balˈkon
+ascensor,lift / elevator,,"El {{ascensor}} está roto, debemos usar la escalera.",asenˈsoɾ
+escalera,staircase,,Subo por la {{escalera}} porque el ascensor no funciona.,eskaˈleɾa
+pasillo,corridor / hallway,,El {{pasillo}} del hospital es muy largo y blanco.,paˈsiʎo
+madera,wood,,La {{madera}} de esta mesa es muy resistente.,maˈðeɾa
+metal,metal,,Este anillo es de {{metal}} plateado muy brillante.,meˈtal
+plástico,plastic,,Las botellas {{plástico}} son reciclables en nuestro pueblo.,ˈplastiko
+vidrio,glass,,El {{vidrio}} de la ventana se rompió en la tormenta.,ˈβiðɾjo
+papel,paper,,Necesito {{papel}} para imprimir mi documento importante.,paˈpel
+tela,fabric / cloth,,La {{tela}} de algodón es suave y cómoda.,ˈtela
+lana,wool,,Mi suéter es de {{lana}} pura y muy abrigador.,ˈlana
+algodón,cotton,,Las camisetas de {{algodón}} son perfectas para el verano.,alɣoˈðon
 # ── More adjectives ──────────────────────────────────────────────────────────
-responsable,responsible,,Juan es muy {{responsable}} con sus tareas escolares.
-capaz,capable,,Ella es {{capaz}} de resolver cualquier problema matemático.
-disponible,available,,El doctor está {{disponible}} para consultas mañana por la tarde.
-accesible,accessible,,La rampa hace el edificio {{accesible}} para personas con discapacidad.
-sostenible,sustainable,,Necesitamos energía {{sostenible}} para proteger nuestro planeta.
-eficiente,efficient,,Este nuevo sistema es muy {{eficiente}} para el trabajo.
-efectivo,effective,,El tratamiento fue {{efectivo}} y se curó rápidamente.
-productivo,productive,,Fue una {{productiva}} reunión de negocios muy importante.
-creativo,creative,,Mi hermana es muy {{creativa}} cuando diseña sus proyectos.
-innovador,innovative,,Este producto {{innovador}} cambiará la industria completamente.
-digital,digital,,Usamos {{digital}} para almacenar fotos en la nube.
-virtual,virtual,,Tuve una reunión {{virtual}} con mi jefe desde casa.
-global,global,,El cambio climático es un problema {{global}} muy serio.
-regional,regional,,El gobierno {{regional}} invierte en infraestructura local.
-urbano,urban,,La vida {{urbana}} en la ciudad es muy diferente y emocionante.
-rural,rural,,Mi abuela vive en una zona {{rural}} lejos de la ciudad.
-tradicional,traditional,,La música {{tradicional}} española es muy hermosa y emotiva.
-contemporáneo,contemporary,,El arte {{contemporáneo}} es muy experimental y diverso hoy día.
-democrático,democratic,,Un gobierno {{democrático}} respeta los derechos de todos sus ciudadanos.
-religioso,religious,,Mi abuelo es muy {{religioso}} y va a la iglesia siempre.
-histórico,historical,,Visitamos el {{histórico}} castillo durante nuestras vacaciones de verano.
-legal,legal,,Es completamente {{legal}} conducir a esa velocidad en la autopista.
-ilegal,illegal,,Robar en una tienda es {{ilegal}} y tiene consecuencias graves.
-voluntario,voluntary,,Mi primo hace trabajo {{voluntario}} en el hospital los fines de semana.
-obligatorio,mandatory,,El uso del cinturón es {{obligatorio}} cuando viajas en automóvil.
-temporal,temporary,,Este empleo es {{temporal}} porque solo durará tres meses más.
-permanente,permanent,,Conseguí un trabajo {{permanente}} en la empresa después del contrato.
-urgente,urgent,,Tenemos una reunión {{urgente}} mañana a las ocho de la mañana.
-delicioso,delicious,,Este pastel de chocolate es {{delicioso}} y muy fácil de preparar.
-picante,spicy,,La comida mexicana es muy {{picante}} y me encanta probarla.
-dulce,sweet,,Los postres {{dulces}} son mis favoritos en cualquier ocasión especial.
-amargo,bitter,,El café muy fuerte tiene un sabor {{amargo}} que no me gusta.
-salado,salty,,Este queso {{salado}} es perfecto para comer con pan integral.
-ácido,sour,,Las naranjas tienen un sabor {{ácido}} muy refrescante y agradable.
-fresco,fresh / cool,,El pan {{fresco}} de la panadería huele increíblemente bien cada mañana.
-maduro,ripe / mature,,Este plátano {{maduro}} es perfecto para hacer un batido delicioso.
-crudo,raw,,El salmón {{crudo}} es un ingrediente importante en la cocina japonesa.
-cocido,cooked,,El pollo {{cocido}} está listo para servir en la cena de hoy.
-caliente,hot / warm,,El agua {{caliente}} es necesaria para preparar un buen té.
-frío,cold,,En invierno el aire {{frío}} nos hace sentir realmente incómodos.
-tibio,lukewarm,,Me gusta tomar el agua {{tibia}} porque es más confortable para beber.
-húmedo,humid / damp,,El clima {{húmedo}} de la costa es difícil para muchas personas.
-seco,dry,,En el desierto el aire es {{seco}} y la piel se reseca fácilmente.
-nublado,cloudy,,Hoy está {{nublado}} así que probablemente llueva antes de la noche.
-soleado,sunny,,Fue un día {{soleado}} perfecto para ir a la playa con amigos.
-lluvioso,rainy,,El fin de semana fue {{lluvioso}} así que nos quedamos en casa.
-tormentoso,stormy,,La noche {{tormentosa}} fue aterradora con rayos y truenos fuertes.
-ventoso,windy,,Un día {{ventoso}} es ideal para volar cometas en el parque.
-cuero,leather,,Mis zapatos de {{cuero}} son muy cómodos y duraderos para trabajar.
-seda,silk,,El vestido de {{seda}} es muy elegante y suave al tacto.
-jabón,soap,,Usamos {{jabón}} para lavar las manos después de comer siempre.
-champú,shampoo,,Mi {{champú}} favorito tiene aroma a lavanda y menta naturales.
-cepillo de dientes,toothbrush,,Necesito comprar un {{cepillo de dientes}} nuevo la próxima semana.
-pasta de dientes,toothpaste,,La {{pasta de dientes}} blanqueadora me ayuda a tener una sonrisa radiante.
-toalla,towel,,Secué mi cabello mojado con una {{toalla}} después de la ducha.
-manta,blanket,,Una {{manta}} cálida es perfecta para las noches frías de invierno.
-almohada,pillow,,Mi {{almohada}} de plumas es muy cómoda para dormir bien.
-colchón,mattress,,El {{colchón}} nuevo es mucho más cómodo que el viejo.
-sofá,sofa,,Nos sentamos en el {{sofá}} para ver una película juntos esta noche.
-sillón,armchair,,Mi padre lee el periódico en su {{sillón}} favorito cada mañana.
-lámpara,lamp,,Encendí la {{lámpara}} de noche porque estaba muy oscuro en la habitación.
-cortina,curtain,,Cerré la {{cortina}} para que no entrara mucha luz por la ventana.
-alfombra,carpet / rug,,Colocamos una {{alfombra}} nueva en la sala para hacerla más acogedora.
-estantería,shelf,,Mis libros favoritos están organizados en la {{estantería}} de mi dormitorio.
-cajón,drawer,,Guardé los documentos importantes en el {{cajón}} de mi escritorio.
-armario,wardrobe,,Mi hermana organiza toda su ropa en el {{armario}} del dormitorio.
-nevera,fridge,,Necesito comprar leche y la pongo en la {{nevera}} inmediatamente.
-horno,oven,,Precalienta el {{horno}} a doscientos grados para hornear el pastel.
-lavadora,washing machine,,La {{lavadora}} termina el ciclo en aproximadamente una hora y media.
-aire acondicionado,air conditioner,,Encendemos el {{aire acondicionado}} cuando hace mucho calor en verano.
-calefacción,heating,,La {{calefacción}} se enciende automáticamente durante los meses de invierno.
-recibo,receipt,,Siempre guardo el {{recibo}} de cada compra que hago en la tienda.
-factura,invoice / bill,,Enviaron la {{factura}} del servicio eléctrico directamente a mi correo electrónico.
-corriente,current / common,,Es {{corriente}} que los estudiantes trabajen mientras estudian en la universidad.
-promedio,average,,El {{promedio}} de calificaciones de Juan es excelente este semestre.
-porcentaje,percentage,,El {{porcentaje}} de descuento en la tienda es del treinta por ciento.
-cantidad,quantity / amount,,Necesitamos una {{cantidad}} suficiente de dinero para el proyecto completo.
-distancia,distance,,La {{distancia}} entre mi casa y la escuela es de cinco kilómetros.
-velocidad,speed,,El coche alcanza una {{velocidad}} máxima de ciento ochenta kilómetros por hora.
-peso,weight,,El {{peso}} de esta maleta es demasiado para llevarla fácilmente.
-tamaño,size,,Este apartamento tiene un {{tamaño}} perfecto para una familia pequeña.
-calidad,quality,,La {{calidad}} de este producto es superior a la de sus competidores.
-estándar,standard,,Este servicio cumple con todos los {{estándar|estándares}} internacionales requeridos.
-dato,data / fact,,Cada {{dato}} que registramos es importante para el análisis final.
-rendimiento,performance,,El {{rendimiento}} académico de los estudiantes mejora con dedicación constante.
-mejora,improvement,,Vimos una {{mejora}} significativa en el comportamiento del equipo esta semana.
-progreso,progress,,El {{progreso}} del proyecto es más rápido de lo que esperábamos inicialmente.
-desarrollo,development,,El {{desarrollo}} tecnológico ha transformado completamente la forma de trabajar.
-desafío,challenge,,"Completar este {{desafío}} requiere esfuerzo, dedicación y trabajo en equipo."
-influencia,influence,,La {{influencia}} de sus padres fue decisiva en sus decisiones futuras.
-autoridad,authority,,El director tiene la {{autoridad}} necesaria para tomar decisiones importantes en la escuela.
-privilegio,privilege,,Fue un {{privilegio}} conocer a la famosa actriz en el evento especial.
-obligación,obligation,,Tenemos la {{obligación}} de respetar las normas establecidas en el contrato.
-riesgo,risk,,Invertir sin información es un {{riesgo}} que no debes asumir lightly.
-ventaja,advantage,,La principal {{ventaja}} de este plan es su bajo costo mensual.
-desventaja,disadvantage,,La mayor {{desventaja}} es que no tiene acceso a internet rápido aquí.
-compromiso,compromise,,Llegaron a un {{compromiso}} que satisfizo a ambas partes del conflicto.
-volumen,volume,,Aumenta el {{volumen}} de la música porque no escucho bien la canción.
-huracán,hurricane,,El {{huracán}} causó daños severos en las costas del país caribeño.
-tornado,tornado,,Un {{tornado}} destructivo pasó por el pueblo dejando muchos daños graves.
-terremoto,earthquake,,El {{terremoto}} de magnitud alta asustó a todos los habitantes de la región.
-volcán,volcano,,El {{volcán}} entró en erupción y evacuaron a miles de personas inmediatamente.
-avalancha,avalanche,,Una {{avalancha}} de nieve bajó peligrosamente por las montañas nevadas.
-sequía,drought,,La {{sequía}} prolongada afectó gravemente la producción agrícola de esta región.
-inundación,flood,,La {{inundación}} dejó sin hogar a muchas familias en el área.
-incendio,fire / blaze,,El {{incendio}} se extendió rápidamente por toda la estructura de madera antigua.
-humo,smoke,,El {{humo}} de los cigarrillos llenó completamente la habitación cerrada.
-ceniza,ash,,La {{ceniza}} del volcán cubrió toda la ciudad con un polvo gris.
-gas,gas,,Detectaron una fuga de {{gas}} en el edificio y evacuaron a todos.
-acero,steel,,El puente está construido con {{acero}} reforzado de la mejor calidad disponible.
-hierro,iron,,Las puertas antiguas están hechas de {{hierro}} macizo y muy pesado.
-cobre,copper,,Los cables eléctricos están fabricados principalmente de {{cobre}} puro conductor.
-oro,gold,,Las joyas más valiosas están hechas de {{oro}} de dieciocho quilates.
-plata,silver,,Mi abuela heredó una bandeja antigua hecha completamente de {{plata}} pura.
+responsable,responsible,,Juan es muy {{responsable}} con sus tareas escolares.,ɾesponˈsaβle
+capaz,capable,,Ella es {{capaz}} de resolver cualquier problema matemático.,kaˈpas
+disponible,available,,El doctor está {{disponible}} para consultas mañana por la tarde.,dispoˈniβle
+accesible,accessible,,La rampa hace el edificio {{accesible}} para personas con discapacidad.,akseˈsiβle
+sostenible,sustainable,,Necesitamos energía {{sostenible}} para proteger nuestro planeta.,sostenˈiβle
+eficiente,efficient,,Este nuevo sistema es muy {{eficiente}} para el trabajo.,efiˈsjɛnte
+efectivo,effective,,El tratamiento fue {{efectivo}} y se curó rápidamente.,efekˈtiβo
+productivo,productive,,Fue una {{productiva}} reunión de negocios muy importante.,pɾodukˈtiβo
+creativo,creative,,Mi hermana es muy {{creativa}} cuando diseña sus proyectos.,kɾeaˈtiβo
+innovador,innovative,,Este producto {{innovador}} cambiará la industria completamente.,inoβaˈðoɾ
+digital,digital,,Usamos {{digital}} para almacenar fotos en la nube.,dixit̪al
+virtual,virtual,,Tuve una reunión {{virtual}} con mi jefe desde casa.,biɾt̪wal
+global,global,,El cambio climático es un problema {{global}} muy serio.,ɡloˈβal
+regional,regional,,El gobierno {{regional}} invierte en infraestructura local.,ɾexjoˈnal
+urbano,urban,,La vida {{urbana}} en la ciudad es muy diferente y emocionante.,uɾˈβano
+rural,rural,,Mi abuela vive en una zona {{rural}} lejos de la ciudad.,ɾuˈɾal
+tradicional,traditional,,La música {{tradicional}} española es muy hermosa y emotiva.,tɾaðisjoˈnal
+contemporáneo,contemporary,,El arte {{contemporáneo}} es muy experimental y diverso hoy día.,kontɛmpoˈɾaneo
+democrático,democratic,,Un gobierno {{democrático}} respeta los derechos de todos sus ciudadanos.,dɛmoˈkɾatiko
+religioso,religious,,Mi abuelo es muy {{religioso}} y va a la iglesia siempre.,ɾɛliˈxjoso
+histórico,historical,,Visitamos el {{histórico}} castillo durante nuestras vacaciones de verano.,isˈtoɾiko
+legal,legal,,Es completamente {{legal}} conducir a esa velocidad en la autopista.,leˈɣal
+ilegal,illegal,,Robar en una tienda es {{ilegal}} y tiene consecuencias graves.,ileˈɣal
+voluntario,voluntary,,Mi primo hace trabajo {{voluntario}} en el hospital los fines de semana.,βoluntaˈɾjo
+obligatorio,mandatory,,El uso del cinturón es {{obligatorio}} cuando viajas en automóvil.,obliɣaˈtoɾjo
+temporal,temporary,,Este empleo es {{temporal}} porque solo durará tres meses más.,tɛmpoˈɾal
+permanente,permanent,,Conseguí un trabajo {{permanente}} en la empresa después del contrato.,pɛɾmaˈnɛntɛ
+urgente,urgent,,Tenemos una reunión {{urgente}} mañana a las ocho de la mañana.,uɾˈxɛntɛ
+delicioso,delicious,,Este pastel de chocolate es {{delicioso}} y muy fácil de preparar.,deliˈθjoso
+picante,spicy,,La comida mexicana es muy {{picante}} y me encanta probarla.,piˈkantɛ
+dulce,sweet,,Los postres {{dulces}} son mis favoritos en cualquier ocasión especial.,ˈdulθɛ
+amargo,bitter,,El café muy fuerte tiene un sabor {{amargo}} que no me gusta.,aˈmaɾɣo
+salado,salty,,Este queso {{salado}} es perfecto para comer con pan integral.,saˈlaðo
+ácido,sour,,Las naranjas tienen un sabor {{ácido}} muy refrescante y agradable.,ˈaθido
+fresco,fresh / cool,,El pan {{fresco}} de la panadería huele increíblemente bien cada mañana.,ˈfɾɛsko
+maduro,ripe / mature,,Este plátano {{maduro}} es perfecto para hacer un batido delicioso.,maˈðuɾo
+crudo,raw,,El salmón {{crudo}} es un ingrediente importante en la cocina japonesa.,ˈkɾuðo
+cocido,cooked,,El pollo {{cocido}} está listo para servir en la cena de hoy.,koˈθiðo
+caliente,hot / warm,,El agua {{caliente}} es necesaria para preparar un buen té.,kaˈljɛntɛ
+frío,cold,,En invierno el aire {{frío}} nos hace sentir realmente incómodos.,ˈfɾio
+tibio,lukewarm,,Me gusta tomar el agua {{tibia}} porque es más confortable para beber.,ˈtibjo
+húmedo,humid / damp,,El clima {{húmedo}} de la costa es difícil para muchas personas.,ˈumɛðo
+seco,dry,,En el desierto el aire es {{seco}} y la piel se reseca fácilmente.,ˈsɛko
+nublado,cloudy,,Hoy está {{nublado}} así que probablemente llueva antes de la noche.,nuˈβlaðo
+soleado,sunny,,Fue un día {{soleado}} perfecto para ir a la playa con amigos.,soleˈaðo
+lluvioso,rainy,,El fin de semana fue {{lluvioso}} así que nos quedamos en casa.,ʎuˈβjoso
+tormentoso,stormy,,La noche {{tormentosa}} fue aterradora con rayos y truenos fuertes.,toɾmɛnˈtoso
+ventoso,windy,,Un día {{ventoso}} es ideal para volar cometas en el parque.,bɛnˈtoso
+cuero,leather,,Mis zapatos de {{cuero}} son muy cómodos y duraderos para trabajar.,ˈkwɛɾo
+seda,silk,,El vestido de {{seda}} es muy elegante y suave al tacto.,ˈseða
+jabón,soap,,Usamos {{jabón}} para lavar las manos después de comer siempre.,xaˈβon
+champú,shampoo,,Mi {{champú}} favorito tiene aroma a lavanda y menta naturales.,tʃamˈpu
+cepillo de dientes,toothbrush,,Necesito comprar un {{cepillo de dientes}} nuevo la próxima semana.,θɛˈpiʎo ðɛ ˈðjɛntɛs
+pasta de dientes,toothpaste,,La {{pasta de dientes}} blanqueadora me ayuda a tener una sonrisa radiante.,ˈpasta ðɛ ˈðjɛntɛs
+toalla,towel,,Secué mi cabello mojado con una {{toalla}} después de la ducha.,toˈaʎa
+manta,blanket,,Una {{manta}} cálida es perfecta para las noches frías de invierno.,ˈmanta
+almohada,pillow,,Mi {{almohada}} de plumas es muy cómoda para dormir bien.,almoˈaða
+colchón,mattress,,El {{colchón}} nuevo es mucho más cómodo que el viejo.,kolˈtʃon
+sofá,sofa,,Nos sentamos en el {{sofá}} para ver una película juntos esta noche.,soˈfa
+sillón,armchair,,Mi padre lee el periódico en su {{sillón}} favorito cada mañana.,siˈʎon
+lámpara,lamp,,Encendí la {{lámpara}} de noche porque estaba muy oscuro en la habitación.,ˈlampɑɾa
+cortina,curtain,,Cerré la {{cortina}} para que no entrara mucha luz por la ventana.,koɾˈtina
+alfombra,carpet / rug,,Colocamos una {{alfombra}} nueva en la sala para hacerla más acogedora.,alˈfombɾa
+estantería,shelf,,Mis libros favoritos están organizados en la {{estantería}} de mi dormitorio.,ɛstantɛˈɾia
+cajón,drawer,,Guardé los documentos importantes en el {{cajón}} de mi escritorio.,kaˈxon
+armario,wardrobe,,Mi hermana organiza toda su ropa en el {{armario}} del dormitorio.,aɾˈmaɾjo
+nevera,fridge,,Necesito comprar leche y la pongo en la {{nevera}} inmediatamente.,neˈβeɾa
+horno,oven,,Precalienta el {{horno}} a doscientos grados para hornear el pastel.,ˈoɾno
+lavadora,washing machine,,La {{lavadora}} termina el ciclo en aproximadamente una hora y media.,laβaˈðoɾa
+aire acondicionado,air conditioner,,Encendemos el {{aire acondicionado}} cuando hace mucho calor en verano.,ˈajɾe akondiθjoˈnaðo
+calefacción,heating,,La {{calefacción}} se enciende automáticamente durante los meses de invierno.,kaleˈfakθjon
+recibo,receipt,,Siempre guardo el {{recibo}} de cada compra que hago en la tienda.,ɾeˈθibo
+factura,invoice / bill,,Enviaron la {{factura}} del servicio eléctrico directamente a mi correo electrónico.,fakˈtuɾa
+corriente,current / common,,Es {{corriente}} que los estudiantes trabajen mientras estudian en la universidad.,koˈrjente
+promedio,average,,El {{promedio}} de calificaciones de Juan es excelente este semestre.,pɾoˈmeðjo
+porcentaje,percentage,,El {{porcentaje}} de descuento en la tienda es del treinta por ciento.,poɾθenˈtaxe
+cantidad,quantity / amount,,Necesitamos una {{cantidad}} suficiente de dinero para el proyecto completo.,kanˈtidað
+distancia,distance,,La {{distancia}} entre mi casa y la escuela es de cinco kilómetros.,disˈtanθja
+velocidad,speed,,El coche alcanza una {{velocidad}} máxima de ciento ochenta kilómetros por hora.,βeloθiˈðað
+peso,weight,,El {{peso}} de esta maleta es demasiado para llevarla fácilmente.,ˈpeso
+tamaño,size,,Este apartamento tiene un {{tamaño}} perfecto para una familia pequeña.,taˈmaɲo
+calidad,quality,,La {{calidad}} de este producto es superior a la de sus competidores.,kaliˈðað
+estándar,standard,,Este servicio cumple con todos los {{estándar|estándares}} internacionales requeridos.,esˈtandaɾ
+dato,data / fact,,Cada {{dato}} que registramos es importante para el análisis final.,ˈðato
+rendimiento,performance,,El {{rendimiento}} académico de los estudiantes mejora con dedicación constante.,ɾendimˈjento
+mejora,improvement,,Vimos una {{mejora}} significativa en el comportamiento del equipo esta semana.,meˈxoɾa
+progreso,progress,,El {{progreso}} del proyecto es más rápido de lo que esperábamos inicialmente.,pɾoˈɡɾeso
+desarrollo,development,,El {{desarrollo}} tecnológico ha transformado completamente la forma de trabajar.,desaˈroʎo
+desafío,challenge,,"Completar este {{desafío}} requiere esfuerzo, dedicación y trabajo en equipo.",desaˈfio
+influencia,influence,,La {{influencia}} de sus padres fue decisiva en sus decisiones futuras.,influˈenθja
+autoridad,authority,,El director tiene la {{autoridad}} necesaria para tomar decisiones importantes en la escuela.,autoɾiˈðað
+privilegio,privilege,,Fue un {{privilegio}} conocer a la famosa actriz en el evento especial.,pɾibiˈlexjo
+obligación,obligation,,Tenemos la {{obligación}} de respetar las normas establecidas en el contrato.,oβliɡaˈθjon
+riesgo,risk,,Invertir sin información es un {{riesgo}} que no debes asumir lightly.,ˈrjesko
+ventaja,advantage,,La principal {{ventaja}} de este plan es su bajo costo mensual.,benˈtaxa
+desventaja,disadvantage,,La mayor {{desventaja}} es que no tiene acceso a internet rápido aquí.,desbenˈtaxa
+compromiso,compromise,,Llegaron a un {{compromiso}} que satisfizo a ambas partes del conflicto.,kompoɾoˈmiso
+volumen,volume,,Aumenta el {{volumen}} de la música porque no escucho bien la canción.,boˈlumen
+huracán,hurricane,,El {{huracán}} causó daños severos en las costas del país caribeño.,uɾaˈkan
+tornado,tornado,,Un {{tornado}} destructivo pasó por el pueblo dejando muchos daños graves.,toɾˈnaðo
+terremoto,earthquake,,El {{terremoto}} de magnitud alta asustó a todos los habitantes de la región.,teɾeˈmoto
+volcán,volcano,,El {{volcán}} entró en erupción y evacuaron a miles de personas inmediatamente.,bolˈkan
+avalancha,avalanche,,Una {{avalancha}} de nieve bajó peligrosamente por las montañas nevadas.,aβaˈlantʃa
+sequía,drought,,La {{sequía}} prolongada afectó gravemente la producción agrícola de esta región.,seˈkia
+inundación,flood,,La {{inundación}} dejó sin hogar a muchas familias en el área.,inundaˈθjon
+incendio,fire / blaze,,El {{incendio}} se extendió rápidamente por toda la estructura de madera antigua.,inˈθendjo
+humo,smoke,,El {{humo}} de los cigarrillos llenó completamente la habitación cerrada.,ˈumo
+ceniza,ash,,La {{ceniza}} del volcán cubrió toda la ciudad con un polvo gris.,θeˈniθa
+gas,gas,,Detectaron una fuga de {{gas}} en el edificio y evacuaron a todos.,ˈɡas
+acero,steel,,El puente está construido con {{acero}} reforzado de la mejor calidad disponible.,aˈθeɾo
+hierro,iron,,Las puertas antiguas están hechas de {{hierro}} macizo y muy pesado.,ˈjeɾo
+cobre,copper,,Los cables eléctricos están fabricados principalmente de {{cobre}} puro conductor.,ˈkoβɾe
+oro,gold,,Las joyas más valiosas están hechas de {{oro}} de dieciocho quilates.,ˈoɾo
+plata,silver,,Mi abuela heredó una bandeja antigua hecha completamente de {{plata}} pura.,ˈplata

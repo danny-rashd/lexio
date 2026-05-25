@@ -115,10 +115,12 @@ def _build_question(db: Session, session: QuizSession, card: Card, user_id: int)
         q["speak_text"] = card.word
     else:
         q["speak_text"] = card.native or card.word
-    # Include sentence for all modes so the frontend can show it on reveal/feedback.
-    # For cloze the sentence is already the question, so skip it to avoid duplication.
+    # Include sentence, ipa, notes for all modes so the frontend can show them
+    # on reveal/feedback. For cloze the sentence is already the question.
     if session.mode != "cloze":
         q["sentence"] = card.sentence
+    q["ipa"]   = card.ipa
+    q["notes"] = card.notes
     return q
 
 
