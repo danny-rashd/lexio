@@ -3730,11 +3730,14 @@ function showTranslate() {
 }
 
 async function _doTranslate() {
+  clearTimeout(_trDebounce);
   const text = document.getElementById('tr-source-text').value.trim();
   if (!text) return;
   const output = document.getElementById('tr-output');
+  const roman  = document.getElementById('tr-romanization');
   output.textContent = 'Translating…';
   output.classList.add('tr-loading');
+  roman.textContent = '';
   const res = await api('POST', '/api/translate', {
     text,
     source: TrPage.source,
@@ -3747,10 +3750,12 @@ async function _doTranslate() {
     _setTrOutputBtns(false);
     return;
   }
-  const { translation } = await res.json();
+  const { translation, romanization } = await res.json();
   output.textContent = translation;
+  roman.textContent = romanization || '';
   TrPage.lastTranslation = translation;
   _setTrOutputBtns(!!translation);
+  _updateSaveBtn();
 }
 
 function _setTrOutputBtns(enabled) {
@@ -3763,39 +3768,62 @@ document.getElementById('tr-source-lang').addEventListener('change', e => {
 });
 document.getElementById('tr-target-lang').addEventListener('change', e => {
   TrPage.target = e.target.value;
+  _updateSaveBtn();
 });
 
+function _autoResizeTr() {
+  const el = document.getElementById('tr-source-text');
+  el.style.height = 'auto';
+  el.style.height = el.scrollHeight + 'px';
+}
+
+let _trDebounce = null;
 document.getElementById('tr-source-text').addEventListener('input', e => {
+  _autoResizeTr();
   const len = e.target.value.length;
-  document.getElementById('tr-char-count').textContent = `${len} / 1000`;
+  document.getElementById('tr-char-count').textContent = `${len} / 5000`;
+  clearTimeout(_trDebounce);
   if (!len) {
     document.getElementById('tr-output').textContent = '';
+    document.getElementById('tr-romanization').textContent = '';
     TrPage.lastTranslation = '';
     _setTrOutputBtns(false);
+    return;
   }
+  _trDebounce = setTimeout(_doTranslate, 1000);
 });
 
 document.getElementById('btn-tr-swap').addEventListener('click', () => {
+  clearTimeout(_trDebounce);
   const tmp = TrPage.source;
   TrPage.source = TrPage.target;
   TrPage.target = tmp;
   _buildLangOptions(document.getElementById('tr-source-lang'), TrPage.source);
   _buildLangOptions(document.getElementById('tr-target-lang'), TrPage.target);
-  const srcText = document.getElementById('tr-source-text');
   const outText = TrPage.lastTranslation;
-  srcText.value = outText;
+  document.getElementById('tr-source-text').value = outText;
   document.getElementById('tr-char-count').textContent = `${outText.length} / 1000`;
   document.getElementById('tr-output').textContent = '';
+  document.getElementById('tr-romanization').textContent = '';
+  document.getElementById('tr-mine-panel').classList.add('hidden');
   TrPage.lastTranslation = '';
   _setTrOutputBtns(false);
+  _updateSaveBtn();
+  _autoResizeTr();
 });
 
 document.getElementById('btn-tr-clear').addEventListener('click', () => {
-  document.getElementById('tr-source-text').value = '';
-  document.getElementById('tr-char-count').textContent = '0 / 1000';
+  clearTimeout(_trDebounce);
+  const ta = document.getElementById('tr-source-text');
+  ta.value = '';
+  ta.style.height = '';
+  document.getElementById('tr-char-count').textContent = '0 / 5000';
   document.getElementById('tr-output').textContent = '';
+  document.getElementById('tr-romanization').textContent = '';
+  document.getElementById('tr-mine-panel').classList.add('hidden');
   TrPage.lastTranslation = '';
   _setTrOutputBtns(false);
+  _updateSaveBtn();
 });
 
 document.getElementById('btn-tr-translate').addEventListener('click', _doTranslate);
@@ -3816,6 +3844,100 @@ document.getElementById('btn-tr-copy').addEventListener('click', async () => {
   const btn = document.getElementById('btn-tr-copy');
   btn.textContent = 'Copied!';
   setTimeout(() => { btn.textContent = 'Copy'; }, 1500);
+});
+
+const _TR_NO_MINE = new Set(['ja', 'zh']);
+
+function _updateSaveBtn() {
+  const btn = document.getElementById('btn-tr-save');
+  const noMine = _TR_NO_MINE.has(TrPage.target);
+  btn.disabled = !TrPage.lastTranslation || noMine;
+  btn.title = noMine ? 'Not available for Japanese / Mandarin — use Parse text in Journal' : '';
+}
+
+document.getElementById('btn-tr-save').addEventListener('click', async () => {
+  if (!TrPage.lastTranslation) return;
+  const panel  = document.getElementById('tr-mine-panel');
+  const tbody  = document.getElementById('tr-mine-tbody');
+  const title  = document.getElementById('tr-mine-title');
+  const count  = document.getElementById('tr-mine-count');
+  tbody.innerHTML = '<tr><td colspan="3" class="text-secondary" style="padding:.5rem">Mining words…</td></tr>';
+  title.textContent = '';
+  count.textContent = '';
+  panel.classList.remove('hidden');
+
+  const res = await api('POST', '/api/translate/mine', {
+    text: TrPage.lastTranslation,
+    source_code: TrPage.target,
+  });
+  if (!res?.ok) {
+    tbody.innerHTML = '<tr><td colspan="3" class="text-secondary" style="padding:.5rem">Failed to mine words.</td></tr>';
+    return;
+  }
+  const { words } = await res.json();
+  const lang = _TR_LANGS.find(l => l.code === TrPage.target);
+  title.textContent = `New words for ${lang?.label ?? TrPage.target}`;
+
+  if (!words.length) {
+    tbody.innerHTML = '<tr><td colspan="3" class="text-secondary" style="padding:.5rem">All words already exist in your deck.</td></tr>';
+    count.textContent = '';
+    document.getElementById('btn-tr-mine-confirm').disabled = true;
+    return;
+  }
+
+  document.getElementById('btn-tr-mine-confirm').disabled = false;
+  _renderMineRows(words);
+  _updateMineCount();
+});
+
+function _renderMineRows(words) {
+  const tbody = document.getElementById('tr-mine-tbody');
+  tbody.innerHTML = words.map((w, i) => `
+    <tr data-idx="${i}">
+      <td><input class="tr-mine-inp" data-field="word"    value="${esc(w.word)}"    placeholder="Word"></td>
+      <td><input class="tr-mine-inp" data-field="meaning" value="${esc(w.meaning)}" placeholder="Meaning"></td>
+      <td><button class="btn-ghost btn-sm tr-mine-remove" data-idx="${i}">✕</button></td>
+    </tr>`).join('');
+}
+
+function _updateMineCount() {
+  const rows = document.getElementById('tr-mine-tbody').querySelectorAll('tr[data-idx]');
+  document.getElementById('tr-mine-count').textContent = `${rows.length} word${rows.length !== 1 ? 's' : ''}`;
+}
+
+document.getElementById('tr-mine-tbody').addEventListener('click', e => {
+  const rm = e.target.closest('.tr-mine-remove');
+  if (!rm) return;
+  rm.closest('tr').remove();
+  _updateMineCount();
+  const remaining = document.getElementById('tr-mine-tbody').querySelectorAll('tr[data-idx]').length;
+  document.getElementById('btn-tr-mine-confirm').disabled = remaining === 0;
+});
+
+document.getElementById('btn-tr-mine-close').addEventListener('click', () => {
+  document.getElementById('tr-mine-panel').classList.add('hidden');
+});
+
+document.getElementById('btn-tr-mine-confirm').addEventListener('click', async () => {
+  const rows = [...document.getElementById('tr-mine-tbody').querySelectorAll('tr[data-idx]')];
+  if (!rows.length) return;
+
+  const lang = _TR_LANGS.find(l => l.code === TrPage.target);
+  const deckRes = await api('POST', '/api/decks', { language: lang.tts, topic: 'translated' });
+  if (!deckRes?.ok) { await showAlert('Could not create deck.'); return; }
+  const deck = await deckRes.json();
+
+  let saved = 0;
+  for (const row of rows) {
+    const word    = row.querySelector('[data-field="word"]').value.trim();
+    const meaning = row.querySelector('[data-field="meaning"]').value.trim();
+    if (!word || !meaning) continue;
+    const r = await api('POST', '/api/cards', { deck_id: deck.id, word, meaning });
+    if (r?.ok || r?.status === 409) saved++;
+  }
+
+  document.getElementById('tr-mine-panel').classList.add('hidden');
+  await showAlert(`Saved ${saved} card${saved !== 1 ? 's' : ''} to ${lang.label} / translated.`);
 });
 
 document.getElementById('btn-translate-back').addEventListener('click', () => showScreen('screen-home'));

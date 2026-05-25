@@ -384,7 +384,7 @@
     <div class="translate-layout">
       <div class="translate-panel">
         <select id="tr-source-lang" class="translate-lang-select"></select>
-        <textarea id="tr-source-text" class="translate-textarea" placeholder="Type text to translate…" maxlength="1000"></textarea>
+        <textarea id="tr-source-text" class="translate-textarea" placeholder="Type text to translate…" maxlength="5000"></textarea>
         <div class="translate-panel-footer">
           <span id="tr-char-count" class="tr-char-count">0 / 1000</span>
           <button id="btn-tr-clear" class="btn-ghost btn-sm">Clear</button>
@@ -404,8 +404,26 @@
         </div>
       </div>
     </div>
+    <div id="tr-romanization" class="tr-romanization"></div>
     <div class="translate-actions">
+      <button id="btn-tr-save" class="btn-ghost" disabled title="Not available for Japanese/Mandarin">Save as card</button>
       <button id="btn-tr-translate" class="btn-primary">Translate</button>
+    </div>
+    <div id="tr-mine-panel" class="tr-mine-panel hidden">
+      <div class="tr-mine-header">
+        <span id="tr-mine-title" class="tr-mine-title"></span>
+        <button id="btn-tr-mine-close" class="btn-ghost btn-sm">✕</button>
+      </div>
+      <div id="tr-mine-body">
+        <table class="tr-mine-table">
+          <thead><tr><th>Word</th><th>Meaning</th><th></th></tr></thead>
+          <tbody id="tr-mine-tbody"></tbody>
+        </table>
+      </div>
+      <div class="tr-mine-footer">
+        <span id="tr-mine-count" class="text-secondary" style="font-size:.85rem"></span>
+        <button id="btn-tr-mine-confirm" class="btn-primary btn-sm">Save cards</button>
+      </div>
     </div>
   </section>
 
