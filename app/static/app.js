@@ -451,7 +451,8 @@ function hasNativeScript(language) {
 function _activeScreen() {
   const screens = [
     'screen-login', 'screen-home', 'screen-test-setup', 'screen-big-test-setup',
-    'screen-quiz', 'screen-results', 'screen-browse', 'screen-translate', 'screen-conjugate', 'screen-import', 'screen-progress',
+    'screen-quiz', 'screen-results', 'screen-browse', 'screen-translate', 'screen-conjugate',
+    'screen-import', 'screen-progress', 'screen-journal', 'screen-essay',
   ];
   return screens.find(id => !document.getElementById(id).classList.contains('hidden')) || '';
 }
