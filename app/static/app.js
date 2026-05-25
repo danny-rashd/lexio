@@ -451,7 +451,7 @@ function hasNativeScript(language) {
 function _activeScreen() {
   const screens = [
     'screen-login', 'screen-home', 'screen-test-setup', 'screen-big-test-setup',
-    'screen-quiz', 'screen-results', 'screen-browse', 'screen-import', 'screen-progress',
+    'screen-quiz', 'screen-results', 'screen-browse', 'screen-conjugate', 'screen-import', 'screen-progress',
   ];
   return screens.find(id => !document.getElementById(id).classList.contains('hidden')) || '';
 }
@@ -546,6 +546,7 @@ document.addEventListener('keydown', e => {
       'screen-test-setup':      'btn-test-back',
       'screen-big-test-setup':  'btn-big-test-back',
       'screen-browse':          'btn-browse-back',
+      'screen-conjugate':       'btn-conjugate-back',
       'screen-import':          'btn-import-back',
       'screen-journal':         'btn-journal-back',
       'screen-essay':           'btn-essay-back',
@@ -1777,6 +1778,7 @@ function renderBrowseCards(cards) {
       <td>${c.native ? esc(c.native) : '<span style="color:var(--text-secondary)">—</span>'}</td>
       <td class="browse-actions">
         <button class="btn-ghost btn-sm btn-tts-row" data-speak="${esc(c.word)}" data-lang="${esc(App.browse.deck?.language || '')}" aria-label="Speak">🔊</button>
+        ${c.meaning.toLowerCase().startsWith('to ') ? `<button class="btn-ghost btn-sm" data-conj-id="${c.id}" data-conj-word="${esc(c.word)}">Conj.</button>` : ''}
         <button class="btn-ghost btn-sm" data-edit-id="${c.id}" data-edit-word="${esc(c.word)}" data-edit-meaning="${esc(c.meaning)}" data-edit-native="${esc(c.native || '')}" data-edit-sentence="${esc(c.sentence || '')}" data-edit-ipa="${esc(c.ipa || '')}" data-edit-notes="${esc(c.notes || '')}">Edit</button>
         <button class="btn-danger btn-sm" data-delete-id="${c.id}">Delete</button>
       </td>
@@ -1841,6 +1843,54 @@ document.getElementById('browse-tbody').addEventListener('click', async e => {
   if (!btn || !await showConfirm('Delete this card?', 'Delete', true)) return;
   const res = await api('DELETE', `/api/cards/${btn.dataset.deleteId}`);
   if (res?.status === 204) await loadBrowsePage(App.browse.page);
+});
+
+// ── Conjugation modal ────────────────────────────────────────────────────────
+
+function _conjPersonLabel(person) {
+  return person ? `<span class="conj-person">${esc(person)}</span>` : '';
+}
+
+function _renderConjData(data) {
+  if (!data.tenses || !data.tenses.length) return '<p class="text-secondary">No data available.</p>';
+  return data.tenses.map(tense => {
+    const rows = tense.forms.map(f =>
+      `<tr>${_conjPersonLabel(f.person) ? `<td class="conj-person-cell">${esc(f.person)}</td>` : ''}<td class="conj-form-cell">${esc(f.form)}</td></tr>`
+    ).join('');
+    return `<div class="conj-tense-block">
+      <h4 class="conj-tense-label">${esc(tense.label)}</h4>
+      <table class="conj-table">${rows}</table>
+    </div>`;
+  }).join('');
+}
+
+document.getElementById('browse-tbody').addEventListener('click', async e => {
+  const conjBtn = e.target.closest('[data-conj-id]');
+  if (!conjBtn) return;
+  const cardId = conjBtn.dataset.conjId;
+  const word   = conjBtn.dataset.conjWord;
+  const overlay = document.getElementById('conj-modal-overlay');
+  const body    = document.getElementById('conj-modal-body');
+  const title   = document.getElementById('conj-modal-title');
+  title.textContent = word;
+  body.innerHTML = '<p class="text-secondary">Loading…</p>';
+  overlay.classList.remove('hidden');
+  const res = await api('GET', `/api/conjugations/${cardId}`);
+  if (!res?.ok) {
+    body.innerHTML = '<p class="text-secondary">No conjugation data available for this word yet.</p>';
+    return;
+  }
+  const data = await res.json();
+  body.innerHTML = `<div class="conj-tenses-grid">${_renderConjData(data)}</div>`;
+}, true);
+
+document.getElementById('conj-modal-close').addEventListener('click', () => {
+  document.getElementById('conj-modal-overlay').classList.add('hidden');
+});
+
+document.getElementById('conj-modal-overlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('conj-modal-overlay'))
+    document.getElementById('conj-modal-overlay').classList.add('hidden');
 });
 
 // ── Card edit modal ───────────────────────────────────────────────────────────
@@ -3651,6 +3701,83 @@ document.getElementById('reset-modal-confirm').addEventListener('click', async (
   await showAlert(msg);
   showHome();
 });
+
+// ── Conjugation page ──────────────────────────────────────────────────────────
+
+const ConjPage = { lang: 'spanish', verbs: [], selectedId: null };
+
+async function showConjugate() {
+  showScreen('screen-conjugate');
+  if (ConjPage.verbs.length === 0) await _loadConjVerbs(ConjPage.lang);
+}
+
+async function _loadConjVerbs(lang) {
+  ConjPage.lang = lang;
+  ConjPage.selectedId = null;
+  document.getElementById('conj-table-panel').innerHTML =
+    '<p class="text-secondary conj-table-placeholder">Select a verb to see its conjugation table.</p>';
+  document.getElementById('conj-page-search').value = '';
+  document.querySelectorAll('.conj-lang-tab').forEach(t =>
+    t.classList.toggle('active', t.dataset.lang === lang));
+
+  const res = await api('GET', `/api/conjugations/language/${lang}`);
+  ConjPage.verbs = res?.ok ? await res.json() : [];
+  _renderConjVerbList('');
+}
+
+function _renderConjVerbList(filter) {
+  const q = filter.toLowerCase();
+  const list = q
+    ? ConjPage.verbs.filter(v => v.word.toLowerCase().includes(q) || v.meaning.toLowerCase().includes(q))
+    : ConjPage.verbs;
+  const el = document.getElementById('conj-verb-list');
+  if (!list.length) {
+    el.innerHTML = '<p class="text-secondary" style="padding:.75rem">No verbs found.</p>';
+    return;
+  }
+  el.innerHTML = list.map(v =>
+    `<div class="conj-verb-item${v.card_id === ConjPage.selectedId ? ' active' : ''}" data-card-id="${v.card_id}">
+      <span class="conj-verb-word">${esc(v.word)}</span>
+      <span class="conj-verb-meaning">${esc(v.meaning)}</span>
+    </div>`
+  ).join('');
+}
+
+async function _selectConjVerb(cardId) {
+  ConjPage.selectedId = cardId;
+  _renderConjVerbList(document.getElementById('conj-page-search').value);
+  const panel = document.getElementById('conj-table-panel');
+  panel.innerHTML = '<p class="text-secondary conj-table-placeholder">Loading…</p>';
+  const res = await api('GET', `/api/conjugations/${cardId}`);
+  if (!res?.ok) {
+    panel.innerHTML = '<p class="text-secondary conj-table-placeholder">No conjugation data available.</p>';
+    return;
+  }
+  const data = await res.json();
+  const verb = ConjPage.verbs.find(v => v.card_id === cardId);
+  panel.innerHTML = `
+    <div class="conj-page-word-header">
+      <span class="conj-page-word">${esc(data.word)}</span>
+      ${verb ? `<span class="conj-page-meaning">${esc(verb.meaning)}</span>` : ''}
+    </div>
+    <div class="conj-tenses-grid">${_renderConjData(data)}</div>`;
+}
+
+document.getElementById('conj-lang-tabs').addEventListener('click', e => {
+  const tab = e.target.closest('.conj-lang-tab');
+  if (tab && tab.dataset.lang !== ConjPage.lang) _loadConjVerbs(tab.dataset.lang);
+});
+
+document.getElementById('conj-verb-list').addEventListener('click', e => {
+  const item = e.target.closest('.conj-verb-item');
+  if (item) _selectConjVerb(+item.dataset.cardId);
+});
+
+document.getElementById('conj-page-search').addEventListener('input', e =>
+  _renderConjVerbList(e.target.value));
+
+document.getElementById('btn-conjugate-back').addEventListener('click', () => showScreen('screen-home'));
+document.getElementById('btn-nav-conjugate').addEventListener('click', showConjugate);
 
 // ── Init ──────────────────────────────────────────────────────────────────────
 
