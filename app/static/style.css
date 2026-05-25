@@ -859,6 +859,46 @@ kbd {
 .conj-table td      { padding: .2rem .3rem; }
 .conj-person-cell   { color: var(--text-secondary); font-size: .8rem; white-space: nowrap; width: 40%; }
 .conj-form-cell     { color: var(--text-primary); font-weight: 500; }
+/* ── Translate page ─────────────────────────────────────────────────────────── */
+.translate-layout      { display: flex; gap: .75rem; align-items: flex-start; }
+.translate-panel       { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: .5rem; }
+.translate-lang-select {
+  width: 100%; padding: .45rem .65rem; border: 1.5px solid var(--border); border-radius: 8px;
+  background: var(--bg-secondary); color: var(--text-primary); font-size: .875rem;
+  cursor: pointer; outline: none;
+}
+.translate-lang-select:focus { border-color: var(--accent); }
+.translate-textarea    {
+  width: 100%; min-height: 160px; padding: .75rem; border: 1.5px solid var(--border);
+  border-radius: 8px; background: var(--bg-secondary); color: var(--text-primary);
+  font-size: .95rem; line-height: 1.6; resize: vertical; box-sizing: border-box; outline: none;
+  font-family: inherit;
+}
+.translate-textarea:focus { border-color: var(--accent); }
+.translate-output      {
+  min-height: 160px; padding: .75rem; border: 1.5px solid var(--border);
+  border-radius: 8px; background: var(--bg-secondary); color: var(--text-primary);
+  font-size: .95rem; line-height: 1.6; white-space: pre-wrap; word-break: break-word;
+}
+.translate-output.tr-loading { color: var(--text-secondary); font-style: italic; }
+.translate-panel-footer { display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
+.tr-char-count         { font-size: .75rem; color: var(--text-secondary); }
+.translate-swap-col    { display: flex; align-items: center; padding-top: 2.4rem; }
+.btn-tr-swap           {
+  width: 2.25rem; height: 2.25rem; border-radius: 50%; border: 1.5px solid var(--border);
+  background: var(--bg-secondary); color: var(--text-primary); font-size: 1.1rem;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: border-color .15s, background .15s; flex-shrink: 0;
+}
+.btn-tr-swap:hover     { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, transparent); }
+.translate-actions     { margin-top: .75rem; display: flex; justify-content: flex-end; }
+
+@media (max-width: 600px) {
+  .translate-layout   { flex-direction: column; }
+  .translate-swap-col { padding-top: 0; justify-content: center; }
+  .btn-tr-swap        { transform: rotate(90deg); }
+}
+
 /* ── Conjugation page ───────────────────────────────────────────────────────── */
 .conj-lang-tabs { display: flex; gap: .4rem; flex-wrap: wrap; margin-bottom: 1rem; }
 .conj-lang-tab  {

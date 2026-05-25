@@ -451,7 +451,7 @@ function hasNativeScript(language) {
 function _activeScreen() {
   const screens = [
     'screen-login', 'screen-home', 'screen-test-setup', 'screen-big-test-setup',
-    'screen-quiz', 'screen-results', 'screen-browse', 'screen-conjugate', 'screen-import', 'screen-progress',
+    'screen-quiz', 'screen-results', 'screen-browse', 'screen-translate', 'screen-conjugate', 'screen-import', 'screen-progress',
   ];
   return screens.find(id => !document.getElementById(id).classList.contains('hidden')) || '';
 }
@@ -546,6 +546,7 @@ document.addEventListener('keydown', e => {
       'screen-test-setup':      'btn-test-back',
       'screen-big-test-setup':  'btn-big-test-back',
       'screen-browse':          'btn-browse-back',
+      'screen-translate':       'btn-translate-back',
       'screen-conjugate':       'btn-conjugate-back',
       'screen-import':          'btn-import-back',
       'screen-journal':         'btn-journal-back',
@@ -3701,6 +3702,124 @@ document.getElementById('reset-modal-confirm').addEventListener('click', async (
   await showAlert(msg);
   showHome();
 });
+
+// ── Translate page ────────────────────────────────────────────────────────────
+
+const _TR_LANGS = [
+  { code: 'en', label: 'English',  tts: 'english'  },
+  { code: 'es', label: 'Spanish',  tts: 'spanish'  },
+  { code: 'fr', label: 'French',   tts: 'french'   },
+  { code: 'de', label: 'German',   tts: 'german'   },
+  { code: 'no', label: 'Norsk',    tts: 'norsk'    },
+  { code: 'ja', label: 'Japanese', tts: 'japanese' },
+  { code: 'zh', label: 'Mandarin', tts: 'mandarin' },
+];
+
+const TrPage = { source: 'en', target: 'es', lastTranslation: '' };
+
+function _buildLangOptions(selectEl, selected) {
+  selectEl.innerHTML = _TR_LANGS.map(l =>
+    `<option value="${l.code}"${l.code === selected ? ' selected' : ''}>${l.label}</option>`
+  ).join('');
+}
+
+function showTranslate() {
+  showScreen('screen-translate');
+  _buildLangOptions(document.getElementById('tr-source-lang'), TrPage.source);
+  _buildLangOptions(document.getElementById('tr-target-lang'), TrPage.target);
+}
+
+async function _doTranslate() {
+  const text = document.getElementById('tr-source-text').value.trim();
+  if (!text) return;
+  const output = document.getElementById('tr-output');
+  output.textContent = 'Translating…';
+  output.classList.add('tr-loading');
+  const res = await api('POST', '/api/translate', {
+    text,
+    source: TrPage.source,
+    target: TrPage.target,
+  });
+  output.classList.remove('tr-loading');
+  if (!res?.ok) {
+    output.textContent = 'Translation failed. Please try again.';
+    TrPage.lastTranslation = '';
+    _setTrOutputBtns(false);
+    return;
+  }
+  const { translation } = await res.json();
+  output.textContent = translation;
+  TrPage.lastTranslation = translation;
+  _setTrOutputBtns(!!translation);
+}
+
+function _setTrOutputBtns(enabled) {
+  document.getElementById('btn-tr-tts').disabled  = !enabled;
+  document.getElementById('btn-tr-copy').disabled = !enabled;
+}
+
+document.getElementById('tr-source-lang').addEventListener('change', e => {
+  TrPage.source = e.target.value;
+});
+document.getElementById('tr-target-lang').addEventListener('change', e => {
+  TrPage.target = e.target.value;
+});
+
+document.getElementById('tr-source-text').addEventListener('input', e => {
+  const len = e.target.value.length;
+  document.getElementById('tr-char-count').textContent = `${len} / 1000`;
+  if (!len) {
+    document.getElementById('tr-output').textContent = '';
+    TrPage.lastTranslation = '';
+    _setTrOutputBtns(false);
+  }
+});
+
+document.getElementById('btn-tr-swap').addEventListener('click', () => {
+  const tmp = TrPage.source;
+  TrPage.source = TrPage.target;
+  TrPage.target = tmp;
+  _buildLangOptions(document.getElementById('tr-source-lang'), TrPage.source);
+  _buildLangOptions(document.getElementById('tr-target-lang'), TrPage.target);
+  const srcText = document.getElementById('tr-source-text');
+  const outText = TrPage.lastTranslation;
+  srcText.value = outText;
+  document.getElementById('tr-char-count').textContent = `${outText.length} / 1000`;
+  document.getElementById('tr-output').textContent = '';
+  TrPage.lastTranslation = '';
+  _setTrOutputBtns(false);
+});
+
+document.getElementById('btn-tr-clear').addEventListener('click', () => {
+  document.getElementById('tr-source-text').value = '';
+  document.getElementById('tr-char-count').textContent = '0 / 1000';
+  document.getElementById('tr-output').textContent = '';
+  TrPage.lastTranslation = '';
+  _setTrOutputBtns(false);
+});
+
+document.getElementById('btn-tr-translate').addEventListener('click', _doTranslate);
+
+document.getElementById('tr-source-text').addEventListener('keydown', e => {
+  if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); _doTranslate(); }
+});
+
+document.getElementById('btn-tr-tts').addEventListener('click', () => {
+  if (!TrPage.lastTranslation) return;
+  const lang = _TR_LANGS.find(l => l.code === TrPage.target);
+  if (lang) speak(TrPage.lastTranslation, lang.tts);
+});
+
+document.getElementById('btn-tr-copy').addEventListener('click', async () => {
+  if (!TrPage.lastTranslation) return;
+  await navigator.clipboard.writeText(TrPage.lastTranslation);
+  const btn = document.getElementById('btn-tr-copy');
+  btn.textContent = 'Copied!';
+  setTimeout(() => { btn.textContent = 'Copy'; }, 1500);
+});
+
+document.getElementById('btn-translate-back').addEventListener('click', () => showScreen('screen-home'));
+document.getElementById('btn-nav-translate').addEventListener('click', showTranslate);
 
 // ── Conjugation page ──────────────────────────────────────────────────────────
 

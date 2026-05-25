@@ -54,6 +54,10 @@
       <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75Zm6.75-4.5c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625Zm6.75-4.5c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"/></svg>
       <span class="nav-label">Profile</span>
     </button>
+    <button id="btn-nav-translate" class="btn-ghost nav-btn">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m10.5 21 5-10 5 10M13.5 16.5h4M3 5h8m-4 0v2m8.5-2h-3.5m3.5 0a11.578 11.578 0 0 1-3.5 8 11.578 11.578 0 0 1-3.5-8m3.5 8a11.578 11.578 0 0 0 3.5-8m-7 0a11.578 11.578 0 0 0 3.5 8"/></svg>
+      <span class="nav-label">Translate</span>
+    </button>
     <button id="btn-nav-conjugate" class="btn-ghost nav-btn">
       <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 0 1-1.125-1.125M3.375 19.5h1.5C5.496 19.5 6 18.996 6 18.375m-3.75.125V5.625m0 12.75v-1.5a1.125 1.125 0 0 0-1.125-1.125M3.375 19.5H4.5m0 0a1.125 1.125 0 0 0 1.125-1.125M4.5 19.5V5.625M4.5 5.625a1.125 1.125 0 0 1 1.125-1.125h9.75a1.125 1.125 0 0 1 1.125 1.125M4.5 5.625h12.75m0 0a1.125 1.125 0 0 1 1.125 1.125V18.375a1.125 1.125 0 0 1-1.125 1.125m-1.5 0h1.5m-1.5 0a1.125 1.125 0 0 1-1.125-1.125V6.75a1.125 1.125 0 0 1 1.125-1.125h1.5"/></svg>
       <span class="nav-label">Conjugate</span>
@@ -369,6 +373,40 @@
       </table>
     </div>
     <div id="browse-pagination" class="pagination"></div>
+  </section>
+
+  <!-- ── Translate ───────────────────────────────────────────────────────── -->
+  <section id="screen-translate" class="hidden">
+    <div class="page-header">
+      <button class="btn-back" id="btn-translate-back">&#8592; Back</button>
+      <h2>Translate</h2>
+    </div>
+    <div class="translate-layout">
+      <div class="translate-panel">
+        <select id="tr-source-lang" class="translate-lang-select"></select>
+        <textarea id="tr-source-text" class="translate-textarea" placeholder="Type text to translate…" maxlength="1000"></textarea>
+        <div class="translate-panel-footer">
+          <span id="tr-char-count" class="tr-char-count">0 / 1000</span>
+          <button id="btn-tr-clear" class="btn-ghost btn-sm">Clear</button>
+        </div>
+      </div>
+      <div class="translate-swap-col">
+        <button id="btn-tr-swap" class="btn-tr-swap" title="Swap languages">⇄</button>
+      </div>
+      <div class="translate-panel">
+        <select id="tr-target-lang" class="translate-lang-select"></select>
+        <div id="tr-output" class="translate-output"></div>
+        <div class="translate-panel-footer">
+          <button id="btn-tr-tts" class="btn-ghost btn-sm btn-icon" title="Listen" disabled>
+            <svg style="width:16px;height:16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15.536 8.464a5 5 0 0 1 0 7.072M17.95 6.05a8 8 0 0 1 0 11.9M6.5 8.788v6.424a.5.5 0 0 1-.757.429L2.38 13.714A1 1 0 0 1 2 12.857V11.14a1 1 0 0 1 .38-.857l3.363-1.928a.5.5 0 0 1 .757.43ZM6.5 8.788l4.608-2.63a.5.5 0 0 1 .75.434v9.62a.5.5 0 0 1-.75.434L6.5 14.212"/></svg>
+          </button>
+          <button id="btn-tr-copy" class="btn-ghost btn-sm" disabled>Copy</button>
+        </div>
+      </div>
+    </div>
+    <div class="translate-actions">
+      <button id="btn-tr-translate" class="btn-primary">Translate</button>
+    </div>
   </section>
 
   <!-- ── Conjugate ────────────────────────────────────────────────────────── -->

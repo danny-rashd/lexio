@@ -5,6 +5,7 @@ import httpx
 # (language_name → (BCP-47 code, Neural2 voice name))
 # Norwegian has no Neural2 voice; WaveNet is used instead.
 _VOICE_MAP: dict[str, tuple[str, str]] = {
+    "english":  ("en-US", "en-US-Neural2-A"),
     "spanish":  ("es-ES", "es-ES-Neural2-A"),
     "french":   ("fr-FR", "fr-FR-Neural2-A"),
     "german":   ("de-DE", "de-DE-Neural2-A"),
