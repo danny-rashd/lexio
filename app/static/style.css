@@ -1063,6 +1063,8 @@ kbd {
                      background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--accent);
                      border-radius: 4px; padding: .1rem .4rem; margin-right: .3rem; vertical-align: middle; }
 
+.je-resource-link { color: inherit; text-decoration: none; }
+.je-resource-link:hover { text-decoration: underline; color: var(--accent); }
 .je-meta  { font-size: .75rem; color: var(--text-secondary); margin-bottom: .2rem; }
 .je-notes { font-size: .8rem; color: var(--text-secondary); font-style: italic;
             margin-bottom: .35rem; line-height: 1.45; }

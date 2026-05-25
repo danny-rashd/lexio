@@ -10,6 +10,7 @@ class ImmersionLogCreate(BaseModel):
     resource_type: str | None = None
     resource_creator: str | None = None
     resource_detail: str | None = None
+    resource_url: str | None = None
     duration_minutes: int
     notes: str | None = None
     rating: int | None = None
@@ -24,6 +25,7 @@ class ImmersionLogResponse(BaseModel):
     resource_type: str | None
     resource_creator: str | None
     resource_detail: str | None
+    resource_url: str | None
     duration_minutes: int
     notes: str | None
     rating: int | None

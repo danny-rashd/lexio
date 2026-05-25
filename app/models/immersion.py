@@ -20,6 +20,7 @@ class ImmersionLog(Base):
     resource_type: Mapped[str | None] = mapped_column(String, nullable=True)
     resource_creator: Mapped[str | None] = mapped_column(String, nullable=True)
     resource_detail: Mapped[str | None] = mapped_column(String, nullable=True)
+    resource_url: Mapped[str | None] = mapped_column(String, nullable=True)
     duration_minutes: Mapped[int] = mapped_column(Integer, nullable=False)
     notes: Mapped[str | None] = mapped_column(String, nullable=True)
     rating: Mapped[int | None] = mapped_column(Integer, nullable=True)

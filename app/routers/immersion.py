@@ -46,6 +46,7 @@ def create_log(
         resource_type=body.resource_type.lower() if body.resource_type else None,
         resource_creator=body.resource_creator.strip() if body.resource_creator else None,
         resource_detail=body.resource_detail.strip() if body.resource_detail else None,
+        resource_url=body.resource_url.strip() if body.resource_url else None,
         duration_minutes=body.duration_minutes,
         notes=body.notes,
         rating=body.rating,

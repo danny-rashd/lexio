@@ -2714,13 +2714,19 @@ async function _loadJournalStats() {
 }
 
 function _resourceDisplay(e) {
+  let inner = '';
   if (e.resource_type) {
     const typeLabel = e.resource_type.replace('_', ' ');
     const parts     = [e.resource_creator, e.resource_detail].filter(Boolean).map(esc);
     const detail    = parts.length ? parts.join(' — ') : '';
-    return `<span class="resource-type-tag">${esc(typeLabel)}</span>${detail ? ' ' + detail : ''}`;
+    inner = `<span class="resource-type-tag">${esc(typeLabel)}</span>${detail ? ' ' + detail : ''}`;
+  } else {
+    inner = esc(e.resource || '');
   }
-  return esc(e.resource || '');
+  if (e.resource_url) {
+    return `<a class="je-resource-link" href="${esc(e.resource_url)}" target="_blank" rel="noopener noreferrer">${inner || esc(e.resource_url)}</a>`;
+  }
+  return inner;
 }
 
 async function _loadJournalHistory() {
@@ -3181,6 +3187,7 @@ document.getElementById('btn-journal-log').addEventListener('click', async () =>
   const resource_type    = document.getElementById('journal-resource-type').value;
   const resource_creator = document.getElementById('journal-resource-creator').value.trim() || null;
   const resource_detail  = document.getElementById('journal-resource-detail').value.trim() || null;
+  const resource_url     = document.getElementById('journal-resource-url').value.trim() || null;
   const duration_minutes = parseInt(document.getElementById('journal-duration').value, 10);
   const notes            = document.getElementById('journal-notes').value.trim() || null;
   const dateVal          = document.getElementById('journal-date').value;
@@ -3199,7 +3206,7 @@ document.getElementById('btn-journal-log').addEventListener('click', async () =>
   setLoading(btn, true);
   const res = await api('POST', '/api/immersion', {
     language, activity_type,
-    resource_type, resource_creator, resource_detail,
+    resource_type, resource_creator, resource_detail, resource_url,
     duration_minutes, notes, rating: _journalRating || null, logged_at,
   });
   setLoading(btn, false);
@@ -3214,6 +3221,7 @@ document.getElementById('btn-journal-log').addEventListener('click', async () =>
   // Reset form
   document.getElementById('journal-resource-creator').value = '';
   document.getElementById('journal-resource-detail').value  = '';
+  document.getElementById('journal-resource-url').value     = '';
   document.getElementById('journal-notes').value            = '';
   document.getElementById('journal-duration').value         = '30';
   _journalRating = 0;
