@@ -7,9 +7,11 @@ Follow every instruction here without exception.
 
 ## First Thing Every Session
 
-1. Read `SPECS.md` fully before doing anything
-2. Read all existing files in the project to understand current state
-3. Confirm which phase you are being asked to build before writing any code
+1. Read `README.md` for the current feature overview and project structure
+2. Read only the specific files relevant to the task at hand
+3. If anything in the code contradicts README.md, flag it before writing any code — do not silently work around it
+
+README.md is the authoritative picture of what is currently built. SPECS.md and ROADMAP.md describe intentions and may be outdated — do not treat them as ground truth.
 
 ---
 
@@ -29,6 +31,23 @@ If a requirement change is needed mid-session:
 
 All corrections, clarifications, and decisions made during a session are
 logged manually in `docs/CHANGES.md`. You do not write to `CHANGES.md`.
+
+---
+
+## Source of Truth
+
+| Document | Status | Purpose |
+| -------- | ------ | ------- |
+| `README.md` | Always current | Features, project structure, env vars |
+| `CLAUDE.md` | Always current | Rules and constraints |
+| `SPECS.md` | Outdated | Original build plan — do not treat as current reality |
+| `docs/CHANGES.md` | Outdated | Superseded by git log — ignore |
+| `docs/ROADMAP.md` | Outdated | Future intentions — ignore |
+
+When a new feature is added or removed:
+1. Update `README.md` (features section + project structure)
+2. Update `CLAUDE.md` only if a new architectural rule or constraint was established
+3. Do not write to `CHANGES.md`, `SPECS.md`, or `ROADMAP.md`
 
 ---
 

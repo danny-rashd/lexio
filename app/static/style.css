@@ -48,6 +48,8 @@ body {
   min-height: 100dvh;
   transition: background .2s, color .2s;
   padding-bottom: env(safe-area-inset-bottom, 0px);
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
 }
 
 /* ── Nav ────────────────────────────────────────────────────────────────────── */
@@ -106,6 +108,10 @@ main { max-width: 780px; margin: 0 auto; padding: 2rem 1rem 2rem; }
   font-size: .875rem; color: var(--text-secondary);
   max-width: 280px; line-height: 1.5; margin: 0;
 }
+.section-header { display: flex; align-items: center; justify-content: space-between; }
+.section-header .section-label { margin: 0; }
+.import-context-badge { font-size: .9rem; color: var(--text-secondary); background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 8px; padding: .5rem .75rem; margin-bottom: .25rem; }
+.import-context-badge strong { color: var(--text-primary); }
 .section-label { font-size: .8rem; font-weight: 700; text-transform: uppercase;
                  letter-spacing: .06em; color: var(--text-secondary); margin: 1.5rem 0 .75rem; }
 
@@ -852,13 +858,16 @@ kbd {
 .conj-modal-box     { max-width: 640px; gap: .75rem; }
 .conj-modal-header  { display: flex; justify-content: space-between; align-items: center; }
 .conj-modal-body    { overflow-y: auto; max-height: 70vh; }
-.conj-tenses-grid   { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; }
-.conj-tense-block   { display: flex; flex-direction: column; gap: .35rem; }
-.conj-tense-label   { font-size: .75rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: .04em; margin: 0; }
-.conj-table         { width: 100%; border-collapse: collapse; font-size: .875rem; }
-.conj-table td      { padding: .2rem .3rem; }
-.conj-person-cell   { color: var(--text-secondary); font-size: .8rem; white-space: nowrap; width: 40%; }
-.conj-form-cell     { color: var(--text-primary); font-weight: 500; }
+.conj-tenses-grid        { }
+.conj-cross-table-wrap   { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.conj-cross-table        { border-collapse: collapse; font-size: .875rem; white-space: nowrap; }
+.conj-cross-table th,
+.conj-cross-table td     { padding: .35rem .65rem; text-align: left; border-bottom: 1px solid var(--border); }
+.conj-cross-table tbody tr:last-child td { border-bottom: none; }
+.conj-corner             { padding-right: 1rem; }
+.conj-tense-header       { font-size: .7rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: .05em; border-bottom: 2px solid var(--border) !important; }
+.conj-person-cell        { color: var(--text-secondary); font-size: .8rem; font-weight: 600; padding-right: 1.25rem; }
+.conj-form-cell          { color: var(--text-primary); font-weight: 500; }
 /* ── Translate page ─────────────────────────────────────────────────────────── */
 .translate-layout      { display: flex; gap: .75rem; align-items: flex-start; }
 .translate-panel       { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: .5rem; }
@@ -1184,10 +1193,40 @@ kbd {
 
 /* ── Responsive ─────────────────────────────────────────────────────────────── */
 
-/* Nav wraps gracefully on narrow screens */
+/* Hamburger button — hidden on desktop */
+.nav-hamburger { display: none; margin-left: auto; }
+
+/* Mobile nav — hamburger dropdown */
+@media (max-width: 640px) {
+  .nav-hamburger { display: flex; align-items: center; justify-content: center; }
+  .nav-right {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: calc(54px + env(safe-area-inset-top, 0px));
+    left: 0; right: 0;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 16px rgba(0,0,0,.12);
+    z-index: 99;
+    padding: .4rem 0;
+  }
+  .nav-right.open { display: flex; }
+  .nav-right .nav-btn,
+  .nav-right .btn-icon {
+    width: 100%;
+    padding: .75rem 1.25rem;
+    border-radius: 0;
+    justify-content: flex-start;
+    font-size: .95rem;
+    gap: .6rem;
+  }
+  .nav-right .nav-label { display: inline; }
+  .nav-right .nav-icon  { width: 20px; height: 20px; }
+}
+
+/* Other narrow-screen fixes */
 @media (max-width: 600px) {
-  nav { height: auto; min-height: 54px; padding: .4rem 1rem; flex-wrap: wrap; gap: .25rem; }
-  .nav-right { gap: .1rem; }
   .quiz-topbar { gap: .5rem; }
   .toggle-grid { gap: .4rem; }
   .dir-btn { min-width: 110px; }
@@ -1197,13 +1236,6 @@ kbd {
     position: sticky; left: 0; z-index: 1; background: var(--bg-card);
   }
   .data-table th:first-child { background: var(--bg-secondary); }
-}
-
-/* Icon-only nav on narrow screens */
-@media (max-width: 500px) {
-  .nav-label { display: none; }
-  .nav-btn   { padding: .4rem .45rem; }
-  .nav-icon  { width: 20px; height: 20px; }
 }
 
 /* Single-column answer grids and stacked typing */

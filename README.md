@@ -1,6 +1,6 @@
 # Lexio
 
-A personal language flashcard web app. Study vocabulary across six languages with multiple quiz modes, spaced repetition, AI essay feedback, immersion tracking, and a full progress dashboard.
+A personal language flashcard web app. Study vocabulary across six languages with multiple quiz modes, spaced repetition, AI essay feedback, immersion tracking, translation, and a full progress dashboard.
 
 ---
 
@@ -8,10 +8,10 @@ A personal language flashcard web app. Study vocabulary across six languages wit
 
 ### Study
 - **6 languages** — Spanish, French, German, Norwegian, Japanese, Mandarin
-- **4 quiz modes** — Multiple Choice, True/False, Typing, Flashcard
+- **4 quiz modes** — Multiple Choice (MCQ), Typing, Flashcard, Cloze (fill-in-the-blank with example sentences)
 - **4 quiz directions** — Word→Meaning, Meaning→Word, Characters→Meaning, Characters→Reading
 - **Hint system** — letter-reveal hints for typing mode (up to 3 presses)
-- **Text-to-speech** — 🔊 button on every quiz card and browse row using the browser's Web Speech API (no API key needed)
+- **Text-to-speech** — 🔊 button on every quiz card and browse row; uses Google Cloud Neural2/WaveNet voices when `GOOGLE_TTS_API_KEY` is set, falls back to browser Web Speech API otherwise
 
 ### Spaced Repetition (SRS)
 - **SM-2 algorithm** — Flashcard mode grades (Again / Hard / Good / Easy) schedule each card on a due date
@@ -24,16 +24,25 @@ A personal language flashcard web app. Study vocabulary across six languages wit
 - **Daily goal** — configurable card target with a progress bar on the home screen
 
 ### Vocabulary Management
-- **CSV / TSV import** — standard `word,meaning,native` format; re-importing is fully idempotent
+- **CSV / TSV import** — standard `word,meaning,native,sentence,ipa,notes` format; re-importing is fully idempotent
 - **Anki import** — upload `.apkg` files directly; map Anki fields to word/meaning/native before confirming
 - **Deck export** — download any deck as a `.lex` file (CSV with metadata comments); re-import preserves language and topic automatically
 - **Deck delete** — hard delete a deck and all its cards from the UI
 - **Browse** — paginated, searchable card table with sticky first column on mobile
 
+### Translation
+- **Bidirectional translation** — translate text between English, Spanish, French, German, Norwegian, Japanese, and Mandarin using Google Cloud Translation API
+- **Romanization** — automatic Hepburn romaji (Japanese) and pinyin (Mandarin) shown alongside translations
+- **Word mining from translation** — extract new vocabulary from translated output and save directly to a deck, with uniqueness checks against existing cards
+
 ### AI Features
 - **Essay evaluation** — write an essay in any study language and receive instant AI feedback via Claude Haiku: Grammar (30%), Diacritics (20%), Spelling (20%), Fluency (15%), Punctuation (15%)
 - **Language detection** — essays are checked against the selected language before being sent for evaluation; mismatches are blocked or flagged
 - **Text mining** — paste a foreign-language text into a journal entry to extract vocabulary; Latin-script languages use a pure-Python tokeniser, CJK languages use DeepSeek for segmentation and meanings
+
+### Conjugation Reference
+- **Verb conjugation tables** — browse conjugations for vocabulary words seeded from `data/conjugations.json`
+- **Language tabs and verb search** — filterable by language with instant search across all seeded verbs
 
 ### Immersion Journal
 - **Session logging** — log time spent on any immersion activity (Watching, Listening, Reading, Speaking, Writing, Gaming, Other) with structured resource fields (type, creator, title/episode)
@@ -54,11 +63,12 @@ A personal language flashcard web app. Study vocabulary across six languages wit
 - **Try Demo** — one-click guest access via a dedicated `/api/auth/demo` endpoint (no credentials in the frontend)
 - **Language visibility** — hide any language from the home page, dropdowns, and quizzes without deleting it; toggle per language from the Progress screen
 
-### UX
+### UX & PWA
 - **Dark / light mode** — follows system preference; toggle in the nav bar
 - **Import preview** — see a preview of your file (format, row count, first 3 rows) before committing
 - **Human-readable errors** — all API errors translated to plain English in the UI
 - **Mobile layout** — responsive nav, sticky browse columns, single-column quiz on narrow screens
+- **Installable PWA** — service worker caches the shell for offline-ready access
 - **Push notifications** — opt-in browser notifications when you hit your daily goal
 
 ---
@@ -74,6 +84,9 @@ A personal language flashcard web app. Study vocabulary across six languages wit
 | Frontend | Vanilla JS / HTML / CSS — no build step |
 | AI — Essay | Claude Haiku via Anthropic API |
 | AI — Text parsing (CJK) | DeepSeek API |
+| Translation | Google Cloud Translation API v2 |
+| TTS | Google Cloud Text-to-Speech (Neural2/WaveNet); browser Web Speech API fallback |
+| Conjugations | `mlconjug3` + `pykakasi` + `pypinyin` (offline) |
 | Language detection | `langdetect` (pure Python) |
 | Anki parsing | Python `zipfile` + `sqlite3` stdlib |
 | Testing | pytest |
@@ -111,7 +124,7 @@ ESSAY_MAX_WORDS=500
 DEEPSEEK_API_KEY=          # required for CJK text parsing
 DEEPSEEK_MODEL=deepseek-chat
 ANTHROPIC_API_KEY=         # required for essay evaluation
-GOOGLE_TTS_API_KEY=        # optional — browser TTS is used when absent
+GOOGLE_TTS_API_KEY=        # required for translation and TTS; browser TTS used when absent
 ```
 
 Never commit `.env` — it is listed in `.gitignore`.
@@ -123,13 +136,14 @@ alembic upgrade head
 python scripts/seed_user.py
 ```
 
-### 4. (Optional) Pre-load vocabulary
+### 4. (Optional) Pre-load vocabulary and conjugations
 
 ```bash
-python scripts/bulk_import.py
+python scripts/bulk_import.py       # import all CSVs in data/languages/
+python scripts/seed_conjugations.py # seed verb conjugation data
 ```
 
-Walks `data/languages/<language>/<topic>/*.csv` and imports everything. Fully idempotent — safe to run repeatedly.
+Both are fully idempotent — safe to run repeatedly.
 
 ### 5. Start the server
 
@@ -152,10 +166,10 @@ pytest tests/ -v
 ## Vocabulary format
 
 ```csv
-word,meaning,native
-konnichiwa,hello,こんにちは
-café,coffee,
-学习,to study,xuéxí
+word,meaning,native,sentence,ipa,notes
+konnichiwa,hello,こんにちは,{{konnichiwa}}、元気ですか？,,A general greeting
+café,coffee,,Je voudrais un {{café}}.,/ka.fe/,
+学习,to study,xuéxí,我喜欢{{学习}}。,,
 ```
 
 | Column | Required | Notes |
@@ -163,12 +177,14 @@ café,coffee,
 | `word` | Yes | Romaji/pinyin for JA/ZH; plain word for ES/FR/DE/NO |
 | `meaning` | Yes | English translation |
 | `native` | No | Kana/kanji/hanzi — leave blank for Latin-script languages |
+| `sentence` | No | Example sentence; wrap the target word in `{{word}}` for cloze mode |
+| `ipa` | No | IPA pronunciation |
+| `notes` | No | Free-text notes shown on card reveal |
 
-- Header row must be `word,meaning,native`
 - Lines starting with `#` are comments and are skipped
-- Rows with an empty meaning are skipped
-- UTF-8 encoding required
-- Re-importing the same file is safe — duplicates are skipped
+- Rows with an empty word or meaning are skipped
+- UTF-8 encoding recommended (cp1252 and latin-1 are also accepted)
+- Re-importing the same file is safe — duplicates are skipped; sentence/ipa/notes are backfilled for existing cards that lack them
 
 ---
 
@@ -192,10 +208,11 @@ café,coffee,
 | `ANTHROPIC_API_KEY` | Required for essay evaluation |
 | `DEEPSEEK_API_KEY` | Required for CJK text parsing |
 | `DEEPSEEK_MODEL` | `deepseek-chat` |
+| `GOOGLE_TTS_API_KEY` | Required for translation and TTS |
 | `TYPING_FUZZY_THRESHOLD` | `0.85` |
 | `MAX_UPLOAD_SIZE_MB` | `5` |
 
-5. First deploy runs `alembic upgrade head && python scripts/seed_user.py && python scripts/bulk_import.py` automatically via the `release` command in `Procfile`
+5. First deploy runs `alembic upgrade head && python scripts/seed_user.py && python scripts/bulk_import.py && python scripts/seed_conjugations.py` automatically via the `release` command in `Procfile`
 
 ### Ongoing deploys
 
@@ -220,7 +237,7 @@ git push origin main   # triggers automatic redeploy on Railway
 | `ANTHROPIC_API_KEY` | — | Required for essay evaluation (Claude Haiku) |
 | `DEEPSEEK_API_KEY` | — | Required for CJK text mining (DeepSeek) |
 | `DEEPSEEK_MODEL` | `deepseek-chat` | DeepSeek model ID |
-| `GOOGLE_TTS_API_KEY` | — | Optional; browser TTS is used when not set |
+| `GOOGLE_TTS_API_KEY` | — | Required for translation and Cloud TTS; browser TTS is used when not set |
 | `VAPID_PUBLIC_KEY` | — | Optional; required for push notifications |
 | `VAPID_PRIVATE_KEY` | — | Optional; required for push notifications |
 | `VAPID_SUBJECT` | — | Optional; contact email for push notifications |
@@ -229,6 +246,7 @@ git push origin main   # triggers automatic redeploy on Railway
 | `DEFAULT_QUIZ_CARD_COUNT` | `20` | Default cards per session |
 | `BIG_TEST_CARD_OPTIONS` | `10,20,50,100` | Allowed card counts for Total Recall |
 | `MAX_UPLOAD_SIZE_MB` | `5` | Maximum vocabulary file upload size |
+| `MAX_UPLOAD_SIZE_APKG_MB` | `200` | Maximum Anki .apkg upload size |
 | `ESSAY_MIN_WORDS` | `20` | Minimum words for essay submission |
 | `ESSAY_MAX_WORDS` | `500` | Maximum words for essay submission |
 | `HINT_MAX_PRESSES` | `3` | Maximum hint presses per quiz question |
@@ -247,6 +265,7 @@ lexio/
 │   │   ├── user.py          — User accounts
 │   │   ├── card.py          — Deck + Card
 │   │   ├── progress.py      — CardStat, QuizSession, QuizAnswer, StudyLog
+│   │   ├── conjugation.py   — Verb conjugation data
 │   │   ├── essay.py         — EssaySubmission
 │   │   ├── immersion.py     — ImmersionLog (journal entries)
 │   │   ├── settings.py      — Per-user key/value settings
@@ -262,7 +281,8 @@ lexio/
 │   │   ├── srs.py           — SM-2 spaced repetition algorithm
 │   │   ├── essay_evaluator.py — Claude Haiku evaluation + language detection
 │   │   ├── text_parser.py   — Latin tokeniser + DeepSeek CJK segmentation
-│   │   ├── tts.py           — Google TTS synthesis (optional)
+│   │   ├── translate.py     — Google Cloud Translation + romanization + word mining
+│   │   ├── tts.py           — Google Cloud TTS synthesis (optional)
 │   │   └── push.py          — Web Push notification dispatch
 │   ├── routers/
 │   │   ├── auth.py          — /api/auth (login, demo, me)
@@ -274,18 +294,28 @@ lexio/
 │   │   ├── essay.py         — /api/essay (submit, history, stats)
 │   │   ├── immersion.py     — /api/immersion (log, list, stats)
 │   │   ├── journal.py       — /api/journal (parse-text)
+│   │   ├── conjugations.py  — /api/conjugations (by language, by card)
+│   │   ├── translate.py     — /api/translate (translate, mine)
 │   │   ├── settings.py      — /api/settings (daily-goal, hidden-languages, reset)
 │   │   ├── tts.py           — /api/tts (synthesise)
 │   │   └── push.py          — /api/push (subscribe, notify)
 │   ├── utils/
 │   │   ├── text.py          — normalize_text, normalize_deck_label
 │   │   └── hint.py          — generate_letter_mask, next_reveal
-│   └── static/              — Vanilla JS/HTML/CSS single-page frontend
+│   └── static/              — Vanilla JS/HTML/CSS single-page frontend + PWA manifest
 ├── alembic/                 — Database migrations
-├── data/languages/          — Vocabulary files (auto-imported on deploy)
+├── data/
+│   ├── languages/           — Vocabulary CSVs (auto-imported on deploy)
+│   └── conjugations.json    — Verb conjugation data (seeded on deploy)
 ├── scripts/
 │   ├── seed_user.py         — Create admin + demo users (idempotent)
+│   ├── seed_conjugations.py — Seed conjugation data from conjugations.json (idempotent)
 │   ├── bulk_import.py       — Import all vocab files in data/languages/ (idempotent)
+│   ├── generate_sentences.py — Generate example sentences for cards via AI
+│   ├── generate_ipa.py      — Generate IPA pronunciations for cards via AI
+│   ├── generate_notes.py    — Generate usage notes for cards via AI
+│   ├── generate_conjugations.py — Generate conjugation data via mlconjug3
+│   ├── export_conjugations.py   — Export conjugation data to JSON
 │   └── gen_vapid_keys.py    — Generate VAPID keys for push notifications
 ├── tests/                   — pytest test suite
 ├── Procfile                 — Railway: web + release commands

@@ -40,6 +40,11 @@
     </svg>
   </span>
   <span id="nav-demo-badge" class="nav-demo-badge hidden">Demo</span>
+  <button id="btn-hamburger" class="btn-ghost nav-hamburger" aria-label="Menu" aria-expanded="false">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
   <div class="nav-right">
     <button id="btn-nav-home-tab" class="btn-ghost hidden">Home</button>
     <button id="btn-nav-journal" class="btn-ghost nav-btn">
@@ -61,10 +66,6 @@
     <button id="btn-nav-conjugate" class="btn-ghost nav-btn">
       <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 0 1-1.125-1.125M3.375 19.5h1.5C5.496 19.5 6 18.996 6 18.375m-3.75.125V5.625m0 12.75v-1.5a1.125 1.125 0 0 0-1.125-1.125M3.375 19.5H4.5m0 0a1.125 1.125 0 0 0 1.125-1.125M4.5 19.5V5.625M4.5 5.625a1.125 1.125 0 0 1 1.125-1.125h9.75a1.125 1.125 0 0 1 1.125 1.125M4.5 5.625h12.75m0 0a1.125 1.125 0 0 1 1.125 1.125V18.375a1.125 1.125 0 0 1-1.125 1.125m-1.5 0h1.5m-1.5 0a1.125 1.125 0 0 1-1.125-1.125V6.75a1.125 1.125 0 0 1 1.125-1.125h1.5"/></svg>
       <span class="nav-label">Conjugate</span>
-    </button>
-    <button id="btn-nav-import" class="btn-ghost nav-btn">
-      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5"/></svg>
-      <span class="nav-label">Import</span>
     </button>
     <button id="btn-theme" class="btn-ghost btn-icon" aria-label="Toggle theme">&#9788;</button>
     <button id="btn-notif" class="btn-ghost btn-icon hidden" aria-label="Enable notifications" title="Enable notifications">
@@ -173,7 +174,10 @@
     </div>
 
     <!-- ── Deck list ──────────────────────────────────────────────────────── -->
-    <h3 class="section-label" style="margin-top:1.25rem">Your Decks</h3>
+    <div class="section-header" style="margin-top:1.25rem">
+      <h3 class="section-label">Your Decks</h3>
+      <button id="btn-new-deck" class="btn-ghost btn-sm">+ New deck</button>
+    </div>
     <div id="deck-container"></div>
     <div id="no-decks" class="empty-state hidden">
       <div class="empty-icon">
@@ -458,13 +462,18 @@
       <h2>Import Vocabulary</h2>
     </div>
     <div class="card form-card">
-      <label for="sel-import-lang">Language</label>
-      <select id="sel-import-lang"></select>
-      <input id="inp-import-lang-new" type="text" class="hidden" aria-hidden="true">
+      <div id="import-deck-context" class="import-context-badge hidden">
+        Importing into: <strong id="import-context-label"></strong>
+      </div>
+      <div id="import-lang-topic-fields">
+        <label for="sel-import-lang">Language</label>
+        <select id="sel-import-lang"></select>
+        <input id="inp-import-lang-new" type="text" class="hidden" aria-hidden="true">
 
-      <label for="sel-import-topic">Topic</label>
-      <select id="sel-import-topic"></select>
-      <input id="inp-import-topic-new" type="text" placeholder="New topic name" class="hidden">
+        <label for="sel-import-topic">Topic</label>
+        <select id="sel-import-topic"></select>
+        <input id="inp-import-topic-new" type="text" placeholder="New topic name" class="hidden">
+      </div>
 
       <label>File <span class="text-secondary">(CSV, TSV, .lex, or Anki .apkg)</span></label>
       <div id="drop-zone" class="drop-zone">

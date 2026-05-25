@@ -90,20 +90,25 @@ def batch_translate_to_english(words: list[str], source_code: str, api_key: str)
     return [t["translatedText"] for t in response.json()["data"]["translations"]]
 
 
-def split_words(text: str) -> list[str]:
+def split_words(text: str, lang_code: str = "") -> list[str]:
     """
-    Split text into unique words by whitespace and punctuation.
+    Split text into unique words by whitespace and punctuation, excluding numbers.
 
     Args:
         text (str): Source text to split.
+        lang_code (str): BCP-47 language code (e.g. 'de', 'es'). German ('de')
+            preserves original casing so noun capitalisation is retained;
+            all other languages are lowercased.
 
     Returns:
         list[str]: Unique words with length > 1, in order of first appearance.
+        Pure-numeric and non-alphabetic tokens are excluded.
 
     Notes:
-        Single characters are excluded. Deduplication is case-insensitive;
+        Single characters are excluded. Deduplication is always case-insensitive;
         first occurrence wins.
     """
+    preserve_case = lang_code.lower() == "de"
     tokens = re.split(r"[\s,\.!?;:'\"()\[\]{}<>/\\|@#$%^&*+=~`]+", text)
     seen: set[str] = set()
     result: list[str] = []
@@ -111,8 +116,10 @@ def split_words(text: str) -> list[str]:
         token = token.strip("-–—")
         if len(token) < 2:
             continue
+        if not re.search(r'[a-zA-ZÀ-ÖØ-öø-ÿ]', token):
+            continue
         key = token.lower()
         if key not in seen:
             seen.add(key)
-            result.append(token)
+            result.append(token if preserve_case else key)
     return result

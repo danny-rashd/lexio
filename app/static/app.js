@@ -716,6 +716,31 @@ document.getElementById('btn-logout').addEventListener('click', async () => {
   if (await showConfirm('Log out?', 'Log out')) logout();
 });
 
+// ── Mobile hamburger ──────────────────────────────────────────────────────────
+const _hamburger = document.getElementById('btn-hamburger');
+const _navRight  = document.querySelector('.nav-right');
+
+function _closeHamburger() {
+  _navRight.classList.remove('open');
+  _hamburger.setAttribute('aria-expanded', 'false');
+}
+
+_hamburger.addEventListener('click', e => {
+  e.stopPropagation();
+  const isOpen = _navRight.classList.toggle('open');
+  _hamburger.setAttribute('aria-expanded', String(isOpen));
+});
+
+// Close when any nav item is clicked
+_navRight.addEventListener('click', () => _closeHamburger());
+
+// Close when clicking outside
+document.addEventListener('click', e => {
+  if (!e.target.closest('#btn-hamburger') && !e.target.closest('.nav-right')) {
+    _closeHamburger();
+  }
+});
+
 document.getElementById('btn-demo').addEventListener('click', async () => {
   const btn   = document.getElementById('btn-demo');
   const errEl = document.getElementById('login-err');
@@ -908,12 +933,16 @@ function renderDecks(decks, statsMap = {}) {
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z"/></svg>
                 Test
               </button>
+              <button class="btn-ghost btn-sm deck-test-btn" data-action="browse" data-deck-id="${deck.id}">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"/><path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>
+                Browse
+              </button>
               <div class="deck-menu-wrap">
                 <button class="btn-ghost btn-sm deck-menu-btn" data-action="menu" data-deck-id="${deck.id}" aria-label="More options">&#8943;</button>
                 <div class="deck-menu-dropdown hidden" id="deck-menu-${deck.id}">
-                  <button class="deck-menu-item" data-action="browse" data-deck-id="${deck.id}">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"/><path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>
-                    Browse
+                  <button class="deck-menu-item" data-action="import" data-deck-id="${deck.id}">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5"/></svg>
+                    Import
                   </button>
                   <button class="deck-menu-item" data-action="export" data-deck-id="${deck.id}">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
@@ -954,6 +983,7 @@ document.getElementById('deck-container').addEventListener('click', e => {
   if (btn.dataset.action === 'review') startReview(deck);
   if (btn.dataset.action === 'test')   showTestSetup(deck);
   if (btn.dataset.action === 'browse') showBrowse(deck);
+  if (btn.dataset.action === 'import') showImport(deck);
   if (btn.dataset.action === 'export') exportDeck(deck);
   if (btn.dataset.action === 'delete') deleteDeck(deck);
 });
@@ -1022,9 +1052,9 @@ async function deleteDeck(deck) {
 
 document.getElementById('nav-home').addEventListener('click', showHome);
 document.getElementById('no-decks-cta').addEventListener('click', () => showImport(null));
+document.getElementById('btn-new-deck').addEventListener('click', () => showImport(null));
 document.getElementById('progress-empty-cta').addEventListener('click', showHome);
 document.getElementById('btn-big-test').addEventListener('click', showBigTestSetup);
-document.getElementById('btn-nav-import').addEventListener('click', () => showImport(null));
 document.getElementById('btn-nav-home-tab').addEventListener('click', showHome);
 document.getElementById('btn-nav-journal').addEventListener('click', showJournal);
 document.getElementById('btn-nav-essay').addEventListener('click', showEssay);
@@ -1854,15 +1884,13 @@ function _conjPersonLabel(person) {
 
 function _renderConjData(data) {
   if (!data.tenses || !data.tenses.length) return '<p class="text-secondary">No data available.</p>';
-  return data.tenses.map(tense => {
-    const rows = tense.forms.map(f =>
-      `<tr>${_conjPersonLabel(f.person) ? `<td class="conj-person-cell">${esc(f.person)}</td>` : ''}<td class="conj-form-cell">${esc(f.form)}</td></tr>`
-    ).join('');
-    return `<div class="conj-tense-block">
-      <h4 class="conj-tense-label">${esc(tense.label)}</h4>
-      <table class="conj-table">${rows}</table>
-    </div>`;
-  }).join('');
+  const tenses  = data.tenses;
+  const persons = tenses[0].forms.map(f => f.person);
+  const header  = `<tr><th class="conj-corner"></th>${tenses.map(t => `<th class="conj-tense-header">${esc(t.label)}</th>`).join('')}</tr>`;
+  const body    = persons.map((person, i) =>
+    `<tr><td class="conj-person-cell">${esc(person)}</td>${tenses.map(t => `<td class="conj-form-cell">${esc(t.forms[i]?.form || '')}</td>`).join('')}</tr>`
+  ).join('');
+  return `<div class="conj-cross-table-wrap"><table class="conj-cross-table"><thead>${header}</thead><tbody>${body}</tbody></table></div>`;
 }
 
 document.getElementById('browse-tbody').addEventListener('click', async e => {
@@ -1962,7 +1990,7 @@ document.getElementById('btn-browse-back').addEventListener('click', showHome);
 
 function showImport(preselectedDeck) {
   App.importFile   = null;
-  App.ankiData     = null;   // { noteTypes, selectedNtIdx }
+  App.ankiData     = null;
   document.getElementById('inp-import-file').value  = '';
   document.getElementById('drop-filename').classList.add('hidden');
   document.getElementById('import-result').classList.add('hidden');
@@ -1970,7 +1998,23 @@ function showImport(preselectedDeck) {
   document.getElementById('anki-mapping').classList.add('hidden');
   document.getElementById('btn-import-submit').disabled = true;
 
-  _populateImportLangSelect(preselectedDeck?.language || '');
+  const fields  = document.getElementById('import-lang-topic-fields');
+  const badge   = document.getElementById('import-deck-context');
+  const badgeLbl = document.getElementById('import-context-label');
+
+  if (preselectedDeck) {
+    fields.classList.add('hidden');
+    badge.classList.remove('hidden');
+    badgeLbl.textContent = `${titleCase(preselectedDeck.language)} / ${preselectedDeck.topic}`;
+    _populateImportLangSelect(preselectedDeck.language);
+    _populateImportTopicSelect(preselectedDeck.language);
+    document.getElementById('sel-import-topic').value = preselectedDeck.topic;
+  } else {
+    fields.classList.remove('hidden');
+    badge.classList.add('hidden');
+    _populateImportLangSelect('');
+  }
+
   showScreen('screen-import');
 }
 
@@ -3715,7 +3759,7 @@ const _TR_LANGS = [
   { code: 'zh', label: 'Mandarin', tts: 'mandarin' },
 ];
 
-const TrPage = { source: 'en', target: 'es', lastTranslation: '' };
+const TrPage = { source: 'en', target: 'es', lastTranslation: '', mineLang: null };
 
 function _buildLangOptions(selectEl, selected) {
   selectEl.innerHTML = _TR_LANGS.map(l =>
@@ -3765,6 +3809,7 @@ function _setTrOutputBtns(enabled) {
 
 document.getElementById('tr-source-lang').addEventListener('change', e => {
   TrPage.source = e.target.value;
+  _updateSaveBtn();
 });
 document.getElementById('tr-target-lang').addEventListener('change', e => {
   TrPage.target = e.target.value;
@@ -3848,15 +3893,39 @@ document.getElementById('btn-tr-copy').addEventListener('click', async () => {
 
 const _TR_NO_MINE = new Set(['ja', 'zh']);
 
+function _getMineConfig() {
+  const src = TrPage.source;
+  const tgt = TrPage.target;
+  const srcIsEn = src === 'en';
+  const tgtIsEn = tgt === 'en';
+  if (srcIsEn === tgtIsEn) return null;
+  const foreignCode = srcIsEn ? tgt : src;
+  if (_TR_NO_MINE.has(foreignCode)) return null;
+  const lang = _TR_LANGS.find(l => l.code === foreignCode);
+  const text = srcIsEn
+    ? TrPage.lastTranslation
+    : document.getElementById('tr-source-text').value.trim();
+  return { text, source_code: foreignCode, lang };
+}
+
 function _updateSaveBtn() {
   const btn = document.getElementById('btn-tr-save');
-  const noMine = _TR_NO_MINE.has(TrPage.target);
-  btn.disabled = !TrPage.lastTranslation || noMine;
-  btn.title = noMine ? 'Not available for Japanese / Mandarin — use Parse text in Journal' : '';
+  const config = _getMineConfig();
+  const canMine = !!TrPage.lastTranslation && !!config;
+  btn.disabled = !canMine;
+  const hasCjk = _TR_NO_MINE.has(TrPage.source) || _TR_NO_MINE.has(TrPage.target);
+  const bothForeign = TrPage.source !== 'en' && TrPage.target !== 'en';
+  btn.title = canMine ? ''
+    : hasCjk ? 'Not available for Japanese / Mandarin — use Parse text in Journal'
+    : bothForeign ? 'Only available when one language is English'
+    : '';
 }
 
 document.getElementById('btn-tr-save').addEventListener('click', async () => {
   if (!TrPage.lastTranslation) return;
+  const config = _getMineConfig();
+  if (!config) return;
+  TrPage.mineLang = config.lang;
   const panel  = document.getElementById('tr-mine-panel');
   const tbody  = document.getElementById('tr-mine-tbody');
   const title  = document.getElementById('tr-mine-title');
@@ -3867,16 +3936,15 @@ document.getElementById('btn-tr-save').addEventListener('click', async () => {
   panel.classList.remove('hidden');
 
   const res = await api('POST', '/api/translate/mine', {
-    text: TrPage.lastTranslation,
-    source_code: TrPage.target,
+    text: config.text,
+    source_code: config.source_code,
   });
   if (!res?.ok) {
     tbody.innerHTML = '<tr><td colspan="3" class="text-secondary" style="padding:.5rem">Failed to mine words.</td></tr>';
     return;
   }
   const { words } = await res.json();
-  const lang = _TR_LANGS.find(l => l.code === TrPage.target);
-  title.textContent = `New words for ${lang?.label ?? TrPage.target}`;
+  title.textContent = `New words for ${config.lang?.label ?? config.source_code}`;
 
   if (!words.length) {
     tbody.innerHTML = '<tr><td colspan="3" class="text-secondary" style="padding:.5rem">All words already exist in your deck.</td></tr>';
@@ -3922,7 +3990,8 @@ document.getElementById('btn-tr-mine-confirm').addEventListener('click', async (
   const rows = [...document.getElementById('tr-mine-tbody').querySelectorAll('tr[data-idx]')];
   if (!rows.length) return;
 
-  const lang = _TR_LANGS.find(l => l.code === TrPage.target);
+  const lang = TrPage.mineLang;
+  if (!lang) { await showAlert('Could not determine target language.'); return; }
   const deckRes = await api('POST', '/api/decks', { language: lang.tts, topic: 'translated' });
   if (!deckRes?.ok) { await showAlert('Could not create deck.'); return; }
   const deck = await deckRes.json();

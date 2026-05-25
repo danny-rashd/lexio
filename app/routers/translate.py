@@ -1,6 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, field_validator
-from sqlalchemy import func
 from sqlalchemy.orm import Session
 
 from app.config import settings
@@ -15,6 +14,7 @@ from app.services.translate import (
     split_words,
     translate_text,
 )
+from app.utils.text import normalize_text
 
 router = APIRouter(prefix="/api/translate", tags=["translate"])
 
@@ -86,22 +86,18 @@ def mine_words(
             detail="Translation is not configured.",
         )
     language = _CODE_TO_LANGUAGE[body.source_code]
-    words = split_words(body.text)
+    words = split_words(body.text, lang_code=body.source_code)
     if not words:
         return {"words": []}
 
-    existing = {
-        w.lower() for (w,) in
+    all_deck_words = {
+        normalize_text(w) for (w,) in
         db.query(Card.word)
         .join(Deck, Deck.id == Card.deck_id)
-        .filter(
-            Deck.language == language,
-            func.lower(Card.word).in_([w.lower() for w in words]),
-            Card.is_active.is_(True),
-        )
+        .filter(Deck.language == language, Card.is_active.is_(True))
         .all()
     }
-    new_words = [w for w in words if w.lower() not in existing]
+    new_words = [w for w in words if normalize_text(w) not in all_deck_words]
     if not new_words:
         return {"words": []}
 
