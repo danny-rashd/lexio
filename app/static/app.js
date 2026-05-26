@@ -796,9 +796,11 @@ async function toggleHiddenLanguage(language, hidden) {
 async function showHome() {
   showScreen('screen-home');
   document.getElementById('deck-container').innerHTML = _deckSkeletonHtml();
-  document.getElementById('weakest-section').classList.add('hidden');  // kept in DOM, not shown on home
+  document.getElementById('weakest-section').classList.add('hidden');
   document.getElementById('home-streak').classList.add('hidden');
   document.getElementById('home-quick-start').classList.add('hidden');
+  document.getElementById('home-insights-row').classList.add('hidden');
+  document.getElementById('home-weakest-drill').classList.add('hidden');
   _fetchAndRenderDailyGoal();
 
   const [decksRes, streakRes] = await Promise.all([
@@ -810,7 +812,7 @@ async function showHome() {
   if (!decksRes) return;
   App.decks = decksRes.ok ? await decksRes.json() : [];
 
-  // Fetch per-deck stats in parallel
+  // Fetch per-deck stats, word-of-day, forecast, and weakest in parallel
   const statsMap = {};
   if (App.decks.length) {
     const statsArr = await Promise.all(
@@ -821,6 +823,12 @@ async function showHome() {
     );
     App.decks.forEach((d, i) => { if (statsArr[i]) statsMap[d.id] = statsArr[i]; });
   }
+
+  const [wotdRes, forecastRes, weakestRes] = await Promise.all([
+    api('GET', '/api/progress/word-of-day').catch(() => null),
+    api('GET', '/api/progress/due-forecast').catch(() => null),
+    api('GET', '/api/progress/weakest?limit=20').catch(() => null),
+  ]);
 
   // Streak strip
   if (streakRes?.ok) {
@@ -835,6 +843,45 @@ async function showHome() {
         </div>`;
       el.classList.remove('hidden');
     }
+  }
+
+  // Word of the Day + Forgetting curve (shown together in the insights row)
+  let insightsVisible = false;
+
+  if (wotdRes?.ok) {
+    const w = await wotdRes.json();
+    if (w?.word) {
+      const reasonLabels = { overdue: 'Overdue', due: 'Due today', weak: 'Needs work', new: 'New' };
+      document.getElementById('wotd-lang').innerHTML    = langPillHtml(w.language);
+      document.getElementById('wotd-word').textContent   = w.word;
+      document.getElementById('wotd-meaning').textContent = w.meaning || '';
+      document.getElementById('wotd-native').textContent  = w.native || '';
+      const badge = document.getElementById('wotd-reason-badge');
+      badge.textContent  = reasonLabels[w.reason] || '';
+      badge.className    = `wotd-badge ${w.reason || ''}`;
+      insightsVisible = true;
+    }
+  }
+
+  if (forecastRes?.ok) {
+    const days = await forecastRes.json();
+    const maxCount = Math.max(1, ...days.map(d => d.count));
+    const barsEl = document.getElementById('forecast-bars');
+    barsEl.innerHTML = days.map(d => {
+      const pct    = Math.round((d.count / maxCount) * 100);
+      const isEmpty = d.count === 0;
+      const cls    = isEmpty ? 'forecast-bar empty' : (d.label === 'Today' ? 'forecast-bar today' : 'forecast-bar');
+      return `<div class="forecast-bar-col">
+        <div class="forecast-count">${d.count || ''}</div>
+        <div class="${cls}" style="height:${isEmpty ? 4 : Math.max(8, pct * 0.6)}px"></div>
+        <div class="forecast-day-label">${d.label}</div>
+      </div>`;
+    }).join('');
+    if (days.some(d => d.count > 0)) insightsVisible = true;
+  }
+
+  if (insightsVisible) {
+    document.getElementById('home-insights-row').classList.remove('hidden');
   }
 
   // Quick-start card
@@ -858,7 +905,44 @@ async function showHome() {
     document.getElementById('btn-quick-start').addEventListener('click', () => showTestSetup(lastDeck));
   }
 
-  // Weakest section removed from home — visible in Progress screen only
+  // Weakest drill section
+  if (weakestRes?.ok) {
+    const weakCards = (await weakestRes.json()).filter(c => !App.hiddenLanguages.has(c.language));
+    if (weakCards.length) {
+      const section = document.getElementById('home-weakest-drill');
+      const preview = document.getElementById('weakest-drill-preview');
+      preview.innerHTML = weakCards.slice(0, 4).map(c => `
+        <div class="card weakest-card">
+          <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.25rem">
+            ${langPillHtml(c.language)}
+            <span class="weakest-word">${esc(c.word)}</span>
+          </div>
+          <p class="weakest-meta">${esc(c.meaning)}</p>
+          <p class="weakest-meta">${Math.round((1 - (c.weakness_score || 0)) * 100)}% correct</p>
+        </div>`).join('');
+      section.classList.remove('hidden');
+
+      document.getElementById('btn-weakest-drill').onclick = async () => {
+        const cardIds = weakCards.map(c => c.card_id);
+        const btn = document.getElementById('btn-weakest-drill');
+        setLoading(btn, true);
+        const res = await api('POST', '/api/quiz/start', {
+          scope: 'big_test', mode: 'typing', direction: '1_and_2',
+          card_count: cardIds.length, card_ids: cardIds,
+        });
+        setLoading(btn, false);
+        if (!res?.ok) {
+          const err = await res?.json().catch(() => ({}));
+          await showAlert(friendlyError(err?.detail));
+          return;
+        }
+        const data = await res.json();
+        initQuizState(data, null);
+        showScreen('screen-quiz');
+        renderQuizQuestion(data.question);
+      };
+    }
+  }
 
   renderDecks(App.decks, statsMap);
 }
@@ -4028,6 +4112,15 @@ const ConjPage = { lang: 'spanish', verbs: [], selectedId: null };
 
 async function showConjugate() {
   showScreen('screen-conjugate');
+
+  // Hide tabs for hidden languages; if the active tab is hidden, switch to first visible
+  const tabs = [...document.querySelectorAll('.conj-lang-tab')];
+  tabs.forEach(t => t.classList.toggle('hidden', App.hiddenLanguages.has(t.dataset.lang)));
+  if (App.hiddenLanguages.has(ConjPage.lang)) {
+    const first = tabs.find(t => !App.hiddenLanguages.has(t.dataset.lang));
+    if (first) ConjPage.lang = first.dataset.lang;
+  }
+
   if (ConjPage.verbs.length === 0) await _loadConjVerbs(ConjPage.lang);
 }
 

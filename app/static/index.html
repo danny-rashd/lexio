@@ -164,8 +164,37 @@
       </div>
     </div>
 
+    <!-- ── Insights row: Word of the Day + Forgetting curve ─────────────── -->
+    <div id="home-insights-row" class="home-insights-row hidden">
+      <div id="home-wotd" class="card home-wotd">
+        <div class="wotd-header">
+          <span class="section-label">Word of the Day</span>
+          <span id="wotd-reason-badge" class="wotd-badge"></span>
+        </div>
+        <div class="wotd-body">
+          <div id="wotd-lang"></div>
+          <div id="wotd-word" class="wotd-word"></div>
+          <div id="wotd-meaning" class="wotd-meaning"></div>
+          <div id="wotd-native" class="wotd-native"></div>
+        </div>
+      </div>
+      <div id="home-forecast" class="card home-forecast">
+        <div class="section-label" style="margin-bottom:.6rem">Due this week</div>
+        <div id="forecast-bars" class="forecast-bars"></div>
+      </div>
+    </div>
+
     <!-- ── Quick-start ────────────────────────────────────────────────────── -->
     <div id="home-quick-start" class="card home-quick hidden"></div>
+
+    <!-- ── Weakest drill ─────────────────────────────────────────────────── -->
+    <div id="home-weakest-drill" class="hidden">
+      <div class="section-header" style="margin-bottom:.6rem">
+        <h3 class="section-label">Needs Work</h3>
+        <button id="btn-weakest-drill" class="btn-outline btn-sm">Drill weak cards</button>
+      </div>
+      <div id="weakest-drill-preview" class="weakest-strip"></div>
+    </div>
 
     <!-- ── Needs Work (max 3) ─────────────────────────────────────────────── -->
     <div id="weakest-section" class="hidden">

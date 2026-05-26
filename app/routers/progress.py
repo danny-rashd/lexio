@@ -1,3 +1,4 @@
+import random as _random
 from datetime import date, timedelta
 
 from fastapi import APIRouter, Depends, Query
@@ -9,6 +10,7 @@ from app.models.card import Card, Deck
 from app.models.essay import EssaySubmission
 from app.models.immersion import ImmersionLog
 from app.models.progress import CardStat, QuizSession, StudyLog
+from app.models.settings import UserSetting
 from app.models.user import User
 from app.routers.auth import get_current_user
 from app.services.progress import get_streak, get_weakest_cards
@@ -119,6 +121,145 @@ def daily_activity(
 def _fmt_mins(mins: int) -> str:
     h, m = divmod(mins, 60)
     return f"{h}h{m:02d}m" if h and m else (f"{h}h" if h else f"{m}m")
+
+
+def _hidden_deck_ids(db: Session, user_id: int) -> set[int]:
+    import json as _json
+    setting = db.query(UserSetting).filter(
+        UserSetting.user_id == user_id, UserSetting.key == "hidden_languages"
+    ).first()
+    hidden_langs = set(_json.loads(setting.value)) if setting else set()
+    if not hidden_langs:
+        return set()
+    return {
+        row[0] for row in
+        db.query(Deck.id).filter(Deck.language.in_(hidden_langs)).all()
+    }
+
+
+@router.get("/due-forecast")
+def due_forecast(
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+) -> list[dict]:
+    """
+    Return how many SRS cards are due on each of the next 7 days.
+
+    Args:
+        db (Session): Database session.
+        current_user (User): Authenticated user.
+
+    Returns:
+        list[dict]: Seven entries with keys 'date', 'label', 'count'.
+
+    Notes:
+        Today's count includes all overdue cards (due_date <= today).
+        Future days show only cards scheduled for exactly that date.
+    """
+    today = date.today()
+    hidden_ids = _hidden_deck_ids(db, current_user.id)
+    result = []
+    for i in range(7):
+        d = today + timedelta(days=i)
+        base = (
+            db.query(func.count(func.distinct(CardStat.card_id)))
+            .join(Card, Card.id == CardStat.card_id)
+            .filter(
+                CardStat.user_id == current_user.id,
+                Card.is_active.is_(True),
+                CardStat.srs_due_date.isnot(None),
+            )
+        )
+        if hidden_ids:
+            base = base.filter(Card.deck_id.not_in(hidden_ids))
+        if i == 0:
+            count = base.filter(CardStat.srs_due_date <= d).scalar() or 0
+            label = "Today"
+        else:
+            count = base.filter(CardStat.srs_due_date == d).scalar() or 0
+            label = d.strftime("%a")
+        result.append({"date": str(d), "label": label, "count": count})
+    return result
+
+
+@router.get("/word-of-day")
+def word_of_day(
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+) -> dict:
+    """
+    Return a single featured card for today, stable across requests.
+
+    Args:
+        db (Session): Database session.
+        current_user (User): Authenticated user.
+
+    Returns:
+        dict: Card fields plus 'language', 'topic', 'reason' (overdue/due/weak/new).
+              Empty dict if no cards exist.
+
+    Notes:
+        Priority: overdue → due today → weakest seen → random active card.
+        Deterministic within a calendar day via a seeded RNG keyed on user_id + date.
+    """
+    today = date.today()
+    rng = _random.Random(current_user.id * 10000 + today.toordinal())
+    hidden_ids = _hidden_deck_ids(db, current_user.id)
+
+    def _card_ids_filtered(*filters):
+        q = (
+            db.query(CardStat.card_id)
+            .join(Card, Card.id == CardStat.card_id)
+            .filter(CardStat.user_id == current_user.id, Card.is_active.is_(True))
+        )
+        if hidden_ids:
+            q = q.filter(Card.deck_id.not_in(hidden_ids))
+        for f in filters:
+            q = q.filter(f)
+        return list({row[0] for row in q.all()})
+
+    def _build(card_id: int, reason: str) -> dict:
+        card = db.query(Card).filter(Card.id == card_id).first()
+        deck = db.query(Deck).filter(Deck.id == card.deck_id).first()
+        return {
+            "card_id":  card.id,
+            "deck_id":  card.deck_id,
+            "word":     card.word,
+            "meaning":  card.meaning,
+            "native":   card.native,
+            "ipa":      card.ipa,
+            "language": deck.language if deck else "",
+            "topic":    deck.topic if deck else "",
+            "reason":   reason,
+        }
+
+    overdue_ids = _card_ids_filtered(
+        CardStat.srs_due_date < today, CardStat.srs_due_date.isnot(None)
+    )
+    if overdue_ids:
+        return _build(rng.choice(overdue_ids), "overdue")
+
+    due_ids = _card_ids_filtered(CardStat.srs_due_date == today)
+    if due_ids:
+        return _build(rng.choice(due_ids), "due")
+
+    weakest = get_weakest_cards(db, current_user.id, limit=10)
+    if weakest:
+        visible = [w for w in weakest if w.get("card_id") and
+                   db.query(Card.deck_id).filter(Card.id == w["card_id"]).scalar() not in hidden_ids]
+        if visible:
+            chosen = rng.choice(visible[:min(5, len(visible))])
+            return _build(chosen["card_id"], "weak")
+
+    visible_all = [
+        row[0] for row in db.query(Card.id)
+        .filter(Card.is_active.is_(True))
+        .filter(Card.deck_id.not_in(hidden_ids) if hidden_ids else True)
+        .all()
+    ]
+    if not visible_all:
+        return {}
+    return _build(rng.choice(visible_all), "new")
 
 
 @router.get("/dashboard")

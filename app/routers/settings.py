@@ -55,9 +55,11 @@ def get_daily_goal(
     today_start = datetime.combine(datetime.now(timezone.utc).date(), datetime.min.time())
     today_count: int = (
         db.query(func.count(QuizAnswer.id))
+        .join(QuizSession, QuizAnswer.session_id == QuizSession.id)
         .filter(
             QuizAnswer.user_id == current_user.id,
             QuizAnswer.answered_at >= today_start,
+            QuizSession.finished_at.isnot(None),
         )
         .scalar()
         or 0

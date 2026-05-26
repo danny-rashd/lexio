@@ -189,7 +189,13 @@ def start_quiz(
             else:
                 cards = select_cards_for_test(db, body.deck_id, body.card_count)
         else:
-            cards = select_cards_for_big_test(db, body.card_count, languages=body.languages or None, user_id=current_user.id)
+            if body.card_ids:
+                cards = db.query(Card).filter(
+                    Card.id.in_(body.card_ids), Card.is_active.is_(True)
+                ).all()
+                random.shuffle(cards)
+            else:
+                cards = select_cards_for_big_test(db, body.card_count, languages=body.languages or None, user_id=current_user.id)
 
         if mode == "cloze":
             cards = [c for c in cards if c.sentence]

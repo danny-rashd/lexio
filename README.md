@@ -20,8 +20,13 @@ A personal language flashcard web app. Study vocabulary across six languages wit
 
 ### Testing
 - **Big Test (Total Recall)** — cross-language quiz weighted toward your weakest cards; select which languages to include
+- **Weakest cards drill** — one-click drill from the home screen using your bottom 20 cards by accuracy; spans all decks
 - **Retry missed** — restart a session with only the cards you got wrong
 - **Daily goal** — configurable card target with a progress bar on the home screen
+
+### Home Screen Widgets
+- **Word of the Day** — a daily featured card (stable all day), prioritising overdue → due today → weakest → random; labelled with its reason
+- **Forgetting curve** — 7-day bar chart showing how many SRS cards are due each day; today includes all overdue cards
 
 ### Vocabulary Management
 - **CSV / TSV import** — standard `word,meaning,native,sentence,ipa,notes` format; re-importing is fully idempotent

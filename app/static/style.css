@@ -367,6 +367,41 @@ button:disabled { opacity: .4; cursor: default; }
 .due-badge { background: var(--accent); color: #fff; font-size: .68rem; font-weight: 700;
              padding: .15rem .45rem; border-radius: 99px; white-space: nowrap; }
 
+/* ── Home insights row (Word of Day + Forecast) ──────────────────────────── */
+.home-insights-row { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; margin-bottom: 1rem; }
+
+/* Word of the Day */
+.home-wotd        { padding: .85rem 1rem; display: flex; flex-direction: column; gap: .4rem; }
+.wotd-header      { display: flex; align-items: center; justify-content: space-between; }
+.wotd-badge       { font-size: .65rem; font-weight: 700; text-transform: uppercase;
+                    padding: .15rem .45rem; border-radius: 99px; white-space: nowrap; }
+.wotd-badge.overdue { background: var(--danger); color: #fff; }
+.wotd-badge.due     { background: var(--accent); color: #fff; }
+.wotd-badge.weak    { background: var(--warning, #f59e0b); color: #fff; }
+.wotd-badge.new     { background: var(--border); color: var(--text-secondary); }
+.wotd-body        { display: flex; flex-direction: column; gap: .15rem; }
+.wotd-word        { font-size: 1.15rem; font-weight: 800; color: var(--text-primary); line-height: 1.2; }
+.wotd-meaning     { font-size: .82rem; color: var(--text-secondary); }
+.wotd-native      { font-size: .78rem; color: var(--text-secondary); font-style: italic; }
+
+/* Forgetting curve / forecast */
+.home-forecast    { padding: .85rem 1rem; display: flex; flex-direction: column; }
+.forecast-bars    { display: flex; align-items: flex-end; gap: 4px; flex: 1; min-height: 60px; }
+.forecast-bar-col { display: flex; flex-direction: column; align-items: center; gap: 3px; flex: 1; }
+.forecast-bar     { width: 100%; border-radius: 3px 3px 0 0; background: var(--accent);
+                    opacity: .7; min-height: 3px; transition: height .3s ease; }
+.forecast-bar.today { opacity: 1; }
+.forecast-bar.empty { background: var(--border); opacity: 1; }
+.forecast-day-label { font-size: .6rem; color: var(--text-secondary); white-space: nowrap; }
+.forecast-count     { font-size: .6rem; color: var(--text-secondary); }
+
+/* Weakest drill section */
+.home-weakest-drill { margin-bottom: 1.25rem; }
+
+@media (max-width: 500px) {
+  .home-insights-row { grid-template-columns: 1fr; }
+}
+
 /* Topic card progress */
 .topic-progress { margin-top: .5rem; }
 .topic-progress-bar-bg { height: 4px; background: var(--border); border-radius: 99px; overflow: hidden; }
