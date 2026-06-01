@@ -2846,7 +2846,7 @@ async function _loadJournalHistory() {
           ${e.word_count > 0 ? `<button class="jaf-word-count" data-entry="${e.id}" data-lang="${esc(e.language)}">${e.word_count} word${e.word_count !== 1 ? 's' : ''}</button>` : ''}
         </div>
       </div>
-      <div class="jaf-form hidden" id="jaf-${e.id}" data-lang="${esc(e.language)}" data-entry="${e.id}">
+      <div class="jaf-form hidden" id="jaf-${e.id}" data-lang="${esc(e.language)}" data-entry="${e.id}" data-resource-type="${esc(e.resource_type || 'other')}">
         <table class="jaf-table">
           <thead><tr><th>Word</th><th>Meaning</th><th>Native (optional)</th><th>Sentence (optional)</th><th></th></tr></thead>
           <tbody class="jaf-rows">
@@ -2866,7 +2866,7 @@ async function _loadJournalHistory() {
           <span class="jaf-status"></span>
         </div>
       </div>
-      <div class="ptx-panel hidden" id="ptx-${e.id}" data-lang="${esc(e.language)}" data-entry="${e.id}">
+      <div class="ptx-panel hidden" id="ptx-${e.id}" data-lang="${esc(e.language)}" data-entry="${e.id}" data-resource-type="${esc(e.resource_type || 'other')}">
         <textarea class="ptx-textarea" placeholder="Paste ${titleCase(e.language)} text here…"></textarea>
         <div class="ptx-actions">
           <button class="btn-primary btn-sm ptx-extract" data-entry="${e.id}">Extract words</button>
@@ -3078,6 +3078,7 @@ async function _ptxExtract(entryId) {
 async function _ptxSave(entryId) {
   const panel    = document.getElementById(`ptx-${entryId}`);
   const lang     = panel.dataset.lang;
+  const topic    = panel.dataset.resourceType || 'other';
   const statusEl = panel.querySelector('.ptx-save-status');
   const saveBtn  = panel.querySelector('.ptx-save');
   const rows     = [...panel.querySelectorAll('.ptx-tbody tr[data-word]')];
@@ -3093,7 +3094,7 @@ async function _ptxSave(entryId) {
   setLoading(saveBtn, true);
   statusEl.textContent = '';
 
-  const deckRes = await api('POST', '/api/decks', { language: lang, topic: 'journal' });
+  const deckRes = await api('POST', '/api/decks', { language: lang, topic });
   if (!deckRes?.ok) { setLoading(saveBtn, false); statusEl.textContent = 'Could not find deck.'; return; }
   const deck = await deckRes.json();
 
@@ -3205,6 +3206,7 @@ document.getElementById('journal-history').addEventListener('click', async e => 
 
   const form   = document.getElementById(`jaf-${submitBtn.dataset.entry}`);
   const lang   = form.dataset.lang;
+  const topic  = form.dataset.resourceType || 'other';
   const logId  = parseInt(form.dataset.entry, 10);
   const status = form.querySelector('.jaf-status');
 
@@ -3224,7 +3226,7 @@ document.getElementById('journal-history').addEventListener('click', async e => 
   setLoading(submitBtn, true);
   status.textContent = '';
 
-  const deckRes = await api('POST', '/api/decks', { language: lang, topic: 'journal' });
+  const deckRes = await api('POST', '/api/decks', { language: lang, topic });
   if (!deckRes?.ok) {
     setLoading(submitBtn, false);
     status.textContent = 'Could not find deck.';
