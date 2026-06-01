@@ -1,4 +1,5 @@
 import random
+import re
 from difflib import SequenceMatcher
 
 from sqlalchemy import func
@@ -287,7 +288,9 @@ def check_answer(user_answer: str, correct_answer: str, fuzzy: bool = False) -> 
     Notes:
         Both sides are normalize_text()-ed before comparison, which strips
         diacritics and lowercases. This means 'café' == 'cafe' and
-        'nǐ hǎo' == 'ni hao'. Fuzzy matching is only used for typing mode.
+        'nǐ hǎo' == 'ni hao'. Meanings containing '/' or '|' are split into
+        individual synonyms — any matching part is accepted as correct.
+        Fuzzy matching is applied per-part and is only used for typing mode.
     """
     norm_user = normalize_text(user_answer)
     norm_correct = normalize_text(correct_answer)
@@ -295,8 +298,12 @@ def check_answer(user_answer: str, correct_answer: str, fuzzy: bool = False) -> 
     if norm_user == norm_correct:
         return True
 
+    parts = [normalize_text(p) for p in re.split(r'\s*[/|]\s*', correct_answer) if p.strip()]
+    if len(parts) > 1 and any(norm_user == p for p in parts):
+        return True
+
     if fuzzy:
-        ratio = SequenceMatcher(None, norm_user, norm_correct).ratio()
-        return ratio >= settings.TYPING_FUZZY_THRESHOLD
+        if any(SequenceMatcher(None, norm_user, p).ratio() >= settings.TYPING_FUZZY_THRESHOLD for p in parts):
+            return True
 
     return False
