@@ -95,7 +95,7 @@ def get_weakest_cards(db: Session, user_id: int, limit: int = 20) -> list[dict]:
         Cards never seen rank highest (weakness_score = 1.0).
     """
     cards_with_decks = (
-        db.query(Card, Deck.language, Deck.topic)
+        db.query(Card, Deck.subject, Deck.topic)
         .join(Deck, Deck.id == Card.deck_id)
         .filter(Card.is_active.is_(True))
         .all()
@@ -110,7 +110,7 @@ def get_weakest_cards(db: Session, user_id: int, limit: int = 20) -> list[dict]:
         return 1.0 if stat.times_seen == 0 else 1.0 - stat.times_correct / stat.times_seen
 
     results = []
-    for card, language, topic in cards_with_decks:
+    for card, subject, topic in cards_with_decks:
         card_stats = stats_by_card.get(card.id, [])
 
         if not card_stats:
@@ -129,10 +129,10 @@ def get_weakest_cards(db: Session, user_id: int, limit: int = 20) -> list[dict]:
 
         results.append({
             "card_id": card.id,
-            "word": card.word,
-            "meaning": card.meaning,
+            "term": card.term,
+            "definition": card.definition,
             "native": card.native,
-            "language": language,
+            "subject": subject,
             "topic": topic,
             "total_seen": total_seen,
             "total_correct": total_correct,

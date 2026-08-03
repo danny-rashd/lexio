@@ -9,6 +9,7 @@ from app.models.import_log import ImportBatch
 from app.utils.text import normalize_deck_label, normalize_text
 
 _ENCODINGS = ("utf-8-sig", "utf-8", "cp1252", "latin-1")
+_CATEGORIES = ("language", "general")
 
 
 def _detect_encoding(file_path: Path) -> str:
@@ -21,42 +22,43 @@ def _detect_encoding(file_path: Path) -> str:
     return "latin-1"
 
 
-def compute_idempotency_key(language: str, topic: str, word: str) -> str:
+def compute_idempotency_key(category: str, subject: str, topic: str, term: str) -> str:
     """
-    Deterministic hash for dedup: sha256(language:topic:normalize(word)).
+    Deterministic hash for dedup: sha256(category:subject:topic:normalize(term)).
 
     Args:
-        language (str): Deck language identifier (e.g. 'spanish').
-        topic (str): Deck topic identifier (e.g. 'greetings').
-        word (str): The vocabulary word (raw, not pre-normalized).
+        category (str): 'language' or 'general'.
+        subject (str): Deck subject identifier (e.g. 'spanish', 'history').
+        topic (str): Deck topic identifier (e.g. 'greetings', 'world-war-2').
+        term (str): The card term (raw, not pre-normalized).
 
     Returns:
         str: Hex digest string (64 chars).
 
     Notes:
-        Word is diacritics-stripped and lowercased before hashing so 'Café'
+        Term is diacritics-stripped and lowercased before hashing so 'Café'
         and 'cafe' produce the same key. For CJK scripts (Japanese, Mandarin)
         normalize_text() strips all characters to an empty string; in that
-        case the raw lowercased word is used directly so each character or
+        case the raw lowercased term is used directly so each character or
         compound remains a distinct key.
     """
-    normalized = normalize_text(word)
-    key_word = normalized if normalized.strip() else word.lower().strip()
-    raw = f"{language}:{topic}:{key_word}"
+    normalized = normalize_text(term)
+    key_term = normalized if normalized.strip() else term.lower().strip()
+    raw = f"{category}:{subject}:{topic}:{key_term}"
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
 
 def parse_vocab_file(file_path: Path) -> list[dict]:
     """
-    Parse a CSV or TSV vocabulary file into row dicts.
+    Parse a CSV or TSV vocab/topic file into row dicts.
 
     Args:
         file_path (Path): Absolute path to the .csv or .tsv file.
 
     Returns:
-        list[dict]: Each dict has keys 'word' (str), 'meaning' (str), and
-        'native' (str | None). Header row is excluded. Rows with empty meaning
-        are skipped. Comment lines (starting with '#') are skipped.
+        list[dict]: Each dict has keys 'term', 'definition', 'native',
+        'sentence', 'ipa', 'notes'. Header row is excluded. Rows with empty
+        definition are skipped. Comment lines (starting with '#') are skipped.
 
     Notes:
         - Auto-detects delimiter from file extension (.tsv → tab, else comma).
@@ -64,7 +66,12 @@ def parse_vocab_file(file_path: Path) -> list[dict]:
           exported from Excel or Numbers without manual encoding conversion.
         - Handles rows where the entire line is wrapped in outer quotes
           (e.g. '"hola,hello,"') by re-splitting the single field value.
-        - 'native' is None when the column is absent or blank.
+        - Columns beyond term/definition are optional and None when absent —
+          general-topic files typically omit native/sentence/ipa entirely.
+        - Comment lines are skipped wherever they appear, including before
+          the header row (e.g. '# subject: ...' metadata lines) — the header
+          row is whichever line is first to not start with '#', not
+          necessarily the file's first line.
     """
     delimiter = "\t" if file_path.suffix.lower() == ".tsv" else ","
     encoding = _detect_encoding(file_path)
@@ -72,7 +79,7 @@ def parse_vocab_file(file_path: Path) -> list[dict]:
 
     with open(file_path, encoding=encoding, newline="") as f:
         reader = csv.reader(f, delimiter=delimiter)
-        next(reader, None)
+        header_skipped = False
         for row in reader:
             if not row:
                 continue
@@ -80,16 +87,19 @@ def parse_vocab_file(file_path: Path) -> list[dict]:
                 row = next(csv.reader([row[0]]), row)
             if row[0].startswith("#"):
                 continue
-            word = row[0].strip()
-            meaning = row[1].strip() if len(row) > 1 else ""
+            if not header_skipped:
+                header_skipped = True
+                continue
+            term = row[0].strip()
+            definition = row[1].strip() if len(row) > 1 else ""
             native   = row[2].strip() if len(row) > 2 else ""
             sentence = row[3].strip() if len(row) > 3 else ""
             ipa      = row[4].strip() if len(row) > 4 else ""
             notes    = row[5].strip() if len(row) > 5 else ""
-            if not word or not meaning:
+            if not term or not definition:
                 continue
             rows.append({
-                "word": word, "meaning": meaning, "native": native or None,
+                "term": term, "definition": definition, "native": native or None,
                 "sentence": sentence or None, "ipa": ipa or None, "notes": notes or None,
             })
 
@@ -98,19 +108,21 @@ def parse_vocab_file(file_path: Path) -> list[dict]:
 
 def import_rows(
     db: Session,
-    language: str,
+    category: str,
+    subject: str,
     topic: str,
     rows: list[dict],
     source_file: str,
 ) -> ImportBatch:
     """
-    Idempotent ingest of pre-parsed vocabulary rows into the database.
+    Idempotent ingest of pre-parsed rows into the database.
 
     Args:
         db (Session): SQLAlchemy session.
-        language (str): Target language name (normalized internally).
+        category (str): 'language' or 'general'.
+        subject (str): Target subject name (normalized internally).
         topic (str): Target topic name (normalized internally).
-        rows (list[dict]): Each dict must have 'word', 'meaning', and 'native' keys.
+        rows (list[dict]): Each dict must have 'term' and 'definition' keys.
         source_file (str): Display name stored on the ImportBatch record.
 
     Returns:
@@ -118,20 +130,25 @@ def import_rows(
 
     Notes:
         Called by both import_vocab_file (CSV/TSV) and the Anki import endpoint.
-        Normalizes language and topic; upserts Deck; bulk-inserts new cards.
+        Normalizes subject and topic; upserts Deck; bulk-inserts new cards.
     """
-    language = normalize_deck_label(language)
-    topic    = normalize_deck_label(topic)
+    if category not in _CATEGORIES:
+        raise ValueError(f"category must be one of {_CATEGORIES}, got {category!r}")
 
-    deck = db.query(Deck).filter(Deck.language == language, Deck.topic == topic).first()
+    subject = normalize_deck_label(subject)
+    topic   = normalize_deck_label(topic)
+
+    deck = db.query(Deck).filter(
+        Deck.category == category, Deck.subject == subject, Deck.topic == topic
+    ).first()
     if not deck:
-        deck = Deck(language=language, topic=topic)
+        deck = Deck(category=category, subject=subject, topic=topic)
         db.add(deck)
         db.flush()
 
     rows_parsed = len(rows)
 
-    keyed = [(r, compute_idempotency_key(language, topic, r["word"])) for r in rows]
+    keyed = [(r, compute_idempotency_key(category, subject, topic, r["term"])) for r in rows]
     candidate_keys = [key for _, key in keyed]
 
     existing_keys = {
@@ -148,9 +165,9 @@ def import_rows(
             seen_in_batch.add(key)
             new_cards.append(Card(
                 deck_id=deck.id,
-                word=r["word"],
-                meaning=r["meaning"],
-                native=r["native"],
+                term=r["term"],
+                definition=r["definition"],
+                native=r.get("native"),
                 sentence=r.get("sentence"),
                 ipa=r.get("ipa"),
                 notes=r.get("notes"),
@@ -188,16 +205,18 @@ def import_rows(
 
 def import_vocab_file(
     db: Session,
-    language: str,
+    category: str,
+    subject: str,
     topic: str,
     file_path: Path,
 ) -> ImportBatch:
     """
-    Idempotent ingest of a vocabulary file into the database.
+    Idempotent ingest of a CSV/TSV file into the database.
 
     Args:
         db (Session): SQLAlchemy session.
-        language (str): Target language name (normalized internally).
+        category (str): 'language' or 'general'.
+        subject (str): Target subject name (normalized internally).
         topic (str): Target topic name (normalized internally).
         file_path (Path): Path to the source CSV or TSV file.
 
@@ -205,4 +224,4 @@ def import_vocab_file(
         ImportBatch: ORM instance with rows_parsed / rows_inserted / rows_skipped.
     """
     rows = parse_vocab_file(file_path)
-    return import_rows(db, language, topic, rows, str(file_path))
+    return import_rows(db, category, subject, topic, rows, str(file_path))

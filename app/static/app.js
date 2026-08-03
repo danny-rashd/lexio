@@ -11,7 +11,7 @@ const LANG = {
   german:   { code: 'DE', cls: 'pill-de', native: false },
 };
 
-const DIR_LABELS = {
+const DIR_LABELS_LANGUAGE = {
   '1_only':        'Word → Meaning',
   '2_only':        'Meaning → Word',
   '1_and_2':       'Both (1 & 2)',
@@ -20,6 +20,18 @@ const DIR_LABELS = {
   'all_available': 'All directions',
   'random':        'Random',
 };
+
+const DIR_LABELS_GENERAL = {
+  '1_only':        'Term → Definition',
+  '2_only':        'Definition → Term',
+  '1_and_2':       'Both (1 & 2)',
+  'all_available': 'All directions',
+  'random':        'Random',
+};
+
+function dirLabelsFor(category) {
+  return category === 'general' ? DIR_LABELS_GENERAL : DIR_LABELS_LANGUAGE;
+}
 
 const BIG_COUNT_OPTIONS = [10, 20, 50, 100];
 
@@ -46,7 +58,7 @@ const ACT_COLORS = {
 
 const App = {
   token:          sessionStorage.getItem('token'),
-  hiddenLanguages: new Set(),
+  hiddenSubjects: new Set(),
   decks:          [],
   quiz: {
     sessionId:  null,
@@ -103,9 +115,9 @@ async function apiUpload(path, formData) {
 
 const _ERROR_MAP = {
   'No active cards available for this session':
-    'This deck has no active cards to quiz. Import more vocabulary first.',
+    'This deck has no active cards to quiz. Import more cards first.',
   'Deck has no active cards':
-    'This deck has no active cards. Import more vocabulary first.',
+    'This deck has no active cards. Import more cards first.',
   'deck_id is required for test scope':
     'Please select a deck before starting.',
   'Deck not found':
@@ -380,7 +392,7 @@ function parseImportPreview(file) {
       }
 
       const headerParts = splitRow(lines[0]).map(s => s.toLowerCase());
-      const hasValidHeader = headerParts[0] === 'word' && headerParts[1] === 'meaning';
+      const hasValidHeader = headerParts[0] === 'term' && headerParts[1] === 'definition';
 
       const dataLines  = lines.slice(1);
       const totalRows  = dataLines.filter(l => {
@@ -395,7 +407,7 @@ function parseImportPreview(file) {
 
       let warning = null;
       if (!hasValidHeader) {
-        warning = `Header row looks wrong (found "${headerParts.slice(0,2).join('", "')}" — expected "word", "meaning"). The file may still import but check the format.`;
+        warning = `Header row looks wrong (found "${headerParts.slice(0,2).join('", "')}" — expected "term", "definition"). The file may still import but check the format.`;
       } else if (totalRows === 0) {
         warning = 'No data rows detected after the header. Check the file content.';
       }
@@ -777,19 +789,19 @@ function _miniCalHtml(studiedDates) {
     }).join('') + '</div>';
 }
 
-async function _loadHiddenLanguages() {
-  const res = await api('GET', '/api/settings/hidden-languages');
+async function _loadHiddenSubjects() {
+  const res = await api('GET', '/api/settings/hidden-subjects');
   if (res?.ok) {
     const { hidden } = await res.json();
-    App.hiddenLanguages = new Set(hidden || []);
+    App.hiddenSubjects = new Set(hidden || []);
   }
 }
 
-async function toggleHiddenLanguage(language, hidden) {
-  const res = await api('POST', '/api/settings/hidden-languages', { language, hidden });
+async function toggleHiddenSubject(subject, hidden) {
+  const res = await api('POST', '/api/settings/hidden-subjects', { subject, hidden });
   if (res?.ok) {
     const { hidden: updated } = await res.json();
-    App.hiddenLanguages = new Set(updated);
+    App.hiddenSubjects = new Set(updated);
   }
 }
 
@@ -806,7 +818,7 @@ async function showHome() {
   const [decksRes, streakRes] = await Promise.all([
     api('GET', '/api/decks'),
     api('GET', '/api/progress/streak'),
-    _loadHiddenLanguages(),
+    _loadHiddenSubjects(),
   ]);
 
   if (!decksRes) return;
@@ -850,11 +862,11 @@ async function showHome() {
 
   if (wotdRes?.ok) {
     const w = await wotdRes.json();
-    if (w?.word) {
+    if (w?.term) {
       const reasonLabels = { overdue: 'Overdue', due: 'Due today', weak: 'Needs work', new: 'New' };
-      document.getElementById('wotd-lang').innerHTML    = langPillHtml(w.language);
-      document.getElementById('wotd-word').textContent   = w.word;
-      document.getElementById('wotd-meaning').textContent = w.meaning || '';
+      document.getElementById('wotd-lang').innerHTML    = langPillHtml(w.subject);
+      document.getElementById('wotd-word').textContent   = w.term;
+      document.getElementById('wotd-meaning').textContent = w.definition || '';
       document.getElementById('wotd-native').textContent  = w.native || '';
       const badge = document.getElementById('wotd-reason-badge');
       badge.textContent  = reasonLabels[w.reason] || '';
@@ -894,8 +906,8 @@ async function showHome() {
       <div class="home-quick-inner">
         <div class="home-quick-text">
           <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.15rem">
-            ${langPillHtml(lastDeck.language)}
-            <span class="home-quick-title">Continue studying <strong>${esc(titleCase(lastDeck.language))}</strong></span>
+            ${langPillHtml(lastDeck.subject)}
+            <span class="home-quick-title">Continue studying <strong>${esc(titleCase(lastDeck.subject))}</strong></span>
           </div>
           <span class="text-secondary" style="font-size:.8rem">${esc(lastDeck.topic)} · ${seen} / ${lastDeck.card_count} seen</span>
         </div>
@@ -907,17 +919,17 @@ async function showHome() {
 
   // Weakest drill section
   if (weakestRes?.ok) {
-    const weakCards = (await weakestRes.json()).filter(c => !App.hiddenLanguages.has(c.language));
+    const weakCards = (await weakestRes.json()).filter(c => !App.hiddenSubjects.has(c.subject));
     if (weakCards.length) {
       const section = document.getElementById('home-weakest-drill');
       const preview = document.getElementById('weakest-drill-preview');
       preview.innerHTML = weakCards.slice(0, 4).map(c => `
         <div class="card weakest-card">
           <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.25rem">
-            ${langPillHtml(c.language)}
-            <span class="weakest-word">${esc(c.word)}</span>
+            ${langPillHtml(c.subject)}
+            <span class="weakest-word">${esc(c.term)}</span>
           </div>
-          <p class="weakest-meta">${esc(c.meaning)}</p>
+          <p class="weakest-meta">${esc(c.definition)}</p>
           <p class="weakest-meta">${Math.round((1 - (c.weakness_score || 0)) * 100)}% correct</p>
         </div>`).join('');
       section.classList.remove('hidden');
@@ -955,17 +967,17 @@ function renderWeakest(cards) {
   list.innerHTML = cards.map(c => `
     <div class="card weakest-card">
       <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.25rem">
-        ${langPillHtml(c.language)}
-        <span class="weakest-word">${esc(c.word)}</span>
+        ${langPillHtml(c.subject)}
+        <span class="weakest-word">${esc(c.term)}</span>
       </div>
-      <p class="weakest-meta">${esc(c.meaning)}</p>
+      <p class="weakest-meta">${esc(c.definition)}</p>
       <p class="weakest-meta">${Math.round((1 - (c.weakness_score || 0)) * 100)}% correct</p>
     </div>`).join('');
 }
 
-function _langProgress(language, decks, statsMap) {
-  const total = decks.filter(d => d.language === language).reduce((s, d) => s + d.card_count, 0);
-  const seen  = decks.filter(d => d.language === language).reduce((s, d) => s + (statsMap[d.id]?.cards_seen || 0), 0);
+function _subjectProgress(subject, decks, statsMap) {
+  const total = decks.filter(d => d.subject === subject).reduce((s, d) => s + d.card_count, 0);
+  const seen  = decks.filter(d => d.subject === subject).reduce((s, d) => s + (statsMap[d.id]?.cards_seen || 0), 0);
   return total > 0 ? Math.round(seen / total * 100) : 0;
 }
 
@@ -980,23 +992,23 @@ function renderDecks(decks, statsMap = {}) {
   }
   noDecks.classList.add('hidden');
 
-  const byLang = {};
+  const bySubject = {};
   for (const deck of decks) {
-    if (!App.hiddenLanguages.has(deck.language))
-      (byLang[deck.language] = byLang[deck.language] || []).push(deck);
+    if (!App.hiddenSubjects.has(deck.subject))
+      (bySubject[deck.subject] = bySubject[deck.subject] || []).push(deck);
   }
 
-  container.innerHTML = Object.entries(byLang).map(([lang, langDecks]) => {
-    const pct = _langProgress(lang, decks, statsMap);
+  container.innerHTML = Object.entries(bySubject).map(([subject, subjectDecks]) => {
+    const pct = _subjectProgress(subject, decks, statsMap);
     return `
-    <div class="lang-group" data-language="${esc(lang)}">
+    <div class="lang-group" data-subject="${esc(subject)}">
       <div class="lang-group-header">
-        ${langPillHtml(lang)}
-        <h3>${esc(titleCase(lang))}</h3>
+        ${langPillHtml(subject)}
+        <h3>${esc(titleCase(subject))}</h3>
         ${pct > 0 ? `<span class="lang-pct">${pct}% studied</span>` : ''}
       </div>
       <div class="topic-grid">
-        ${langDecks.map(deck => {
+        ${subjectDecks.map(deck => {
           const s    = statsMap[deck.id];
           const seen      = s?.cards_seen || 0;
           const remaining = Math.max(0, deck.card_count - seen);
@@ -1093,7 +1105,7 @@ async function startReview(deck) {
   }
   const data = await res.json();
   initQuizState(data, deck.id);
-  App.lastUsedDeck = { id: deck.id, language: deck.language, topic: deck.topic, card_count: deck.card_count };
+  App.lastUsedDeck = { id: deck.id, subject: deck.subject, topic: deck.topic, card_count: deck.card_count };
   sessionStorage.setItem('lastUsedDeck', JSON.stringify(App.lastUsedDeck));
   showScreen('screen-quiz');
   renderQuizQuestion(data.question);
@@ -1107,7 +1119,7 @@ async function exportDeck(deck) {
   const url  = URL.createObjectURL(blob);
   const a    = document.createElement('a');
   a.href = url;
-  a.download = `${deck.language}_${deck.topic}.lex`;
+  a.download = `${deck.subject}_${deck.topic}.lex`;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
@@ -1116,7 +1128,7 @@ async function exportDeck(deck) {
 
 async function deleteDeck(deck) {
   const confirmed = await showConfirm(
-    `Permanently delete "${deck.language} / ${deck.topic}"? All ${deck.card_count} cards, stats and import history will be removed. This cannot be undone.`,
+    `Permanently delete "${deck.subject} / ${deck.topic}"? All ${deck.card_count} cards, stats and import history will be removed. This cannot be undone.`,
     'Delete', true
   );
   if (!confirmed) return;
@@ -1151,12 +1163,12 @@ document.getElementById('btn-nav-progress').addEventListener('click', showProgre
 function showTestSetup(preselectedDeck) {
   showScreen('screen-test-setup');
 
-  const languages = [...new Set(App.decks.map(d => d.language))].filter(l => !App.hiddenLanguages.has(l));
+  const subjects  = [...new Set(App.decks.map(d => d.subject))].filter(l => !App.hiddenSubjects.has(l));
   const selLang   = document.getElementById('sel-language');
   const selTopic  = document.getElementById('sel-topic');
-  selLang.innerHTML = languages.map(l => `<option value="${esc(l)}">${esc(titleCase(l))}</option>`).join('');
+  selLang.innerHTML = subjects.map(l => `<option value="${esc(l)}">${esc(titleCase(l))}</option>`).join('');
 
-  if (preselectedDeck) selLang.value = preselectedDeck.language;
+  if (preselectedDeck) selLang.value = preselectedDeck.subject;
 
   const locked = !!preselectedDeck;
   selLang.disabled  = locked;
@@ -1175,9 +1187,9 @@ function showTestSetup(preselectedDeck) {
 }
 
 function updateTopics(preselectedDeckId) {
-  const lang     = document.getElementById('sel-language').value;
+  const subject  = document.getElementById('sel-language').value;
   const selTopic = document.getElementById('sel-topic');
-  const filtered = App.decks.filter(d => d.language === lang);
+  const filtered = App.decks.filter(d => d.subject === subject);
   selTopic.innerHTML = filtered.map(d => `<option value="${d.id}">${esc(d.topic)}</option>`).join('');
   if (preselectedDeckId) selTopic.value = String(preselectedDeckId);
 }
@@ -1191,8 +1203,10 @@ const _LANG_EXAMPLES = {
   mandarin: { w: 'nǐ hǎo',      m: 'hello',  n: '你好'       },
 };
 
-function _dirExamples(language) {
-  const e = _LANG_EXAMPLES[language?.toLowerCase()] || { w: 'word', m: 'meaning', n: null };
+function _dirExamples(subject, category) {
+  const e = category === 'general'
+    ? { w: 'term', m: 'definition', n: null }
+    : (_LANG_EXAMPLES[subject?.toLowerCase()] || { w: 'word', m: 'meaning', n: null });
   return {
     '1_only':        `${e.w} → ${e.m}`,
     '2_only':        `${e.m} → ${e.w}`,
@@ -1204,12 +1218,14 @@ function _dirExamples(language) {
   };
 }
 
-function renderDirectionGrid(language) {
-  const native   = hasNativeScript(language);
+function renderDirectionGrid(subject) {
+  const category = App.decks.find(d => d.subject === subject)?.category || 'language';
+  const native   = hasNativeScript(subject);
   const dirs     = native
     ? ['1_only', '2_only', '1_and_2', '3_only', '4_only', 'all_available', 'random']
     : ['1_only', '2_only', '1_and_2'];
-  const examples = _dirExamples(language);
+  const examples = _dirExamples(subject, category);
+  const labels   = dirLabelsFor(category);
 
   if (!dirs.includes(App.testDirection)) App.testDirection = '1_and_2';
 
@@ -1218,7 +1234,7 @@ function renderDirectionGrid(language) {
   dirs.forEach(dir => {
     const btn = document.createElement('button');
     btn.className = `toggle-btn dir-btn${App.testDirection === dir ? ' active' : ''}`;
-    btn.innerHTML = `<span class="dir-btn-label">${DIR_LABELS[dir]}</span>
+    btn.innerHTML = `<span class="dir-btn-label">${labels[dir]}</span>
                      <span class="dir-btn-example">${examples[dir] || ''}</span>`;
     btn.addEventListener('click', () => {
       App.testDirection = dir;
@@ -1227,13 +1243,13 @@ function renderDirectionGrid(language) {
     grid.appendChild(btn);
   });
 
-  checkMcqAvailability(language);
+  checkMcqAvailability(subject);
 }
 
-function checkMcqAvailability(language) {
+function checkMcqAvailability(subject) {
   const langCardCount = App.decks
-    .filter(d => d.language === language)
-    .reduce((max, d) => Math.max(max, d.language_card_count), 0);
+    .filter(d => d.subject === subject)
+    .reduce((max, d) => Math.max(max, d.subject_card_count), 0);
 
   const warning = document.getElementById('mcq-warning');
   const mcqBtn  = document.querySelector('#test-mode-grid .mode-card[data-mode="mcq"]');
@@ -1307,7 +1323,7 @@ document.getElementById('btn-test-start').addEventListener('click', async () => 
   // Remember last used deck for quick-start card on Home
   const deck = App.decks.find(d => d.id === deckId);
   if (deck) {
-    App.lastUsedDeck = { id: deck.id, language: deck.language, topic: deck.topic, card_count: deck.card_count };
+    App.lastUsedDeck = { id: deck.id, subject: deck.subject, topic: deck.topic, card_count: deck.card_count };
     sessionStorage.setItem('lastUsedDeck', JSON.stringify(App.lastUsedDeck));
   }
 
@@ -1327,7 +1343,7 @@ function _updateTotalRecallStart() {
 function showBigTestSetup() {
   showScreen('screen-big-test-setup');
 
-  const langs = [...new Set(App.decks.map(d => d.language))].filter(l => !App.hiddenLanguages.has(l)).sort();
+  const langs = [...new Set(App.decks.map(d => d.subject))].filter(l => !App.hiddenSubjects.has(l)).sort();
   App.totalRecallLangs = new Set(langs);
 
   const langContainer = document.getElementById('total-recall-langs');
@@ -1389,7 +1405,7 @@ document.getElementById('btn-big-start').addEventListener('click', async () => {
     mode:       App.bigTestMode,
     direction:  '1_and_2',
     card_count: App.bigTestCount,
-    languages:  selectedLangs,
+    subjects:   selectedLangs,
   });
 
   if (!res || !res.ok) {
@@ -1446,9 +1462,9 @@ function renderQuizQuestion(question) {
   document.getElementById('hint-display').textContent = '';
   document.getElementById('btn-hint').disabled = false;
 
-  // Language pill
+  // Subject pill
   document.getElementById('quiz-lang-pill').innerHTML =
-    question.language ? langPillHtml(question.language) : '';
+    question.subject ? langPillHtml(question.subject) : '';
 
   // Native script display (direction 1: show native below word; directions 3 & 4: native IS the prompt)
   if (question.native) {
@@ -1468,7 +1484,7 @@ function renderQuizQuestion(question) {
   } else {
     ttsBtn.classList.remove('hidden');
     ttsBtn.dataset.text = speakText;
-    ttsBtn.dataset.lang = question.language || '';
+    ttsBtn.dataset.lang = question.subject || '';
   }
 
   if (question.type === 'mcq')             renderMcq(question);
@@ -1484,7 +1500,7 @@ function renderQuizQuestion(question) {
   const autoSpeakNow =
     (question.type === 'flashcard' && speakText === question.question) ||
     (question.type !== 'flashcard' && question.resolved_direction === 'word_to_meaning');
-  if (autoSpeakNow) speak(speakText, question.language);
+  if (autoSpeakNow) speak(speakText, question.subject);
 }
 
 function renderMcq(question) {
@@ -1611,11 +1627,12 @@ async function handleAnswer(userAnswer, correctAnswer, diacriticsRemark = false)
   if (data.is_correct) App.quiz.correct++;
 
   App.quiz.answers.push({
+    card_id:        q.card_id,
     question:       q.question,
     user_answer:    userAnswer,
     correct_answer: data.correct_answer,
     is_correct:     data.is_correct,
-    language:       q.language || '',
+    subject:        q.subject || '',
   });
 
   updateQuizProgress();
@@ -1686,7 +1703,7 @@ function showFeedback(isCorrect, correctAnswer, nextQuestion, diacriticsRemark =
   startCountdown(advance);
 
   // Auto-speak the foreign word during the countdown
-  if (q?.speak_text) speak(q.speak_text, q.language);
+  if (q?.speak_text) speak(q.speak_text, q.subject);
 }
 
 // ── Hint ──────────────────────────────────────────────────────────────────────
@@ -1771,7 +1788,7 @@ function showResults() {
     document.getElementById('missed-tbody').innerHTML = missed.map(a => {
       const { ca, ua } = _displayAnswer(a);
       return `<tr>
-        <td>${langPillHtml(a.language)} ${esc(a.question)}</td>
+        <td>${langPillHtml(a.subject)} ${esc(a.question)}</td>
         <td class="answer-wrong">${ua}</td>
         <td class="answer-correct">${ca}</td>
       </tr>`;
@@ -1792,7 +1809,7 @@ function showResults() {
     const { ca, ua } = _displayAnswer(a);
     const icon = a.is_correct ? '<span class="answer-tick">✓</span>' : '<span class="answer-cross">✗</span>';
     return `<tr>
-      <td>${langPillHtml(a.language)} ${esc(a.question)}</td>
+      <td>${langPillHtml(a.subject)} ${esc(a.question)}</td>
       <td>${ua}</td>
       <td class="${a.is_correct ? 'answer-correct' : 'answer-wrong'}">${ca}</td>
       <td>${icon}</td>
@@ -1840,7 +1857,7 @@ document.getElementById('btn-results-home').addEventListener('click', showHome);
 async function showBrowse(deck) {
   App.browse.deck = deck;
   App.browse.page = 1;
-  document.getElementById('browse-title').textContent = `${titleCase(deck.language)} / ${deck.topic}`;
+  document.getElementById('browse-title').textContent = `${titleCase(deck.subject)} / ${deck.topic}`;
   document.getElementById('inp-search').value = '';
   document.getElementById('btn-browse-export').classList.remove('hidden');
   document.getElementById('btn-browse-delete').classList.remove('hidden');
@@ -1890,13 +1907,13 @@ function renderBrowseCards(cards) {
     const sentence = c.sentence ? c.sentence.replace(/\{\{(.+?)\}\}/g, '$1') : '';
     return `
     <tr class="browse-row${(sentence || c.notes) ? ' browse-row-expandable' : ''}" data-card-id="${c.id}">
-      <td>${esc(c.word)}${c.ipa ? `<br><span class="browse-ipa">${esc(c.ipa)}</span>` : ''}${(sentence || c.notes) ? ' <span class="browse-expand-hint">▸</span>' : ''}</td>
-      <td>${esc(c.meaning)}</td>
+      <td>${esc(c.term)}${c.ipa ? `<br><span class="browse-ipa">${esc(c.ipa)}</span>` : ''}${(sentence || c.notes) ? ' <span class="browse-expand-hint">▸</span>' : ''}</td>
+      <td>${esc(c.definition)}</td>
       <td>${c.native ? esc(c.native) : '<span style="color:var(--text-secondary)">—</span>'}</td>
       <td class="browse-actions">
-        <button class="btn-ghost btn-sm btn-tts-row" data-speak="${esc(c.word)}" data-lang="${esc(App.browse.deck?.language || '')}" aria-label="Speak">🔊</button>
-        ${c.meaning.toLowerCase().startsWith('to ') ? `<button class="btn-ghost btn-sm" data-conj-id="${c.id}" data-conj-word="${esc(c.word)}">Conj.</button>` : ''}
-        <button class="btn-ghost btn-sm" data-edit-id="${c.id}" data-edit-word="${esc(c.word)}" data-edit-meaning="${esc(c.meaning)}" data-edit-native="${esc(c.native || '')}" data-edit-sentence="${esc(c.sentence || '')}" data-edit-ipa="${esc(c.ipa || '')}" data-edit-notes="${esc(c.notes || '')}">Edit</button>
+        <button class="btn-ghost btn-sm btn-tts-row" data-speak="${esc(c.term)}" data-lang="${esc(App.browse.deck?.subject || '')}" aria-label="Speak">🔊</button>
+        ${(App.browse.deck?.category === 'language' && c.definition.toLowerCase().startsWith('to ')) ? `<button class="btn-ghost btn-sm" data-conj-id="${c.id}" data-conj-word="${esc(c.term)}">Conj.</button>` : ''}
+        <button class="btn-ghost btn-sm" data-edit-id="${c.id}" data-edit-word="${esc(c.term)}" data-edit-meaning="${esc(c.definition)}" data-edit-native="${esc(c.native || '')}" data-edit-sentence="${esc(c.sentence || '')}" data-edit-ipa="${esc(c.ipa || '')}" data-edit-notes="${esc(c.notes || '')}">Edit</button>
         <button class="btn-danger btn-sm" data-delete-id="${c.id}">Delete</button>
       </td>
     </tr>
@@ -2049,7 +2066,7 @@ document.getElementById('card-edit-save').addEventListener('click', async () => 
 
   const saveBtn = document.getElementById('card-edit-save');
   setLoading(saveBtn, true);
-  const res = await api('PATCH', `/api/cards/${_editingCardId}`, { word, meaning, native, sentence, ipa, notes });
+  const res = await api('PATCH', `/api/cards/${_editingCardId}`, { term: word, definition: meaning, native, sentence, ipa, notes });
   setLoading(saveBtn, false);
 
   if (!res?.ok) {
@@ -2066,7 +2083,7 @@ document.getElementById('card-edit-save').addEventListener('click', async () => 
 document.getElementById('inp-search').addEventListener('input', e => {
   const q = e.target.value.toLowerCase();
   renderBrowseCards(App.browse.cards.filter(c =>
-    c.word.toLowerCase().includes(q) || c.meaning.toLowerCase().includes(q)
+    c.term.toLowerCase().includes(q) || c.definition.toLowerCase().includes(q)
   ));
 });
 
@@ -2077,6 +2094,7 @@ document.getElementById('btn-browse-back').addEventListener('click', showHome);
 function showImport(preselectedDeck) {
   App.importFile   = null;
   App.ankiData     = null;
+  App.importPreselectedCategory = preselectedDeck?.category || null;
   document.getElementById('inp-import-file').value  = '';
   document.getElementById('drop-filename').classList.add('hidden');
   document.getElementById('import-result').classList.add('hidden');
@@ -2087,17 +2105,22 @@ function showImport(preselectedDeck) {
   const fields  = document.getElementById('import-lang-topic-fields');
   const badge   = document.getElementById('import-deck-context');
   const badgeLbl = document.getElementById('import-context-label');
+  const catSel  = document.getElementById('sel-import-category');
 
   if (preselectedDeck) {
     fields.classList.add('hidden');
     badge.classList.remove('hidden');
-    badgeLbl.textContent = `${titleCase(preselectedDeck.language)} / ${preselectedDeck.topic}`;
-    _populateImportLangSelect(preselectedDeck.language);
-    _populateImportTopicSelect(preselectedDeck.language);
+    badgeLbl.textContent = `${titleCase(preselectedDeck.subject)} / ${preselectedDeck.topic}`;
+    catSel.value = preselectedDeck.category;
+    _updateImportSubjectField();
+    _populateImportLangSelect(preselectedDeck.subject);
+    _populateImportTopicSelect(preselectedDeck.category, preselectedDeck.subject);
     document.getElementById('sel-import-topic').value = preselectedDeck.topic;
   } else {
     fields.classList.remove('hidden');
     badge.classList.add('hidden');
+    catSel.value = 'language';
+    _updateImportSubjectField();
     _populateImportLangSelect('');
   }
 
@@ -2106,27 +2129,52 @@ function showImport(preselectedDeck) {
 
 const SUPPORTED_LANGS = ['spanish', 'mandarin', 'japanese', 'norsk', 'french', 'german'];
 
+function _updateImportSubjectField() {
+  const category = document.getElementById('sel-import-category').value;
+  const sel   = document.getElementById('sel-import-lang');
+  const inp   = document.getElementById('inp-import-lang-new');
+  const label = document.getElementById('import-subject-label');
+  if (category === 'general') {
+    label.textContent = 'Subject';
+    sel.classList.add('hidden');
+    inp.classList.remove('hidden');
+    inp.value = '';
+    _populateImportTopicSelect('general', '');
+  } else {
+    label.textContent = 'Language';
+    sel.classList.remove('hidden');
+    inp.classList.add('hidden');
+    _populateImportLangSelect('');
+  }
+}
+
+document.getElementById('sel-import-category').addEventListener('change', () => {
+  if (document.getElementById('import-lang-topic-fields').classList.contains('hidden')) return;
+  _updateImportSubjectField();
+});
+
+document.getElementById('inp-import-lang-new').addEventListener('input', () => {
+  _populateImportTopicSelect('general', document.getElementById('inp-import-lang-new').value.trim());
+});
+
 function _populateImportLangSelect(preselected) {
   const sel = document.getElementById('sel-import-lang');
-  const inp = document.getElementById('inp-import-lang-new');
 
   // Show all supported languages including any extras in DB (hidden ones still importable)
-  const existing = App.decks.map(d => d.language);
+  const existing = App.decks.filter(d => d.category === 'language').map(d => d.subject);
   const langs    = [...new Set([...SUPPORTED_LANGS, ...existing])].sort();
 
   sel.innerHTML = langs.map(l => `<option value="${esc(l)}">${esc(titleCase(l))}</option>`).join('');
 
   if (preselected && langs.includes(preselected)) sel.value = preselected;
 
-  // No "New language" option — hide the text input entirely
-  inp.classList.add('hidden');
-  _populateImportTopicSelect(sel.value);
+  _populateImportTopicSelect('language', sel.value);
 }
 
-function _populateImportTopicSelect(language) {
+function _populateImportTopicSelect(category, subject) {
   const sel    = document.getElementById('sel-import-topic');
   const inp    = document.getElementById('inp-import-topic-new');
-  const topics = App.decks.filter(d => d.language === language).map(d => d.topic).sort();
+  const topics = App.decks.filter(d => d.category === category && d.subject === subject).map(d => d.topic).sort();
 
   sel.innerHTML = topics.map(t => `<option value="${esc(t)}">${esc(t)}</option>`).join('')
     + '<option value="__new__">+ New topic…</option>';
@@ -2136,7 +2184,7 @@ function _populateImportTopicSelect(language) {
 }
 
 document.getElementById('sel-import-lang').addEventListener('change', () => {
-  _populateImportTopicSelect(document.getElementById('sel-import-lang').value);
+  _populateImportTopicSelect('language', document.getElementById('sel-import-lang').value);
 });
 
 document.getElementById('sel-import-topic').addEventListener('change', () => {
@@ -2145,8 +2193,14 @@ document.getElementById('sel-import-topic').addEventListener('change', () => {
   if (!inp.classList.contains('hidden')) inp.focus();
 });
 
-function _importLang() {
-  return document.getElementById('sel-import-lang').value;
+function _importCategory() {
+  return App.importPreselectedCategory || document.getElementById('sel-import-category').value;
+}
+
+function _importSubject() {
+  return _importCategory() === 'general'
+    ? document.getElementById('inp-import-lang-new').value.trim()
+    : document.getElementById('sel-import-lang').value;
 }
 
 function _importTopic() {
@@ -2236,29 +2290,39 @@ async function _handleLexFile(file) {
   submitBtn.disabled = true;
 
   const text = await file.text();
-  let language = '', topic = '';
+  let category = '', subject = '', topic = '';
   for (const line of text.split('\n')) {
     if (!line.startsWith('#')) break;
-    const lm = line.match(/^#\s*language:\s*(.+)/i);
-    if (lm) language = lm[1].trim();
+    const cm = line.match(/^#\s*category:\s*(.+)/i);
+    if (cm) category = cm[1].trim();
+    const sm = line.match(/^#\s*subject:\s*(.+)/i) || line.match(/^#\s*language:\s*(.+)/i);
+    if (sm) subject = sm[1].trim();
     const tm = line.match(/^#\s*topic:\s*(.+)/i);
     if (tm) topic = tm[1].trim();
   }
+  if (!category) category = 'language';  // older .lex exports had no category line
 
-  // Auto-fill language
-  if (language) {
-    const langSel = document.getElementById('sel-import-lang');
-    const exists  = [...langSel.options].some(o => o.value === language);
-    if (exists) {
-      langSel.value = language;
-      _populateImportTopicSelect(language);
+  // Auto-fill category + subject
+  const catSel = document.getElementById('sel-import-category');
+  if (['language', 'general'].includes(category)) {
+    catSel.value = category;
+    _updateImportSubjectField();
+  }
+  if (subject) {
+    if (category === 'general') {
+      document.getElementById('inp-import-lang-new').value = subject;
+    } else {
+      const langSel = document.getElementById('sel-import-lang');
+      const exists  = [...langSel.options].some(o => o.value === subject);
+      if (exists) langSel.value = subject;
     }
   }
+  _populateImportTopicSelect(category, subject);
 
   // Auto-fill topic
   if (topic) {
     const topicSel  = document.getElementById('sel-import-topic');
-    const matchDeck = App.decks.find(d => d.language === language && d.topic === topic);
+    const matchDeck = App.decks.find(d => d.category === category && d.subject === subject && d.topic === topic);
     if (matchDeck) {
       topicSel.value = String(matchDeck.id);
       document.getElementById('inp-import-topic-new').classList.add('hidden');
@@ -2299,7 +2363,7 @@ async function _handleLexFile(file) {
 }
 
 function _applyPreviewWarning(formatWarning, previewRows) {
-  const langWarn = _langWarning(previewRows || [], _importLang());
+  const langWarn = _importCategory() === 'language' ? _langWarning(previewRows || [], _importSubject()) : null;
   const combined = [formatWarning, langWarn].filter(Boolean).join(' ');
   const warnEl   = document.getElementById('preview-warning');
   if (combined) {
@@ -2391,13 +2455,14 @@ document.getElementById('anki-note-type').addEventListener('change', e => {
 document.getElementById('btn-import-back').addEventListener('click', showHome);
 
 document.getElementById('btn-import-submit').addEventListener('click', async () => {
-  const language = _importLang();
+  const category = _importCategory();
+  const subject  = _importSubject();
   const topic    = _importTopic();
   const file     = App.importFile || fileInput.files[0];
   const resultEl = document.getElementById('import-result');
   const btn      = document.getElementById('btn-import-submit');
 
-  if (!language) { await showAlert('Please enter a language name.'); return; }
+  if (!subject) { await showAlert(category === 'general' ? 'Please enter a subject name.' : 'Please select a language.'); return; }
   if (!topic)    { await showAlert('Please enter a topic name.'); return; }
   if (!file)     { await showAlert('Please select a file.'); return; }
 
@@ -2408,22 +2473,22 @@ document.getElementById('btn-import-submit').addEventListener('click', async () 
   let res;
   if (App.ankiData) {
     // Anki .apkg confirm
-    const nt      = App.ankiData.noteTypes[App.ankiData.selectedNtIdx];
-    const fWord    = document.getElementById('anki-field-word').value;
-    const fMeaning = document.getElementById('anki-field-meaning').value;
-    const fNative  = document.getElementById('anki-field-native').value;
+    const nt          = App.ankiData.noteTypes[App.ankiData.selectedNtIdx];
+    const fTerm       = document.getElementById('anki-field-word').value;
+    const fDefinition = document.getElementById('anki-field-meaning').value;
+    const fNative     = document.getElementById('anki-field-native').value;
     const params   = new URLSearchParams({
-      language, topic,
+      category, subject, topic,
       note_type_id: nt.id,
-      field_word: fWord,
-      field_meaning: fMeaning,
+      field_term: fTerm,
+      field_definition: fDefinition,
       ...(fNative !== '-1' ? { field_native: fNative } : {}),
     });
     res = await apiUpload(`/api/import/anki/confirm?${params}`, formData);
   } else {
     // CSV / TSV
     res = await apiUpload(
-      `/api/import?language=${encodeURIComponent(language)}&topic=${encodeURIComponent(topic)}`,
+      `/api/import?category=${encodeURIComponent(category)}&subject=${encodeURIComponent(subject)}&topic=${encodeURIComponent(topic)}`,
       formData,
     );
   }
@@ -2436,7 +2501,7 @@ document.getElementById('btn-import-submit').addEventListener('click', async () 
   if (res.ok) {
     if (data.rows_parsed === 0) {
       resultEl.className   = 'import-result error';
-      resultEl.textContent = 'No rows imported. Check your file has a word,meaning,native header and valid data.';
+      resultEl.textContent = 'No rows imported. Check your file has a term,definition,native header and valid data.';
     } else {
       resultEl.className = 'import-result success';
       resultEl.innerHTML = `<strong>Import complete!</strong> Parsed: ${data.rows_parsed} · Inserted: ${data.rows_inserted} · Skipped: ${data.rows_skipped}`;
@@ -2513,19 +2578,19 @@ function _langColour(language) {
   return clsMap[langConfig(language).cls] || '#6B6B6B';
 }
 
-function _renderProficiency(languages) {
+function _renderProficiency(subjects) {
   const container = document.getElementById('lang-proficiency');
-  container._lastLanguages = languages;
-  if (!languages.length) { container.innerHTML = '<p class="text-secondary" style="font-size:.85rem">No study data yet.</p>'; return; }
+  container._lastSubjects = subjects;
+  if (!subjects.length) { container.innerHTML = '<p class="text-secondary" style="font-size:.85rem">No study data yet.</p>'; return; }
 
-  container.innerHTML = languages.map(l => {
+  container.innerHTML = subjects.map(l => {
     const coverage  = l.total_cards > 0 ? (l.cards_seen || 0) / l.total_cards : 0;
     const score     = (l.correct_rate || 0) * coverage;
     const scorePct  = Math.round(score * 100);          // drives bar + badge
     const correctPct = Math.round((l.correct_rate || 0) * 100);  // shown as label
     const covPct    = Math.round(coverage * 100);
     const badge     = _profBadge(score);
-    const colour    = _langColour(l.language);
+    const colour    = _langColour(l.subject);
     const dirs   = Object.entries(l.directions || {});
 
     const dirRows = dirs.length
@@ -2557,19 +2622,19 @@ function _renderProficiency(languages) {
         </div>
       </div>`;
 
-    const isHidden  = App.hiddenLanguages.has(l.language);
+    const isHidden  = App.hiddenSubjects.has(l.subject);
     const eyeTitle  = isHidden ? 'Show in app' : 'Hide from app';
     const eyeIcon   = isHidden
       ? `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88"/></svg>`
       : `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"/><path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>`;
 
     return `
-      <div class="card prof-card ${isHidden ? 'prof-card-hidden' : ''}" data-lang="${esc(l.language)}">
+      <div class="card prof-card ${isHidden ? 'prof-card-hidden' : ''}" data-lang="${esc(l.subject)}">
         <div class="prof-header">
-          ${langPillHtml(l.language)}
-          <span class="prof-name">${esc(l.language)}</span>
+          ${langPillHtml(l.subject)}
+          <span class="prof-name">${esc(l.subject)}</span>
           <span class="prof-badge ${badge.cls}">${badge.label}</span>
-          <button class="prof-eye-btn" data-lang="${esc(l.language)}" data-hidden="${isHidden}" title="${eyeTitle}" onclick="event.stopPropagation()">${eyeIcon}</button>
+          <button class="prof-eye-btn" data-lang="${esc(l.subject)}" data-hidden="${isHidden}" title="${eyeTitle}" onclick="event.stopPropagation()">${eyeIcon}</button>
           <span class="prof-expand">&#9658;</span>
         </div>
         <div class="prof-bar-row">
@@ -2593,10 +2658,10 @@ function _renderProficiency(languages) {
 
   container.querySelectorAll('.prof-eye-btn').forEach(btn => {
     btn.addEventListener('click', async () => {
-      const lang      = btn.dataset.lang;
+      const subject   = btn.dataset.lang;
       const nowHidden = btn.dataset.hidden !== 'true';
-      await toggleHiddenLanguage(lang, nowHidden);
-      _renderProficiency(container._lastLanguages);
+      await toggleHiddenSubject(subject, nowHidden);
+      _renderProficiency(container._lastSubjects);
     });
   });
 }
@@ -2619,13 +2684,16 @@ function _renderWeakestTable() {
   const slice  = cards.slice(start, start + _PT_PAGE);
 
   document.getElementById('progress-tbody').innerHTML = slice.length
-    ? slice.map(c => `<tr>
-        <td>${langPillHtml(c.language)}</td>
-        <td><strong>${esc(c.word)}</strong><br><small class="text-secondary">${esc(c.meaning)}</small></td>
+    ? slice.map(c => {
+        const category = App.decks.find(d => d.subject === c.subject)?.category || 'language';
+        return `<tr>
+        <td>${langPillHtml(c.subject)}</td>
+        <td><strong>${esc(c.term)}</strong><br><small class="text-secondary">${esc(c.definition)}</small></td>
         <td>${c.total_seen}</td>
         <td>${c.total_seen ? Math.round((c.total_correct / c.total_seen) * 100) + '%' : '—'}</td>
-        <td><span class="dir-badge">${DIR_LABELS[c.weakest_direction] || c.weakest_direction}</span></td>
-      </tr>`).join('')
+        <td><span class="dir-badge">${dirLabelsFor(category)[c.weakest_direction] || c.weakest_direction}</span></td>
+      </tr>`;
+      }).join('')
     : '<tr><td colspan="5" style="text-align:center;padding:2rem;color:var(--text-secondary)">No cards studied at least twice yet.</td></tr>';
 
   document.querySelectorAll('#progress-table-head th[data-col]').forEach(th => {
@@ -2721,8 +2789,8 @@ async function showJournal() {
   document.getElementById('journal-date').valueAsDate = new Date();
 
   // Populate language dropdowns (journal log uses visible langs only; history filter shows all)
-  const langs       = [...new Set(App.decks.map(d => d.language))].sort();
-  const visibleLangs = langs.filter(l => !App.hiddenLanguages.has(l));
+  const langs       = [...new Set(App.decks.filter(d => d.category === 'language').map(d => d.subject))].sort();
+  const visibleLangs = langs.filter(l => !App.hiddenSubjects.has(l));
   const langSel = document.getElementById('journal-lang');
   langSel.innerHTML = visibleLangs.map(l => `<option value="${esc(l)}">${esc(titleCase(l))}</option>`).join('');
 
@@ -3094,14 +3162,14 @@ async function _ptxSave(entryId) {
   setLoading(saveBtn, true);
   statusEl.textContent = '';
 
-  const deckRes = await api('POST', '/api/decks', { language: lang, topic });
+  const deckRes = await api('POST', '/api/decks', { category: 'language', subject: lang, topic });
   if (!deckRes?.ok) { setLoading(saveBtn, false); statusEl.textContent = 'Could not find deck.'; return; }
   const deck = await deckRes.json();
 
   let added = 0, skipped = 0;
   for (const w of words) {
     const res = await api('POST', '/api/cards',
-      { deck_id: deck.id, word: w.word, meaning: w.meaning || '(no meaning)', native: w.native, source_log_id: parseInt(entryId) });
+      { deck_id: deck.id, term: w.word, definition: w.meaning || '(no meaning)', native: w.native, source_log_id: parseInt(entryId) });
     if (res?.status === 201)  added++;
     else if (res?.status === 409) skipped++;
   }
@@ -3226,7 +3294,7 @@ document.getElementById('journal-history').addEventListener('click', async e => 
   setLoading(submitBtn, true);
   status.textContent = '';
 
-  const deckRes = await api('POST', '/api/decks', { language: lang, topic });
+  const deckRes = await api('POST', '/api/decks', { category: 'language', subject: lang, topic });
   if (!deckRes?.ok) {
     setLoading(submitBtn, false);
     status.textContent = 'Could not find deck.';
@@ -3238,7 +3306,7 @@ document.getElementById('journal-history').addEventListener('click', async e => 
   let added = 0, skipped = 0;
   for (const row of rows) {
     const res = await api('POST', '/api/cards',
-      { deck_id: deck.id, word: row.word, meaning: row.meaning, native: row.native, sentence: row.sentence, source_log_id: logId });
+      { deck_id: deck.id, term: row.word, definition: row.meaning, native: row.native, sentence: row.sentence, source_log_id: logId });
     if (res?.status === 201)    added++;
     else if (res?.status === 409) skipped++;
   }
@@ -3353,9 +3421,9 @@ async function showEssay() {
   document.getElementById('essay-word-count').textContent = '0 words';
   document.getElementById('btn-essay-submit').disabled = true;
 
-  const langs     = [...new Set(App.decks.map(d => d.language))].sort();
+  const langs     = [...new Set(App.decks.filter(d => d.category === 'language').map(d => d.subject))].sort();
   const langList  = langs.length ? langs : SUPPORTED_LANGS;
-  const visLangs  = langList.filter(l => !App.hiddenLanguages.has(l));
+  const visLangs  = langList.filter(l => !App.hiddenSubjects.has(l));
 
   document.getElementById('sel-essay-lang').innerHTML =
     visLangs.map(l => `<option value="${esc(l)}">${esc(titleCase(l))}</option>`).join('');
@@ -3559,7 +3627,7 @@ function _renderStudyInvestment(dashLangs, immStats) {
   const ct = document.getElementById('study-investment-content');
   if (!dashLangs?.length) { el.classList.add('hidden'); return; }
 
-  const quizByLang = Object.fromEntries(dashLangs.map(l => [l.language, l.quiz_cards_total || 0]));
+  const quizByLang = Object.fromEntries(dashLangs.map(l => [l.subject, l.quiz_cards_total || 0]));
   const imByLang   = immStats?.by_language || {};
   const langs      = [...new Set([...Object.keys(quizByLang), ...Object.keys(imByLang)])];
   if (!langs.length) { el.classList.add('hidden'); return; }
@@ -3704,13 +3772,13 @@ async function showProgress() {
   let dashData = null;
   if (dashRes?.ok) {
     dashData = await dashRes.json();
-    _renderProficiency(dashData.languages || []);
+    _renderProficiency(dashData.subjects || []);
   }
 
   let immData = null;
   if (immersionRes?.ok) immData = await immersionRes.json();
 
-  _renderStudyInvestment(dashData?.languages, immData);
+  _renderStudyInvestment(dashData?.subjects, immData);
 
   // Writing section — sparklines per language
   if (essayRes?.ok) {
@@ -3804,7 +3872,7 @@ function _openResetModal(type) {
   document.getElementById('reset-modal-title').textContent =
     isSoft ? 'Soft Reset' : 'Hard Reset — this cannot be undone';
   document.getElementById('reset-modal-desc').textContent = isSoft
-    ? 'All quiz history, card statistics, essays and journal entries will be permanently deleted. Your decks and vocabulary cards will be kept.'
+    ? 'All quiz history, card statistics, essays and journal entries will be permanently deleted. Your decks and cards will be kept.'
     : 'Every deck, card, statistic, essay and journal entry will be permanently deleted. Only your username and password will remain.';
   document.getElementById('reset-modal-phrase').textContent = phrase;
   document.getElementById('reset-modal-input').value = '';
@@ -3837,7 +3905,7 @@ document.getElementById('reset-modal-confirm').addEventListener('click', async (
   document.getElementById('reset-modal-overlay').classList.add('hidden');
   if (!res?.ok) { await showAlert('Reset failed. Please try again.'); return; }
   const msg = _resetType === 'soft'
-    ? 'Statistics cleared. Your vocabulary is intact.'
+    ? 'Statistics cleared. Your cards are intact.'
     : 'All data wiped. Starting fresh.';
   await showAlert(msg);
   showHome();
@@ -4088,7 +4156,7 @@ document.getElementById('btn-tr-mine-confirm').addEventListener('click', async (
 
   const lang = TrPage.mineLang;
   if (!lang) { await showAlert('Could not determine target language.'); return; }
-  const deckRes = await api('POST', '/api/decks', { language: lang.tts, topic: 'translated' });
+  const deckRes = await api('POST', '/api/decks', { category: 'language', subject: lang.tts, topic: 'translated' });
   if (!deckRes?.ok) { await showAlert('Could not create deck.'); return; }
   const deck = await deckRes.json();
 
@@ -4097,7 +4165,7 @@ document.getElementById('btn-tr-mine-confirm').addEventListener('click', async (
     const word    = row.querySelector('[data-field="word"]').value.trim();
     const meaning = row.querySelector('[data-field="meaning"]').value.trim();
     if (!word || !meaning) continue;
-    const r = await api('POST', '/api/cards', { deck_id: deck.id, word, meaning });
+    const r = await api('POST', '/api/cards', { deck_id: deck.id, term: word, definition: meaning });
     if (r?.ok || r?.status === 409) saved++;
   }
 
@@ -4117,9 +4185,9 @@ async function showConjugate() {
 
   // Hide tabs for hidden languages; if the active tab is hidden, switch to first visible
   const tabs = [...document.querySelectorAll('.conj-lang-tab')];
-  tabs.forEach(t => t.classList.toggle('hidden', App.hiddenLanguages.has(t.dataset.lang)));
-  if (App.hiddenLanguages.has(ConjPage.lang)) {
-    const first = tabs.find(t => !App.hiddenLanguages.has(t.dataset.lang));
+  tabs.forEach(t => t.classList.toggle('hidden', App.hiddenSubjects.has(t.dataset.lang)));
+  if (App.hiddenSubjects.has(ConjPage.lang)) {
+    const first = tabs.find(t => !App.hiddenSubjects.has(t.dataset.lang));
     if (first) ConjPage.lang = first.dataset.lang;
   }
 
@@ -4135,7 +4203,7 @@ async function _loadConjVerbs(lang) {
   document.querySelectorAll('.conj-lang-tab').forEach(t =>
     t.classList.toggle('active', t.dataset.lang === lang));
 
-  const res = await api('GET', `/api/conjugations/language/${lang}`);
+  const res = await api('GET', `/api/conjugations/subject/${lang}`);
   ConjPage.verbs = res?.ok ? await res.json() : [];
   _renderConjVerbList('');
 }
@@ -4143,7 +4211,7 @@ async function _loadConjVerbs(lang) {
 function _renderConjVerbList(filter) {
   const q = filter.toLowerCase();
   const list = q
-    ? ConjPage.verbs.filter(v => v.word.toLowerCase().includes(q) || v.meaning.toLowerCase().includes(q))
+    ? ConjPage.verbs.filter(v => v.term.toLowerCase().includes(q) || v.definition.toLowerCase().includes(q))
     : ConjPage.verbs;
   const el = document.getElementById('conj-verb-list');
   if (!list.length) {
@@ -4152,8 +4220,8 @@ function _renderConjVerbList(filter) {
   }
   el.innerHTML = list.map(v =>
     `<div class="conj-verb-item${v.card_id === ConjPage.selectedId ? ' active' : ''}" data-card-id="${v.card_id}">
-      <span class="conj-verb-word">${esc(v.word)}</span>
-      <span class="conj-verb-meaning">${esc(v.meaning)}</span>
+      <span class="conj-verb-word">${esc(v.term)}</span>
+      <span class="conj-verb-meaning">${esc(v.definition)}</span>
     </div>`
   ).join('');
 }
@@ -4172,8 +4240,8 @@ async function _selectConjVerb(cardId) {
   const verb = ConjPage.verbs.find(v => v.card_id === cardId);
   panel.innerHTML = `
     <div class="conj-page-word-header">
-      <span class="conj-page-word">${esc(data.word)}</span>
-      ${verb ? `<span class="conj-page-meaning">${esc(verb.meaning)}</span>` : ''}
+      <span class="conj-page-word">${esc(data.term)}</span>
+      ${verb ? `<span class="conj-page-meaning">${esc(verb.definition)}</span>` : ''}
     </div>
     <div class="conj-tenses-grid">${_renderConjData(data)}</div>`;
 }

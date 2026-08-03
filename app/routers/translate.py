@@ -92,9 +92,9 @@ def mine_words(
 
     all_deck_words = {
         normalize_text(w) for (w,) in
-        db.query(Card.word)
+        db.query(Card.term)
         .join(Deck, Deck.id == Card.deck_id)
-        .filter(Deck.language == language, Card.is_active.is_(True))
+        .filter(Deck.category == "language", Deck.subject == language, Card.is_active.is_(True))
         .all()
     }
     new_words = [w for w in words if normalize_text(w) not in all_deck_words]

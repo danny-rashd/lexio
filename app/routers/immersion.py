@@ -103,7 +103,7 @@ def get_log_words(
         .order_by(Card.created_at)
         .all()
     )
-    return [{"word": c.word, "meaning": c.meaning, "native": c.native} for c in cards]
+    return [{"word": c.term, "meaning": c.definition, "native": c.native} for c in cards]
 
 
 @router.delete("/{log_id}", status_code=status.HTTP_204_NO_CONTENT)

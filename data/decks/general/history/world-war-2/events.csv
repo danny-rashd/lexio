@@ -1,0 +1,6 @@
+# question_template_forward: What is {term}?
+# question_template_reverse: Which historical event or agreement is described as: {definition}?
+term,definition
+Treaty of Versailles,The 1919 peace treaty that ended World War I and imposed reparations on Germany
+D-Day,The June 6 1944 Allied invasion of Normandy that began the liberation of Western Europe
+Pearl Harbor,The December 7 1941 surprise Japanese attack on the US naval base in Hawaii that brought the US into WWII

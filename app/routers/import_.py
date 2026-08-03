@@ -6,12 +6,14 @@ from sqlalchemy.orm import Session
 
 from app.config import settings
 from app.database import get_db
+from app.models.card import Deck
 from app.models.import_log import ImportBatch
 from app.models.user import User
 from app.routers.auth import get_current_user
 from app.schemas.card import ImportBatchResponse
 from app.services.anki_parser import import_anki_deck, parse_anki_preview
 from app.services.importer import import_vocab_file
+from app.services.question_templates import ensure_question_templates
 
 router = APIRouter(prefix="/api/import", tags=["import"])
 
@@ -20,12 +22,19 @@ _ALLOWED_SUFFIXES = {".csv", ".tsv", ".lex"}
 
 @router.post("", response_model=ImportBatchResponse, status_code=status.HTTP_201_CREATED)
 async def import_file(
-    language: str = Query(...),
+    category: str = Query(...),
+    subject: str = Query(...),
     topic: str = Query(...),
     file: UploadFile = File(...),
     db: Session = Depends(get_db),
     _: User = Depends(get_current_user),
 ) -> ImportBatchResponse:
+    if category not in ("language", "general"):
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="category must be 'language' or 'general'",
+        )
+
     suffix = Path(file.filename or "").suffix.lower()
     if suffix not in _ALLOWED_SUFFIXES:
         raise HTTPException(
@@ -47,9 +56,13 @@ async def import_file(
         tmp_path = Path(tmp.name)
 
     try:
-        batch = import_vocab_file(db, language, topic, tmp_path)
+        batch = import_vocab_file(db, category, subject, topic, tmp_path)
     finally:
         tmp_path.unlink(missing_ok=True)
+
+    deck = db.query(Deck).filter(Deck.id == batch.deck_id).first()
+    if deck:
+        ensure_question_templates(db, deck)
 
     return batch
 
@@ -82,26 +95,35 @@ async def anki_preview(
 @router.post("/anki/confirm", response_model=ImportBatchResponse,
              status_code=status.HTTP_201_CREATED)
 async def anki_confirm(
-    language: str = Query(...),
+    category: str = Query(...),
+    subject: str = Query(...),
     topic: str = Query(...),
     note_type_id: int = Query(...),
-    field_word: int = Query(...),
-    field_meaning: int = Query(...),
+    field_term: int = Query(...),
+    field_definition: int = Query(...),
     field_native: int | None = Query(default=None),
     file: UploadFile = File(...),
     db: Session = Depends(get_db),
     _: User = Depends(get_current_user),
 ) -> ImportBatchResponse:
+    if category not in ("language", "general"):
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="category must be 'language' or 'general'",
+        )
     content = await file.read()
     with tempfile.NamedTemporaryFile(suffix=".apkg", delete=False) as tmp:
         tmp.write(content)
         tmp_path = Path(tmp.name)
     try:
         batch = import_anki_deck(
-            db, tmp_path, language, topic,
-            note_type_id, field_word, field_meaning, field_native,
+            db, tmp_path, category, subject, topic,
+            note_type_id, field_term, field_definition, field_native,
             source_filename=file.filename or "anki_import.apkg",
         )
+        deck = db.query(Deck).filter(Deck.id == batch.deck_id).first()
+        if deck:
+            ensure_question_templates(db, deck)
         return batch
     except Exception as exc:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,

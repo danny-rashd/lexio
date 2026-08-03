@@ -51,25 +51,26 @@ def _next_card(db: Session, session: QuizSession, answered: set[int]) -> Card | 
     query = db.query(Card).filter(Card.is_active.is_(True))
     if session.mode == "cloze":
         query = query.filter(Card.sentence.isnot(None))
-    if session.scope == "test":
-        query = query.filter(Card.deck_id == session.deck_id)
-    elif session.scope == "big_test" and session.language_filter:
-        languages = json.loads(session.language_filter)
-        eligible = [
-            row[0] for row in
-            db.query(Deck.id).filter(Deck.language.in_(languages)).all()
-        ]
-        if eligible:
-            query = query.filter(Card.deck_id.in_(eligible))
+    # card_ids_filter holds the exact card set chosen at session start (see
+    # start_quiz) — every scope (test/big_test/review) is restricted to it,
+    # never re-derived from deck/subject on each call. Without this, later
+    # questions in a session could substitute in cards that were never part
+    # of the original selection (e.g. a due-cards review pulling in cards
+    # that aren't due, or a Retry Missed session pulling in unrelated cards).
+    if session.card_ids_filter:
+        allowed_ids = json.loads(session.card_ids_filter)
+        query = query.filter(Card.id.in_(allowed_ids))
     if answered:
         query = query.filter(Card.id.not_in(answered))
 
     return query.order_by(func.random()).first()
 
 
-def _card_language(db: Session, card: Card) -> str:
+def _card_deck_info(db: Session, card: Card) -> tuple[str, str, str | None, str | None]:
     deck = db.query(Deck).filter(Deck.id == card.deck_id).first()
-    return deck.language if deck else ""
+    if not deck:
+        return "", "language", None, None
+    return deck.subject, deck.category, deck.question_template_forward, deck.question_template_reverse
 
 
 def _build_question(db: Session, session: QuizSession, card: Card, user_id: int) -> dict:
@@ -77,23 +78,23 @@ def _build_question(db: Session, session: QuizSession, card: Card, user_id: int)
         CardStat.user_id == user_id, CardStat.card_id == card.id
     ).all()
     direction = pick_direction(session.direction, card, stats or None)
-    language = _card_language(db, card)
+    subject, category, tmpl_fwd, tmpl_rev = _card_deck_info(db, card)
 
     if session.mode == "mcq":
-        pool = get_distractor_pool(db, language, card.id)
+        pool = get_distractor_pool(db, subject, card.id)
         distractors = random.sample(pool, min(3, len(pool)))
-        q = build_mcq_question(card, distractors, direction)
+        q = build_mcq_question(card, distractors, direction, category, tmpl_fwd, tmpl_rev)
 
     elif session.mode == "flashcard":
-        q = build_typing_question(card, direction)
+        q = build_typing_question(card, direction, category, tmpl_fwd, tmpl_rev)
         q["type"] = "flashcard"
-        # Show just the prompt word — no "Type the meaning of:" prefix
+        # Show just the prompt term — no "Type the meaning of:" prefix
         if direction in ("word_to_meaning",):
-            q["question"] = card.word
+            q["question"] = card.term
         elif direction == "meaning_to_word":
-            q["question"] = card.meaning
+            q["question"] = card.definition
         else:
-            q["question"] = card.native or card.word
+            q["question"] = card.native or card.term
 
     elif session.mode == "cloze":
         sentence = card.sentence or ""
@@ -101,20 +102,20 @@ def _build_question(db: Session, session: QuizSession, card: Card, user_id: int)
             "type": "cloze",
             "card_id": card.id,
             "question": re.sub(r'\{\{.+?\}\}', '___', sentence),
-            "correct_answer": card.word,
+            "correct_answer": card.term,
             "native": card.native,
         }
 
     else:
-        q = build_typing_question(card, direction)
+        q = build_typing_question(card, direction, category, tmpl_fwd, tmpl_rev)
 
     q["resolved_direction"] = direction
-    q["language"] = language
+    q["subject"] = subject
     # speak_text is always the foreign-language text — never the English prompt
     if direction in ("word_to_meaning", "meaning_to_word"):
-        q["speak_text"] = card.word
+        q["speak_text"] = card.term
     else:
-        q["speak_text"] = card.native or card.word
+        q["speak_text"] = card.native or card.term
     # Include sentence, ipa, notes for all modes so the frontend can show them
     # on reveal/feedback. For cloze the sentence is already the question.
     if session.mode != "cloze":
@@ -132,16 +133,16 @@ def _evaluate(
     correct_answer_client: str | None,
 ) -> tuple[bool, str]:
     if direction in ("word_to_meaning", "native_to_meaning"):
-        server_correct = card.meaning
+        server_correct = card.definition
     else:
-        server_correct = card.word
+        server_correct = card.term
 
     if mode == "flashcard":
         is_correct = (user_answer or "").lower().strip() in ("hard", "good", "easy")
         return is_correct, server_correct
 
     if mode == "cloze":
-        server_correct = card.word
+        server_correct = card.term
         is_correct = check_answer(user_answer or "", server_correct)
         return is_correct, server_correct
 
@@ -195,7 +196,7 @@ def start_quiz(
                 ).all()
                 random.shuffle(cards)
             else:
-                cards = select_cards_for_big_test(db, body.card_count, languages=body.languages or None, user_id=current_user.id)
+                cards = select_cards_for_big_test(db, body.card_count, subjects=body.subjects or None, user_id=current_user.id)
 
         if mode == "cloze":
             cards = [c for c in cards if c.sentence]
@@ -205,11 +206,6 @@ def start_quiz(
         if not cards:
             raise HTTPException(status_code=400, detail="No active cards available for this session")
 
-    lang_filter = (
-        json.dumps(body.languages)
-        if body.scope == "big_test" and body.languages
-        else None
-    )
     session = QuizSession(
         user_id=current_user.id,
         mode=mode,
@@ -218,7 +214,7 @@ def start_quiz(
         direction=direction,
         total=len(cards),
         correct=0,
-        language_filter=lang_filter,
+        card_ids_filter=json.dumps([c.id for c in cards]),
     )
     db.add(session)
     db.commit()

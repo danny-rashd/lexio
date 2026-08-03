@@ -110,7 +110,7 @@
           </svg>
         </div>
         <h1 class="login-brand">Lexio</h1>
-        <p class="login-sub">Master languages with smart flashcards</p>
+        <p class="login-sub">Master anything with smart flashcards</p>
         <div class="login-pills">
           <span class="lang-pill pill-es">ES</span>
           <span class="lang-pill pill-zh">ZH</span>
@@ -205,7 +205,7 @@
     <!-- ── Deck list ──────────────────────────────────────────────────────── -->
     <div class="section-header" style="margin-top:1.25rem">
       <h3 class="section-label">Your Decks</h3>
-      <button id="btn-new-deck" class="btn-ghost btn-sm">+ New deck</button>
+      <button id="btn-new-deck" class="btn-outline btn-sm">+ New deck</button>
     </div>
     <div id="deck-container"></div>
     <div id="no-decks" class="empty-state hidden">
@@ -215,8 +215,8 @@
         </svg>
       </div>
       <h3 class="empty-title">No decks yet</h3>
-      <p class="empty-sub">Import a vocabulary file to start studying. Supports CSV and TSV.</p>
-      <button id="no-decks-cta" class="btn-primary">Import Vocabulary</button>
+      <p class="empty-sub">Import a file to start studying. Supports CSV and TSV.</p>
+      <button id="no-decks-cta" class="btn-primary">Import Deck</button>
     </div>
 
   </section>
@@ -228,7 +228,7 @@
       <h2>Test Setup</h2>
     </div>
     <div class="card form-card">
-      <label for="sel-language">Language</label>
+      <label for="sel-language">Subject</label>
       <select id="sel-language"></select>
 
       <label for="sel-topic">Topic</label>
@@ -236,7 +236,7 @@
 
       <label>Mode</label>
       <div id="test-mode-grid" class="toggle-grid"></div>
-      <p id="mcq-warning" class="warning hidden">Need at least 4 cards in this language to use Multiple Choice.</p>
+      <p id="mcq-warning" class="warning hidden">Need at least 4 cards in this subject to use Multiple Choice.</p>
 
       <label>Direction</label>
       <div id="test-dir-grid" class="toggle-grid"></div>
@@ -257,7 +257,7 @@
     <div class="card form-card">
       <p class="text-secondary">Weighted toward your weakest cards. Direction locked to Word &#8596; Meaning.</p>
 
-      <label>Languages</label>
+      <label>Subjects</label>
       <div id="total-recall-langs" class="lang-checklist"></div>
 
       <label>Mode</label>
@@ -388,7 +388,7 @@
       <button id="btn-browse-delete" class="btn-danger btn-sm hidden">Delete Deck</button>
     </div>
     <div class="search-row">
-      <input id="inp-search" type="text" placeholder="Filter by word or meaning…">
+      <input id="inp-search" type="text" placeholder="Filter by term or definition…">
     </div>
     <div id="browse-empty" class="empty-state hidden">
       <div class="empty-icon">
@@ -397,11 +397,11 @@
         </svg>
       </div>
       <h3 class="empty-title">No cards in this deck</h3>
-      <p class="empty-sub">Import a vocabulary file to add cards to this deck.</p>
+      <p class="empty-sub">Import a file to add cards to this deck.</p>
     </div>
     <div class="table-wrap">
       <table class="data-table">
-        <thead><tr><th>Word</th><th>Meaning</th><th>Native</th><th></th></tr></thead>
+        <thead><tr><th>Term</th><th>Definition</th><th>Native</th><th></th></tr></thead>
         <tbody id="browse-tbody"></tbody>
       </table>
     </div>
@@ -488,16 +488,22 @@
   <section id="screen-import" class="hidden">
     <div class="page-header">
       <button class="btn-back" id="btn-import-back">&#8592; Back</button>
-      <h2>Import Vocabulary</h2>
+      <h2>Import Deck</h2>
     </div>
     <div class="card form-card">
       <div id="import-deck-context" class="import-context-badge hidden">
         Importing into: <strong id="import-context-label"></strong>
       </div>
       <div id="import-lang-topic-fields">
-        <label for="sel-import-lang">Language</label>
+        <label for="sel-import-category">Category</label>
+        <select id="sel-import-category">
+          <option value="language">Language</option>
+          <option value="general">General</option>
+        </select>
+
+        <label for="sel-import-lang" id="import-subject-label">Language</label>
         <select id="sel-import-lang"></select>
-        <input id="inp-import-lang-new" type="text" class="hidden" aria-hidden="true">
+        <input id="inp-import-lang-new" type="text" placeholder="e.g. History" class="hidden">
 
         <label for="sel-import-topic">Topic</label>
         <select id="sel-import-topic"></select>
@@ -518,7 +524,7 @@
         </div>
         <div class="table-wrap">
           <table class="data-table">
-            <thead><tr><th>Word</th><th>Meaning</th><th>Native</th></tr></thead>
+            <thead><tr><th>Term</th><th>Definition</th><th>Native</th></tr></thead>
             <tbody id="preview-tbody"></tbody>
           </table>
         </div>
@@ -530,11 +536,11 @@
         <select id="anki-note-type"></select>
         <div class="anki-field-grid">
           <div class="anki-field-row">
-            <span class="anki-field-label">Word <span class="text-secondary">(required)</span></span>
+            <span class="anki-field-label">Term <span class="text-secondary">(required)</span></span>
             <select id="anki-field-word" class="anki-field-sel"></select>
           </div>
           <div class="anki-field-row">
-            <span class="anki-field-label">Meaning <span class="text-secondary">(required)</span></span>
+            <span class="anki-field-label">Definition <span class="text-secondary">(required)</span></span>
             <select id="anki-field-meaning" class="anki-field-sel"></select>
           </div>
           <div class="anki-field-row">
@@ -544,7 +550,7 @@
         </div>
         <div id="anki-preview-wrap" class="table-wrap hidden">
           <table class="data-table">
-            <thead><tr><th>Word</th><th>Meaning</th><th>Native</th></tr></thead>
+            <thead><tr><th>Term</th><th>Definition</th><th>Native</th></tr></thead>
             <tbody id="anki-preview-tbody"></tbody>
           </table>
         </div>
@@ -729,7 +735,7 @@
       <button id="progress-empty-cta" class="btn-primary">Go to Home</button>
     </div>
     <div id="streak-card" class="card streak-card"></div>
-    <h3 class="section-label">Language Proficiency</h3>
+    <h3 class="section-label">Subject Proficiency</h3>
     <div id="lang-proficiency"></div>
 
     <!-- Study Investment section -->
@@ -754,8 +760,8 @@
     <div class="table-wrap">
       <table class="data-table">
         <thead id="progress-table-head"><tr>
-          <th data-col="language"       class="sortable">Language</th>
-          <th data-col="word"           class="sortable">Word</th>
+          <th data-col="subject"        class="sortable">Subject</th>
+          <th data-col="term"           class="sortable">Term</th>
           <th data-col="total_seen"     class="sortable">Seen</th>
           <th data-col="weakness_score" class="sortable sort-asc">Rate</th>
           <th>Struggles with</th>
@@ -772,7 +778,7 @@
         <div class="danger-zone-row">
           <div>
             <p class="danger-zone-title">Soft Reset</p>
-            <p class="danger-zone-desc">Clears all statistics, quiz history, essays and journal entries. Keeps your decks and vocabulary.</p>
+            <p class="danger-zone-desc">Clears all statistics, quiz history, essays and journal entries. Keeps your decks and cards.</p>
           </div>
           <button id="btn-soft-reset" class="btn-danger btn-sm">Reset stats</button>
         </div>
@@ -780,7 +786,7 @@
         <div class="danger-zone-row">
           <div>
             <p class="danger-zone-title">Hard Reset</p>
-            <p class="danger-zone-desc">Deletes everything — decks, vocabulary, all history. Only your username and password are kept.</p>
+            <p class="danger-zone-desc">Deletes everything — decks, cards, all history. Only your username and password are kept.</p>
           </div>
           <button id="btn-hard-reset" class="btn-danger btn-sm">Wipe all data</button>
         </div>
@@ -876,11 +882,11 @@
   <div class="modal-box card">
     <p class="modal-message">Edit Card</p>
     <div class="field-group" style="margin-top:.75rem">
-      <label for="card-edit-word">Word</label>
+      <label for="card-edit-word">Term</label>
       <input id="card-edit-word" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
     </div>
     <div class="field-group">
-      <label for="card-edit-meaning">Meaning</label>
+      <label for="card-edit-meaning">Definition</label>
       <input id="card-edit-meaning" type="text" autocomplete="off" autocorrect="off">
     </div>
     <div class="field-group">

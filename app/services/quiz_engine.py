@@ -11,13 +11,13 @@ from app.models.progress import CardStat
 from app.utils.text import normalize_text
 
 
-def get_distractor_pool(db: Session, language: str, exclude_card_id: int) -> list[Card]:
+def get_distractor_pool(db: Session, subject: str, exclude_card_id: int) -> list[Card]:
     """
     Return a pool of cards to use as MCQ distractors.
 
     Args:
         db (Session): SQLAlchemy session.
-        language (str): Language to prefer for distractors.
+        subject (str): Subject to prefer for distractors.
         exclude_card_id (int): Primary key of the card being tested — excluded
             from the pool so the correct answer is never a distractor.
 
@@ -26,22 +26,22 @@ def get_distractor_pool(db: Session, language: str, exclude_card_id: int) -> lis
         are needed for MCQ; the caller samples 3 from the returned list.
 
     Notes:
-        Tries same-language pool first. If fewer than 3 same-language cards
-        are available, falls back to the global card pool across all languages.
+        Tries same-subject pool first. If fewer than 3 same-subject cards
+        are available, falls back to the global card pool across all subjects.
         This makes MCQ robust even for small decks.
     """
-    same_lang = (
+    same_subject = (
         db.query(Card)
         .join(Deck, Deck.id == Card.deck_id)
         .filter(
-            Deck.language == language,
+            Deck.subject == subject,
             Card.id != exclude_card_id,
             Card.is_active.is_(True),
         )
         .all()
     )
-    if len(same_lang) >= 3:
-        return same_lang
+    if len(same_subject) >= 3:
+        return same_subject
     return (
         db.query(Card)
         .filter(Card.id != exclude_card_id, Card.is_active.is_(True))
@@ -74,7 +74,7 @@ def select_cards_for_test(db: Session, deck_id: int, count: int) -> list[Card]:
 def select_cards_for_big_test(
     db: Session,
     count: int,
-    languages: list[str] | None = None,
+    subjects: list[str] | None = None,
     user_id: int = 1,
 ) -> list[Card]:
     """
@@ -83,8 +83,8 @@ def select_cards_for_big_test(
     Args:
         db (Session): SQLAlchemy session.
         count (int): Number of cards to return.
-        languages (list[str] | None): Restrict to these language names.
-            None or empty list means all active languages.
+        subjects (list[str] | None): Restrict to these subject names.
+            None or empty list means all active subjects.
 
     Returns:
         list[Card]: Active cards ordered by weakness score DESC, then random.
@@ -108,10 +108,10 @@ def select_cards_for_big_test(
         .outerjoin(subq, Card.id == subq.c.card_id)
         .filter(Card.is_active.is_(True))
     )
-    if languages:
+    if subjects:
         eligible_ids = [
             row.id for row in
-            db.query(Deck.id).filter(Deck.language.in_(languages)).all()
+            db.query(Deck.id).filter(Deck.subject.in_(subjects)).all()
         ]
         if not eligible_ids:
             return []
@@ -182,7 +182,10 @@ def pick_direction(
     return random.choice(available)
 
 
-def build_mcq_question(card: Card, distractors: list[Card], direction: str) -> dict:
+def build_mcq_question(
+    card: Card, distractors: list[Card], direction: str, category: str = "language",
+    template_forward: str | None = None, template_reverse: str | None = None,
+) -> dict:
     """
     Build one MCQ question dict with shuffled options.
 
@@ -190,6 +193,16 @@ def build_mcq_question(card: Card, distractors: list[Card], direction: str) -> d
         card (Card): The card being tested.
         distractors (list[Card]): Exactly 3 distractor cards from the pool.
         direction (str): One of the 4 resolved direction values.
+        category (str): 'language' or 'general' — selects question phrasing.
+            Language decks always use vocabulary/translation framing ("What
+            does X mean?", "How do you say X?"). General decks use
+            template_forward/template_reverse when the deck's AI-generated
+            templates are available, falling back to neutral fact-recall
+            framing ("What is X?", "What is the term for X?") otherwise.
+        template_forward (str | None): Deck-level template for word_to_meaning,
+            containing the literal placeholder '{term}'. General decks only.
+        template_reverse (str | None): Deck-level template for meaning_to_word,
+            containing the literal placeholder '{definition}'. General decks only.
 
     Returns:
         dict: Keys — type, card_id, direction, question, options (4 items),
@@ -200,21 +213,31 @@ def build_mcq_question(card: Card, distractors: list[Card], direction: str) -> d
         Direction 1 attaches the native field to the response for display.
     """
     if direction == "word_to_meaning":
-        question = f"What does '{card.word}' mean?"
-        correct = card.meaning
-        options = [correct] + [d.meaning for d in distractors]
+        if category == "general" and template_forward:
+            question = template_forward.replace("{term}", card.term).replace("{definition}", card.definition)
+        elif category == "general":
+            question = f"What is '{card.term}'?"
+        else:
+            question = f"What does '{card.term}' mean?"
+        correct = card.definition
+        options = [correct] + [d.definition for d in distractors]
     elif direction == "meaning_to_word":
-        question = f"How do you say '{card.meaning}'?"
-        correct = card.word
-        options = [correct] + [d.word for d in distractors]
+        if category == "general" and template_reverse:
+            question = template_reverse.replace("{term}", card.term).replace("{definition}", card.definition)
+        elif category == "general":
+            question = f"What is the term for: '{card.definition}'?"
+        else:
+            question = f"How do you say '{card.definition}'?"
+        correct = card.term
+        options = [correct] + [d.term for d in distractors]
     elif direction == "native_to_meaning":
         question = f"What does '{card.native}' mean?"
-        correct = card.meaning
-        options = [correct] + [d.meaning for d in distractors]
+        correct = card.definition
+        options = [correct] + [d.definition for d in distractors]
     else:
         question = f"What is the reading of '{card.native}'?"
-        correct = card.word
-        options = [correct] + [d.word for d in distractors]
+        correct = card.term
+        options = [correct] + [d.term for d in distractors]
 
     random.shuffle(options)
 
@@ -232,13 +255,22 @@ def build_mcq_question(card: Card, distractors: list[Card], direction: str) -> d
 
 
 
-def build_typing_question(card: Card, direction: str) -> dict:
+def build_typing_question(
+    card: Card, direction: str, category: str = "language",
+    template_forward: str | None = None, template_reverse: str | None = None,
+) -> dict:
     """
     Build one typing prompt dict.
 
     Args:
         card (Card): The card whose answer the user must type.
         direction (str): One of the 4 resolved direction values.
+        category (str): 'language' or 'general' — selects question phrasing
+            (see build_mcq_question for why).
+        template_forward (str | None): Deck-level template for word_to_meaning
+            (see build_mcq_question).
+        template_reverse (str | None): Deck-level template for meaning_to_word
+            (see build_mcq_question).
 
     Returns:
         dict: Keys — type, card_id, direction, question, correct_answer, and
@@ -249,17 +281,27 @@ def build_typing_question(card: Card, direction: str) -> dict:
         evaluation time inside check_answer().
     """
     if direction == "word_to_meaning":
-        question = f"Type the meaning of: {card.word}"
-        correct = card.meaning
+        if category == "general" and template_forward:
+            question = template_forward.replace("{term}", card.term).replace("{definition}", card.definition)
+        elif category == "general":
+            question = f"Type the definition of: {card.term}"
+        else:
+            question = f"Type the meaning of: {card.term}"
+        correct = card.definition
     elif direction == "meaning_to_word":
-        question = f"Type the word for: {card.meaning}"
-        correct = card.word
+        if category == "general" and template_reverse:
+            question = template_reverse.replace("{term}", card.term).replace("{definition}", card.definition)
+        elif category == "general":
+            question = f"Type the term for: {card.definition}"
+        else:
+            question = f"Type the word for: {card.definition}"
+        correct = card.term
     elif direction == "native_to_meaning":
         question = f"Type the meaning of: {card.native}"
-        correct = card.meaning
+        correct = card.definition
     else:
         question = f"Type the reading of: {card.native}"
-        correct = card.word
+        correct = card.term
 
     result: dict = {
         "type": "typing",

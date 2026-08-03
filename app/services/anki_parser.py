@@ -86,25 +86,27 @@ def parse_anki_preview(apkg_path: Path) -> dict:
 def import_anki_deck(
     db: Session,
     apkg_path: Path,
-    language: str,
+    category: str,
+    subject: str,
     topic: str,
     note_type_id: int,
-    field_word: int,
-    field_meaning: int,
+    field_term: int,
+    field_definition: int,
     field_native: int | None,
     source_filename: str,
 ) -> ImportBatch:
     """
-    Import vocabulary from an Anki .apkg file using a caller-supplied field mapping.
+    Import cards from an Anki .apkg file using a caller-supplied field mapping.
 
     Args:
         db (Session): SQLAlchemy session.
         apkg_path (Path): Path to the .apkg file.
-        language (str): Target language (normalized internally).
+        category (str): 'language' or 'general'.
+        subject (str): Target subject (normalized internally).
         topic (str): Target topic (normalized internally).
         note_type_id (int): The Anki note type (model) ID to import.
-        field_word (int): Zero-based index of the field to use as 'word'.
-        field_meaning (int): Zero-based index of the field to use as 'meaning'.
+        field_term (int): Zero-based index of the field to use as 'term'.
+        field_definition (int): Zero-based index of the field to use as 'definition'.
         field_native (int | None): Zero-based index of the field to use as 'native', or None.
         source_filename (str): Display name stored on the ImportBatch record.
 
@@ -113,7 +115,7 @@ def import_anki_deck(
 
     Notes:
         HTML tags and &nbsp; are stripped from all field values.
-        Rows where word or meaning is empty after stripping are skipped.
+        Rows where term or definition is empty after stripping are skipped.
     """
     with tempfile.TemporaryDirectory() as tmpdir:
         conn = _open_anki_db(apkg_path, Path(tmpdir))
@@ -127,10 +129,10 @@ def import_anki_deck(
     rows: list[dict] = []
     for raw in raw_rows:
         parts = raw["flds"].split("\x1f")
-        word    = _strip_html(parts[field_word])    if field_word    < len(parts) else ""
-        meaning = _strip_html(parts[field_meaning]) if field_meaning < len(parts) else ""
-        native  = _strip_html(parts[field_native])  if field_native is not None and field_native < len(parts) else None
-        if word and meaning:
-            rows.append({"word": word, "meaning": meaning, "native": native or None})
+        term       = _strip_html(parts[field_term])       if field_term       < len(parts) else ""
+        definition = _strip_html(parts[field_definition])  if field_definition < len(parts) else ""
+        native     = _strip_html(parts[field_native])       if field_native is not None and field_native < len(parts) else None
+        if term and definition:
+            rows.append({"term": term, "definition": definition, "native": native or None})
 
-    return import_rows(db, language, topic, rows, source_filename)
+    return import_rows(db, category, subject, topic, rows, source_filename)

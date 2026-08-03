@@ -41,17 +41,18 @@ def create_card(
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Deck not found")
 
     key = compute_idempotency_key(
-        normalize_deck_label(deck.language),
+        deck.category,
+        normalize_deck_label(deck.subject),
         normalize_deck_label(deck.topic),
-        body.word,
+        body.term,
     )
     if db.query(Card).filter(Card.idempotency_key == key).first():
         raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Card already exists")
 
     card = Card(
         deck_id=body.deck_id,
-        word=body.word,
-        meaning=body.meaning,
+        term=body.term,
+        definition=body.definition,
         native=body.native,
         idempotency_key=key,
         source_log_id=body.source_log_id,
@@ -79,21 +80,22 @@ def update_card(
     if not card:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Card not found")
 
-    if body.word != card.word:
+    if body.term != card.term:
         new_key = compute_idempotency_key(
-            normalize_deck_label(card.deck.language),
+            card.deck.category,
+            normalize_deck_label(card.deck.subject),
             normalize_deck_label(card.deck.topic),
-            body.word,
+            body.term,
         )
         conflict = db.query(Card).filter(
             Card.idempotency_key == new_key, Card.id != card_id
         ).first()
         if conflict:
-            raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="A card with this word already exists in this deck")
+            raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="A card with this term already exists in this deck")
         card.idempotency_key = new_key
-        card.word = body.word
+        card.term = body.term
 
-    card.meaning  = body.meaning
+    card.definition = body.definition
     card.native   = body.native.strip() or None
     card.sentence = body.sentence.strip() or None
     card.ipa      = body.ipa.strip() or None

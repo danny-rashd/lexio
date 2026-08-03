@@ -10,7 +10,7 @@ class Settings(BaseSettings):
     ADMIN_PASSWORD: str
     DEMO_USERNAME: str = "demo"
     DEMO_PASSWORD: str = "demo"
-    DATA_DIR: str = "./data/languages"
+    DATA_DIR: str = "./data/decks"
     TYPING_FUZZY_THRESHOLD: float = 0.85
     DEFAULT_QUIZ_CARD_COUNT: int = 20
     BIG_TEST_CARD_OPTIONS: str = "10,20,50,100"
@@ -25,7 +25,7 @@ class Settings(BaseSettings):
     GOOGLE_TTS_API_KEY: str = ""
     VAPID_PRIVATE_KEY: str = ""
     VAPID_PUBLIC_KEY: str = ""
-    VAPID_SUBJECT: str = "mailto:danny.rashd@gmail.com"
+    VAPID_SUBJECT: str = "mailto:admin@example.com"
 
     @property
     def big_test_card_options(self) -> list[int]:

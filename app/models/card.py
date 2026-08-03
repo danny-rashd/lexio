@@ -1,6 +1,9 @@
 from datetime import datetime
 
-from sqlalchemy import Boolean, DateTime, ForeignKey, Index, String, UniqueConstraint, func
+from sqlalchemy import (
+    Boolean, CheckConstraint, DateTime, ForeignKey, Index, String,
+    UniqueConstraint, func,
+)
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.database import Base
@@ -10,15 +13,19 @@ class Deck(Base):
     __tablename__ = "decks"
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    language: Mapped[str] = mapped_column(String, nullable=False)
+    category: Mapped[str] = mapped_column(String, nullable=False)
+    subject: Mapped[str] = mapped_column(String, nullable=False)
     topic: Mapped[str] = mapped_column(String, nullable=False)
+    question_template_forward: Mapped[str | None] = mapped_column(String, nullable=True)
+    question_template_reverse: Mapped[str | None] = mapped_column(String, nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now(), nullable=False)
 
     cards: Mapped[list["Card"]] = relationship("Card", back_populates="deck")
 
     __table_args__ = (
-        UniqueConstraint("language", "topic", name="uq_decks_language_topic"),
-        Index("idx_decks_language", "language"),
+        CheckConstraint("category IN ('language','general')", name="ck_decks_category"),
+        UniqueConstraint("category", "subject", "topic", name="uq_decks_category_subject_topic"),
+        Index("idx_decks_subject", "subject"),
     )
 
 
@@ -27,8 +34,8 @@ class Card(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True)
     deck_id: Mapped[int] = mapped_column(ForeignKey("decks.id"), nullable=False)
-    word: Mapped[str] = mapped_column(String, nullable=False)
-    meaning: Mapped[str] = mapped_column(String, nullable=False)
+    term: Mapped[str] = mapped_column(String, nullable=False)
+    definition: Mapped[str] = mapped_column(String, nullable=False)
     native: Mapped[str | None] = mapped_column(String, nullable=True)
     sentence: Mapped[str | None] = mapped_column(String, nullable=True)
     ipa: Mapped[str | None] = mapped_column(String, nullable=True)

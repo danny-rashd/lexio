@@ -1,0 +1,85 @@
+# question_template_forward: What is {term}?
+# question_template_reverse: Which concept or term is defined as: {definition}?
+term,definition
+Streaming data,Data generated continuously and processed in near real-time as it arrives
+Batch data,Data collected over a period of time and processed together at scheduled intervals
+Relational data,Structured data organized into tables of rows and columns with relationships defined by keys
+Semi-structured data,Data that does not fit a rigid table structure but still carries organizational tags or markers, such as JSON or XML
+Data visualization,Representing data graphically so patterns and trends are easier to identify
+Business intelligence (BI),Technology-driven process for analyzing data and presenting actionable information to support business decisions
+Bar chart,Chart that uses rectangular bars to compare values across categories
+Pie chart,Circular chart divided into slices to show proportions of a whole
+Descriptive analytics,Analytics that answers what happened by summarizing historical data
+Diagnostic analytics,Analytics that answers why it happened by examining data to determine causes
+Predictive analytics,Analytics that answers what is likely to happen using historical data to forecast outcomes
+Prescriptive analytics,Analytics that answers what should be done by recommending actions based on predictions
+Cognitive analytics,Analytics that uses AI techniques like natural language processing to draw conclusions from data at scale
+ETL,Extract Transform Load — a process that transforms data before loading it into the target data store
+ELT,Extract Load Transform — a process that loads raw data into the target first and transforms it there
+Table (relational),A structure that organizes data into rows and columns
+Index (database),A structure that improves the speed of data retrieval on a table
+View (database),A virtual table based on the result of a stored SQL query
+Primary key,A column or set of columns that uniquely identifies each row in a table
+Foreign key,A column that references the primary key of another table to establish a relationship between them
+IaaS,Infrastructure as a Service — a cloud model providing virtualized computing resources where the customer manages the OS and runtime
+PaaS,Platform as a Service — a cloud model providing a managed platform for building and deploying apps without managing the underlying infrastructure
+SaaS,Software as a Service — a cloud model delivering fully managed software applications over the internet
+Azure SQL Database,A fully managed PaaS relational database service based on the SQL Server engine
+Azure SQL Managed Instance,A PaaS offering with near-full compatibility with on-premises SQL Server, designed for easier migration
+SQL Server on Azure VM,An IaaS option running full SQL Server inside a virtual machine that you manage
+Azure Synapse Analytics,A unified analytics service combining data warehousing and big data analytics
+Azure Database for PostgreSQL,A fully managed PaaS service for hosting PostgreSQL databases
+Azure Database for MySQL,A fully managed PaaS service for hosting MySQL databases
+Azure Database for MariaDB,A fully managed PaaS service for hosting MariaDB databases
+DDL,Data Definition Language — SQL commands used to define or modify database schema, such as CREATE, ALTER, and DROP
+DML,Data Manipulation Language — SQL commands used to manage data within tables, such as SELECT, INSERT, UPDATE, and DELETE
+T-SQL,Microsoft's extension of SQL used to query and manage SQL Server and Azure SQL databases
+Azure Data Studio,A cross-platform GUI tool for querying and managing SQL databases
+SQL Server Management Studio,A Windows GUI tool for managing SQL Server infrastructure
+sqlcmd utility,A command-line tool for running T-SQL queries and scripts
+Azure portal,A web-based console for provisioning and managing Azure resources through a graphical interface
+Azure Resource Manager template,A JSON file that declaratively defines the infrastructure and configuration for deploying Azure resources
+Azure PowerShell,A command-line shell and scripting language for managing Azure resources
+Azure CLI,A cross-platform command-line tool for managing Azure resources
+Firewall rule (Azure SQL),A security setting that controls network access to a database by allowing only specified IP address ranges
+Azure AD authentication,A method of signing in to Azure data services using centrally managed Azure Active Directory identities instead of local database credentials
+Virtual network (VNet),An isolated private network within Azure that enables secure communication between Azure resources
+Non-relational data,Data that does not fit a fixed row-and-column schema, often called NoSQL data
+Key-value store,A NoSQL data store that pairs unique keys with values, optimized for simple fast lookups
+Document database,A NoSQL data store that saves data as JSON-like documents
+Column-family database,A NoSQL data store that organizes related data into flexible column groups
+Graph database,A NoSQL data store that represents data as nodes and edges to model relationships
+Azure Cosmos DB,A globally distributed, multi-model NoSQL database service on Azure
+Azure Cosmos DB Core (SQL) API,The default Azure Cosmos DB API for storing and querying JSON documents using SQL-like syntax
+Azure Cosmos DB MongoDB API,An Azure Cosmos DB API compatible with the MongoDB wire protocol for document workloads
+Azure Cosmos DB Cassandra API,An Azure Cosmos DB API compatible with Apache Cassandra for column-family workloads
+Azure Cosmos DB Gremlin API,An Azure Cosmos DB API for storing and querying graph data using the Gremlin query language
+Azure Cosmos DB Table API,An Azure Cosmos DB API compatible with Azure Table storage for key-value workloads
+Request Unit (RU),The unit in Azure Cosmos DB that measures the compute, memory, and IOPS required to perform a database operation
+Partition key,A property used to distribute data across partitions for scalability in Azure Cosmos DB
+Azure Table Storage,A NoSQL key-value store for storing large amounts of structured non-relational data
+Azure Blob Storage,An object storage service optimized for storing massive amounts of unstructured data
+Azure File Storage,Fully managed file shares in the cloud accessible via the SMB and NFS protocols
+Azure Queue Storage,A service for storing large numbers of messages for asynchronous communication between application components
+Azure Storage Explorer,A GUI tool for managing Azure Storage accounts, including Blob, Table, File, and Queue storage
+Encryption at rest,Protecting stored data by encrypting it while it resides on disk
+Encryption in transit,Protecting data by encrypting it while it moves between a client and a server
+On-premises connectivity,Accessing Azure data services from an organization's local network, often via VPN or ExpressRoute
+Transactional workload (OLTP),A workload that captures, stores, and processes data from real-time business transactions
+Analytical workload (OLAP),A workload that reads large volumes of historical data to identify trends and support decisions
+Data warehouse,A central repository storing structured, filtered data that has already been processed for a specific analytical purpose
+Azure Data Lake,A storage repository that holds vast amounts of raw data in its native format
+Azure Databricks,An Apache Spark-based analytics platform optimized for large-scale data engineering and machine learning
+Azure HDInsight,A managed cloud service for running popular open-source big data frameworks like Hadoop and Spark
+Azure Stream Analytics,A real-time analytics service for processing fast-moving streaming data
+ExpressRoute,A dedicated private network connection between on-premises infrastructure and Azure that bypasses the public internet
+Azure Data Factory,A cloud ETL and ELT service for orchestrating and automating data movement and transformation
+Pipeline (Data Factory),A logical grouping of activities that together perform a data integration task
+Activity (Data Factory),A single processing step within a Data Factory pipeline, such as copying data or running a stored procedure
+Data ingestion,The process of collecting and importing data from various sources into a storage or processing system
+Power BI,A business analytics service for creating interactive reports and dashboards
+Power BI Desktop,The free Windows application used to create reports and data models before publishing them to the Power BI service
+Power BI workflow,The process of connecting to data, modeling it, visualizing it, publishing it, and sharing it as reports and dashboards
+Paginated report,A pixel-perfect Power BI report designed to be printed or shared, formatted to fit a page
+Interactive report,A Power BI report that lets users explore data with visuals, filters, and drill-downs
+Dashboard (Power BI),A single-page collection of visualizations pinned from one or more reports for at-a-glance monitoring

@@ -1,0 +1,19 @@
+# question_template_forward: What is the capital of {term}?
+# question_template_reverse: Which German state has {definition} as its capital?
+term,definition
+Baden-Württemberg,Stuttgart
+Bavaria,Munich
+Berlin,Berlin
+Brandenburg,Potsdam
+Bremen,Bremen
+Hamburg,Hamburg
+Hesse,Wiesbaden
+Lower Saxony,Hanover
+Mecklenburg-Vorpommern,Schwerin
+North Rhine-Westphalia,Düsseldorf
+Rhineland-Palatinate,Mainz
+Saarland,Saarbrücken
+Saxony,Dresden
+Saxony-Anhalt,Magdeburg
+Schleswig-Holstein,Kiel
+Thuringia,Erfurt

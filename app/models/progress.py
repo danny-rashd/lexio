@@ -48,7 +48,7 @@ class QuizSession(Base):
     direction: Mapped[str] = mapped_column(String, nullable=False)
     total: Mapped[int] = mapped_column(Integer, nullable=False)
     correct: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
-    language_filter: Mapped[str | None] = mapped_column(String, nullable=True)
+    card_ids_filter: Mapped[str | None] = mapped_column(String, nullable=True)
     started_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now(), nullable=False)
     finished_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
 

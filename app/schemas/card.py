@@ -5,17 +5,18 @@ from pydantic import BaseModel
 
 class DeckResponse(BaseModel):
     id: int
-    language: str
+    category: str
+    subject: str
     topic: str
     created_at: datetime
     card_count: int = 0
-    language_card_count: int = 0
+    subject_card_count: int = 0
 
 
 class CardCreate(BaseModel):
     deck_id: int
-    word: str
-    meaning: str
+    term: str
+    definition: str
     native: str | None = None
     sentence: str | None = None
     ipa: str | None = None
@@ -24,8 +25,8 @@ class CardCreate(BaseModel):
 
 
 class CardUpdate(BaseModel):
-    word: str
-    meaning: str
+    term: str
+    definition: str
     native: str = ''
     sentence: str = ''
     ipa: str = ''
@@ -35,8 +36,8 @@ class CardUpdate(BaseModel):
 class CardResponse(BaseModel):
     id: int
     deck_id: int
-    word: str
-    meaning: str
+    term: str
+    definition: str
     native: str | None
     sentence: str | None
     ipa: str | None

@@ -10,7 +10,8 @@ dist/
 build/
 .pytest_cache/
 .env.example
-.DS_Store
 app/static/icons/node_modules/
 app/static/icons/package.json
 app/static/icons/package-lock.json
+*.DS_Store
+docs/superpowers/

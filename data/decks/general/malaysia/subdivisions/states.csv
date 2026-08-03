@@ -1,0 +1,16 @@
+# question_template_forward: What is the capital of {term}?
+# question_template_reverse: Which Malaysian state has {definition} as its capital?
+term,definition
+Johor,Johor Bahru
+Kedah,Alor Setar
+Kelantan,Kota Bharu
+Malacca,Malacca City
+Negeri Sembilan,Seremban
+Pahang,Kuantan
+Penang,George Town
+Perak,Ipoh
+Perlis,Kangar
+Sabah,Kota Kinabalu
+Sarawak,Kuching
+Selangor,Shah Alam
+Terengganu,Kuala Terengganu

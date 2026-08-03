@@ -42,16 +42,16 @@ def parse_text_endpoint(
             detail="Text parsing for CJK languages requires DEEPSEEK_API_KEY to be configured.",
         )
 
-    # Fetch all normalised words in this language to flag known words
+    # Fetch all normalised terms in this subject to flag known words
     deck_ids = [
-        d.id for d in db.query(Deck).filter(Deck.language == language).all()
+        d.id for d in db.query(Deck).filter(Deck.category == "language", Deck.subject == language).all()
     ]
     existing_words: set[str] = set()
     if deck_ids:
-        cards = db.query(Card.word).filter(
+        cards = db.query(Card.term).filter(
             Card.deck_id.in_(deck_ids), Card.is_active.is_(True)
         ).all()
-        existing_words = {_normalise(c.word) for c in cards}
+        existing_words = {_normalise(c.term) for c in cards}
 
     try:
         result = parse_text(text, language, existing_words)

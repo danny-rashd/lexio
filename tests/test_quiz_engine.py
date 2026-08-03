@@ -10,7 +10,6 @@ from app.models.card import Card, Deck
 from app.models.progress import CardStat
 from app.services.quiz_engine import (
     build_mcq_question,
-    build_true_false_question,
     build_typing_question,
     check_answer,
     get_distractor_pool,
@@ -24,8 +23,8 @@ from app.services.quiz_engine import (
 @dataclass
 class FakeCard:
     id: int
-    word: str
-    meaning: str
+    term: str
+    definition: str
     native: str | None = None
     deck_id: int = 1
 
@@ -49,21 +48,21 @@ def db_session():
     engine.dispose()
 
 
-def _make_deck(db, language: str, topic: str = "basics") -> Deck:
-    deck = Deck(language=language, topic=topic)
+def _make_deck(db, subject: str, topic: str = "basics") -> Deck:
+    deck = Deck(category="language", subject=subject, topic=topic)
     db.add(deck)
     db.flush()
     return deck
 
 
-def _make_card(db, deck: Deck, word: str, meaning: str, native: str | None = None) -> Card:
+def _make_card(db, deck: Deck, term: str, definition: str, native: str | None = None) -> Card:
     from app.services.importer import compute_idempotency_key
     card = Card(
         deck_id=deck.id,
-        word=word,
-        meaning=meaning,
+        term=term,
+        definition=definition,
         native=native,
-        idempotency_key=compute_idempotency_key(deck.language, deck.topic, word),
+        idempotency_key=compute_idempotency_key(deck.category, deck.subject, deck.topic, term),
     )
     db.add(card)
     db.flush()
@@ -86,7 +85,7 @@ def test_mcq_correct_answer_in_options():
     assert q["correct_answer"] in q["options"]
 
 
-def test_mcq_distractors_from_same_language(db_session):
+def test_mcq_distractors_from_same_subject(db_session):
     es = _make_deck(db_session, "spanish")
     ja = _make_deck(db_session, "japanese")
     card = _make_card(db_session, es, "hola", "hello")
@@ -99,21 +98,21 @@ def test_mcq_distractors_from_same_language(db_session):
     assert all(c.deck_id == es.id for c in pool)
 
 
-def test_distractor_pool_falls_back_to_global_when_same_lang_lt_3(db_session):
+def test_distractor_pool_falls_back_to_global_when_same_subject_lt_3(db_session):
     es = _make_deck(db_session, "spanish")
     ja = _make_deck(db_session, "japanese")
     card = _make_card(db_session, es, "hola", "hello")
-    _make_card(db_session, es, "gracias", "thank you")  # only 1 other same-lang card
+    _make_card(db_session, es, "gracias", "thank you")  # only 1 other same-subject card
     for w, m in [("inu", "dog"), ("neko", "cat"), ("mizu", "water")]:
         _make_card(db_session, ja, w, m)
     db_session.commit()
 
     pool = get_distractor_pool(db_session, "spanish", card.id)
-    languages = {c.deck.language for c in pool}
-    assert len(languages) > 1
+    subjects = {c.deck.subject for c in pool}
+    assert len(subjects) > 1
 
 
-def test_mcq_cross_language_fallback_does_not_crash(db_session):
+def test_mcq_cross_subject_fallback_does_not_crash(db_session):
     es = _make_deck(db_session, "spanish")
     ja = _make_deck(db_session, "japanese")
     card = _make_card(db_session, es, "hola", "hello")
@@ -126,20 +125,6 @@ def test_mcq_cross_language_fallback_does_not_crash(db_session):
     distractors = random.sample(pool, min(3, len(pool)))
     q = build_mcq_question(card, distractors, "word_to_meaning")
     assert q["correct_answer"] in q["options"]
-
-
-# ── True / False ──────────────────────────────────────────────────────────────
-
-def test_true_false_distribution_roughly_50_50():
-    card = FakeCard(1, "hola", "hello")
-    wrong_pool = ["goodbye", "thank you", "please", "water"]
-    true_count = sum(
-        1
-        for _ in range(100)
-        for q in [build_true_false_question(card, None if random.random() < 0.5 else random.choice(wrong_pool), "word_to_meaning")]
-        if q["correct_answer"] is True
-    )
-    assert 30 <= true_count <= 70
 
 
 # ── check_answer ──────────────────────────────────────────────────────────────
@@ -218,12 +203,112 @@ def test_direction_3_shows_native_as_prompt():
     assert "konnichiwa" not in q["question"]
 
 
-def test_direction_4_shows_native_prompt_and_word_as_answer():
+def test_direction_4_shows_native_prompt_and_term_as_answer():
     card = FakeCard(1, "konnichiwa", "hello", native="こんにちは")
     distractors = [FakeCard(2, "arigatou", "ty"), FakeCard(3, "sayounara", "bye"), FakeCard(4, "hai", "yes")]
     q = build_mcq_question(card, distractors, "native_to_word")
     assert "こんにちは" in q["question"]
     assert q["correct_answer"] == "konnichiwa"
+
+
+# ── Category-aware phrasing ─────────────────────────────────────────────────────
+
+def test_mcq_word_to_meaning_uses_translation_phrasing_for_language():
+    card = FakeCard(1, "hola", "hello")
+    distractors = [FakeCard(2, "gracias", "thank you"), FakeCard(3, "perro", "dog"), FakeCard(4, "casa", "house")]
+    q = build_mcq_question(card, distractors, "word_to_meaning", category="language")
+    assert q["question"] == "What does 'hola' mean?"
+
+
+def test_mcq_word_to_meaning_uses_neutral_phrasing_for_general():
+    card = FakeCard(1, "Hesse", "Wiesbaden")
+    distractors = [FakeCard(2, "Saxony", "Dresden"), FakeCard(3, "Bavaria", "Munich"), FakeCard(4, "Saarland", "Saarbrücken")]
+    q = build_mcq_question(card, distractors, "word_to_meaning", category="general")
+    assert q["question"] == "What is 'Hesse'?"
+    assert "mean" not in q["question"].lower()
+
+
+def test_typing_word_to_meaning_uses_neutral_phrasing_for_general():
+    card = FakeCard(1, "Hesse", "Wiesbaden")
+    q = build_typing_question(card, "word_to_meaning", category="general")
+    assert q["question"] == "Type the definition of: Hesse"
+    assert "meaning" not in q["question"].lower()
+
+
+def test_mcq_meaning_to_word_uses_translation_phrasing_for_language():
+    card = FakeCard(1, "hola", "hello")
+    distractors = [FakeCard(2, "a", "goodbye"), FakeCard(3, "b", "thank you"), FakeCard(4, "c", "please")]
+    q = build_mcq_question(card, distractors, "meaning_to_word", category="language")
+    assert q["question"] == "How do you say 'hello'?"
+
+
+def test_mcq_meaning_to_word_uses_neutral_phrasing_for_general():
+    card = FakeCard(1, "Bavaria", "Munich")
+    distractors = [FakeCard(2, "Saxony", "Dresden"), FakeCard(3, "Hesse", "Wiesbaden"), FakeCard(4, "Saarland", "Saarbrücken")]
+    q = build_mcq_question(card, distractors, "meaning_to_word", category="general")
+    assert q["question"] == "What is the term for: 'Munich'?"
+    assert "How do you say" not in q["question"]
+
+
+def test_typing_meaning_to_word_uses_neutral_phrasing_for_general():
+    card = FakeCard(1, "Bavaria", "Munich")
+    q = build_typing_question(card, "meaning_to_word", category="general")
+    assert q["question"] == "Type the term for: Munich"
+    assert "word" not in q["question"].lower()
+
+
+def test_mcq_defaults_to_language_phrasing_when_category_omitted():
+    card = FakeCard(1, "hola", "hello")
+    distractors = [FakeCard(2, "a", "goodbye"), FakeCard(3, "b", "thank you"), FakeCard(4, "c", "please")]
+    q = build_mcq_question(card, distractors, "meaning_to_word")
+    assert q["question"] == "How do you say 'hello'?"
+
+
+# ── Deck-level question templates ───────────────────────────────────────────────
+
+def test_mcq_uses_forward_template_when_provided():
+    card = FakeCard(1, "Hesse", "Wiesbaden")
+    distractors = [FakeCard(2, "Bavaria", "Munich"), FakeCard(3, "Saxony", "Dresden"), FakeCard(4, "Saarland", "Saarbrücken")]
+    q = build_mcq_question(
+        card, distractors, "word_to_meaning", category="general",
+        template_forward="What is the capital of {term}?",
+    )
+    assert q["question"] == "What is the capital of Hesse?"
+
+
+def test_mcq_uses_reverse_template_when_provided():
+    card = FakeCard(1, "Hesse", "Wiesbaden")
+    distractors = [FakeCard(2, "Bavaria", "Munich"), FakeCard(3, "Saxony", "Dresden"), FakeCard(4, "Saarland", "Saarbrücken")]
+    q = build_mcq_question(
+        card, distractors, "meaning_to_word", category="general",
+        template_reverse="Which German state has {definition} as its capital?",
+    )
+    assert q["question"] == "Which German state has Wiesbaden as its capital?"
+
+
+def test_mcq_falls_back_to_generic_phrasing_when_template_missing():
+    card = FakeCard(1, "Hesse", "Wiesbaden")
+    distractors = [FakeCard(2, "Bavaria", "Munich"), FakeCard(3, "Saxony", "Dresden"), FakeCard(4, "Saarland", "Saarbrücken")]
+    q = build_mcq_question(card, distractors, "word_to_meaning", category="general", template_forward=None)
+    assert q["question"] == "What is 'Hesse'?"
+
+
+def test_typing_uses_forward_template_when_provided():
+    card = FakeCard(1, "Hesse", "Wiesbaden")
+    q = build_typing_question(
+        card, "word_to_meaning", category="general",
+        template_forward="What is the capital of {term}?",
+    )
+    assert q["question"] == "What is the capital of Hesse?"
+
+
+def test_typing_template_ignored_for_language_category():
+    card = FakeCard(1, "hola", "hello")
+    q = build_typing_question(
+        card, "word_to_meaning", category="language",
+        template_forward="What is the capital of {term}?",
+    )
+    assert q["question"] == "Type the meaning of: hola"
 
 
 # ── Big Test ──────────────────────────────────────────────────────────────────

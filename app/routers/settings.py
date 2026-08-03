@@ -97,46 +97,46 @@ def set_daily_goal(
     return {"goal": body.goal}
 
 
-class HiddenLanguageRequest(BaseModel):
-    language: str
+class HiddenSubjectRequest(BaseModel):
+    subject: str
     hidden: bool
 
 
-@router.get("/hidden-languages")
-def get_hidden_languages(
+@router.get("/hidden-subjects")
+def get_hidden_subjects(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ) -> dict:
     setting = db.query(UserSetting).filter(
         UserSetting.user_id == current_user.id,
-        UserSetting.key == "hidden_languages",
+        UserSetting.key == "hidden_subjects",
     ).first()
     hidden = json.loads(setting.value) if setting else []
     return {"hidden": hidden}
 
 
-@router.post("/hidden-languages")
-def toggle_hidden_language(
-    body: HiddenLanguageRequest,
+@router.post("/hidden-subjects")
+def toggle_hidden_subject(
+    body: HiddenSubjectRequest,
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ) -> dict:
-    lang    = body.language.lower().strip()
+    subject = body.subject.lower().strip()
     setting = db.query(UserSetting).filter(
         UserSetting.user_id == current_user.id,
-        UserSetting.key == "hidden_languages",
+        UserSetting.key == "hidden_subjects",
     ).first()
     hidden: list[str] = json.loads(setting.value) if setting else []
 
-    if body.hidden and lang not in hidden:
-        hidden.append(lang)
-    elif not body.hidden and lang in hidden:
-        hidden.remove(lang)
+    if body.hidden and subject not in hidden:
+        hidden.append(subject)
+    elif not body.hidden and subject in hidden:
+        hidden.remove(subject)
 
     if setting:
         setting.value = json.dumps(hidden)
     else:
-        db.add(UserSetting(user_id=current_user.id, key="hidden_languages", value=json.dumps(hidden)))
+        db.add(UserSetting(user_id=current_user.id, key="hidden_subjects", value=json.dumps(hidden)))
     db.commit()
     return {"hidden": hidden}
 

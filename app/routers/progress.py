@@ -53,7 +53,8 @@ def deck_stats(
 
     return {
         "deck_id":      deck.id,
-        "language":     deck.language,
+        "category":     deck.category,
+        "subject":      deck.subject,
         "topic":        deck.topic,
         "total_cards":  total_cards,
         "cards_seen":   cards_seen,
@@ -126,15 +127,19 @@ def _fmt_mins(mins: int) -> str:
 def _hidden_deck_ids(db: Session, user_id: int) -> set[int]:
     import json as _json
     setting = db.query(UserSetting).filter(
-        UserSetting.user_id == user_id, UserSetting.key == "hidden_languages"
+        UserSetting.user_id == user_id, UserSetting.key == "hidden_subjects"
     ).first()
-    hidden_langs = set(_json.loads(setting.value)) if setting else set()
-    if not hidden_langs:
+    hidden_subjects = set(_json.loads(setting.value)) if setting else set()
+    if not hidden_subjects:
         return set()
     return {
         row[0] for row in
-        db.query(Deck.id).filter(Deck.language.in_(hidden_langs)).all()
+        db.query(Deck.id).filter(Deck.subject.in_(hidden_subjects)).all()
     }
+
+
+def _non_language_deck_ids(db: Session) -> set[int]:
+    return {row[0] for row in db.query(Deck.id).filter(Deck.category != "language").all()}
 
 
 @router.get("/due-forecast")
@@ -201,10 +206,12 @@ def word_of_day(
     Notes:
         Priority: overdue → due today → weakest seen → random active card.
         Deterministic within a calendar day via a seeded RNG keyed on user_id + date.
+        Scoped to category='language' decks only — general-topic decks (history,
+        geography, etc.) never appear here, regardless of hidden-subjects settings.
     """
     today = date.today()
     rng = _random.Random(current_user.id * 10000 + today.toordinal())
-    hidden_ids = _hidden_deck_ids(db, current_user.id)
+    excluded_ids = _hidden_deck_ids(db, current_user.id) | _non_language_deck_ids(db)
 
     def _card_ids_filtered(*filters):
         q = (
@@ -212,8 +219,8 @@ def word_of_day(
             .join(Card, Card.id == CardStat.card_id)
             .filter(CardStat.user_id == current_user.id, Card.is_active.is_(True))
         )
-        if hidden_ids:
-            q = q.filter(Card.deck_id.not_in(hidden_ids))
+        if excluded_ids:
+            q = q.filter(Card.deck_id.not_in(excluded_ids))
         for f in filters:
             q = q.filter(f)
         return list({row[0] for row in q.all()})
@@ -222,15 +229,15 @@ def word_of_day(
         card = db.query(Card).filter(Card.id == card_id).first()
         deck = db.query(Deck).filter(Deck.id == card.deck_id).first()
         return {
-            "card_id":  card.id,
-            "deck_id":  card.deck_id,
-            "word":     card.word,
-            "meaning":  card.meaning,
-            "native":   card.native,
-            "ipa":      card.ipa,
-            "language": deck.language if deck else "",
-            "topic":    deck.topic if deck else "",
-            "reason":   reason,
+            "card_id":    card.id,
+            "deck_id":    card.deck_id,
+            "term":       card.term,
+            "definition": card.definition,
+            "native":     card.native,
+            "ipa":        card.ipa,
+            "subject":    deck.subject if deck else "",
+            "topic":      deck.topic if deck else "",
+            "reason":     reason,
         }
 
     overdue_ids = _card_ids_filtered(
@@ -246,7 +253,7 @@ def word_of_day(
     weakest = get_weakest_cards(db, current_user.id, limit=10)
     if weakest:
         visible = [w for w in weakest if w.get("card_id") and
-                   db.query(Card.deck_id).filter(Card.id == w["card_id"]).scalar() not in hidden_ids]
+                   db.query(Card.deck_id).filter(Card.id == w["card_id"]).scalar() not in excluded_ids]
         if visible:
             chosen = rng.choice(visible[:min(5, len(visible))])
             return _build(chosen["card_id"], "weak")
@@ -254,7 +261,7 @@ def word_of_day(
     visible_all = [
         row[0] for row in db.query(Card.id)
         .filter(Card.is_active.is_(True))
-        .filter(Card.deck_id.not_in(hidden_ids) if hidden_ids else True)
+        .filter(Card.deck_id.not_in(excluded_ids) if excluded_ids else True)
         .all()
     ]
     if not visible_all:
@@ -271,11 +278,11 @@ def dashboard(
     streak_data = get_streak(db, current_user.id)
     top_weakest = get_weakest_cards(db, current_user.id, limit=5)
 
-    lang_rows = (
-        db.query(Deck.language, func.count(Card.id).label("total_cards"))
+    subject_rows = (
+        db.query(Deck.subject, func.count(Card.id).label("total_cards"))
         .join(Card, Card.deck_id == Deck.id)
         .filter(Card.is_active.is_(True))
-        .group_by(Deck.language)
+        .group_by(Deck.subject)
         .all()
     )
 
@@ -284,17 +291,17 @@ def dashboard(
     for s in all_stats:
         stats_by_card.setdefault(s.card_id, []).append(s)
 
-    lang_card_ids: dict[str, list[int]] = {}
+    subject_card_ids: dict[str, list[int]] = {}
     deck_by_id: dict[int, Deck] = {}
     for card in db.query(Card).filter(Card.is_active.is_(True)).all():
         if card.deck_id not in deck_by_id:
             deck_by_id[card.deck_id] = db.query(Deck).filter(Deck.id == card.deck_id).first()
         deck = deck_by_id[card.deck_id]
         if deck:
-            lang_card_ids.setdefault(deck.language, []).append(card.id)
+            subject_card_ids.setdefault(deck.subject, []).append(card.id)
 
-    # Quiz cards answered per language (finished sessions for this user)
-    quiz_cards_by_lang: dict[str, int] = {}
+    # Quiz cards answered per subject (finished sessions for this user)
+    quiz_cards_by_subject: dict[str, int] = {}
     sessions = (
         db.query(QuizSession, Deck)
         .join(Deck, QuizSession.deck_id == Deck.id)
@@ -302,18 +309,18 @@ def dashboard(
         .all()
     )
     for sess, deck in sessions:
-        quiz_cards_by_lang[deck.language] = quiz_cards_by_lang.get(deck.language, 0) + sess.total
+        quiz_cards_by_subject[deck.subject] = quiz_cards_by_subject.get(deck.subject, 0) + sess.total
 
-    languages = []
-    for language, total_cards in lang_rows:
-        cids       = lang_card_ids.get(language, [])
-        lang_stats = [s for cid in cids for s in stats_by_card.get(cid, [])]
-        total_seen    = sum(s.times_seen    for s in lang_stats)
-        total_correct = sum(s.times_correct for s in lang_stats)
-        cards_seen    = len({s.card_id for s in lang_stats})
+    subjects = []
+    for subject, total_cards in subject_rows:
+        cids       = subject_card_ids.get(subject, [])
+        subj_stats = [s for cid in cids for s in stats_by_card.get(cid, [])]
+        total_seen    = sum(s.times_seen    for s in subj_stats)
+        total_correct = sum(s.times_correct for s in subj_stats)
+        cards_seen    = len({s.card_id for s in subj_stats})
 
         dir_agg: dict[str, dict] = {}
-        for s in lang_stats:
+        for s in subj_stats:
             if s.direction not in dir_agg:
                 dir_agg[s.direction] = {"seen": 0, "correct": 0}
             dir_agg[s.direction]["seen"]    += s.times_seen
@@ -339,19 +346,19 @@ def dashboard(
             else:
                 learning_c += 1
 
-        languages.append({
-            "language":         language,
+        subjects.append({
+            "subject":          subject,
             "total_cards":      total_cards,
             "cards_seen":       cards_seen,
             "total_seen":       total_seen,
             "correct_rate":     round(total_correct / total_seen, 4) if total_seen else 0.0,
             "directions":       directions,
             "srs_health":       {"new": new_c, "learning": learning_c, "mature": mature_c, "overdue": overdue_c},
-            "quiz_cards_total": quiz_cards_by_lang.get(language, 0),
+            "quiz_cards_total": quiz_cards_by_subject.get(subject, 0),
         })
 
     return {
         "streak":        streak_data,
         "weakest_cards": top_weakest,
-        "languages":     languages,
+        "subjects":      subjects,
     }
